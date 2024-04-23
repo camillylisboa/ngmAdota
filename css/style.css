@@ -1,0 +1,39 @@
+* {
+    font-family: sans-serif;
+}
+.btn.btn-custom {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 31px;
+    padding: 2px 40px;
+    font-size: 16px;
+    border: none;
+}
+
+.btn.btn-custom:hover {
+    background-color: #06C1D6;
+    color: #fff;
+}
+
+.navbar{
+    background-color: #008A33;
+    height: 94px;
+    font-weight: bold;
+}
+
+.logo {
+    padding-top: 20px;
+    width: 330px;
+}
+
+#adocao{
+    padding-bottom: ;
+    color: #06C1D6; 
+    font-size: 27px;
+}
+
+.nav-item {
+    margin-right: 40px;
+    font-size: 23px;
+}
