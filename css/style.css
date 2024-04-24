@@ -27,8 +27,7 @@
     width: 330px;
 }
 
-#adocao{
-    padding-bottom: ;
+#adocao {
     color: #06C1D6; 
     font-size: 27px;
 }
@@ -36,4 +35,32 @@
 .nav-item {
     margin-right: 40px;
     font-size: 23px;
+}
+
+.card {
+    background-color: #d9d9d9;
+    width: 18rem;
+    border-radius: 31px;
+}
+
+.card .card-title {
+    font-weight: bold;
+}
+
+.card .btn{
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+}
+
+.card img{
+    border-radius: 31px;
+}
+
+.card a {
+    border-radius: 31px;
+}
+
+.btn {
+    align-items: center;
 }
