@@ -65,6 +65,7 @@
     align-items: center;
 }
 
+<<<<<<< HEAD
 h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 25px;
@@ -113,3 +114,8 @@ h1 {
     
    
     
+=======
+.card-text{
+    margin-top: 25px;
+}
+>>>>>>> f0351a4d23612276fcd0de8978360b4f4d1fcec3
