@@ -99,14 +99,17 @@ h1 {
     text-align: center; 
     color: #000; 
     z-index: 1;
-    margin-top: 150px;
+    margin-top: 300px;
     font-size: 30px;
  }
 
+ 
     .container {
         display: flex;
         flex-direction: column; 
         gap: 20px; 
     }
+
+    
    
     
