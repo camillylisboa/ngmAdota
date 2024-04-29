@@ -1,6 +1,7 @@
 * {
     font-family: sans-serif;
 }
+
 .btn.btn-custom {
     background-color: #06C1D6;
     color: #fff;
@@ -27,8 +28,7 @@
     width: 330px;
 }
 
-#adocao{
-    padding-bottom: ;
+#adocao {
     color: #06C1D6; 
     font-size: 27px;
 }
@@ -37,3 +37,86 @@
     margin-right: 40px;
     font-size: 23px;
 }
+
+.card {
+    background-color: #d9d9d9;
+    width: 18rem;
+    border-radius: 31px;
+}
+
+.card .card-title {
+    font-weight: bold;
+}
+
+.card .btn{
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+}
+
+.card img{
+    border-radius: 31px;
+}
+
+.card a {
+    border-radius: 31px;
+}
+
+.btn {
+    align-items: center;
+}
+
+<<<<<<< HEAD
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.caixa {
+    display: flex; 
+    align-items: center; 
+    margin: 20px auto ; 
+    border-radius: 20px;
+    border: 20px solid #ccc;
+    width: 80%;
+    background-color: #ccc;
+    
+
+}
+
+.caixa img {
+    flex: 0 0 auto; 
+    margin-left: 0px; 
+    border-radius: 16px;
+    width: 280px;
+    
+}
+
+
+.texto {
+
+    position: absolute;
+    left: 55%; 
+    transform: translate(-50%, -50%);
+    text-align: center; 
+    color: #000; 
+    z-index: 1;
+    margin-top: 300px;
+    font-size: 30px;
+ }
+
+ 
+    .container {
+        display: flex;
+        flex-direction: column; 
+        gap: 20px; 
+    }
+
+    
+   
+    
+=======
+.card-text{
+    margin-top: 25px;
+}
+>>>>>>> f0351a4d23612276fcd0de8978360b4f4d1fcec3
