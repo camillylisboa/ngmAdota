@@ -92,7 +92,7 @@ h1 {
 }
 
 
-.texto {
+.texto{
 
     position: absolute;
     left: 55%; 
@@ -105,11 +105,11 @@ h1 {
  }
 
  
-    .container {
-        display: flex;
-        flex-direction: column; 
-        gap: 20px; 
-    }
+.container {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+}
 
     
    
@@ -118,11 +118,7 @@ h1 {
 .card-text{
     margin-top: 25px;
 }
-.linkedin-link {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
+
 .linkedin-link {
     position:fixed;
     bottom: -25px;
@@ -130,3 +126,7 @@ h1 {
     font-size: 22px;
 }
 
+#img-linkedin {
+    width: 50px;
+    height: auto;
+}
