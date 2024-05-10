@@ -1,51 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGM me adota</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="./img/icon.png">
-  </head>
-
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <img class="logo" src="./img/logoNGM.png">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" id="adocao" href="#">ADOÇÃO</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="./cadastroOng.html">Cadastrar ONGs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="./sobre.html">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="./blog.html">Blog</a>
-                    </li>
-                </ul>
-                <button class="btn btn-custom">Entrar</button>
-            </div>
-=======
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NGM me adota</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="shortcut icon" href="./img/icon.png">
 </head>
 
 <body>
@@ -63,7 +29,7 @@
               <a class="nav-link active" aria-current="page" id="adocao" href="#">ADOÇÃO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="#">Cadastrar ONGs</a>
+              <a class="nav-link text-white" href="./cadastroOng.html">Cadastrar ONGs</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="./sobre.html">Sobre</a>
@@ -77,6 +43,7 @@
       </div>
     </nav>
   </header>
+
   <main>
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
@@ -106,23 +73,44 @@
       <span class="fechar" onclick="fecharAlertaErro()">&times;</span>
       <p id="mensagemErro"></p>
     </div>
-    <div class="container">
-      <div class="form">
-        <h2>Deixe sua avaliação</h2>
-        <div class="avaliacao">
-          <span class="estrela" data-valor="1">&#9733;</span>
-          <span class="estrela" data-valor="2">&#9733;</span>
-          <span class="estrela" data-valor="3">&#9733;</span>
-          <span class="estrela" data-valor="4">&#9733;</span>
-          <span class="estrela" data-valor="5">&#9733;</span>
+    <div class="container mt-5">
+      <h2>Feedback de Comentários</h2>
+      <div class="d-flex justify-content-start mb-3">
+        <!-- "Avaliação:" e estrelas -->
+        <div class="mr-3">
+          <p class="mb-0"><strong>Avaliação:</strong></p>
+          <!-- Exibir a média das avaliações -->
+          <div id="average-rating" class="mt-3"></div>
         </div>
-        <textarea id="comentario" placeholder="Digite seu comentário aqui"></textarea>
-        <button onclick="enviarComentario()">Enviar</button>
+        <div class="rating" id="rating-stars">
+          <span class="star" data-value="1">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="5">&#9733;</span>
+        </div>
       </div>
-      <div id="comentarios" class="comentarios"></div>
+      <!-- Campo de texto (textarea) para o feedback -->
+      <div class="form-group mb-3">
+        <textarea class="form-control feedback-textarea" rows="5" id="comment"
+          placeholder="Digite seu comentário"></textarea>
+      </div>
+      <!-- Botão de Envio -->
+      <div class="form-group mb-3">
+        <button type="submit" class="btn btn-primary btn-block" id="submit-feedback">Enviar Feedback</button>
+      </div>
     </div>
+
+    <!-- Div para mostrar os feedbacks enviados -->
+    <div id="feedback-display" class="feedback-display"></div>
+
+    <!-- Botões para Ver Mais e Recolher Comentários -->
+    <div class="text-center mt-3">
+      <button type="button" class="btn btn-secondary" id="view-more">Ver Mais</button>
+      <button type="button" class="btn btn-secondary d-none" id="hide-comments">Recolher Comentários</button>
+    </div>
+
   </main>
-  
 
   <script src="js/index.js"></script>
 </body>
