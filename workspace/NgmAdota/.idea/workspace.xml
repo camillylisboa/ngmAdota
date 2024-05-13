@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="corrigindo o caminho das pastas e adicionando connection string" />
+    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="ajuste pastas">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NgmAdota/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NgmAdota/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NgmAdota/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NgmAdota/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NgmAdota/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NgmAdota/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NgmAdota/src/main/java/com/example/NgmAdota/NgmAdotaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NgmAdota/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NgmAdota/src/test/java/com/example/NgmAdota/NgmAdotaApplicationTests.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,9 +31,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2gPmrxOYp4oEEDLo8rkmdWi7ZUA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,8 +43,10 @@
   "keyToString": {
     "Application.NgmAdotaApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/WorkspaceJAVA/ngmAdota/workspace/NgmAdota/NgmAdota"
+    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/WorkspaceJAVA/ngmAdota/workspace/NgmAdota",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -58,6 +71,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="corrigindo o caminho das pastas e adicionando connection string" />
-    <option name="LAST_COMMIT_MESSAGE" value="corrigindo o caminho das pastas e adicionando connection string" />
+    <MESSAGE value="ajuste pastas" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajuste pastas" />
   </component>
 </project>
