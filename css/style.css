@@ -268,6 +268,7 @@ h1 {
     width: calc(100% - 10px);
     margin-bottom: 10px;
     padding: 5px;
+    resize: none; /* Impede o redimensionamento da caixa de texto */
   }
   
   .comment-box button {
@@ -294,7 +295,7 @@ h1 {
   }
   
   .selected {
-    color: orange;
+    color: hsl(39, 100%, 50%);
   }
   
   .average-rating {
@@ -304,7 +305,7 @@ h1 {
   .comment {
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #f9f9f935;
     border-radius: 5px;
   }
   
@@ -323,3 +324,14 @@ h1 {
     max-height: 200px; /* Defina a altura máxima desejada para a lista de comentários */
     overflow-y: auto; /* Habilita a rolagem vertical quando necessário */
   }
+
+  /* Adiciona cor amarela às estrelas preenchidas */
+.stars .filled {
+    color: hsl(39, 100%, 50%);
+  }
+  
+  /* Oculta estrelas vazias */
+.stars .empty {
+    display: none;
+  }
+  
