@@ -330,3 +330,8 @@ h1 {
     color: hsl(39, 100%, 50%);
   }
   
+  /* Oculta estrelas vazias */
+.stars .empty {
+    display: none;
+  }
+  

@@ -74,6 +74,7 @@ function displayComments() {
         starSpan.classList.add('filled'); // Adiciona classe para definir a cor
       } else {
         starSpan.innerHTML = '&#9734;'; // Estrela vazia
+        starSpan.classList.add('empty'); // Adiciona classe para estrelas vazias
       }
       starsDiv.appendChild(starSpan);
     }
@@ -82,6 +83,7 @@ function displayComments() {
     commentsDiv.appendChild(commentDiv);
   });
 }
+
 
 
 // Função para calcular e exibir a média de avaliação
