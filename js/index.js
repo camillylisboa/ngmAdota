@@ -1,64 +1,104 @@
+// Adicionando cards
 $(document).ready(function () {
-    // Array para armazenar as avaliações
-    var ratings = [];
-  
-    // Manipulador de cliques para as estrelas
-    $('.star').click(function () {
-      var value = $(this).data('value'); // Obtém o valor da estrela clicada
-      // Remove a classe de destaque de todas as estrelas e das anteriores à clicada
-      $('.star').removeClass('selected-rating');
-      $(this).prevAll('.star').addClass('selected-rating');
-      $(this).addClass('selected-rating');
-    });
-  
-    // Manipulador de clique para o botão de envio de feedback
-    $('#submit-feedback').click(function () {
-      var comment = $('#comment').val(); // Obtém o texto do comentário
-      var rating = $('.selected-rating').length; // Obtém a classificação selecionada
-      // Constrói o HTML para o feedback enviado
-      var feedbackHTML = '<div class="col-md-6 feedback-item" style="display:none;">' +
-        '<div>' +
-        '<p><strong>Comentário:</strong> ' + comment + '</p>' +
-        '<p><strong>Avaliação:</strong> ';
-      for (var i = 0; i < rating; i++) {
-        feedbackHTML += '&#9733;'; // Adiciona uma estrela para cada avaliação
+  // Função para fazer a chamada AJAX à API de animais
+  function obterListaAnimais() {
+    $.ajax({
+      url: 'http://localhost:8080/animal/lista',
+      method: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        // Limpa o conteúdo atual da div antes de adicionar os novos cards
+        $('#lista-animais').empty();
+
+        // Para cada animal na lista, cria um card e adiciona à página
+        $.each(data, function (index, animal) {
+          var cardHtml = '<div class="animal-card">' +
+            '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
+            '<h2>' + animal.nome + '</h2>' +
+            '<button class="btn-adocao">Adotar</button>' +
+            '</div>';
+          $('#lista-animais').append(cardHtml);
+        });
+      },
+      error: function (xhr, status, error) {
+        console.error('Erro ao obter a lista de animais:', error);
       }
-      feedbackHTML += '</p>' +
-        '</div>' +
-        '</div>';
-      // Adiciona o feedback à div de exibição
-      $('#feedback-display').append(feedbackHTML);
-  
-      // Adiciona a avaliação ao array
-      ratings.push(rating);
-  
-      // Calcula a média das avaliações e exibe
-      var averageRating = calculateAverage(ratings);
-      $('#average-rating').text(averageRating.toFixed(1));
     });
-  
-    // Função para calcular a média das avaliações
-    function calculateAverage(ratings) {
-      if (ratings.length === 0) return 0;
-      var sum = ratings.reduce(function (a, b) {
-        return a + b;
-      });
-      return sum / ratings.length;
+  }
+
+  // Chama a função para obter a lista de animais quando a página carrega
+  obterListaAnimais();
+});
+
+// Variável global para armazenar as avaliações
+let ratings = [];
+// Função para enviar um comentário
+function submitComment() {
+    const comment = document.getElementById('comment').value;
+    const rating = document.querySelector('.star.selected').getAttribute('data-value');
+    // Adicionar comentário e avaliação ao array
+    ratings.unshift({ comment: comment, rating: parseInt(rating) }); // Adiciona no início para manter a ordem
+    // Limpar campo de comentário
+    document.getElementById('comment').value = '';
+    // Atualizar lista de comentários
+    displayComments();
+    // Calcular e exibir média de avaliação
+    calculateAverageRating();
+    // Expandir o painel direito para exibir os comentários
+    expandRightPanel();
+}
+
+// Função para exibir os comentários
+function displayComments() {
+    const commentsDiv = document.getElementById('comments');
+    commentsDiv.innerHTML = ''; // Limpa os comentários existentes
+
+    ratings.forEach(({ comment, rating }) => {
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.innerHTML = `<p><strong>Comentário:</strong> ${comment}</p><p><strong>Avaliação:</strong> ${rating} estrela(s)</p>`;
+        commentsDiv.appendChild(commentDiv);
+    });
+}
+// Função para calcular e exibir a média de avaliação
+function calculateAverageRating() {
+    const totalRatings = ratings.reduce((accumulator, currentValue) => accumulator + currentValue.rating, 0);
+    const averageRating = totalRatings / ratings.length;
+    document.getElementById('average-rating').innerText = averageRating.toFixed(1);
+}
+// Função para expandir o painel direito para exibir os comentários
+function expandRightPanel() {
+    const rightPanel = document.getElementById('right-panel');
+    rightPanel.style.height = 'auto'; // Define a altura automática para expandir dinamicamente
+}
+// Adiciona evento de clique às estrelas para selecionar a avaliação
+const stars = document.querySelectorAll('.star');
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        const clickedValue = parseInt(star.getAttribute('data-value'));
+        stars.forEach(s => {
+            const value = parseInt(s.getAttribute('data-value'));
+            if (value <= clickedValue) {
+                s.classList.add('selected');
+            } else {
+                s.classList.remove('selected');
+            }
+        });
+    });
+});
+// Função para exibir os comentários
+function displayComments() {
+    const commentsDiv = document.getElementById('comments');
+    commentsDiv.innerHTML = ''; // Limpa os comentários existentes
+
+    if (ratings.length === 0) {
+        return; // Retorna se não houver comentários
     }
-  
-    // Evento de clique para mostrar mais comentários
-    $('#view-more').click(function () {
-      $('.feedback-item:hidden').slice(0, 2).slideDown(); // Mostra os dois próximos comentários ocultos
-      if ($('.feedback-item:hidden').length === 0) { // Se não houver mais comentários ocultos
-        $('#view-more').addClass('d-none'); // Oculta o botão de "Ver Mais"
-        $('#hide-comments').removeClass('d-none'); // Mostra o botão de "Recolher Comentários"
-      }
+
+    ratings.forEach(({ comment, rating }) => {
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.innerHTML = `<p><strong>Comentário:</strong> ${comment}</p><p><strong>Avaliação:</strong> ${rating} estrela(s)</p>`;
+        commentsDiv.appendChild(commentDiv);
     });
-  
-    // Evento de clique para recolher os comentários
-    $('#hide-comments').click(function () {
-      $('.feedback-item').slice(2).slideUp(); // Recolhe os comentários a partir do terceiro
-      $('#view-more').removeClass('d-none'); // Mostra o botão de "Ver Mais"
-      $(this).addClass('d-none'); // Oculta o botão de "Recolher Comentários"
-    });
-  });
+}
