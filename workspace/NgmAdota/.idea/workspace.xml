@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="ajuste pastas">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AutenticacaoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/CadastroRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/LoginRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/ResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/UsuarioModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Repositories/UsuarioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/CustomUsuarioDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/TokenService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/OngController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/OngController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +48,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/GITCIT/ngmAdota/workspace/NgmAdota",
+    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/AulaTorres/Clonegit/ngmAdota/workspace/NgmAdota",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
