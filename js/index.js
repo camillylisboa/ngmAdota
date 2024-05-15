@@ -35,42 +35,72 @@ let ratings = [];
 // Função para enviar um comentário
 function submitComment() {
     const comment = document.getElementById('comment').value;
-    const rating = document.querySelector('.star.selected').getAttribute('data-value');
+    const selectedStars = document.querySelectorAll('.star.selected');
+    const rating = selectedStars.length; // Conta quantas estrelas foram selecionadas
+
     // Adicionar comentário e avaliação ao array
-    ratings.unshift({ comment: comment, rating: parseInt(rating) }); // Adiciona no início para manter a ordem
+    ratings.unshift({ comment: comment, rating: rating }); // Adiciona no início para manter a ordem
+
     // Limpar campo de comentário
     document.getElementById('comment').value = '';
+
     // Atualizar lista de comentários
     displayComments();
+
     // Calcular e exibir média de avaliação
     calculateAverageRating();
+
     // Expandir o painel direito para exibir os comentários
     expandRightPanel();
 }
 
 // Função para exibir os comentários
 function displayComments() {
-    const commentsDiv = document.getElementById('comments');
-    commentsDiv.innerHTML = ''; // Limpa os comentários existentes
+  const commentsDiv = document.getElementById('comments');
+  commentsDiv.innerHTML = ''; // Limpa os comentários existentes
 
-    ratings.forEach(({ comment, rating }) => {
-        const commentDiv = document.createElement('div');
-        commentDiv.classList.add('comment');
-        commentDiv.innerHTML = `<p><strong>Comentário:</strong> ${comment}</p><p><strong>Avaliação:</strong> ${rating} estrela(s)</p>`;
-        commentsDiv.appendChild(commentDiv);
-    });
+  ratings.forEach(({ comment, rating }) => {
+    const commentDiv = document.createElement('div');
+    commentDiv.classList.add('comment');
+    commentDiv.innerHTML = `<p><strong>Comentário:</strong> ${comment}</p>`;
+    
+    // Adicionar estrelas à representação visual da avaliação
+    const starsDiv = document.createElement('div');
+    starsDiv.classList.add('stars');
+    for (let i = 0; i < 5; i++) {
+      const starSpan = document.createElement('span');
+      if (i < rating) {
+        starSpan.innerHTML = '&#9733;'; // Estrela preenchida
+        starSpan.classList.add('filled'); // Adiciona classe para definir a cor
+      } else {
+        starSpan.innerHTML = '&#9734;'; // Estrela vazia
+      }
+      starsDiv.appendChild(starSpan);
+    }
+    commentDiv.appendChild(starsDiv);
+
+    commentsDiv.appendChild(commentDiv);
+  });
 }
+
+
 // Função para calcular e exibir a média de avaliação
 function calculateAverageRating() {
-    const totalRatings = ratings.reduce((accumulator, currentValue) => accumulator + currentValue.rating, 0);
-    const averageRating = totalRatings / ratings.length;
-    document.getElementById('average-rating').innerText = averageRating.toFixed(1);
+  if (ratings.length > 0) {
+      const totalRatings = ratings.reduce((accumulator, currentValue) => accumulator + currentValue.rating, 0);
+      const averageRating = totalRatings / ratings.length;
+      document.getElementById('average-rating').innerText = averageRating.toFixed(1);
+  } else {
+      document.getElementById('average-rating').innerText = "N/A"; // Se não houver avaliações, exibir "N/A"
+  }
 }
+
 // Função para expandir o painel direito para exibir os comentários
 function expandRightPanel() {
     const rightPanel = document.getElementById('right-panel');
     rightPanel.style.height = 'auto'; // Define a altura automática para expandir dinamicamente
 }
+
 // Adiciona evento de clique às estrelas para selecionar a avaliação
 const stars = document.querySelectorAll('.star');
 stars.forEach(star => {
@@ -86,19 +116,3 @@ stars.forEach(star => {
         });
     });
 });
-// Função para exibir os comentários
-function displayComments() {
-    const commentsDiv = document.getElementById('comments');
-    commentsDiv.innerHTML = ''; // Limpa os comentários existentes
-
-    if (ratings.length === 0) {
-        return; // Retorna se não houver comentários
-    }
-
-    ratings.forEach(({ comment, rating }) => {
-        const commentDiv = document.createElement('div');
-        commentDiv.classList.add('comment');
-        commentDiv.innerHTML = `<p><strong>Comentário:</strong> ${comment}</p><p><strong>Avaliação:</strong> ${rating} estrela(s)</p>`;
-        commentsDiv.appendChild(commentDiv);
-    });
-}
