@@ -29,13 +29,13 @@ public class AutenticacaoController {
         UsuarioModel user = this.usuarioRepository.findByEmail(request.email()).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         if(passwordEncoder.matches(request.senha(), user.getSenha())){
             String token = this.tokenService.generateToken(user);
-            return ResponseEntity.ok(new ResponseDTO(user.getNome(), token));
+            return ResponseEntity.ok(new ResponseDTO(user.getNome(), user.getTelefone(), user.idade(), token));
         }
         return ResponseEntity.badRequest().build();
     }
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody @Valid CadastroRequestDTO request){
+    public ResponseEntity<Object> register(@RequestBody @Valid CadastroRequestDTO request){
         Optional<UsuarioModel> user = this.usuarioRepository.findByEmail(request.email());
 
         if(user.isEmpty()){
@@ -43,11 +43,16 @@ public class AutenticacaoController {
             newUser.setSenha(passwordEncoder.encode(request.senha()));
             newUser.setEmail(request.email());
             newUser.setNome(request.nome());
+            newUser.setDataNascimento(request.dataNascimento());
+            newUser.setTelefone(request.telefone());
+
             this.usuarioRepository.save(newUser);
 
             String token = this.tokenService.generateToken(newUser);
-            return ResponseEntity.ok(new ResponseDTO(newUser.getNome(), token));
+            return ResponseEntity.ok(new ResponseDTO(newUser.getNome(), newUser.getTelefone(), newUser.idade(), token));
         }
         return ResponseEntity.badRequest().build();
     }
 }
+
+

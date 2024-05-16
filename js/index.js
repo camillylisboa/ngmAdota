@@ -9,10 +9,11 @@ $(document).ready(function () {
       success: function (data) {
         // Limpa o conteúdo atual da div antes de adicionar os novos cards
         $('#lista-animais').empty();
-
+        
         // Para cada animal na lista, cria um card e adiciona à página
         $.each(data, function (index, animal) {
-          var cardHtml = '<div class="animal-card">' +
+          var cardHtml = 
+            '<div class="animal-card">' +
             '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
             '<h2>' + animal.nome + '</h2>' +
             '<button class="btn-adocao">Adotar</button>' +
@@ -63,7 +64,6 @@ function displayComments() {
     const commentDiv = document.createElement('div');
     commentDiv.classList.add('comment');
     commentDiv.innerHTML = `<p><strong>Comentário:</strong> ${comment}</p>`;
-    
     // Adicionar estrelas à representação visual da avaliação
     const starsDiv = document.createElement('div');
     starsDiv.classList.add('stars');
@@ -83,9 +83,6 @@ function displayComments() {
     commentsDiv.appendChild(commentDiv);
   });
 }
-
-
-
 // Função para calcular e exibir a média de avaliação
 function calculateAverageRating() {
   if (ratings.length > 0) {
@@ -96,13 +93,11 @@ function calculateAverageRating() {
       document.getElementById('average-rating').innerText = "N/A"; // Se não houver avaliações, exibir "N/A"
   }
 }
-
 // Função para expandir o painel direito para exibir os comentários
 function expandRightPanel() {
     const rightPanel = document.getElementById('right-panel');
     rightPanel.style.height = 'auto'; // Define a altura automática para expandir dinamicamente
 }
-
 // Adiciona evento de clique às estrelas para selecionar a avaliação
 const stars = document.querySelectorAll('.star');
 stars.forEach(star => {
