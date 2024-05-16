@@ -123,6 +123,11 @@ h1 {
     width: 280px;
 }
 
+.textSobre{
+    text-align: center;
+    margin: auto;
+}
+
 
 .text {
     transform: translate(0%, -10%);
@@ -142,13 +147,12 @@ h1 {
 }
 
 .card-text {
-    margin-top: 25px;
+    margin-top: 50px;
 }
 
 .linkedin-link {
-    position: fixed;
+    transform: translate(40%, 0%);
     bottom: -25px;
-    right: -150px;
     font-size: 22px;
 }
 
@@ -346,3 +350,43 @@ h1 {
     display: none;
   }
   
+/* Estilos para o rodapé */
+.rodape {
+    background-color: #ccc; /* Cor de fundo cinza */
+    padding: 20px; /* Espaçamento interno */
+}
+
+.rodape .container {
+    display: flex;
+    justify-content: space-between; /* Alinha os itens no início e no final do rodapé */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+.rodape .texto-centralizado {
+    text-align: center; /* Centraliza o texto */
+    font-size: 15px;
+}
+
+.rodape .redes-sociais {
+    display: flex; /* Utiliza flexbox para alinhar os ícones das redes sociais */
+    justify-content: flex-end;
+    margin-left:1250px; /* Adiciona margem entre os ícones, se necessário */
+    align-items: center;
+}
+
+.rodape .redes-sociais a {
+    margin-right: 10px; /* Adiciona margem entre os ícones */
+}
+
+.rodape .meus-icons {
+    display: flex; /* Utiliza flexbox para alinhar os seus ícones */
+    align-items: center;
+    margin-right: 1280px;
+    margin-left: 100px;
+}
+
+.iconeFooter{
+    transform: translate(-1300px, 0%);
+}
+
+/* Adicione estilos específicos para os ícones das redes sociais e os seus próprios ícones conforme necessário */
