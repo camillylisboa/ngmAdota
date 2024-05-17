@@ -22,15 +22,29 @@ function enviarOng() {
         success: function () {
             console.log('Blog enviado com sucesso');
             limparCampos();
-            alert('Dados enviados com sucesso!');
+            mostrarAlertaSucesso();
         },
         error: function (xhr, status, error) {
             console.error('Erro ao enviar blog:', xhr.responseText);
-            alert('Erro ao enviar os dados, revise as suas informações');
+            mostrarAlertaErro();
         }
     });
 }
 
 function limparCampos() {
     $('#razaosocial, #email, #cnpj, #telefone, #cep, #estado, #cidade, #bairro, #logradouro, #numero, #complemento').val('');
+}
+
+function mostrarAlertaSucesso() {
+    $('#alertaSucesso').removeClass('d-none');
+    setTimeout(function() {
+        $('#alertaSucesso').addClass('d-none');
+    }, 3000); // O alerta desaparecerá após 3 segundos
+}
+
+function mostrarAlertaErro() {
+    $('#alertaErro').removeClass('d-none');
+    setTimeout(function() {
+        $('#alertaErro').addClass('d-none');
+    }, 3000); // O alerta desaparecerá após 3 segundos
 }
