@@ -9,39 +9,7 @@
     <link rel="shortcut icon" href="./img/icon.png">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function enviarBlog() {
-            var blogData = {
-                razaosocial: $('#razaosocial').val(),
-                email: $('#email').val(),
-                cnpj: $('#cnpj').val(),
-                telefone: $('#telefone').val(),
-                cep: $('#cep').val(),
-                estado: $('#estado').val(),
-                cidade: $('#cidade').val(),
-                bairro: $('#bairro').val(),
-                logradouro: $('#logradouro').val(),
-                numero: $('#numero').val(),
-                complemento: $('#complemento').val()
-            };
-            console.log('Dados a serem enviados:', blogData);
-            $.ajax({
-                url: 'http://localhost:8080/ong/cadastro',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(blogData),
-                dataType: 'json',
-                success: function () {
-                    console.log('Blog enviado com sucesso');
-                },
-                error: function (xhr, status, error) {
-                    console.error('Erro ao enviar blog:', xhr.responseText);
-                }
-            });
-        }
-
-    </script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -82,53 +50,53 @@
                     <p class="fs-4 my-3 fw-medium">DADOS EMPRESA</p>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="RAZÃO SOCIAL">
+                            <input type="text" class="form-control py-3" name="razaosocial" id="razaosocial" placeholder="RAZÃO SOCIAL" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="E-MAIL">
+                            <input type="text" class="form-control py-3" name="email" id="email" placeholder="E-MAIL" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="CNPJ">
+                            <input type="text" class="form-control py-3" name="cnpj" id="cnpj" placeholder="CNPJ" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="TELEFONE">
+                            <input type="text" class="form-control py-3" name="telefone" id="telefone" placeholder="TELEFONE" required>
                         </div>
                     </div>
                     <p class="fs-4 my-3 fw-medium">ENDEREÇO</p>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="CEP">
+                            <input type="text" class="form-control py-3" name="cep" id="cep" placeholder="CEP" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="ESTADO">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="CIDADE">
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="BAIRRO">
+                            <input type="text" class="form-control py-3" name="estado" id="estado" placeholder="ESTADO" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="LOGRADOURO">
+                            <input type="text" class="form-control py-3" name="cidade" id="cidade" placeholder="CIDADE" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control py-3" name="bairro" id="bairro" placeholder="BAIRRO" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control py-3" name="logradouro" id="logradouro" placeholder="LOGRADOURO" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-2">
-                            <input type="text" class="form-control py-3" placeholder="NÚMERO">
+                            <input type="text" class="form-control py-3" name="numero" id="numero" placeholder="NÚMERO" required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control py-3" placeholder="COMPLEMENTO">
+                            <input type="text" class="form-control py-3" name="complemento" id="complemento" placeholder="COMPLEMENTO">
                         </div>
                     </div>
                     <div class="row btn">
                         <div class="col">
-                            <button class="btn fw-bold" type="button">ENVIAR</button>
+                            <button class="btn fw-bold" type="button" onclick="enviarOng()">ENVIAR</button>
                         </diV>
                     </div>
                 </div>
@@ -138,7 +106,7 @@
     </main>
 
 
-
+    <script src="./js/CadastroOng.js"></script>
 </body>
 
 </html>
