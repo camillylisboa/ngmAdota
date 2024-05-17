@@ -8,7 +8,7 @@ $(document).ready(function () {
         $('.btn-custom').remove();
 
         // Adicionar ícone com nome do usuário
-        var userIconHtml = '<div class="navbar-text"><img src="img/iconPerfil.png" alt=""> ' + nomeUsuario + '</div>';
+        var userIconHtml = '<div class="navbar-text"><a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalUsuario"><img src="img/iconPerfil.png" alt=""></a> ' + nomeUsuario + '</div>';
         $('.navbar-nav').after(userIconHtml);
     } else {
         // Garantir que o botão de entrar esteja presente se não houver usuário logado
@@ -32,9 +32,9 @@ $(document).ready(function () {
                 $.each(data, function (index, animal) {
                     var cardHtml =
                         '<div class="animal-card">' +
-                        '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
+                        '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalUsuario"><img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '"></a>' +
                         '<h2>' + animal.nome + '</h2>' +
-                        '<button class="btn-adocao">Adotar</button>' +
+                        '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalUsuario"><button class="btn-adocao">Ver mais</button></a>' +
                         '</div>';
                     $('#lista-animais').append(cardHtml);
                 });
