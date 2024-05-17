@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="shortcut icon" href="./img/icon.png">
 </head>
+
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -112,36 +114,65 @@
         <div id="comments"></div>
       </div>
     </div>
-    
-<!-- POP UP -->
-    <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="tituloModal">Lulu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+
+    <!-- POP UP PETS-->
+    <div class="modal fade" id="modalAnimal" tabindex="-1" aria-labelledby="modalAnimalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <div class="row no-gutters">
+                      <div class="col-md-6">
+                          <img id="modal-imagem" src="" alt="Imagem do Animal" class="img-fluid">
+                      </div>
+                      <div class="col-md-6 info">
+                          <p><strong>Nome:</strong> <span id="modal-nome"></span></p>
+                          <p><strong>Peso:</strong> <span id="modal-peso"></span></p>
+                          <p><strong>Data de Nascimento:</strong> <span id="modal-data-nascimento"></span></p>
+                          <button class="btn-adotar">Adotar</button>
+                      </div>
+                  </div>
+              </div>
           </div>
+      </div>
+  </div>
+    <!-- Modal de Informações do Usuário -->
+    <div class="modal fade" id="modalInfoUsuario" tabindex="-1" aria-labelledby="modalInfoUsuarioLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
           <div class="modal-body">
-              
+            <div class="info">
+              <p><strong>Nome do Usuário:</strong> <span id="info-nome-usuario"></span></p>
+              <p><strong>Email:</strong> <span id="info-email-usuario"></span></p>
+              <p><strong>Idade:</strong> <span id="info-idade-usuario"></span></p>
+              <p><strong>Telefone:</strong> <span id="info-telefone-usuario"></span></p>
+              <button id="logout-button" class="btn-logout">Sair</button>
+            </div>
           </div>
         </div>
       </div>
-  </div>
-
+    </div>
 
   </main>
   <footer class="rodape">
     <div class="container">
       <div class="texto-centralizado">
-        Nossa plataforma consiste é sistema inovador para facilitar o processo de adoção de pets. Estamos unindo nossas habilidades em programação, design e gerenciamento de projetos para criar uma plataforma online intuitiva e abrangente. Este sistema permitirá que abrigos de animais, protetores independentes e potenciais adotantes se conectem de forma eficiente.
+        Nossa plataforma consiste é sistema inovador para facilitar o processo de adoção de pets. Estamos unindo nossas
+        habilidades em programação, design e gerenciamento de projetos para criar uma plataforma online intuitiva e
+        abrangente. Este sistema permitirá que abrigos de animais, protetores independentes e potenciais adotantes se
+        conectem de forma eficiente.
       </div>
       <div class="redes-sociais">
         <img src="img/brincar-com-animal-de-estimacao (1).png" class="iconeFooter">
-        <a href="https://www.facebook.com/pages/CEPAD-Centro-De-Prote%C3%A7ao-ao-Animal-Dom%C3%A9stico-Barueri/1789869954594876?mibextid=rS40aB7S9Ucbxw6v"><img src="img/facebook (1).png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/cepad_?igsh=Zm8xeXQ2eWN2OThw"><img src="img/instagram (2).png" alt="Instagram"></a>
+        <a
+          href="https://www.facebook.com/pages/CEPAD-Centro-De-Prote%C3%A7ao-ao-Animal-Dom%C3%A9stico-Barueri/1789869954594876?mibextid=rS40aB7S9Ucbxw6v"><img
+            src="img/facebook (1).png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/cepad_?igsh=Zm8xeXQ2eWN2OThw"><img src="img/instagram (2).png"
+            alt="Instagram"></a>
       </div>
     </div>
   </footer>
   <script src="js/index.js"></script>
 </body>
+
 </html>

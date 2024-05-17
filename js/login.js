@@ -13,8 +13,14 @@ function login() {
         success: function (response) {
             var token = response.token;
             var nome = response.nome;
+            var email = response.email;
+            var idade = response.idade;
+            var telefone = response.telefone;
             window.localStorage.setItem('token', token);
             window.localStorage.setItem('nomeUsuario', nome);
+            window.localStorage.setItem('email', email);
+            window.localStorage.setItem('idade', idade);
+            window.localStorage.setItem('telefone', telefone);
             window.location.href = './index.html';
             alert("Login feito com sucesso");
         },

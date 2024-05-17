@@ -405,3 +405,68 @@ h1 {
     z-index: 9999;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+/* POP UP ANIMAIS */
+.modal-content {
+    background-color: #008A33;
+    color: #fff;
+    border-radius: 31px;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+.modal-body .row {
+    display: flex;
+    height: 100%;
+}
+
+.modal-body .col-md-6 {
+    padding: 0;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+.modal-body img {
+    width: 400px;
+    height: 500px;
+    display: block;
+    border-radius: 31px;
+}
+
+.modal-body .info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: star;
+}
+
+.btn-adotar {
+    background-color: #06C1D6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 31px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.btn-adotar:hover {
+    background-color: #e0e0e0;
+    color: #06C1D6;
+}
+/* POP UP USUARIO */
+.btn-logout {
+    background-color: #06C1D6;
+    color: #ffffff;
+    width: 100%;
+    border: none;
+    border-radius: 31px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    cursor: pointer;
+    align-self: flex-start;
+}
