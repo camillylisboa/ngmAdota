@@ -44,6 +44,7 @@
     padding: 2px 40px;
     font-size: 16px;
     border: none;
+    margin-right: 20px;
 }
 
 .btn.btn-custom:hover {
@@ -389,4 +390,18 @@ h1 {
     transform: translate(-1300px, 0%);
 }
 
-/* Adicione estilos específicos para os ícones das redes sociais e os seus próprios ícones conforme necessário */
+#alertaSucesso {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#alertaErro {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
