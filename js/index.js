@@ -1,4 +1,23 @@
 $(document).ready(function () {
+    // Função para mostrar o modal de confirmação estilizado
+    function showConfirmModal(message, callback) {
+        // Configurar a mensagem no modal
+        $('#confirmModal .modal-body p').text(message);
+      
+        // Adicionar evento de clique ao botão de confirmação
+        $('#confirmButton').off('click').on('click', function() {
+            // Fechar o modal
+            $('#confirmModal').modal('hide');
+            // Executar a função de retorno (callback) se fornecida
+            if (typeof callback === 'function') {
+                callback(true);
+            }
+        });
+      
+        // Exibir o modal
+        $('#confirmModal').modal('show');
+    }
+
     // Verificar se o usuário está logado
     var token = window.localStorage.getItem('token');
     var nomeUsuario = window.localStorage.getItem('nomeUsuario');
@@ -76,19 +95,18 @@ $(document).ready(function () {
 
     // Função para fazer logout
     function logout() {
-        // Remover dados do localStorage
-        window.localStorage.removeItem('nomeUsuario');
-        window.localStorage.removeItem('email');
-        window.localStorage.removeItem('idade');
-        window.localStorage.removeItem('telefone');
-
         // Mostrar confirmação estilizada
-        var confirmLogout = confirm("Você deseja fazer login com outra conta?");
-        if (confirmLogout) {
-            window.location.href = 'login.html';
-        } else {
-            window.location.href = 'index.html';
-        }
+        showConfirmModal("Você deseja fazer logout?", function(confirmed) {
+            if (confirmed) {
+                // Remover dados do localStorage
+                window.localStorage.removeItem('nomeUsuario');
+                window.localStorage.removeItem('email');
+                window.localStorage.removeItem('idade');
+                window.localStorage.removeItem('telefone');
+                // Redirecionar para a página de login
+                window.location.href = 'login.html';
+            }
+        });
     }
 
     // Adiciona evento ao botão de logout

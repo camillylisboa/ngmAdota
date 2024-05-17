@@ -118,23 +118,23 @@
     <!-- POP UP PETS-->
     <div class="modal fade" id="modalAnimal" tabindex="-1" aria-labelledby="modalAnimalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-              <div class="modal-body">
-                  <div class="row no-gutters">
-                      <div class="col-md-6">
-                          <img id="modal-imagem" src="" alt="Imagem do Animal" class="img-fluid">
-                      </div>
-                      <div class="col-md-6 info">
-                          <p><strong>Nome:</strong> <span id="modal-nome"></span></p>
-                          <p><strong>Peso:</strong> <span id="modal-peso"></span></p>
-                          <p><strong>Data de Nascimento:</strong> <span id="modal-data-nascimento"></span></p>
-                          <button class="btn-adotar">Adotar</button>
-                      </div>
-                  </div>
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="row no-gutters">
+              <div class="col-md-6">
+                <img id="modal-imagem" src="" alt="Imagem do Animal" class="img-fluid">
               </div>
+              <div class="col-md-6 info">
+                <p><strong>Nome:</strong> <span id="modal-nome"></span></p>
+                <p><strong>Peso:</strong> <span id="modal-peso"></span></p>
+                <p><strong>Data de Nascimento:</strong> <span id="modal-data-nascimento"></span></p>
+                <button class="btn-adotar">Adotar</button>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
-  </div>
+    </div>
     <!-- Modal de Informações do Usuário -->
     <div class="modal fade" id="modalInfoUsuario" tabindex="-1" aria-labelledby="modalInfoUsuarioLabel"
       aria-hidden="true">
@@ -148,6 +148,24 @@
               <p><strong>Telefone:</strong> <span id="info-telefone-usuario"></span></p>
               <button id="logout-button" class="btn-logout">Sair</button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal para confirmar se deseja sair da conta -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmModalLabel">Confirmação</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <p>Deseja realmente prosseguir?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="confirmButton">Confirmar</button>
           </div>
         </div>
       </div>
