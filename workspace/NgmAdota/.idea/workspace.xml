@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="ajuste pastas">
+
+      <change beforePath="$PROJECT_DIR$/../../index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/AnimalRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/AnimalRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/../../css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../index.html" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +55,11 @@
     "git-widget-placeholder": "Camilly",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+
+    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/cronixx/ngmAdota/workspace/NgmAdota",
+
     "last_opened_file_path": "C:/Users/PMB/Documents/crni/ngmAdota/workspace/NgmAdota",
+
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
