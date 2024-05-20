@@ -81,6 +81,7 @@ $(document).ready(function () {
                     $('#modal-nome').text(animal.nome);
                     $('#modal-peso').text(animal.peso + ' kg');
                     $('#modal-data-nascimento').text(new Date(animal.dataNascimento).toLocaleDateString());
+                    $('#modal-descricao').text(animal.descricao);
 
                     $('#modalAnimal').modal('show');
                 });
