@@ -471,6 +471,26 @@ h1 {
     align-self: flex-start;
 }
 
+.fundoFormularioDeInteresse >.text-center {
+    color: white;
+    font-size: 35px;
+    padding-top: 38px;
+    border: 1px;
+}
+
+.fundoFormularioDeInteresse {
+    background-color: #06C1D6;
+    height: 403px;
+}
+
+.fundoFormularioDeInteresse > .container {
+    background-color: #d9d9d9;
+    height: 140%;
+    width: 1147px;
+    margin-top: 38px;
+    border-radius: 31px;
+}
+
 /* Modal de confirmação de saída */
 .modal.fade {
     display: none;
