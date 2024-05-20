@@ -413,6 +413,12 @@ h1 {
     border-radius: 31px;
 }
 
+.modal-confirm{
+    padding: 10px;
+    color: #464646;
+    background-color: white;
+}
+
 .modal-body {
     padding: 0;
 }
@@ -470,3 +476,4 @@ h1 {
     cursor: pointer;
     align-self: flex-start;
 }
+
