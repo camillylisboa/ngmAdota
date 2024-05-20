@@ -45,7 +45,7 @@ $(document).ready(function () {
             $('.navbar-collapse').append(loginButtonHtml);
         }
 
-        // Redirecionar para a tela de login se o token estiver ausente ou expirado
+        // Redirecionar para a tela inicial (index.html) se o token estiver ausente ou expirado
         window.localStorage.removeItem('token');
         window.localStorage.removeItem('nomeUsuario');
         window.localStorage.removeItem('email');
@@ -104,8 +104,8 @@ $(document).ready(function () {
                 window.localStorage.removeItem('email');
                 window.localStorage.removeItem('idade');
                 window.localStorage.removeItem('telefone');
-                // Redirecionar para a página de login
-                window.location.href = 'login.html';
+                // Redirecionar para a página inicial (index.html)
+                window.location.href = 'index.html';
             }
         });
     }
