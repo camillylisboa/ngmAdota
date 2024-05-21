@@ -1,8 +1,13 @@
 package com.example.NgmAdota.Controllers;
 
 import com.example.NgmAdota.Dtos.AnimalRequestDTO;
+import com.example.NgmAdota.Dtos.ResponseAnimalDTO;
+import com.example.NgmAdota.Dtos.ResponseUsuarioDTO;
 import com.example.NgmAdota.Models.AnimalModel;
+import com.example.NgmAdota.Models.UsuarioModel;
 import com.example.NgmAdota.Repositories.AnimalRepository;
+import com.example.NgmAdota.Service.AnimalService;
+import com.example.NgmAdota.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +25,39 @@ public class AnimalController {
 
     @Autowired
     AnimalRepository animalRepository;
+    @Autowired
+    TokenService tokenService;
+    @Autowired
+    AnimalService animalService;
 
     @PostMapping("/cadastro")
-    public ResponseEntity<AnimalModel> cadastroAnimal(@RequestBody @Valid AnimalRequestDTO request) {
-        var animalModel = new AnimalModel();
-        BeanUtils.copyProperties(request, animalModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(animalRepository.save(animalModel));
+    public ResponseEntity<Object> cadastroAnimal(@RequestBody @Valid AnimalRequestDTO request) {
+        boolean isDuplicated = animalService.isAnimalDuplicado(
+                request.nome(),
+                request.dataNascimento(),
+                request.idRaca(),
+                request.idEspecie()
+        );
+
+        if (!isDuplicated) {
+            AnimalModel newAnimal = new AnimalModel();
+            newAnimal.setNome(request.nome());
+            newAnimal.setImagem(request.imagem());
+            newAnimal.setDataNascimento(request.dataNascimento());
+            newAnimal.setDescricao(request.descricao());
+            newAnimal.setPeso(request.peso());
+            newAnimal.setSexo(request.sexo());
+            newAnimal.setIdEspecie(request.idEspecie());
+            newAnimal.setIdPelagem(request.idPelagem());
+            newAnimal.setIdRaca(request.idRaca());
+            newAnimal.setIdPorte(request.idPorte());
+
+            this.animalRepository.save(newAnimal);
+
+            String token = this.tokenService.generateTokenAnimal(newAnimal);
+            return ResponseEntity.ok(new ResponseAnimalDTO(newAnimal.getNome(), newAnimal.getImagem(), newAnimal.getDescricao(), newAnimal.idade(), newAnimal.getPeso()));
+        }
+        return ResponseEntity.status(HttpStatus.CONFLICT).body("Animal JA EXISTE EM NOSSO BANCO DE DADOS");
     }
 
     @GetMapping("/lista")

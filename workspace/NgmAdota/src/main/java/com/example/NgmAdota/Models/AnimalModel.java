@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 
 @Entity
@@ -13,65 +15,70 @@ public class AnimalModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
-    private String Nome;
-    private String Imagem;
-    private BigDecimal Peso;
-    private Date DataNascimento;
-    private Boolean Sexo;
+    private Long id;
+    private String nome;
+    private String imagem;
+    private BigDecimal peso;
+    private LocalDate dataNascimento;
+    private Boolean sexo;
     @Lob
     private String descricao;
-    private Integer IdRaca;
-    private Integer IdEspecie;
-    private Integer IdPelagem;
-    private Integer IdPorte;
+    private Integer idRaca;
+    private Integer idEspecie;
+    private Integer idPelagem;
+    private Integer idPorte;
 
-    public Long getID() {
-        return ID;
+    public int idade() {
+        LocalDate hoje = LocalDate.now();
+        return Period.between(this.dataNascimento, hoje).getYears();
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
 
     public String getImagem() {
-        return Imagem;
+        return imagem;
     }
 
     public void setImagem(String imagem) {
-        Imagem = imagem;
+        this.imagem = imagem;
     }
 
     public BigDecimal getPeso() {
-        return Peso;
+        return peso;
     }
 
     public void setPeso(BigDecimal peso) {
-        Peso = peso;
+        this.peso = peso;
     }
 
-    public Date getDataNascimento() {
-        return DataNascimento;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        DataNascimento = dataNascimento;
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public Boolean getSexo() {
-        return Sexo;
+        return sexo;
     }
 
     public void setSexo(Boolean sexo) {
-        Sexo = sexo;
+        this.sexo = sexo;
     }
 
     public String getDescricao() {
@@ -83,34 +90,34 @@ public class AnimalModel implements Serializable {
     }
 
     public Integer getIdRaca() {
-        return IdRaca;
+        return idRaca;
     }
 
     public void setIdRaca(Integer idRaca) {
-        IdRaca = idRaca;
+        this.idRaca = idRaca;
     }
 
     public Integer getIdEspecie() {
-        return IdEspecie;
+        return idEspecie;
     }
 
     public void setIdEspecie(Integer idEspecie) {
-        IdEspecie = idEspecie;
+        this.idEspecie = idEspecie;
     }
 
     public Integer getIdPelagem() {
-        return IdPelagem;
+        return idPelagem;
     }
 
     public void setIdPelagem(Integer idPelagem) {
-        IdPelagem = idPelagem;
+        this.idPelagem = idPelagem;
     }
 
     public Integer getIdPorte() {
-        return IdPorte;
+        return idPorte;
     }
 
     public void setIdPorte(Integer idPorte) {
-        IdPorte = idPorte;
+        this.idPorte = idPorte;
     }
 }
