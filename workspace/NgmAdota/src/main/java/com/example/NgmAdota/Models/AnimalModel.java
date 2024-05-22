@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.Date;
 
 @Entity
@@ -20,6 +19,8 @@ public class AnimalModel implements Serializable {
     private BigDecimal Peso;
     private Date DataNascimento;
     private Boolean Sexo;
+    @Lob
+    private String descricao;
     private Integer IdRaca;
     private Integer IdEspecie;
     private Integer IdPelagem;
@@ -71,6 +72,14 @@ public class AnimalModel implements Serializable {
 
     public void setSexo(Boolean sexo) {
         Sexo = sexo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Integer getIdRaca() {

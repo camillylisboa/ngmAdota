@@ -82,7 +82,7 @@ $(document).ready(function () {
                     $('#modal-peso').text(animal.peso + ' kg');
                     $('#modal-data-nascimento').text(new Date(animal.dataNascimento).toLocaleDateString());
                     $('#modal-descricao').text(animal.descricao);
- 
+
                     $('#modalAnimal').modal('show');
                 });
             },
