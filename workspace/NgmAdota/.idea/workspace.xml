@@ -4,34 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="ajuste pastas">
-
-
-      <change beforePath="$PROJECT_DIR$/../../login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
-
-
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/ResponseAnimalDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Service/AnimalService.java" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/../../index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AnimalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AutenticacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AutenticacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/AnimalRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/AnimalRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/ResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/ResponseUsuarioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" afterDir="false" />
-
-
+    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Alterações" comment="ajuste de pastas">
       <change beforePath="$PROJECT_DIR$/../../css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../index.html" afterDir="false" />
-
-
-
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Repositories/AnimalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Repositories/AnimalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/TokenService.java" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/../../js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,26 +21,26 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Record" />
-        <option value="Class" />
+        <option value="Registro" />
+        <option value="Classe" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ArthurTorres1"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ArthurTorres1&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/camillylisboa/ngmAdota.git",
-    "accountId": "f15e91bb-be93-465e-9c2d-6efad5e318f2"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/camillylisboa/ngmAdota.git&quot;,
+    &quot;accountId&quot;: &quot;f15e91bb-be93-465e-9c2d-6efad5e318f2&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -70,24 +49,13 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
+    &quot;associatedIndex&quot;: 3
+    }</component>
   <component name="ProjectId" id="2gPmrxOYp4oEEDLo8rkmdWi7ZUA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.NgmAdotaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Camilly&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PMB/Documents/cron/ngmAdota/workspace/NgmAdota&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
-
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.NgmAdotaApplication.executor": "Run",
@@ -95,20 +63,15 @@
     "git-widget-placeholder": "Camilly",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/clonimm/ngmAdota/workspace/NgmAdota",
+    "last_opened_file_path": "C:/Users/PMB/Documents/cron/ngmAdota/workspace/NgmAdota",
     "settings.editor.selected.configurable": "preferences.pluginManager"
-
   }
-
-}</component>
-
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.NgmAdota.Controllers" />
     </key>
   </component>
-
   <component name="RunManager">
     <configuration name="NgmAdotaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.NgmAdota.NgmAdotaApplication" />
@@ -131,11 +94,11 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="" />
+    <task active="true" id="Default" summary="Tarefa padrão">
+      <changelist id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Alterações" comment="" />
       <created>1715607789812</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
+      <option name="number" value="Padrão" />
+      <option name="presentableId" value="Padrão" />
       <updated>1715607789812</updated>
     </task>
     <task id="LOCAL-00001" summary="corrigindo o caminho das pastas e adicionando connection string">
@@ -163,6 +126,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="corrigindo o caminho das pastas e adicionando connection string" />
     <MESSAGE value="ajuste pastas" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajuste pastas" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

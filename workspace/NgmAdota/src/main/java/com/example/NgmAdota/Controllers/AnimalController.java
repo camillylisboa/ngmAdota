@@ -55,7 +55,7 @@ public class AnimalController {
             this.animalRepository.save(newAnimal);
 
             String token = this.tokenService.generateTokenAnimal(newAnimal);
-            return ResponseEntity.ok(new ResponseAnimalDTO(newAnimal.getNome(), newAnimal.getImagem(), newAnimal.getDescricao(), newAnimal.idade(), newAnimal.getPeso()));
+            return ResponseEntity.ok(new ResponseAnimalDTO(newAnimal.getNome(), newAnimal.getImagem(), newAnimal.getDescricao(), newAnimal.getIdade(), newAnimal.getPeso()));
         }
         return ResponseEntity.status(HttpStatus.CONFLICT).body("Animal JA EXISTE EM NOSSO BANCO DE DADOS");
     }

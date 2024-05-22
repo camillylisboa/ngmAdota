@@ -28,7 +28,10 @@ public class AnimalModel implements Serializable {
     private Integer idPelagem;
     private Integer idPorte;
 
-    public int idade() {
+    public int getIdade() {
+        if (dataNascimento == null) {
+            return 0; // ou qualquer valor padrão que faça sentido
+        }
         LocalDate hoje = LocalDate.now();
         return Period.between(this.dataNascimento, hoje).getYears();
     }

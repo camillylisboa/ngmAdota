@@ -67,6 +67,10 @@
     padding-top: 20px;
     width: 330px;
 }
+
+#adocaoBtn{
+    width: 100%;
+}
  
 #adocao {
     color: #06C1D6;
