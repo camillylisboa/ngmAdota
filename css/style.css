@@ -448,8 +448,7 @@ h1 {
 }
  
 .modal-body img {
-    width: 400px;
-    height: 500px;
+    width: 100%;
     display: block;
     border-radius: 31px;
 }
