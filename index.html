@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
+ 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="shortcut icon" href="./img/icon.png">
 </head>
-
+ 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -114,7 +114,7 @@
         <div id="comments"></div>
       </div>
     </div>
-
+ 
     <!-- POP UP PETS-->
     <div class="modal fade" id="modalAnimal" tabindex="-1" aria-labelledby="modalAnimalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
@@ -137,22 +137,18 @@
       </div>
     </div>
     <!-- Modal de Informações do Usuário -->
-    <div class="modal fade" id="modalInfoUsuario" tabindex="-1" aria-labelledby="modalInfoUsuarioLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="info">
-              <p><strong>Nome do Usuário:</strong> <span id="info-nome-usuario"></span></p>
-              <p><strong>Email:</strong> <span id="info-email-usuario"></span></p>
-              <p><strong>Idade:</strong> <span id="info-idade-usuario"></span></p>
-              <p><strong>Telefone:</strong> <span id="info-telefone-usuario"></span></p>
-              <button id="logout-button" class="btn-logout">Sair</button>
-            </div>
+    <div class="modal fade" id="modalNgmPerfil" tabindex="-1" aria-labelledby="modalInfoUsuarioLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content alignNgmEnd">
+              <div class="modal-body">
+                  <div class="info">
+                      <a href="perfilUsuario.html" class="linksNav">Ver perfil</a>
+                      <a id="logout-button" class="linksNav">Sair</a>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
+  </div>
     <!-- Modal para confirmar se deseja sair da conta -->
     <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -192,5 +188,5 @@
   </footer>
   <script src="js/index.js"></script>
 </body>
-
+ 
 </html>
