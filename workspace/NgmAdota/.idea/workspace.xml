@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="ajuste pastas">
+    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="ajuste pastas" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/InteresseController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/InteresseRequestDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/InteresseModel.java" afterDir="false" />

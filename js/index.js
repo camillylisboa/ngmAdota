@@ -88,7 +88,7 @@ $(document).ready(function () {
 
                 $('#adocaoBtn').on('click', function () {
                     if (token && nomeUsuario) {
-                        window.location.href = 'formularioDeIntereesse.html'
+                        window.location.href = 'formularioDeInteresse.html'
                     } else {
                         alert("Você precisa fazer login");
                         window.location.href = 'login.html';
