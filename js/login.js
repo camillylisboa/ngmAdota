@@ -21,12 +21,30 @@ function login() {
             window.localStorage.setItem('email', email);
             window.localStorage.setItem('idade', idade);
             window.localStorage.setItem('telefone', telefone);
-            window.location.href = './index.html';
-            alert("Login feito com sucesso");
+            
+            mostrarAlertaSucesso();
         },
         error: function (request, message, error) {
-            alert("Erro ao se autenticar");
+            mostrarAlertaErro();
         }
     });
 }
+
+function mostrarAlertaSucesso() {
+    $('#alertaSucesso').removeClass('d-none');
+    setTimeout(function () {
+        $('#alertaSucesso').addClass('d-none');
+        window.location.href = './index.html';
+    }, 4000); // O alerta desaparecerá após 3 segundos
+}
+
+function mostrarAlertaErro() {
+    $('#alertaErro').removeClass('d-none');
+    setTimeout(function () {
+        $('#alertaErro').addClass('d-none');
+    }, 4000); // O alerta desaparecerá após 3 segundos
+}
+
+
+
 

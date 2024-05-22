@@ -2,14 +2,13 @@ package com.example.NgmAdota.Controllers;
 
 import com.example.NgmAdota.Dtos.CadastroRequestDTO;
 import com.example.NgmAdota.Dtos.LoginRequestDTO;
-import com.example.NgmAdota.Dtos.ResponseDTO;
+import com.example.NgmAdota.Dtos.ResponseUsuarioDTO;
 import com.example.NgmAdota.Models.UsuarioModel;
 import com.example.NgmAdota.Repositories.UsuarioRepository;
 import com.example.NgmAdota.infra.security.TokenService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +28,7 @@ public class AutenticacaoController {
         UsuarioModel user = this.usuarioRepository.findByEmail(request.email()).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         if(passwordEncoder.matches(request.senha(), user.getSenha())){
             String token = this.tokenService.generateToken(user);
-            return ResponseEntity.ok(new ResponseDTO(user.getNome(), user.getEmail(), user.getTelefone(), user.idade(), token));
+            return ResponseEntity.ok(new ResponseUsuarioDTO(user.getNome(), user.getEmail(), user.getTelefone(), user.idade(), token));
         }
         return ResponseEntity.badRequest().build();
     }
@@ -49,7 +48,7 @@ public class AutenticacaoController {
             this.usuarioRepository.save(newUser);
 
             String token = this.tokenService.generateToken(newUser);
-            return ResponseEntity.ok(new ResponseDTO(newUser.getNome(), newUser.getEmail(), newUser.getTelefone(), newUser.idade(), token));
+            return ResponseEntity.ok(new ResponseUsuarioDTO(newUser.getNome(), newUser.getEmail(), newUser.getTelefone(), newUser.idade(), token));
         }
         return ResponseEntity.badRequest().build();
     }

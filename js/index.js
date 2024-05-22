@@ -3,9 +3,9 @@ $(document).ready(function () {
     function showConfirmModal(message, callback) {
         // Configurar a mensagem no modal
         $('#confirmModal .modal-body p').text(message);
-      
+
         // Adicionar evento de clique ao botão de confirmação
-        $('#confirmButton').off('click').on('click', function() {
+        $('#confirmButton').off('click').on('click', function () {
             // Fechar o modal
             $('#confirmModal').modal('hide');
             // Executar a função de retorno (callback) se fornecida
@@ -13,7 +13,7 @@ $(document).ready(function () {
                 callback(true);
             }
         });
-      
+
         // Exibir o modal
         $('#confirmModal').modal('show');
     }
@@ -30,7 +30,7 @@ $(document).ready(function () {
         $('.btn-custom').remove();
 
         // Adicionar ícone com nome do usuário
-        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalInfoUsuario"><div class="navbar-text"><img src="img/iconPerfil.png" alt=""> ' + nomeUsuario + '</div></a>';
+        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/menu.png" style="width : 23px;" class="menu-icon" alt=""></a>';
         $('.navbar-nav').after(userIconHtml);
 
         // Preencher o modal de informações do usuário
@@ -76,13 +76,23 @@ $(document).ready(function () {
                 $('.btn-adocao').on('click', function () {
                     var index = $(this).data('id');
                     var animal = data[index];
-
+                    console.log(animal)
                     $('#modal-imagem').attr('src', animal.imagem);
                     $('#modal-nome').text(animal.nome);
                     $('#modal-peso').text(animal.peso + ' kg');
-                    $('#modal-data-nascimento').text(new Date(animal.dataNascimento).toLocaleDateString());
+                    $('#modal-idade').text(animal.idade + ' anos'); // Adicionando ' anos' para clareza
+                    $('#modal-descricao').text(animal.descricao);
 
                     $('#modalAnimal').modal('show');
+                });
+
+                $('#adocaoBtn').on('click', function () {
+                    if (token && nomeUsuario) {
+                        window.location.href = 'formularioDeIntereesse.html'
+                    } else {
+                        alert("Você precisa fazer login");
+                        window.location.href = 'login.html';
+                    }
                 });
             },
             error: function (xhr, status, error) {
@@ -96,7 +106,7 @@ $(document).ready(function () {
     // Função para fazer logout
     function logout() {
         // Mostrar confirmação estilizada
-        showConfirmModal("Você deseja fazer logout?", function(confirmed) {
+        showConfirmModal("Você deseja fazer logout?", function (confirmed) {
             if (confirmed) {
                 // Remover dados do localStorage
                 window.localStorage.removeItem('nomeUsuario');

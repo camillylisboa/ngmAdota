@@ -47,6 +47,7 @@ function enviarFormulario() {
     dataType: 'json',
     success: function(data) {
       console.log('Formulário enviado com sucesso', data);
+      mostrarAlertaSucesso();
     },
     error: function(xhr, status, error) {
       console.error('Erro ao enviar formulário:', xhr.responseText);
@@ -55,7 +56,18 @@ function enviarFormulario() {
   });
 }
 
+// Função para mostrar alerta de sucesso
+function mostrarAlertaSucesso() {
+  $('#alertaSucesso').removeClass('d-none');
+  setTimeout(function() {
+      $('#alertaSucesso').addClass('d-none');
+  }, 3000); // O alerta desaparecerá após 3 segundos
+}
+
 // Função para mostrar alerta de erro
 function mostrarAlertaErro() {
-  $('#alertaErro').removeClass('d-none').delay(3000).addClass('d-none');
+  $('#alertaErro').removeClass('d-none');
+  setTimeout(function() {
+      $('#alertaErro').addClass('d-none');
+  }, 3000); // O alerta desaparecerá após 3 segundos
 }
