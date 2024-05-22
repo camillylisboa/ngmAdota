@@ -506,19 +506,6 @@ h1 {
     height: 403px;
 }
 
- 
-
-
-.fundoFormularioDeInteresse > .container {
-    background-color: #d9d9d9;
-    height: 180%;
-    width: 1147px;
-    margin-top: 38px;
-    border-radius: 31px;
-}
-
- 
-
 
 /* Modal de confirmação de saída */
 .modal.fade {
@@ -1092,7 +1079,7 @@ h1 {
  
 .fundoFormularioDeInteresse > .container {
     background-color: #d9d9d9;
-    height: 140%;
+    height: 180%;
     width: 1147px;
     margin-top: 38px;
     border-radius: 31px;
