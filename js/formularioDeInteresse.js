@@ -18,9 +18,29 @@ $('#inlineCheckbox4').change(function() {
     });
   }
 });
+  
+$('#inlineCheckbox4').change(function() {
+  var checkboxes = ['#inlineCheckbox1', '#inlineCheckbox2', '#inlineCheckbox3'];
+  if ($(this).is(':checked')) {
+    $.each(checkboxes, function(index, checkbox) {
+      $(checkbox).prop('checked', false);
+    });
+  }
+});
 
-// Função para enviar o formulário
+// Function to submit the form
 function enviarFormulario() {
+  // Check if at least one pet option is selected
+  var cachorro = $('input[name="checkboxCachorro"]').is(':checked');
+  var gato = $('input[name="checkboxGato"]').is(':checked');
+  var outro = $('input[name="checkboxOutro"]').is(':checked');
+  var primeiroPet = $('input[name="checkboxPrimeiroPet"]').is(':checked');
+
+  if (!cachorro && !gato && !outro && !primeiroPet) {
+    alert("Por favor, selecione pelo menos uma opção: cachorro, gato, outro ou primeiro pet.");
+    return; // Stop form submission
+  }
+
   var interesseData = {
     temCrianca: $('input[name="flexRadioCrianca"]:checked').val(),
     acordoAdocao: $('input[name="flexRadioAcordo"]:checked').val(),
@@ -29,12 +49,10 @@ function enviarFormulario() {
     tipoCasa: $('input[name="flexRadioCasa"]:checked').val(),
     moradiaAberta: $('input[name="flexRadioAberta"]:checked').val(),
     temTelas: $('input[name="flexRadioDefault"]:checked').val(),
-    pets: {
-      cachorro: $('#inlineCheckbox1').is(':checked'),
-      gato: $('#inlineCheckbox2').is(':checked'),
-      outro: $('#inlineCheckbox3').is(':checked'),
-      primeiroPet: $('#inlineCheckbox4').is(':checked')
-    }
+    cachorro: cachorro,
+    gato: gato,
+    outro: outro,
+    primeiroPet: primeiroPet
   };
 
   console.log("Dados enviados: ", interesseData);
@@ -56,18 +74,18 @@ function enviarFormulario() {
   });
 }
 
-// Função para mostrar alerta de sucesso
+// Function to show success alert
 function mostrarAlertaSucesso() {
   $('#alertaSucesso').removeClass('d-none');
   setTimeout(function() {
-      $('#alertaSucesso').addClass('d-none');
-  }, 3000); // O alerta desaparecerá após 3 segundos
+    $('#alertaSucesso').addClass('d-none');
+  }, 3000); // Alert will disappear after 3 seconds
 }
 
-// Função para mostrar alerta de erro
+// Function to show error alert
 function mostrarAlertaErro() {
   $('#alertaErro').removeClass('d-none');
   setTimeout(function() {
-      $('#alertaErro').addClass('d-none');
-  }, 3000); // O alerta desaparecerá após 3 segundos
+    $('#alertaErro').addClass('d-none');
+  }, 3000); // Alert will disappear after 3 seconds
 }
