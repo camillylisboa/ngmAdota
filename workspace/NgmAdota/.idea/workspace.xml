@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46f52781-6fe6-4972-b63f-6cd05d608db9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" afterDir="false" />
-    </list>
+    <list default="true" id="46f52781-6fe6-4972-b63f-6cd05d608db9" name="Changes" comment="padronizando a chamada PUT com a de POST" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,9 +34,9 @@
     &quot;accountId&quot;: &quot;f15e91bb-be93-465e-9c2d-6efad5e318f2&quot;
   }
 }</component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2gPmrxOYp4oEEDLo8rkmdWi7ZUA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -82,7 +78,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Tarefa padrão">
-      <changelist id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Alterações" comment="" />
+      <changelist id="46f52781-6fe6-4972-b63f-6cd05d608db9" name="Changes" comment="" />
       <created>1715607789812</created>
       <option name="number" value="Padrão" />
       <option name="presentableId" value="Padrão" />
@@ -96,7 +92,28 @@
       <option name="project" value="LOCAL" />
       <updated>1715607859174</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="apagando classe que nao estava sendo utilizada no JAVA">
+      <option name="closed" value="true" />
+      <created>1716420841422</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716420841422</updated>
+    </task>
+    <task id="LOCAL-00003" summary="padronizando a chamada PUT com a de POST">
+      <option name="closed" value="true" />
+      <created>1716470865073</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716470865073</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="apagando classe que nao estava sendo utilizada no JAVA" />
+    <MESSAGE value="padronizando a chamada PUT com a de POST" />
+    <option name="LAST_COMMIT_MESSAGE" value="padronizando a chamada PUT com a de POST" />
   </component>
 </project>
