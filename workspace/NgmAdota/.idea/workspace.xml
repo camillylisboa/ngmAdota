@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="ajuste pastas">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/InteresseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/InteresseRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/InteresseModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Repositories/InteresseRepository.java" afterDir="false" />
+    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="Filazização do formulário de Interesse">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/InteresseRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/InteresseRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/InteresseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/InteresseModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +49,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.NgmAdotaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -79,6 +77,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -96,7 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715607859174</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Filazização do formulário de Interesse">
+      <option name="closed" value="true" />
+      <created>1716300209682</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716300209682</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="corrigindo o caminho das pastas e adicionando connection string" />
     <MESSAGE value="ajuste pastas" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajuste pastas" />
+    <MESSAGE value="Filazização do formulário de Interesse" />
+    <option name="LAST_COMMIT_MESSAGE" value="Filazização do formulário de Interesse" />
   </component>
 </project>
