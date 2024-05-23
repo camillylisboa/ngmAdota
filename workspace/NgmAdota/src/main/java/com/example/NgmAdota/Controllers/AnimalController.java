@@ -77,13 +77,26 @@ public class AnimalController {
     @PutMapping("/editar/{id}")
     public ResponseEntity<Object> editarAnimal(@PathVariable(value = "id") Long id,
                                                @RequestBody @Valid AnimalRequestDTO request){
-        Optional<AnimalModel> animalO = animalRepository.findById(id);
-        if (animalO.isEmpty()){
+        Optional<AnimalModel> animalEdit = animalRepository.findById(id);
+        if (animalEdit.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possivel editar os dados deste animal, pois ele não foi encontrado");
         }
-        var animalModel = animalO.get();
-        BeanUtils.copyProperties(request, animalModel);
-        return ResponseEntity.status(HttpStatus.OK).body(animalRepository.save(animalModel));
+        var animalModel = animalEdit.get();
+        animalModel.setNome(request.nome());
+        animalModel.setImagem(request.imagem());
+        animalModel.setDescricao(request.descricao());
+        animalModel.setDataNascimento(request.dataNascimento());
+        animalModel.setSexo(request.sexo());
+        animalModel.setPeso(request.peso());
+        animalModel.setIdRaca(request.idRaca());
+        animalModel.setIdPorte(request.idPorte());
+        animalModel.setIdPelagem(request.idPelagem());
+        animalModel.setIdEspecie(request.idEspecie());
+        this.animalRepository.save(animalModel);
+
+        String token = this.tokenService.generateTokenAnimal(animalModel);
+        return ResponseEntity.ok(new ResponseAnimalDTO(animalModel.getNome(), animalModel.getImagem(), animalModel.getDescricao(),
+                                                        animalModel.getIdade(), animalModel.getPeso()));
     }
 
     @DeleteMapping("/deletar/{id}")

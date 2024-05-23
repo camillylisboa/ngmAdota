@@ -1,4 +1,3 @@
-
 * {
     font-family: sans-serif;
 }
@@ -448,8 +447,7 @@ h1 {
 }
  
 .modal-body img {
-    width: 400px;
-    height: 500px;
+    width: 100%;
     display: block;
     border-radius: 31px;
 }
@@ -505,19 +503,6 @@ h1 {
     background-color: #06C1D6;
     height: 403px;
 }
-
- 
-
-
-.fundoFormularioDeInteresse > .container {
-    background-color: #d9d9d9;
-    height: 180%;
-    width: 1147px;
-    margin-top: 38px;
-    border-radius: 31px;
-}
-
- 
 
 
 /* Modal de confirmação de saída */
@@ -1092,7 +1077,7 @@ h1 {
  
 .fundoFormularioDeInteresse > .container {
     background-color: #d9d9d9;
-    height: 140%;
+    height: 180%;
     width: 1147px;
     margin-top: 38px;
     border-radius: 31px;
