@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46f52781-6fe6-4972-b63f-6cd05d608db9" name="Changes" comment="apagando classe que nao estava sendo utilizada no JAVA">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +49,7 @@
     "Application.NgmAdotaApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/WorkspaceJAVA/var.solutions/var.solutions"
+    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/aham/ngmAdota/workspace/NgmAdota"
   }
 }]]></component>
   <component name="RecentsManager">
