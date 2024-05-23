@@ -1,4 +1,6 @@
 package com.example.NgmAdota.Dtos;
 
-public record ResponseUsuarioDTO(String nome, String email, Long telefone, Integer idade, String senha) {
+import java.time.LocalDate;
+
+public record ResponseUsuarioDTO(Long id, String nome, String email, Long telefone, LocalDate dataNascimento, Integer idade, String senha, String token) {
 }
