@@ -22,9 +22,10 @@ public class InteresseModel {
     private String tipoCasa;
     private String moradiaAberta;
     private String temTelas;
-
-    @Embedded
-    private Pets pets;
+    private boolean cachorro;
+    private boolean gato;
+    private boolean outro;
+    private boolean primeiroPet;
 
     public Long getId() {
         return id;
@@ -98,42 +99,35 @@ public class InteresseModel {
         this.temTelas = temTelas;
     }
 
-    public Pets getPets() {
-        return pets;
+    public boolean isCachorro() {
+        return cachorro;
     }
 
-    public void setPets(Pets pets) {
-        this.pets = pets;
+    public void setCachorro(boolean cachorro) {
+        this.cachorro = cachorro;
     }
 
-    @Embeddable
-    public static class Pets {
-        private boolean cachorro;
-        private boolean gato;
-        private boolean outro;
+    public boolean isGato() {
+        return gato;
+    }
 
-        public boolean isCachorro() {
-            return cachorro;
-        }
+    public void setGato(boolean gato) {
+        this.gato = gato;
+    }
 
-        public void setCachorro(boolean cachorro) {
-            this.cachorro = cachorro;
-        }
+    public boolean isOutro() {
+        return outro;
+    }
 
-        public boolean isGato() {
-            return gato;
-        }
+    public void setOutro(boolean outro) {
+        this.outro = outro;
+    }
 
-        public void setGato(boolean gato) {
-            this.gato = gato;
-        }
+    public boolean isPrimeiroPet() {
+        return primeiroPet;
+    }
 
-        public boolean isOutro() {
-            return outro;
-        }
-
-        public void setOutro(boolean outro) {
-            this.outro = outro;
-        }
+    public void setPrimeiroPet(boolean primeiroPet) {
+        this.primeiroPet = primeiroPet;
     }
 }
