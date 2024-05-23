@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="Filazização do formulário de Interesse">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/InteresseRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/InteresseRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/InteresseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/InteresseModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +71,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NgmAdotaApplication" />
+        <item itemvalue="Application.NgmAdotaApplication" />
         <item itemvalue="Application.NgmAdotaApplication" />
       </list>
     </recent_temporary>
