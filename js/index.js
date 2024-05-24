@@ -30,7 +30,7 @@ $(document).ready(function () {
         $('.btn-custom').remove();
  
         // Adicionar ícone com nome do usuário
-        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/menu.png" style="width : 23px;" class="menu-icon" alt=""></a>';
+        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width : 23px;" class="menu-icon" alt=""></a>';
         $('.navbar-nav').after(userIconHtml);
  
         // Preencher o modal de informações do usuário
