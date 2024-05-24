@@ -30,8 +30,14 @@ $(document).ready(function () {
         $('.btn-custom').remove();
 
         // Adicionar ícone com nome do usuário
+
+        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width : 23px;" class="menu-icon" alt=""></a>';
+        $('.navbar-nav').after(userIconHtml);
+ 
+
         var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" class="menu-icon" alt=""></a>';
         $('.navbar-collapse').append(userIconHtml);
+
 
         // Preencher o modal de informações do usuário
         $('#info-nome-usuario').text(nomeUsuario);
