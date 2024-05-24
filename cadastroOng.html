@@ -44,6 +44,7 @@
                             <a class="nav-link text-white" href="./blog.html">Blog</a>
                         </li>
                     </ul>
+                    <a href="login.html"><button class="btn btn-custom">Entrar</button></a>
 
                     <!-- Informações do perfil do usuário e botão para trocar de perfil -->
                     <div id="user-profile" style="display: none;">
@@ -143,6 +144,24 @@
                 </div>
             </div>
         </div>
+         <!-- Modal para confirmar se deseja sair da conta -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmModalLabel">Confirmação</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+              <p>Deseja realmente prosseguir?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" id="confirmButton">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
 
