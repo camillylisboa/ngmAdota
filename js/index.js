@@ -33,10 +33,6 @@ $(document).ready(function () {
 
         var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width : 23px;" class="menu-icon" alt=""></a>';
         $('.navbar-nav').after(userIconHtml);
- 
-
-        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" class="menu-icon" alt=""></a>';
-        $('.navbar-collapse').append(userIconHtml);
 
 
         // Preencher o modal de informações do usuário

@@ -7,54 +7,55 @@
     <title>Blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container-fluid">
-              <a href="./index.html"><img class="logo" src="./img/logoNGM.png" ></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-                      <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" id="adocao" href="#">ADOÇÃO</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-white" href="./cadastroOng.html">Cadastrar ONGs</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-white" href="./sobre.html">Sobre</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link text-white" href="#">Blog</a>
-                      </li>
-                  </ul>
-                  <div class="avatar">
-                    <img src="img/avatar.png" class="menu-icon" alt="">
-                  </div>
-                  <!-- Ícone do usuário -->
-        
-        
-        <!-- Informações do perfil do usuário e botão para trocar de perfil -->
-        <div id="user-profile" style="display: none;">
-          <p><strong>Nome do Usuário:</strong> João da Silva</p>
-          <p><strong>Email:</strong> joao@example.com</p>
-          <p><strong>Telefone:</strong> (11) 1234-5678</p>
-          <!-- Adicione outras informações do perfil aqui -->
-          <button id="trocar-perfil-btn">Trocar de Perfil</button>
-        </div>
-              </div>
-          </div>
-      </nav>
-      </header>
 
-      <main>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="./index.html"><img class="logo" src="./img/logoNGM.png"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" id="adocao" href="#">ADOÇÃO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./cadastroOng.html">Cadastrar ONGs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="sobre.html">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./blog.html">Blog</a>
+                        </li>
+                    </ul>
+
+                    <a href="login.html"><button class="btn btn-custom">Entrar</button></a>
+
+
+                    <!-- Informações do perfil do usuário e botão para trocar de perfil -->
+                    <div id="user-profile" style="display: none;">
+                        <p><strong>Nome do Usuário:</strong> João da Silva</p>
+                        <p><strong>Email:</strong> joao@example.com</p>
+                        <p><strong>Telefone:</strong> (11) 1234-5678</p>
+                        <!-- Adicione outras informações do perfil aqui -->
+                        <button id="trocar-perfil-btn">Trocar de Perfil</button>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
         <!-- INICIO DOS CARDS -->
 
         <div class="d-flex justify-content-around">
@@ -62,7 +63,8 @@
                 <div class="card-body centro">
                     <h5 class="card-title">Recomendações remédio anti-pulgas</h5>
                     <img src="./img/anti_pulgas.png" class="card-img-top" alt="...">
-                    <p class="card-text">Recomenda-se produtos como Bravecto, Simparic e NexGard, que são eficazes e oferecem proteção duradoura.</p>
+                    <p class="card-text">Recomenda-se produtos como Bravecto, Simparic e NexGard, que são eficazes e
+                        oferecem proteção duradoura.</p>
                     <div class="d-flex justify-content-center py-2">
                         <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalAntiPulga">Veja mais</a>
                     </div>
@@ -72,9 +74,11 @@
                 <div class="card-body centro">
                     <h5 class="card-title">Cachorro pode tomar danoninho?</h5>
                     <img src="./img/danone.png" class="card-img-top" alt="...">
-                    <p class="card-text">Cachorros podem comer iogurte com moderação, mas é melhor evitar os que contêm açúcar e aditivos.</p>
+                    <p class="card-text">Cachorros podem comer iogurte com moderação, mas é melhor evitar os que contêm
+                        açúcar e aditivos.</p>
                     <div class="d-flex justify-content-center py-2">
-                        <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalCachorroDanone">Veja mais</a>
+                        <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalCachorroDanone">Veja
+                            mais</a>
                     </div>
                 </div>
             </div>
@@ -82,9 +86,11 @@
                 <div class="card-body centro">
                     <h5 class="card-title">Como treinar o seu peludinho</h5>
                     <img src="./img/peludinho.png" class="card-img-top" alt="...">
-                    <p class="card-text">Treinar seu cachorro: Seja consistente, use reforço positivo e seja paciente para obter os melhores resultados.</p>
+                    <p class="card-text">Treinar seu cachorro: Seja consistente, use reforço positivo e seja paciente
+                        para obter os melhores resultados.</p>
                     <div class="d-flex justify-content-center py-2">
-                        <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalTreinarPeludinho">Veja mais</a>
+                        <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalTreinarPeludinho">Veja
+                            mais</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +100,8 @@
                 <div class="card-body centro">
                     <h5 class="card-title">Beneficios de se ter pets em casa</h5>
                     <img src="./img/cachorroegato.png" class="card-img-top" alt="...">
-                    <p class="card-text">Ter pets em casa traz uma série de benefícios tanto para a saúde física quanto mental dos tutores.</p>
+                    <p class="card-text">Ter pets em casa traz uma série de benefícios tanto para a saúde física quanto
+                        mental dos tutores.</p>
                     <div class="d-flex justify-content-center py-2">
                         <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalBeneficioPet">Veja mais</a>
                     </div>
@@ -104,7 +111,8 @@
                 <div class="card-body centro">
                     <h5 class="card-title">Diferença entre Cachorros Gatos</h5>
                     <img src="./img/petsDiferenca.png" class="card-img-top" alt="...">
-                    <p class="card-text">Cães são geralmente mais sociáveis e dependentes de interação, enquanto gatos são mais independentes e autossuficientes.</p>
+                    <p class="card-text">Cães são geralmente mais sociáveis e dependentes de interação, enquanto gatos
+                        são mais independentes e autossuficientes.</p>
                     <div class="d-flex justify-content-center py-2">
                         <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalDiferenca">Veja mais</a>
                     </div>
@@ -114,7 +122,8 @@
                 <div class="card-body centro">
                     <h5 class="card-title">Como cuidar de filhotes de cachorro e gato</h5>
                     <img src="./img/filhote.png" class="card-img-top" alt="...">
-                    <p class="card-text">Cuidar de filhotes de cachorro e gato é uma tarefa recompensadora e cheia de desafios para ajudar a terem um bom começo de vida.</p>
+                    <p class="card-text">Cuidar de filhotes de cachorro e gato é uma tarefa recompensadora e cheia de
+                        desafios para ajudar a terem um bom começo de vida.</p>
                     <div class="d-flex justify-content-center py-2">
                         <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalFilhotes">Veja mais</a>
                     </div>
@@ -122,112 +131,181 @@
             </div>
         </div>
 
+        <!-- Modal de Informações do Usuário -->
+        <div class="modal fade" id="modalNgmPerfil" tabindex="-1" aria-labelledby="modalInfoUsuarioLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content alignNgmEnd">
+                    <div class="modal-body">
+                        <div class="info">
+                            <a href="perfilUsuario.html" class="linksNav">Ver perfil</a>
+                            <a id="logout-button" class="linksNav">Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
-
-            <!-- INICIO POPUP -->
-            <div class="modal fade" id="modalAntiPulga" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                  <div class="modal-content">
+        <!-- INICIO POPUP -->
+        <div class="modal fade" id="modalAntiPulga" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="tituloModal">Recomendações remédio anti-pulgas</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        <h5 class="modal-title" id="tituloModal">Recomendações remédio anti-pulgas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
                         <p>Quando se trata de proteger seus pets de pulgas, é essencial escolher o remédio certo.</p>
-                        <p><B>NexGard:</B> Um tablete mastigável com sabor de carne, contendo Afoxolaner. Começa a agir em até 8 horas e protege por 30 dias. Disponível em diferentes dosagens de acordo com o peso do cão.</p>
-                        <p><b>Bravecto:</b> Disponível em comprimidos mastigáveis e formato transdermal, o Bravecto trata pulgas, carrapatos e sarna demodécica. Tem efeito em até 12 horas e oferece proteção por até três meses.</p>
-                        <p><b>Simparic:</b> Eficaz contra pulgas e várias espécies de carrapatos, o Simparic impede que as pulgas produzam ovos.</p>
-                        <p><b>Seresto:</b> Uma coleira antipulgas que libera substâncias para afastar parasitas, protegendo o pet por até 8 meses.</p>
-                        <p><b>Revolution:</b> Trata, controla e previne infestações por pulgas, sendo uma opção segura para cães e gatos.</p>
-                        <p>É crucial consultar um veterinário antes de utilizar qualquer medicamento em seu pet para garantir a escolha mais segura e adequada. Lembre-se de que a saúde e o bem-estar do seu animal de estimação são sempre a prioridade.</p>
+                        <p><B>NexGard:</B> Um tablete mastigável com sabor de carne, contendo Afoxolaner. Começa a agir
+                            em até 8 horas e protege por 30 dias. Disponível em diferentes dosagens de acordo com o peso
+                            do cão.</p>
+                        <p><b>Bravecto:</b> Disponível em comprimidos mastigáveis e formato transdermal, o Bravecto
+                            trata pulgas, carrapatos e sarna demodécica. Tem efeito em até 12 horas e oferece proteção
+                            por até três meses.</p>
+                        <p><b>Simparic:</b> Eficaz contra pulgas e várias espécies de carrapatos, o Simparic impede que
+                            as pulgas produzam ovos.</p>
+                        <p><b>Seresto:</b> Uma coleira antipulgas que libera substâncias para afastar parasitas,
+                            protegendo o pet por até 8 meses.</p>
+                        <p><b>Revolution:</b> Trata, controla e previne infestações por pulgas, sendo uma opção segura
+                            para cães e gatos.</p>
+                        <p>É crucial consultar um veterinário antes de utilizar qualquer medicamento em seu pet para
+                            garantir a escolha mais segura e adequada. Lembre-se de que a saúde e o bem-estar do seu
+                            animal de estimação são sempre a prioridade.</p>
                     </div>
-                  </div>
                 </div>
             </div>
-            <div class="modal fade" id="modalCachorroDanone" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                  <div class="modal-content">
+        </div>
+        <div class="modal fade" id="modalCachorroDanone" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="tituloModal">Cachorros podem tomar danoninho?</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        <h5 class="modal-title" id="tituloModal">Cachorros podem tomar danoninho?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Em uma recente pesquisa sobre a alimentação canina, veterinários alertam para os riscos de oferecer Dadoninho aos cachorros. O Dadoninho, um produto lácteo popular entre crianças, pode não ser a melhor escolha para o seu amigo de quatro patas.</p>
-                        <p>Assim como alguns humanos, muitos cães são intolerantes à lactose, o açúcar presente no leite. A ingestão de produtos lácteos como o Dadoninho pode causar desconforto gastrointestinal, incluindo gases, vômito e diarreia.</p>
-                        <p>Além da lactose, o Dadoninho contém aditivos como sabores artificiais e corantes, que não são recomendados para a dieta canina. Esses ingredientes podem levar a reações alérgicas e outros problemas de saúde.</p>
-                        <p>Para tutores que desejam mimar seus pets com um lanche especial, existem alternativas seguras e saudáveis. Iogurtes naturais com baixo teor de gordura e sem açúcar adicionado podem ser uma opção, mas sempre com moderação e sob orientação de um veterinário.</p>
-                        <p>Antes de compartilhar seu lanche com seu cachorro, é essencial consultar um profissional. O que é saboroso para os humanos pode não ser seguro para os nossos amigos peludos. Lembre-se, a saúde do seu pet deve sempre vir em primeiro lugar.</p>
+                        <p>Em uma recente pesquisa sobre a alimentação canina, veterinários alertam para os riscos de
+                            oferecer Dadoninho aos cachorros. O Dadoninho, um produto lácteo popular entre crianças,
+                            pode não ser a melhor escolha para o seu amigo de quatro patas.</p>
+                        <p>Assim como alguns humanos, muitos cães são intolerantes à lactose, o açúcar presente no
+                            leite. A ingestão de produtos lácteos como o Dadoninho pode causar desconforto
+                            gastrointestinal, incluindo gases, vômito e diarreia.</p>
+                        <p>Além da lactose, o Dadoninho contém aditivos como sabores artificiais e corantes, que não são
+                            recomendados para a dieta canina. Esses ingredientes podem levar a reações alérgicas e
+                            outros problemas de saúde.</p>
+                        <p>Para tutores que desejam mimar seus pets com um lanche especial, existem alternativas seguras
+                            e saudáveis. Iogurtes naturais com baixo teor de gordura e sem açúcar adicionado podem ser
+                            uma opção, mas sempre com moderação e sob orientação de um veterinário.</p>
+                        <p>Antes de compartilhar seu lanche com seu cachorro, é essencial consultar um profissional. O
+                            que é saboroso para os humanos pode não ser seguro para os nossos amigos peludos. Lembre-se,
+                            a saúde do seu pet deve sempre vir em primeiro lugar.</p>
                     </div>
-                  </div>
                 </div>
             </div>
-            <div class="modal fade" id="modalTreinarPeludinho" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                  <div class="modal-content">
+        </div>
+        <div class="modal fade" id="modalTreinarPeludinho" tabindex="-1" aria-labelledby="tituloModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="tituloModal">Como treinar o seu peludinho</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        <h5 class="modal-title" id="tituloModal">Como treinar o seu peludinho</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Treinar seu cachorro é uma parte importante do seu desenvolvimento e pode ser uma experiência gratificante para ambos.</p>
-                        <p><b>Escolha Comandos Claros:</b> Use comandos simples como “senta”, “fica”, “vem” e “não”. Certifique-se de que todos na casa usem os mesmos comandos para evitar confundir o cão.</p>
-                        <p><b>Recompensas Positivas:</b> Utilize petiscos, carinho ou brinquedos como recompensas para comportamentos positivos. Isso reforça o bom comportamento e encoraja o cão a repeti-lo.</p>
-                        <p><b>Consistência:</b> Seja consistente com os comandos e recompensas. Treine em um horário regular e mantenha as regras consistentes para que o cão saiba o que esperar.</p>
-                        <p><b>Treinamento em Etapas:</b> Comece com comandos básicos e avance gradualmente para truques mais complexos. Isso ajuda a manter o cão engajado e evita frustrações.</p>
-                        <p><b>Paciência e Positividade:</b> Mantenha as sessões de treinamento curtas e positivas. Seja paciente e evite punições, pois elas podem causar medo e ansiedade.</p>
-                        <p><b>Socialização:</b> Exponha seu cão a diferentes pessoas, animais e ambientes para ajudá-lo a se tornar bem ajustado e menos temeroso de novas experiências.</p>
-                        <p><b>Reforço Contínuo:</b> Mesmo após o cão aprender um comando, continue a praticar e reforçar o comportamento para manter sua obediência afiada.</p>
-                        <p>Lembre-se, cada cão é único e pode aprender em ritmos diferentes. Respeite o tempo do seu cão e adapte o treinamento às suas necessidades individuais.</p>
+                        <p>Treinar seu cachorro é uma parte importante do seu desenvolvimento e pode ser uma experiência
+                            gratificante para ambos.</p>
+                        <p><b>Escolha Comandos Claros:</b> Use comandos simples como “senta”, “fica”, “vem” e “não”.
+                            Certifique-se de que todos na casa usem os mesmos comandos para evitar confundir o cão.</p>
+                        <p><b>Recompensas Positivas:</b> Utilize petiscos, carinho ou brinquedos como recompensas para
+                            comportamentos positivos. Isso reforça o bom comportamento e encoraja o cão a repeti-lo.</p>
+                        <p><b>Consistência:</b> Seja consistente com os comandos e recompensas. Treine em um horário
+                            regular e mantenha as regras consistentes para que o cão saiba o que esperar.</p>
+                        <p><b>Treinamento em Etapas:</b> Comece com comandos básicos e avance gradualmente para truques
+                            mais complexos. Isso ajuda a manter o cão engajado e evita frustrações.</p>
+                        <p><b>Paciência e Positividade:</b> Mantenha as sessões de treinamento curtas e positivas. Seja
+                            paciente e evite punições, pois elas podem causar medo e ansiedade.</p>
+                        <p><b>Socialização:</b> Exponha seu cão a diferentes pessoas, animais e ambientes para ajudá-lo
+                            a se tornar bem ajustado e menos temeroso de novas experiências.</p>
+                        <p><b>Reforço Contínuo:</b> Mesmo após o cão aprender um comando, continue a praticar e reforçar
+                            o comportamento para manter sua obediência afiada.</p>
+                        <p>Lembre-se, cada cão é único e pode aprender em ritmos diferentes. Respeite o tempo do seu cão
+                            e adapte o treinamento às suas necessidades individuais.</p>
                     </div>
-                  </div>
                 </div>
             </div>
-            <div class="modal fade" id="modalBeneficioPet" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                  <div class="modal-content">
+        </div>
+        <div class="modal fade" id="modalBeneficioPet" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="tituloModal">Diferenças entre cachorro e gatos</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        <h5 class="modal-title" id="tituloModal">Diferenças entre cachorro e gatos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Ter pets em casa traz uma série de benefícios tanto para a saúde física quanto mental dos tutores.</p>
-                        <p><b>Redução do Estresse:</b> A presença de animais de estimação pode diminuir os níveis de estresse e ansiedade, proporcionando uma sensação de tranquilidade.</p>
-                        <p><b>Melhora da Saúde Cardiovascular:</b> Estudos indicam que ter um pet pode reduzir a pressão arterial e o colesterol, ajudando na prevenção de doenças cardiovasculares.</p>
-                        <p><b>Companhia:</b> Pets são excelentes companheiros, especialmente para idosos, ajudando a superar a solidão e incentivando a prática regular de atividades.</p>
-                        <p><b>Prevenção de Alergias em Crianças:</b> O convívio com animais desde cedo pode fortalecer o sistema imunológico das crianças e reduzir o risco de desenvolver alergias e asma.</p>
-                        <p><b>Saúde Mental:</b> A interação com pets aumenta a produção de serotonina e dopamina, neurotransmissores associados à sensação de prazer e felicidade</p>
-                        <p><b>Exercício Físico:</b> Passear com o pet estimula a prática de exercícios, o que é benéfico para manter um estilo de vida ativo</p>
-                        <p><b>Desenvolvimento do Senso de Responsabilidade:</b> Cuidar de um animal de estimação requer responsabilidade e pode ajudar no desenvolvimento desse traço, especialmente em crianças</p>
-                        <p>Esses são apenas alguns dos muitos benefícios que os pets podem trazer para o lar. Eles não apenas enriquecem nossas vidas com alegria e companheirismo, mas também contribuem significativamente para nosso bem-estar geral.</p>
+                        <p>Ter pets em casa traz uma série de benefícios tanto para a saúde física quanto mental dos
+                            tutores.</p>
+                        <p><b>Redução do Estresse:</b> A presença de animais de estimação pode diminuir os níveis de
+                            estresse e ansiedade, proporcionando uma sensação de tranquilidade.</p>
+                        <p><b>Melhora da Saúde Cardiovascular:</b> Estudos indicam que ter um pet pode reduzir a pressão
+                            arterial e o colesterol, ajudando na prevenção de doenças cardiovasculares.</p>
+                        <p><b>Companhia:</b> Pets são excelentes companheiros, especialmente para idosos, ajudando a
+                            superar a solidão e incentivando a prática regular de atividades.</p>
+                        <p><b>Prevenção de Alergias em Crianças:</b> O convívio com animais desde cedo pode fortalecer o
+                            sistema imunológico das crianças e reduzir o risco de desenvolver alergias e asma.</p>
+                        <p><b>Saúde Mental:</b> A interação com pets aumenta a produção de serotonina e dopamina,
+                            neurotransmissores associados à sensação de prazer e felicidade</p>
+                        <p><b>Exercício Físico:</b> Passear com o pet estimula a prática de exercícios, o que é benéfico
+                            para manter um estilo de vida ativo</p>
+                        <p><b>Desenvolvimento do Senso de Responsabilidade:</b> Cuidar de um animal de estimação requer
+                            responsabilidade e pode ajudar no desenvolvimento desse traço, especialmente em crianças</p>
+                        <p>Esses são apenas alguns dos muitos benefícios que os pets podem trazer para o lar. Eles não
+                            apenas enriquecem nossas vidas com alegria e companheirismo, mas também contribuem
+                            significativamente para nosso bem-estar geral.</p>
                     </div>
-                  </div>
                 </div>
             </div>
-            <div class="modal fade" id="modalFilhotes" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                  <div class="modal-content">
+        </div>
+        <div class="modal fade" id="modalFilhotes" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="tituloModal">Como cuidar de filhotes de cachorro e gato</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        <h5 class="modal-title" id="tituloModal">Como cuidar de filhotes de cachorro e gato</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <p><b>Alimentação Adequada:</b> Para filhotes, a nutrição é fundamental. Eles devem ser alimentados com ração específica para filhotes, preferencialmente de categoria super premium. Esses alimentos são completos e balanceados para atender às necessidades nutricionais dos jovens animais. Os filhotes de cachorro devem comer de 3 a 4 vezes ao dia, enquanto os gatinhos podem ter acesso livre à comida, pois costumam se alimentar em pequenas quantidades várias vezes ao dia.</p>
-                        <p><b>Ambiente Seguro e Confortável:</b> Prepare um local tranquilo e seguro para os filhotes dormirem e descansarem. Uma caminha macia, longe de correntes de ar e ruídos altos, é ideal. Para os gatinhos, uma caixa ou toca pode proporcionar um sentimento de segurança.</p>
-                        <p><b>Higiene e Saúde:</b> Mantenha o ambiente dos filhotes limpo. Isso inclui a limpeza regular da área de dormir e dos locais onde eles fazem suas necessidades. A caixa de areia para gatos deve ser limpa diariamente. Além disso, é importante iniciar o calendário de vacinação e vermifugação conforme recomendado por um veterinário.</p>
-                        <p><b>Socialização e Treinamento:</b> A socialização é crucial para o desenvolvimento comportamental dos filhotes. Exponha-os a diferentes pessoas, animais e ambientes de maneira controlada e positiva. Ensine comandos básicos e regras de casa aos filhotes de cachorro, e para os gatinhos, incentive o uso do arranhador e da caixa de areia.</p>
-                        <p><b>Atenção e Carinho:</b> Filhotes precisam de muita atenção e carinho. Brinque com eles, ofereça brinquedos adequados para estimular a mente e o corpo, e estabeleça uma rotina de interações positivas.</p>
-                        <p>Lembre-se, cada animal é único e pode ter necessidades específicas. Consulte sempre um veterinário para orientações personalizadas. Cuidar de filhotes é um compromisso sério, mas com amor e dedicação, você ajudará a formar pets saudáveis e felizes.</p>
+                        <p><b>Alimentação Adequada:</b> Para filhotes, a nutrição é fundamental. Eles devem ser
+                            alimentados com ração específica para filhotes, preferencialmente de categoria super
+                            premium. Esses alimentos são completos e balanceados para atender às necessidades
+                            nutricionais dos jovens animais. Os filhotes de cachorro devem comer de 3 a 4 vezes ao dia,
+                            enquanto os gatinhos podem ter acesso livre à comida, pois costumam se alimentar em pequenas
+                            quantidades várias vezes ao dia.</p>
+                        <p><b>Ambiente Seguro e Confortável:</b> Prepare um local tranquilo e seguro para os filhotes
+                            dormirem e descansarem. Uma caminha macia, longe de correntes de ar e ruídos altos, é ideal.
+                            Para os gatinhos, uma caixa ou toca pode proporcionar um sentimento de segurança.</p>
+                        <p><b>Higiene e Saúde:</b> Mantenha o ambiente dos filhotes limpo. Isso inclui a limpeza regular
+                            da área de dormir e dos locais onde eles fazem suas necessidades. A caixa de areia para
+                            gatos deve ser limpa diariamente. Além disso, é importante iniciar o calendário de vacinação
+                            e vermifugação conforme recomendado por um veterinário.</p>
+                        <p><b>Socialização e Treinamento:</b> A socialização é crucial para o desenvolvimento
+                            comportamental dos filhotes. Exponha-os a diferentes pessoas, animais e ambientes de maneira
+                            controlada e positiva. Ensine comandos básicos e regras de casa aos filhotes de cachorro, e
+                            para os gatinhos, incentive o uso do arranhador e da caixa de areia.</p>
+                        <p><b>Atenção e Carinho:</b> Filhotes precisam de muita atenção e carinho. Brinque com eles,
+                            ofereça brinquedos adequados para estimular a mente e o corpo, e estabeleça uma rotina de
+                            interações positivas.</p>
+                        <p>Lembre-se, cada animal é único e pode ter necessidades específicas. Consulte sempre um
+                            veterinário para orientações personalizadas. Cuidar de filhotes é um compromisso sério, mas
+                            com amor e dedicação, você ajudará a formar pets saudáveis e felizes.</p>
                     </div>
-                  </div>
                 </div>
             </div>
+        </div>
 
-        
-    </main>    
 
-    <script src="./js/script.js"></script>
+    </main>
+
+    <script src="./js/blog.js"></script>
 </body>
 
 </html>
