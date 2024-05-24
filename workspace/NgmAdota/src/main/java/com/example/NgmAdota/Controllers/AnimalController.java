@@ -1,8 +1,13 @@
 package com.example.NgmAdota.Controllers;
 
 import com.example.NgmAdota.Dtos.AnimalRequestDTO;
+import com.example.NgmAdota.Dtos.ResponseAnimalDTO;
+import com.example.NgmAdota.Dtos.ResponseUsuarioDTO;
 import com.example.NgmAdota.Models.AnimalModel;
+import com.example.NgmAdota.Models.UsuarioModel;
 import com.example.NgmAdota.Repositories.AnimalRepository;
+import com.example.NgmAdota.Service.AnimalService;
+import com.example.NgmAdota.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +25,39 @@ public class AnimalController {
 
     @Autowired
     AnimalRepository animalRepository;
+    @Autowired
+    TokenService tokenService;
+    @Autowired
+    AnimalService animalService;
 
     @PostMapping("/cadastro")
-    public ResponseEntity<AnimalModel> cadastroAnimal(@RequestBody @Valid AnimalRequestDTO request) {
-        var animalModel = new AnimalModel();
-        BeanUtils.copyProperties(request, animalModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(animalRepository.save(animalModel));
+    public ResponseEntity<Object> cadastroAnimal(@RequestBody @Valid AnimalRequestDTO request) {
+        boolean isDuplicated = animalService.isAnimalDuplicado(
+                request.nome(),
+                request.dataNascimento(),
+                request.idRaca(),
+                request.idEspecie()
+        );
+
+        if (!isDuplicated) {
+            AnimalModel newAnimal = new AnimalModel();
+            newAnimal.setNome(request.nome());
+            newAnimal.setImagem(request.imagem());
+            newAnimal.setDataNascimento(request.dataNascimento());
+            newAnimal.setDescricao(request.descricao());
+            newAnimal.setPeso(request.peso());
+            newAnimal.setSexo(request.sexo());
+            newAnimal.setIdEspecie(request.idEspecie());
+            newAnimal.setIdPelagem(request.idPelagem());
+            newAnimal.setIdRaca(request.idRaca());
+            newAnimal.setIdPorte(request.idPorte());
+
+            this.animalRepository.save(newAnimal);
+
+            String token = this.tokenService.generateTokenAnimal(newAnimal);
+            return ResponseEntity.ok(new ResponseAnimalDTO(newAnimal.getNome(), newAnimal.getImagem(), newAnimal.getDescricao(), newAnimal.getIdade(), newAnimal.getPeso()));
+        }
+        return ResponseEntity.status(HttpStatus.CONFLICT).body("Animal JA EXISTE EM NOSSO BANCO DE DADOS");
     }
 
     @GetMapping("/lista")
@@ -45,13 +77,26 @@ public class AnimalController {
     @PutMapping("/editar/{id}")
     public ResponseEntity<Object> editarAnimal(@PathVariable(value = "id") Long id,
                                                @RequestBody @Valid AnimalRequestDTO request){
-        Optional<AnimalModel> animalO = animalRepository.findById(id);
-        if (animalO.isEmpty()){
+        Optional<AnimalModel> animalEdit = animalRepository.findById(id);
+        if (animalEdit.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possivel editar os dados deste animal, pois ele não foi encontrado");
         }
-        var animalModel = animalO.get();
-        BeanUtils.copyProperties(request, animalModel);
-        return ResponseEntity.status(HttpStatus.OK).body(animalRepository.save(animalModel));
+        var animalModel = animalEdit.get();
+        animalModel.setNome(request.nome());
+        animalModel.setImagem(request.imagem());
+        animalModel.setDescricao(request.descricao());
+        animalModel.setDataNascimento(request.dataNascimento());
+        animalModel.setSexo(request.sexo());
+        animalModel.setPeso(request.peso());
+        animalModel.setIdRaca(request.idRaca());
+        animalModel.setIdPorte(request.idPorte());
+        animalModel.setIdPelagem(request.idPelagem());
+        animalModel.setIdEspecie(request.idEspecie());
+        this.animalRepository.save(animalModel);
+
+        String token = this.tokenService.generateTokenAnimal(animalModel);
+        return ResponseEntity.ok(new ResponseAnimalDTO(animalModel.getNome(), animalModel.getImagem(), animalModel.getDescricao(),
+                                                        animalModel.getIdade(), animalModel.getPeso()));
     }
 
     @DeleteMapping("/deletar/{id}")

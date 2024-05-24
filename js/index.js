@@ -3,9 +3,9 @@ $(document).ready(function () {
     function showConfirmModal(message, callback) {
         // Configurar a mensagem no modal
         $('#confirmModal .modal-body p').text(message);
-     
+
         // Adicionar evento de clique ao botão de confirmação
-        $('#confirmButton').off('click').on('click', function() {
+        $('#confirmButton').off('click').on('click', function () {
             // Fechar o modal
             $('#confirmModal').modal('hide');
             // Executar a função de retorno (callback) se fornecida
@@ -13,26 +13,32 @@ $(document).ready(function () {
                 callback(true);
             }
         });
-     
+
         // Exibir o modal
         $('#confirmModal').modal('show');
     }
- 
+
     // Verificar se o usuário está logado
     var token = window.localStorage.getItem('token');
     var nomeUsuario = window.localStorage.getItem('nomeUsuario');
     var emailUsuario = window.localStorage.getItem('email');
     var idadeUsuario = window.localStorage.getItem('idade');
     var telefoneUsuario = window.localStorage.getItem('telefone');
- 
+
     if (token && nomeUsuario) {
         // Remover botão de entrar
         $('.btn-custom').remove();
- 
+
         // Adicionar ícone com nome do usuário
+
         var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width : 23px;" class="menu-icon" alt=""></a>';
         $('.navbar-nav').after(userIconHtml);
  
+
+        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" class="menu-icon" alt=""></a>';
+        $('.navbar-collapse').append(userIconHtml);
+
+
         // Preencher o modal de informações do usuário
         $('#info-nome-usuario').text(nomeUsuario);
         $('#info-email-usuario').text(emailUsuario);
@@ -44,7 +50,7 @@ $(document).ready(function () {
             var loginButtonHtml = '<a href="login.html"><button class="btn btn-custom">Entrar</button></a>';
             $('.navbar-collapse').append(loginButtonHtml);
         }
- 
+
         // Redirecionar para a tela inicial (index.html) se o token estiver ausente ou expirado
         window.localStorage.removeItem('token');
         window.localStorage.removeItem('nomeUsuario');
@@ -53,7 +59,7 @@ $(document).ready(function () {
         window.localStorage.removeItem('telefone');
         window.localStorage.removeItem('tokenExpiry');
     }
- 
+
     // Função para fazer a chamada AJAX à API de animais
     function obterListaAnimais() {
         $.ajax({
@@ -62,7 +68,7 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 $('#lista-animais').empty();
- 
+
                 $.each(data, function (index, animal) {
                     var cardHtml =
                         '<div class="animal-card">' +
@@ -72,18 +78,27 @@ $(document).ready(function () {
                         '</div>';
                     $('#lista-animais').append(cardHtml);
                 });
- 
+
                 $('.btn-adocao').on('click', function () {
                     var index = $(this).data('id');
                     var animal = data[index];
- 
+                    console.log(animal)
                     $('#modal-imagem').attr('src', animal.imagem);
                     $('#modal-nome').text(animal.nome);
                     $('#modal-peso').text(animal.peso + ' kg');
-                    $('#modal-data-nascimento').text(new Date(animal.dataNascimento).toLocaleDateString());
+                    $('#modal-idade').text(animal.idade + ' anos'); // Adicionando ' anos' para clareza
                     $('#modal-descricao').text(animal.descricao);
 
                     $('#modalAnimal').modal('show');
+                });
+
+                $('#adocaoBtn').on('click', function () {
+                    if (token && nomeUsuario) {
+                        window.location.href = 'formularioDeInteresse.html'
+                    } else {
+                        alert("Você precisa fazer login");
+                        window.location.href = 'login.html';
+                    }
                 });
             },
             error: function (xhr, status, error) {
@@ -91,13 +106,13 @@ $(document).ready(function () {
             }
         });
     }
- 
+
     obterListaAnimais();
- 
+
     // Função para fazer logout
     function logout() {
         // Mostrar confirmação estilizada
-        showConfirmModal("Você deseja fazer logout?", function(confirmed) {
+        showConfirmModal("Você deseja fazer logout?", function (confirmed) {
             if (confirmed) {
                 // Remover dados do localStorage
                 window.localStorage.removeItem('nomeUsuario');
@@ -109,14 +124,13 @@ $(document).ready(function () {
             }
         });
     }
- 
+
     // Adiciona evento ao botão de logout
     $('#logout-button').on('click', function () {
         logout();
     });
 });
- 
- 
+
 // Variável global para armazenar as avaliações
 let ratings = [];
 // Função para enviar um comentário
@@ -124,33 +138,33 @@ function submitComment() {
     const comment = document.getElementById('comment').value;
     const selectedStars = document.querySelectorAll('.star.selected');
     const rating = selectedStars.length; // Conta quantas estrelas foram selecionadas
- 
+
     // Adicionar comentário e avaliação ao array
     ratings.unshift({ comment: comment, rating: rating }); // Adiciona no início para manter a ordem
- 
+
     // Limpar campo de comentário
     document.getElementById('comment').value = '';
- 
+
     // Atualizar lista de comentários
     displayComments();
- 
+
     // Calcular e exibir média de avaliação
     calculateAverageRating();
- 
+
     // Expandir o painel direito para exibir os comentários
     expandRightPanel();
 }
- 
+
 // Função para exibir os comentários
 function displayComments() {
     const commentsDiv = document.getElementById('comments');
     commentsDiv.innerHTML = ''; // Limpa os comentários existentes
- 
+
     ratings.forEach(({ comment, rating }) => {
         const commentDiv = document.createElement('div');
         commentDiv.classList.add('comment');
         commentDiv.innerHTML = `<p><strong>Comentário:</strong> ${comment}</p>`;
- 
+
         // Adicionar estrelas à representação visual da avaliação
         const starsDiv = document.createElement('div');
         starsDiv.classList.add('stars');
@@ -166,13 +180,11 @@ function displayComments() {
             starsDiv.appendChild(starSpan);
         }
         commentDiv.appendChild(starsDiv);
- 
+
         commentsDiv.appendChild(commentDiv);
     });
 }
- 
- 
- 
+
 // Função para calcular e exibir a média de avaliação
 function calculateAverageRating() {
     if (ratings.length > 0) {
@@ -183,13 +195,13 @@ function calculateAverageRating() {
         document.getElementById('average-rating').innerText = "N/A"; // Se não houver avaliações, exibir "N/A"
     }
 }
- 
+
 // Função para expandir o painel direito para exibir os comentários
 function expandRightPanel() {
     const rightPanel = document.getElementById('right-panel');
     rightPanel.style.height = 'auto'; // Define a altura automática para expandir dinamicamente
 }
- 
+
 // Adiciona evento de clique às estrelas para selecionar a avaliação
 const stars = document.querySelectorAll('.star');
 stars.forEach(star => {
