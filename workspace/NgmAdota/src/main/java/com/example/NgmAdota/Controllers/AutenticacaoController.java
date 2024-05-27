@@ -1,6 +1,6 @@
 package com.example.NgmAdota.Controllers;
 
-import com.example.NgmAdota.Dtos.AnimalRequestDTO;
+
 import com.example.NgmAdota.Dtos.CadastroRequestDTO;
 import com.example.NgmAdota.Dtos.LoginRequestDTO;
 import com.example.NgmAdota.Dtos.ResponseUsuarioDTO;
@@ -37,10 +37,10 @@ public class AutenticacaoController {
         usuarioModel.setEmail(request.email());
         usuarioModel.setDataNascimento(request.dataNascimento());
         usuarioModel.setTelefone(request.telefone());
-        usuarioModel.setSenha(request.senha());
+        usuarioModel.setSenha(passwordEncoder.encode(request.senha()));
         this.usuarioRepository.save(usuarioModel);
-        return ResponseEntity.ok(new ResponseUsuarioDTO(usuarioModel.getNome(), usuarioModel.getEmail(),
-                                usuarioModel.getTelefone(), usuarioModel.idade(), usuarioModel.getSenha()));
+        return ResponseEntity.ok(new ResponseUsuarioDTO(usuarioModel.getID(), usuarioModel.getNome(), usuarioModel.getEmail(),
+                                usuarioModel.getTelefone(), usuarioModel.getDataNascimento(), usuarioModel.idade(), usuarioModel.getSenha(), null));
     }
 
     @PostMapping("/login")
@@ -48,7 +48,7 @@ public class AutenticacaoController {
         UsuarioModel user = this.usuarioRepository.findByEmail(request.email()).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         if(passwordEncoder.matches(request.senha(), user.getSenha())){
             String token = this.tokenService.generateToken(user);
-            return ResponseEntity.ok(new ResponseUsuarioDTO(user.getNome(), user.getEmail(), user.getTelefone(), user.idade(), token));
+            return ResponseEntity.ok(new ResponseUsuarioDTO(user.getID(), user.getNome(), user.getEmail(), user.getTelefone(), user.getDataNascimento(), user.idade(), user.getSenha(), token));
         }
         return ResponseEntity.badRequest().build();
     }
@@ -68,7 +68,7 @@ public class AutenticacaoController {
             this.usuarioRepository.save(newUser);
 
             String token = this.tokenService.generateToken(newUser);
-            return ResponseEntity.ok(new ResponseUsuarioDTO(newUser.getNome(), newUser.getEmail(), newUser.getTelefone(), newUser.idade(), token));
+            return ResponseEntity.ok(new ResponseUsuarioDTO(newUser.getID(), newUser.getNome(), newUser.getEmail(), newUser.getTelefone(), newUser.getDataNascimento(), newUser.idade(), newUser.getSenha(), token));
         }
         return ResponseEntity.badRequest().build();
     }

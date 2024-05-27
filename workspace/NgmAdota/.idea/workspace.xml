@@ -7,9 +7,13 @@
     <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="Filazização do formulário de Interesse">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     <list default="true" id="46f52781-6fe6-4972-b63f-6cd05d608db9" name="Changes" comment="padronizando a chamada PUT com a de POST">
+      <change beforePath="$PROJECT_DIR$/../../js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../js/perfilUsuario.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/perfilUsuario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../perfilUsuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../perfilUsuario.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AutenticacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AutenticacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/ResponseUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/ResponseUsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/NgmAdotaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/NgmAdotaApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +59,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.NgmAdotaApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/cloneimuito/ngmAdota/workspace/NgmAdota"
+
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.NgmAdotaApplication.executor&quot;: &quot;Run&quot;,
@@ -63,7 +75,7 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/arthu/OneDrive/Documentos/aham/ngmAdota/workspace/NgmAdota&quot;
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.NgmAdota.Controllers" />

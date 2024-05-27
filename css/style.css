@@ -66,10 +66,6 @@
     padding-top: 20px;
     width: 330px;
 }
-
-#adocaoBtn{
-    width: 100%;
-}
  
 #adocao {
     color: #06C1D6;
@@ -115,36 +111,6 @@ h1 {
     margin-bottom: 20px;
 }
  
-.caixa {
-    display: flex;
-    align-items: center;
-    margin: 20px auto;
-    border-radius: 20px;
-    border: 20px solid #ccc;
-    width: 80%;
-    background-color: #ccc;
-}
- 
-.caixa img {
-    flex: 0 0 auto;
-    margin-left: 0px;
-    border-radius: 16px;
-    width: 280px;
-}
- 
-.textSobre{
-    text-align: center;
-    margin: auto;
-}
- 
- 
-.text {
-    transform: translate(0%, -10%);
-    text-align: center;
-    color: #000;
-}
- 
- 
 .container {
     display: flex;
     flex-direction: column;
@@ -154,22 +120,7 @@ h1 {
 .container h1{
     text-align: center;
 }
- 
-.card-text {
-    margin-top: 50px;
-}
- 
-.linkedin-link {
-    transform: translate(40%, 0%);
-    bottom: -25px;
-    font-size: 22px;
-}
- 
-#img-linkedin {
-    width: 50px;
-    height: auto;
-}
- 
+
 .fundoLogin {
     background-color: #06C1D6;
     height: 402px;
@@ -188,73 +139,7 @@ h1 {
     margin-bottom: 38px; /* Adicionando margem inferior para evitar sobreposição */
 }
  
-.links-right {
-    margin-top: 20px; /* Adicione espaço acima dos links */
-}
- 
-.signup-link, .forgot-password-link {
-    background-color: #06C1D6; /* Cor de fundo para os links */
-    padding: 5px 10px; /* Espaçamento interno dos links */
-    text-decoration: none;
-    margin-left: 10px;
-    font-weight: bold;
-    color: white;
-}
- 
-.signup-link:hover, .forgot-password-link:hover {
-    background-color: white; /* Cor de fundo quando o mouse passar por cima */
-    color: #06C1D6;
-}
- 
- 
-.fundo {
-    background-color: #06C1D6;
-    height: 403px;
-}
- 
-.fundo>.container {
-    background-color: #d9d9d9;
-    height: 827px;
-    width: 1147px;
-    margin-top: 38px;
-    border-radius: 31px;
-}
- 
-.fundo>.text-center {
-    color: white;
-    font-size: 35px;
-    padding-top: 38px;
-    border: 1px;
-}
- 
-.form-control {
-    background-color: #d9d9d9;
-    color: #464646;
-    border-color: #8E8C8C;
-    border-width: 5px;
-    border-radius: 31px;
-}
- 
-.btn>.col>.btn {
-    background-color: #06C1D6;
-    color: white;
-    border-radius: 31px;
-    width: 100%;
-    height: 55px;
-    font-size: 30px;
-}
-.form {
-    margin-right: 20px;
-}
- 
-.form h2 {
-    margin-bottom: 10px;
-}
- 
-.text {
-    text-align: center;
-}
- 
+
 .containerAlign{
     display: flex;
     flex-direction: column;
@@ -349,161 +234,9 @@ h1 {
     overflow-y: auto; /* Habilita a rolagem vertical quando necessário */
   }
  
-  /* Adiciona cor amarela às estrelas preenchidas */
 .stars .filled {
     color: hsl(39, 100%, 50%);
   }
- 
-  /* Oculta estrelas vazias */
-.stars .empty {
-    display: none;
-  }
- 
-/* Estilos para o rodapé */
-.rodape {
-    background-color: #ccc; /* Cor de fundo cinza */
-    padding: 20px; /* Espaçamento interno */
-}
- 
-.rodape .container {
-    display: flex;
-    justify-content: space-between; /* Alinha os itens no início e no final do rodapé */
-    align-items: center; /* Alinha os itens verticalmente */
-}
- 
-.rodape .texto-centralizado {
-    text-align: center; /* Centraliza o texto */
-    font-size: 15px;
-}
- 
-.rodape .redes-sociais {
-    display: flex; /* Utiliza flexbox para alinhar os ícones das redes sociais */
-    justify-content: flex-end;
-    margin-left:1250px; /* Adiciona margem entre os ícones, se necessário */
-    align-items: center;
-}
- 
-.rodape .redes-sociais a {
-    margin-right: 10px; /* Adiciona margem entre os ícones */
-}
- 
-.rodape .meus-icons {
-    display: flex; /* Utiliza flexbox para alinhar os seus ícones */
-    align-items: center;
-    margin-right: 1280px;
-    margin-left: 100px;
-}
- 
-.iconeFooter{
-    transform: translate(-1300px, 0%);
-}
- 
-#alertaSucesso {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
- 
-#alertaErro {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
- 
-.linksNav{
-    text-decoration: underline;
-}
- 
-.alignNgmEnd{
-    margin-left: 650px;
-    width: 300px;
-}
- 
-/* POP UP ANIMAIS */
-.modal-content {
-    background-color: #8E8C8C;
-    color: #fff;
-    border-radius: 31px;
-}
- 
-.modal-body {
-    padding: 0;
-}
- 
-.modal-body .row {
-    display: flex;
-    height: 100%;
-}
- 
-.modal-body .col-md-6 {
-    padding: 0;
-    display: flex;
-    align-items: start;
-    justify-content: start;
-}
- 
-.modal-body img {
-    width: 100%;
-    display: block;
-    border-radius: 31px;
-}
- 
-.modal-body .info {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: star;
-}
- 
-.btn-adotar {
-    background-color: #06C1D6;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 31px;
-    cursor: pointer;
-    align-self: flex-start;
-}
- 
-.btn-adotar:hover {
-    background-color: #e0e0e0;
-    color: #06C1D6;
-}
-/* POP UP USUARIO */
-.btn-logout {
-    background-color: #06C1D6;
-    color: #ffffff;
-    width: 100%;
-    border: none;
-    border-radius: 31px;
-    padding: 10px 20px;
-    margin: 20px 0;
-    cursor: pointer;
-    align-self: flex-start;
-}
-
- 
-
-
-.fundoFormularioDeInteresse >.text-center {
-    color: white;
-    font-size: 35px;
-    padding-top: 38px;
-    border: 1px;
-}
-
-
-
-.fundoFormularioDeInteresse {
-    background-color: #06C1D6;
-    height: 403px;
-}
-
 
 /* Modal de confirmação de saída */
 .modal.fade {
@@ -952,7 +685,6 @@ h1 {
     display: none;
   }
  
-/* Estilos para o rodapé */
 .rodape {
     background-color: #ccc; /* Cor de fundo cinza */
     padding: 20px; /* Espaçamento interno */
@@ -1016,7 +748,6 @@ h1 {
     width: 300px;
 }
  
-/* POP UP ANIMAIS */
 .modal-content {
     background-color: #8E8C8C;
     color: #fff;
@@ -1068,7 +799,6 @@ h1 {
     background-color: #e0e0e0;
     color: #06C1D6;
 }
-/* POP UP USUARIO */
 .btn-logout {
     background-color: #06C1D6;
     color: #ffffff;
@@ -1101,7 +831,6 @@ h1 {
     border-radius: 31px;
 }
  
-/* Modal de confirmação de saída */
 .modal.fade {
     display: none;
     background: rgba(0, 0, 0, 0.5);
@@ -1165,7 +894,6 @@ h1 {
     color: #000;
 }
  
-/* Estilos para o alerta de sucesso */
 .alert-success {
     background-color: #d4edda; /* Cor de fundo */
     color: #155724; /* Cor do texto */
