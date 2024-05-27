@@ -18,27 +18,24 @@ $('#inlineCheckbox4').change(function() {
     });
   }
 });
-  
-$('#inlineCheckbox4').change(function() {
-  var checkboxes = ['#inlineCheckbox1', '#inlineCheckbox2', '#inlineCheckbox3'];
-  if ($(this).is(':checked')) {
-    $.each(checkboxes, function(index, checkbox) {
-      $(checkbox).prop('checked', false);
-    });
-  }
-});
 
 // Function to submit the form
 function enviarFormulario() {
   // Check if at least one pet option is selected
-  var cachorro = $('input[name="checkboxCachorro"]').is(':checked');
-  var gato = $('input[name="checkboxGato"]').is(':checked');
-  var outro = $('input[name="checkboxOutro"]').is(':checked');
-  var primeiroPet = $('input[name="checkboxPrimeiroPet"]').is(':checked');
+  var cachorro = $('#inlineCheckbox1').is(':checked');
+  var gato = $('#inlineCheckbox2').is(':checked');
+  var outro = $('#inlineCheckbox3').is(':checked');
+  var primeiroPet = $('#inlineCheckbox4').is(':checked');
+  var declaracaoCheckbox = $('#declaracaoCheckbox').is(':checked');
 
   if (!cachorro && !gato && !outro && !primeiroPet) {
-    alert("Por favor, selecione pelo menos uma opção: cachorro, gato, outro ou primeiro pet.");
-    return; // Stop form submission
+    mostrarAlertaErro('Por favor, selecione pelo menos uma opção de pet.');
+    return;
+  }
+
+  if (!declaracaoCheckbox) {
+    mostrarAlertaErro('Por favor, aceite os termos e condições.');
+    return;
   }
 
   var interesseData = {
@@ -52,7 +49,8 @@ function enviarFormulario() {
     cachorro: cachorro,
     gato: gato,
     outro: outro,
-    primeiroPet: primeiroPet
+    primeiroPet: primeiroPet,
+    declaracaoCheckbox: declaracaoCheckbox
   };
 
   console.log("Dados enviados: ", interesseData);
@@ -66,10 +64,11 @@ function enviarFormulario() {
     success: function(data) {
       console.log('Formulário enviado com sucesso', data);
       mostrarAlertaSucesso();
+      $('#modalFormularioInteresse').modal('show');
     },
     error: function(xhr, status, error) {
       console.error('Erro ao enviar formulário:', xhr.responseText);
-      mostrarAlertaErro();
+      mostrarAlertaErro('Erro ao enviar formulário.');
     }
   });
 }
@@ -83,8 +82,8 @@ function mostrarAlertaSucesso() {
 }
 
 // Function to show error alert
-function mostrarAlertaErro() {
-  $('#alertaErro').removeClass('d-none');
+function mostrarAlertaErro(message) {
+  $('#alertaErro').text(message).removeClass('d-none');
   setTimeout(function() {
     $('#alertaErro').addClass('d-none');
   }, 3000); // Alert will disappear after 3 seconds
