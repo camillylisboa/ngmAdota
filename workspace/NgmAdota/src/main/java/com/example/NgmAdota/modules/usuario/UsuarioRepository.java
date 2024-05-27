@@ -1,6 +1,5 @@
-package com.example.NgmAdota.Repositories;
+package com.example.NgmAdota.modules.usuario;
 
-import com.example.NgmAdota.Models.UsuarioModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

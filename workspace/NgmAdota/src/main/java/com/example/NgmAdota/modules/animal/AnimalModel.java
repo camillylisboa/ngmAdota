@@ -1,6 +1,7 @@
-package com.example.NgmAdota.Models;
+package com.example.NgmAdota.modules.animal;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -10,6 +11,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tabAnimal")
+@Builder
 public class AnimalModel implements Serializable {
     private static final long serialVersionUID = 1L;
 

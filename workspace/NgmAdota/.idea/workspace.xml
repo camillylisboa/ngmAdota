@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Alterações" comment="ajuste de pastas">
-      <change beforePath="$PROJECT_DIR$/../../css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/index.js" afterDir="false" />
+    <list default="true" id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="Filazização do formulário de Interesse">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AnimalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Models/AnimalModel.java" afterDir="false" />
+    <list default="true" id="46f52781-6fe6-4972-b63f-6cd05d608db9" name="Changes" comment="padronizando a chamada PUT com a de POST">
+      <change beforePath="$PROJECT_DIR$/../../js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../js/perfilUsuario.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/perfilUsuario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../perfilUsuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../perfilUsuario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AutenticacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Controllers/AutenticacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/ResponseUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/Dtos/ResponseUsuarioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/NgmAdotaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/NgmAdotaApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +24,20 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Registro" />
-        <option value="Classe" />
+        <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -41,30 +51,29 @@
     &quot;accountId&quot;: &quot;f15e91bb-be93-465e-9c2d-6efad5e318f2&quot;
   }
 }</component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
-    &quot;associatedIndex&quot;: 3
-    }</component>
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2gPmrxOYp4oEEDLo8rkmdWi7ZUA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.NgmAdotaApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Camilly",
-    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/PMB/Documents/cron/ngmAdota/workspace/NgmAdota",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "last_opened_file_path": "C:/Users/arthu/OneDrive/Documentos/cloneimuito/ngmAdota/workspace/NgmAdota"
+
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.NgmAdotaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/arthu/OneDrive/Documentos/aham/ngmAdota/workspace/NgmAdota&quot;
   }
 }]]></component>
   <component name="RecentsManager">
@@ -89,16 +98,27 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.NgmAdotaApplication" />
+        <item itemvalue="Application.NgmAdotaApplication" />
+        <item itemvalue="Application.NgmAdotaApplication" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Changes" comment="" />
     <task active="true" id="Default" summary="Tarefa padrão">
-      <changelist id="3fb94ef4-b4d7-4377-a1f4-67b0e46dedfd" name="Alterações" comment="" />
+      <changelist id="46f52781-6fe6-4972-b63f-6cd05d608db9" name="Changes" comment="" />
       <created>1715607789812</created>
-      <option name="number" value="Padrão" />
-      <option name="presentableId" value="Padrão" />
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1715607789812</updated>
     </task>
     <task id="LOCAL-00001" summary="corrigindo o caminho das pastas e adicionando connection string">
@@ -109,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715607859174</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Filazização do formulário de Interesse">
+      <option name="closed" value="true" />
+      <created>1716300209682</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716300209682</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,7 +145,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Enzo" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -126,6 +166,30 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="corrigindo o caminho das pastas e adicionando connection string" />
     <MESSAGE value="ajuste pastas" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Filazização do formulário de Interesse" />
+    <option name="LAST_COMMIT_MESSAGE" value="Filazização do formulário de Interesse" />
+    <task id="LOCAL-00002" summary="apagando classe que nao estava sendo utilizada no JAVA">
+      <option name="closed" value="true" />
+      <created>1716420841422</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716420841422</updated>
+    </task>
+    <task id="LOCAL-00003" summary="padronizando a chamada PUT com a de POST">
+      <option name="closed" value="true" />
+      <created>1716470865073</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716470865073</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="apagando classe que nao estava sendo utilizada no JAVA" />
+    <MESSAGE value="padronizando a chamada PUT com a de POST" />
+    <option name="LAST_COMMIT_MESSAGE" value="padronizando a chamada PUT com a de POST" />
   </component>
 </project>

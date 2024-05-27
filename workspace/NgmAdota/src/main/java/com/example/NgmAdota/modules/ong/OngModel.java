@@ -1,4 +1,4 @@
-package com.example.NgmAdota.Models;
+package com.example.NgmAdota.modules.ong;
 
 import jakarta.persistence.*;
 
@@ -14,6 +14,7 @@ public class OngModel implements Serializable {
     private Long id;
     private String razaosocial;
     private String email;
+    private String senha;
     private String cnpj;
     private String telefone;
     private String cep;
@@ -26,6 +27,14 @@ public class OngModel implements Serializable {
 
     public Long getId() {
         return id;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public void setId(Long id) {

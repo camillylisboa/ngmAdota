@@ -1,8 +1,10 @@
-package com.example.NgmAdota.Controllers;
+package com.example.NgmAdota.modules.ong.controller;
 
-import com.example.NgmAdota.Dtos.OngRequestDTO;
-import com.example.NgmAdota.Models.OngModel;
-import com.example.NgmAdota.Repositories.OngRepository;
+import com.example.NgmAdota.exceptions.UserFoundException;
+import com.example.NgmAdota.modules.ong.OngModel;
+import com.example.NgmAdota.modules.ong.OngRepository;
+import com.example.NgmAdota.modules.ong.dto.OngRequestDTO;
+import com.example.NgmAdota.modules.ong.services.CreateOngService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +21,19 @@ import java.util.Optional;
 public class OngController {
 
     @Autowired
-    OngRepository ongRepository;
+    private OngRepository ongRepository;
 
-    @PostMapping("/cadastro")
-    public ResponseEntity<OngModel> cadastroOng(@RequestBody @Valid OngRequestDTO request) {
-        var ongModel = new OngModel();
-        BeanUtils.copyProperties(request, ongModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(ongRepository.save(ongModel));
+    @Autowired
+    private CreateOngService createOngService;
+
+    @PostMapping("/")
+    public ResponseEntity<Object> create(@Valid @RequestBody OngModel ong){
+        try{
+            var result = this.createOngService.execute(ong);
+            return ResponseEntity.ok().body(result);
+        }catch (UserFoundException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @GetMapping("/lista")

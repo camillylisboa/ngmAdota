@@ -1,4 +1,4 @@
-package com.example.NgmAdota.Models;
+package com.example.NgmAdota.modules.usuario;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
