@@ -8,6 +8,26 @@
     font-weight: bold;
 }
 
+.btn.btn-custom {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 31px;
+    padding: 2px 40px;
+    font-size: 16px;
+    border: none;
+    margin-right: 20px;
+}
+ 
+
+.menu-icon{
+    width: 23px;
+}
+ 
+.btn.btn-custom:hover {
+    background-color: #06C1D6;
+    color: #fff;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -93,7 +113,6 @@
     height: auto;
 }
 
- /* Estilos para o rodapé */
 .rodape {
     background-color: #ccc; /* Cor de fundo cinza */
     padding: 20px; /* Espaçamento interno */
