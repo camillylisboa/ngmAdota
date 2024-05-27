@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/formularioInteresse.css">
     <link rel="shortcut icon" href="./img/icon.png">
 </head>
 
@@ -166,7 +166,8 @@
                             <label for="">Você tem(é):</label>
                         </div>
                         <div class="form-check form-check-inline col-1">
-                            <input class="form-check-input" type="checkbox" name="checkboxCachorro" id="inlineCheckbox1">
+                            <input class="form-check-input" type="checkbox" name="checkboxCachorro"
+                                id="inlineCheckbox1">
                             <label class="form-check-label" for="inlineCheckbox1">Cachorro</label>
                         </div>
                         <div class="form-check form-check-inline col-1">
@@ -178,7 +179,8 @@
                             <label class="form-check-label" for="inlineCheckbox3">Outro</label>
                         </div>
                         <div class="form-check form-check-inline col-2">
-                            <input class="form-check-input" type="checkbox" name="checkboxPrimeiroPet" id="inlineCheckbox4">
+                            <input class="form-check-input" type="checkbox" name="checkboxPrimeiroPet"
+                                id="inlineCheckbox4">
                             <label class="form-check-label" for="inlineCheckbox4">Primeiro pet</label>
                         </div>
                     </div>
@@ -191,18 +193,42 @@
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="declaracaoCheckbox" required>
                         <label class="form-check-label" for="declaracaoCheckbox">
-                          Eu declaro que tenho 18 anos e aceito os termos e condições.
+                            Eu declaro que tenho 18 anos e aceito os termos e condições.
                         </label>
                     </div>
-                    <div class="row btn">
-                        <div class="col">
-                            <button class="btn fw-bold" type="button" onclick="enviarFormulario()">ENVIAR</button>
-                        </diV>
+                    <div class="row">
+                        <div class="col-3">
+                            <a class="ancora" href="./index.html"><button id="btnVoltar" class="btn fw-bold btn-danger"
+                                    type="submit">VOLTAR</button></a>
+                        </div>
+                        <div class="col-9">
+                            <button class="btn fw-bold" type="submit" onclick="enviarFormulario()">ENVIAR</button>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
+
+
+
+
+
+        <!-- MODAL -->
+        <div class="modal fade" id="modalFormularioInteresse" tabindex="-1" role="dialog"
+            aria-labelledby="modalProtocoloLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalProtocoloLabel">Status da Requisição</h5>
+                    </div>
+                    <div class="modal-body">
+                        Sua requisição está sendo analisada por nossa equipe, seu número de protocolo é...
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <script src="./js/formularioDeInteresse.js"></script>
