@@ -1,7 +1,27 @@
 * {
     font-family: sans-serif;
 }
-
+ 
+.btn.btn-custom {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 31px;
+    padding: 2px 40px;
+    font-size: 16px;
+    border: none;
+    margin-right: 20px;
+}
+ 
+.menu-icon{
+    width: 23px;
+}
+ 
+.btn.btn-custom:hover {
+    background-color: #06C1D6;
+    color: #fff;
+}
+ 
 .navbar {
     background-color: #008A33;
     height: 94px;
@@ -12,11 +32,25 @@
     padding-top: 20px;
     width: 330px;
 }
-
-
+ 
 #adocao {
     color: #06C1D6;
     font-size: 27px;
+}
+ 
+.nav-item {
+    margin-right: 40px;
+    font-size: 23px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+ 
+.container h1{
+    text-align: center;
 }
  
 .fundo {
@@ -39,7 +73,6 @@
     border: 1px;
 }
  
-
 .btn>.col>.btn {
     background-color: #06C1D6;
     color: white;
@@ -65,6 +98,10 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
  
+.linksNav{
+    text-decoration: underline;
+}
+ 
 .alignNgmEnd{
     margin-left: 650px;
     width: 300px;
@@ -76,11 +113,17 @@
     flex-direction: column;
     justify-content: star;
 }
-
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+ 
+.btn-logout {
+    background-color: #06C1D6;
+    color: #ffffff;
+    width: 100%;
+    border: none;
+    border-radius: 31px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    cursor: pointer;
+    align-self: flex-start;
 }
  
 .alert-success {
