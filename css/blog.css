@@ -1,0 +1,183 @@
+* {
+    font-family: sans-serif;
+}
+ 
+.menu-icon{
+    width: 23px;
+}
+ 
+.btn.btn-custom:hover {
+    background-color: #06C1D6;
+    color: #fff;
+}
+ 
+.navbar {
+    background-color: #008A33;
+    height: 94px;
+    font-weight: bold;
+}
+ 
+.logo {
+    padding-top: 20px;
+    width: 330px;
+}
+  
+.nav-item {
+    margin-right: 40px;
+    font-size: 23px;
+}
+ 
+.card {
+    background-color: #d9d9d9;
+    width: 18rem;
+    border-radius: 31px;
+}
+ 
+.card .card-title {
+    font-weight: bold;
+}
+ 
+.card .btn {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+}
+ 
+.card img {
+    border-radius: 31px;
+}
+ 
+.card a {
+    border-radius: 31px;
+}
+ 
+.btn {
+    align-items: center;
+}
+ 
+.rodape {
+    background-color: #ccc; /* Cor de fundo cinza */
+    padding: 20px; /* Espaçamento interno */
+}
+ 
+.rodape .container {
+    display: flex;
+    justify-content: space-between; /* Alinha os itens no início e no final do rodapé */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+ 
+.rodape .texto-centralizado {
+    text-align: center; /* Centraliza o texto */
+    font-size: 15px;
+}
+ 
+.rodape .redes-sociais {
+    display: flex; /* Utiliza flexbox para alinhar os ícones das redes sociais */
+    justify-content: flex-end;
+    margin-left:1250px; /* Adiciona margem entre os ícones, se necessário */
+    align-items: center;
+}
+ 
+.rodape .redes-sociais a {
+    margin-right: 10px; /* Adiciona margem entre os ícones */
+}
+ 
+.rodape .meus-icons {
+    display: flex; /* Utiliza flexbox para alinhar os seus ícones */
+    align-items: center;
+    margin-right: 1280px;
+    margin-left: 100px;
+}
+ 
+.iconeFooter{
+    transform: translate(-1300px, 0%);
+}
+ 
+.linksNav{
+    text-decoration: underline;
+}
+
+.modal-content {
+    background-color: #8E8C8C;
+    color: #fff;
+    border-radius: 31px;
+}
+ 
+.modal-body {
+    padding: 0;
+}
+ 
+.modal-body .row {
+    display: flex;
+    height: 100%;
+}
+ 
+.modal-body .col-md-6 {
+    padding: 0;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+.btn-logout {
+    background-color: #06C1D6;
+    color: #ffffff;
+    width: 100%;
+    border: none;
+    border-radius: 31px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.btn-close:hover {
+    color: #000;
+}
+ 
+.navbar {
+    background-color: #008A33;
+    height: 94px;
+    font-weight: bold;
+}
+ 
+.logo {
+    padding-top: 20px;
+    width: 330px;
+}
+ 
+#adocao {
+    color: #06C1D6;
+    font-size: 27px;
+}
+ 
+.nav-item {
+    margin-right: 40px;
+    font-size: 23px;
+}
+ 
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+ 
+.alignNgmEnd{
+    margin-left: 650px;
+    width: 300px;
+}
+ 
+.modal-body .info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: star;
+}
+ 
+.modal-content {
+    border-radius: 10px;
+}
+ 
+.modal-body {
+    padding: 20px;
+}
