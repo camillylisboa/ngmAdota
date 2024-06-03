@@ -69,3 +69,26 @@
     height: 55px;
     font-size: 30px;
 }
+
+.modal-content{
+    background-color: #d9d9d9;
+    border-radius: 31px;
+}
+
+.modal-content input{
+    border-radius: 31px;
+    background-color: #d9d9d9;
+    color: #464646;
+    border-color: #8E8C8C;
+    border-width: 5px;
+    border-radius: 31px;
+}
+
+.btn-custom{
+    background-color: #06C1D6;
+    border-radius: 31px;
+    width: 100%;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}

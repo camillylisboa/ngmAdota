@@ -32,14 +32,8 @@ $(document).ready(function () {
         // Adicionar ícone com nome do usuário
 
         var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width : 23px;" class="menu-icon" alt=""></a>';
+        $("#modal-nomeUsuario").text(nomeUsuario)
         $('.navbar-nav').after(userIconHtml);
-
-
-        // Preencher o modal de informações do usuário
-        $('#info-nome-usuario').text(nomeUsuario);
-        $('#info-email-usuario').text(emailUsuario);
-        $('#info-idade-usuario').text(idadeUsuario);
-        $('#info-telefone-usuario').text(telefoneUsuario);
     } else {
         // Garantir que o botão de entrar esteja presente se não houver usuário logado
         if ($('.btn-custom').length === 0) {
