@@ -18,7 +18,56 @@
     border: none;
     margin-right: 20px;
 }
+
+.alignNgmEnd{
+    margin-left: 650px;
+    width: 300px;
+}
+.modal-corpo{
+    padding: 10px;
+    font-size: 16px;
+}
+.modal-corpo img{
+    margin-bottom: 10px;
+}
+.info a{
+    display: block;
+    color: #000;
+}
+.info img{
+    width: 35px;
+    height: 35px;
+}
+
+.modal-content {
+    background-color: #8E8C8C;
+    color: #fff;
+    border-radius: 31px;
+}
  
+.modal-body {
+    padding: 0;
+}
+ 
+.modal-body .row {
+    display: flex;
+    height: 100%;
+}
+ 
+.modal-body .col-md-6 {
+    padding: 0;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+ 
+ 
+.modal-body .info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: star;
+}
 
 .menu-icon{
     width: 23px;
@@ -146,8 +195,60 @@
     margin-right: 1280px;
     margin-left: 100px;
 }
- 
+
 .iconeFooter{
     transform: translate(-1300px, 0%);
 }
+ /* Modal de confirmação de saída */
+.modal.fade {
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
  
+.modal.fade.show {
+    display: block;
+}
+ 
+.modal-content {
+    border-radius: 10px;
+}
+ 
+.modal-body {
+    padding: 20px;
+}
+ 
+.btn-secondary {
+    background: #ccc;
+    color: #000;
+}
+ 
+.btn-primary {
+    background: #008A33;
+    color: #fff;
+}
+ 
+.btn-primary:hover {
+    background: #006620;
+}
+ 
+.btn-close {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+}
+ 
+.btn-close:hover {
+    color: #000;
+}
