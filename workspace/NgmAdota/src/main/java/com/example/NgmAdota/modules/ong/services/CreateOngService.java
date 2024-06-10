@@ -12,17 +12,12 @@ public class CreateOngService {
     @Autowired
     private OngRepository ongRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
     public OngModel execute(OngModel ong){
         this.ongRepository.findByEmail(ong.getEmail())
                 .ifPresent((user) -> {
                     throw new UserFoundException();
                 });
 
-        var password = passwordEncoder.encode(ong.getSenha());
-        ong.setSenha(password);
         return this.ongRepository.save(ong);
     }
 }

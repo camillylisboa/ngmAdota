@@ -1,6 +1,8 @@
 package com.example.NgmAdota.modules.ong;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 
@@ -13,8 +15,8 @@ public class OngModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String razaosocial;
+    @Email
     private String email;
-    private String senha;
     private String cnpj;
     private String telefone;
     private String cep;
@@ -27,14 +29,6 @@ public class OngModel implements Serializable {
 
     public Long getId() {
         return id;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public void setId(Long id) {

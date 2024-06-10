@@ -3,8 +3,12 @@ package com.example.NgmAdota.modules.usuario.services;
 import com.example.NgmAdota.exceptions.UserFoundException;
 import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import com.example.NgmAdota.modules.usuario.UsuarioRepository;
+import com.example.NgmAdota.modules.usuario.dto.RegisterDTO;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,17 +16,14 @@ public class CreateUsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    public ResponseEntity<Object> execute(@Valid RegisterDTO registerDTO) {
+        if(this.usuarioRepository.findByEmail(registerDTO.email()) != null)return ResponseEntity.badRequest().build();
 
-    public UsuarioModel execute(UsuarioModel usuario) {
-        this.usuarioRepository.findByEmail(usuario.getEmail())
-                .ifPresent((usuarioModel) -> {
-                    throw new UserFoundException();
-                });
+        String encryptedPassword = new BCryptPasswordEncoder().encode(registerDTO.senha());
+        UsuarioModel newUser = new UsuarioModel(registerDTO.nome(), registerDTO.email(), registerDTO.dataNascimento(), registerDTO.telefone(), encryptedPassword, registerDTO.role());
 
-                var password = passwordEncoder.encode(usuario.getSenha());
-                usuario.setSenha(password);
-                return this.usuarioRepository.save(usuario);
+        this.usuarioRepository.save(newUser);
+
+        return ResponseEntity.ok().build();
     }
 }

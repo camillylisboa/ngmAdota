@@ -1,4 +1,4 @@
-package com.example.NgmAdota.modules.animal;
+package com.example.NgmAdota.modules.ong;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface AnimalRepository extends JpaRepository<AnimalModel, Long> {
-    Optional<AnimalModel> findByNomeAndImagemAndDataNascimentoAndDescricao
-            (String nome, String imagem, LocalDate dataNascimento, String descricao);
+
+    Optional<Object> findByNomeAndImagemAndDataNascimentoAndDescricao(String nome, String imagem, LocalDate localDate, String descricao);
 }

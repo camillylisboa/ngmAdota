@@ -1,74 +1,90 @@
 package com.example.NgmAdota.modules.usuario;
 
+import com.example.NgmAdota.modules.usuario.services.UserRole;
 import jakarta.persistence.*;
-import java.io.Serializable;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "tabUsuario")
-public class UsuarioModel implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class UsuarioModel implements UserDetails {
+//    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     private String nome;
+    @NotBlank
     private String email;
     private LocalDate dataNascimento;
     private Long telefone;
+    @NotBlank
     private String senha;
+    private UserRole role;
+
+
+    public UsuarioModel(String nome, String email, LocalDate dataNascimento, Long telefone, String senha, UserRole role){
+        this.nome = nome;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
+        this.telefone = telefone;
+        this.senha = senha;
+        this.role = role;
+    }
 
     public int idade() {
         LocalDate hoje = LocalDate.now();
         return Period.between(this.dataNascimento, hoje).getYears();
     }
 
-    public Long getID() {
-        return ID;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_ONG"), new SimpleGrantedAuthority("ROLE_USER"));
+        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(Long telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getSenha() {
+    @Override
+    public String getPassword() {
         return senha;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
