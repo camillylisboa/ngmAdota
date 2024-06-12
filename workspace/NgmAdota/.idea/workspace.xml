@@ -5,44 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/exceptions/OngNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/TokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/InteresseModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/InteresseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/controller/InteresseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/dto/InteresseRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/AnimalModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/AnimalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/dto/RequestAnimalDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/dto/AuthenticationDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/dto/LoginResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/dto/RegisterDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/AuthUsuarioService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/services/InteresseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/exceptions/UserFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/exceptions/UserFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityOngFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/animal/AnimalModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/animal/AnimalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/AnimalRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/animal/controllers/AnimalController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/animal/dto/ResponseAnimalDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/dto/ResponseAnimalDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/animal/services/AnimalDuplicateService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/animal/services/CreateAnimalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateAnimalService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/animal/services/UpdateAnimalService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/OngModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/OngModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/OngRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/OngRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/dto/AuthOngDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/dto/AuthOngResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/AuthOngService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/InteresseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/InteresseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/controller/InteresseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/controller/InteresseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateAnimalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateAnimalService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateOngService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateOngService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/controller/UsuarioController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/dto/LoginResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/dto/LoginResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/AuthUsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/AuthUsuarioService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/CreateUsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/CreateUsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/providers/JWTOngProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

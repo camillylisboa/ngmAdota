@@ -3,15 +3,12 @@ package com.example.NgmAdota.modules.formInteresse;
 import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "tabInteresse")
-@Getter
-@Setter
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class InteresseModel {
@@ -21,13 +18,19 @@ public class InteresseModel {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        @ManyToOne(cascade = CascadeType.PERSIST)
-        @JoinColumn(name = "usuario_id", nullable = false)
-        private UsuarioModel usuario;
+        @ManyToOne()
+        @JoinColumn(name = "usuario_id", insertable = false, updatable = false)
+        private UsuarioModel usuarioModel;
 
-        @OneToOne
-        @JoinColumn(name = "animal_id", referencedColumnName = "id")
-        private AnimalModel animal;
+        @Column(name = "usuario_id", nullable = false)
+        private Integer usuarioId;
+
+        @OneToOne()
+        @JoinColumn(name = "animal_id", insertable = false, updatable = false)
+        private AnimalModel animalModel;
+
+        @Column(name = "animal_id", nullable = false)
+        private Long animalId;
 
         private String temCrianca;
         private String acordoAdocao;

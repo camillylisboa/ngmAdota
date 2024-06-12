@@ -26,7 +26,7 @@ public class CreateAnimalService {
                 animalDTO.dataNascimento(),
                 animalDTO.descricao()
         ).ifPresent(animal -> {
-            throw new UserFoundException();
+            throw new UserFoundException("Usuário já existe em nossa base de dados");
         });
 
         // Converter DTO para Entidade
