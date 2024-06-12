@@ -36,6 +36,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/animal/lista").permitAll()
                         .requestMatchers(HttpMethod.GET, "/animal/lista/{id}").permitAll()
                         .requestMatchers(HttpMethod.GET, "/interesse/lista").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/interesse/cadastro").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
                         .anyRequest().authenticated()
                 )
