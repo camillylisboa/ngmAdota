@@ -1,6 +1,8 @@
 package com.example.NgmAdota.modules.ong.controller;
 
 import com.example.NgmAdota.exceptions.UserFoundException;
+import com.example.NgmAdota.modules.formInteresse.InteresseModel;
+import com.example.NgmAdota.modules.formInteresse.dto.InteresseRequestDTO;
 import com.example.NgmAdota.modules.ong.OngModel;
 import com.example.NgmAdota.modules.ong.OngRepository;
 import com.example.NgmAdota.modules.ong.dto.OngRequestDTO;
@@ -27,6 +29,13 @@ public class OngController {
     private CreateOngService createOngService;
 
     @PostMapping("/")
+    public ResponseEntity<OngModel> cadastroInteresse(@Valid @RequestBody  OngRequestDTO request) {
+        var ongModel = new OngModel();
+        BeanUtils.copyProperties(request, ongModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body(ongRepository.save(ongModel));
+    }
+
+    @PostMapping("/cadastro")
     public ResponseEntity<Object> create(@Valid @RequestBody OngModel ong){
         try{
             var result = this.createOngService.execute(ong);

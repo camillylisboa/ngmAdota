@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/animal/").hasRole("ONG")
+                        .requestMatchers(HttpMethod.POST, "/ong/").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.GET, "/animal/lista").permitAll()
                         .requestMatchers(HttpMethod.GET, "/animal/lista/{id}").permitAll()
