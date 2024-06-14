@@ -55,6 +55,9 @@
             <p class="fw-bold text-center">FORMULÁRIO DE INTERESSE</p>
             <div class="container">
                 <div class="container px-4">
+                    <input class="my-3" type="hidden" id="userId" name="usuarioId">
+                    <input class="my-3" type="hidden" id="animalId" name="animalId">
+                    <p id="animalP">Animal:<input class="my-3" id="animalNome" name="animalNome" readonly></p>
                     <p class="fs-4 my-3 fw-medium">DADOS DA CASA</p>
                     <div class="row">
                         <div class="col-6">
@@ -133,7 +136,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <label for="">Sua moradia é aberta?</label>
+                            <label for="">Sua moradia tem quintal?</label>
                         </div>
                         <div class="form-check col-1">
                             <input class="form-check-input" type="radio" name="flexRadioAberta" id="flexRadioAberta1"
@@ -156,7 +159,7 @@
                             <label class="form-check-label" for="flexRadioDefault1"> Sim </label>
                         </div>
                         <div class="form-check col-1">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
                                 value="Não">
                             <label class="form-check-label" for="flexRadioDefault1"> Não </label>
                         </div>
@@ -220,10 +223,12 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalProtocoloLabel">Status da Requisição</h5>
+                        <h5 class="modal-title" id="modalProtocoloLabel">SEU NÚMERO DE PROTOCOLO É <span id="numeroProtocolo"></span></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        Sua requisição está sendo analisada por nossa equipe, seu número de protocolo é...
+                        Sua requisição foi enviada e está sendo analisada pela ong protetora do animal escolhido.<br>
+                        Guarde seu número de protocolo, pois lhe será útil no futuro.
                     </div>
                 </div>
             </div>

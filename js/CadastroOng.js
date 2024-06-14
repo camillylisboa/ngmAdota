@@ -35,13 +35,13 @@ function enviarOng() {
     };
     console.log('Dados a serem enviados:', ongData);
     $.ajax({
-        url: 'http://localhost:8080/ong/cadastro',
+        url: 'http://localhost:8080/ong/',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(ongData),
         dataType: 'json',
         success: function () {
-            console.log('Blog enviado com sucesso');
+            console.log('enviado com sucesso');
             limparCampos();
             mostrarAlertaSucesso();
         },
