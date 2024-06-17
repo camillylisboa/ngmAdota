@@ -1,22 +1,12 @@
 $(document).ready(function () {
-
     var token = window.localStorage.getItem('token');
     var nomeUsuario = window.localStorage.getItem('nomeUsuario');
     if (token && nomeUsuario) {
-        // Remover botão de entrar
-        $('.btn-custom').remove();
- 
-        // Adicionar ícone com nome do usuário
-        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width : 23px;" class="menu-icon" alt=""></a>';
+        $('#entrar').remove();
+        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width: 23px;" class="menu-icon" alt=""></a>';
         $('.navbar-nav').after(userIconHtml);
- 
-        // Preencher o modal de informações do usuário
         $('#info-nome-usuario').text(nomeUsuario);
-        $('#info-email-usuario').text(emailUsuario);
-        $('#info-idade-usuario').text(idadeUsuario);
-        $('#info-telefone-usuario').text(telefoneUsuario);
     }
-
 });
 
 function enviarOng() {
@@ -33,7 +23,6 @@ function enviarOng() {
         numero: $('#numero').val(),
         complemento: $('#complemento').val()
     };
-    console.log('Dados a serem enviados:', ongData);
     $.ajax({
         url: 'http://localhost:8080/ong/',
         method: 'POST',
@@ -60,12 +49,12 @@ function mostrarAlertaSucesso() {
     $('#alertaSucesso').removeClass('d-none');
     setTimeout(function() {
         $('#alertaSucesso').addClass('d-none');
-    }, 3000); // O alerta desaparecerá após 3 segundos
+    }, 3000);
 }
 
 function mostrarAlertaErro() {
     $('#alertaErro').removeClass('d-none');
     setTimeout(function() {
         $('#alertaErro').addClass('d-none');
-    }, 3000); // O alerta desaparecerá após 3 segundos
+    }, 3000);
 }
