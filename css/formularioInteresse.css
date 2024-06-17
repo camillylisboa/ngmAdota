@@ -1,6 +1,38 @@
 * {
     font-family: sans-serif;
 }
+
+#animalNome {
+    align-items: center;
+    justify-items: center;
+    padding: 5px;
+    border: 0px solid #ccc;
+    border-radius: 3px;
+    font-size: 32px;
+    color: #333;
+    background-color: #d9d9d9;
+    width: 200px; /* Defina a largura desejada */
+    display: inline-block;
+}
+
+#animalP {
+    font-size: 30px;
+}
+
+.my-3:hover {
+    border-color: #999;
+}
+
+.my-3:focus {
+    border-color: #555;
+    outline: none; /* Remove a borda ao focar */
+}
+
+/* Se desejar, ajuste os estilos para a versão readonly */
+.my-3[readonly] {
+    background-color: #eee;
+    border-color: #ddd;
+}
  
 .navbar {
     background-color: #008A33;
@@ -333,22 +365,6 @@ h1 {
 .form h2 {
     margin-bottom: 10px;
 }
- 
-#alertaSucesso {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
- 
-#alertaErro {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
 
 .modal-content {
     background-color: #8E8C8C;
@@ -386,21 +402,9 @@ h1 {
     justify-content: star;
 }
  
-.fundoFormularioDeInteresse >.text-center {
-    color: white;
-    font-size: 35px;
-    padding-top: 38px;
-    border: 1px;
-}
- 
-.fundoFormularioDeInteresse {
-    background-color: #06C1D6;
-    height: 403px;
-}
- 
 .fundoFormularioDeInteresse > .container {
     background-color: #d9d9d9;
-    height: 180%;
+    height: 210%;
     width: 1147px;
     margin-top: 38px;
     border-radius: 31px;
