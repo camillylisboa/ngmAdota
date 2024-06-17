@@ -256,6 +256,7 @@ h1 {
  
 .modal-content {
     border-radius: 10px;
+    width: 45rem;
 }
  
 .modal-header {
@@ -265,11 +266,16 @@ h1 {
  
 .modal-body {
     padding: 20px;
+    background-color:#d9d9d9;
+    color: #000;
+    border-radius: 10px;
+    
+    
 }
  
 .modal-footer {
     padding: 20px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #cccccc;
 }
  
 .btn-secondary {
@@ -749,15 +755,23 @@ h1 {
 }
  
 .modal-content {
-    background-color: #8E8C8C;
-    color: #fff;
-    border-radius: 31px;
+    border-radius: 10px;
+    width: 45rem;
 }
  
+
 .modal-body {
-    padding: 0;
+    padding: 20px;
+    background-color:#d9d9d9;
+    color: #000;
+    border-radius: 10px;
+
 }
- 
+
+.modal-body #modal-nome{
+    font-size: 25px;
+}
+
 .modal-body .row {
     display: flex;
     height: 100%;
@@ -772,7 +786,7 @@ h1 {
  
 .modal-body img {
     width: 400px;
-    height: 500px;
+
     display: block;
     border-radius: 31px;
 }
@@ -846,9 +860,7 @@ h1 {
     display: block;
 }
  
-.modal-content {
-    border-radius: 10px;
-}
+
  
 .modal-header {
     padding: 20px;
