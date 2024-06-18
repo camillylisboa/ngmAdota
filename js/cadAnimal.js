@@ -1,27 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('/animal/')
-        .then(response => response.json())
+    populateSelect();
+});
+
+function populateSelect() {
+    const select = document.getElementById("racaSelect");
+
+    fetch('http://localhost:8080/raca/get') // Use a URL completa se necessário
+        .then(response => {
+            return response.json();
+        })
         .then(data => {
-            const selectElement = document.getElementById('raca');
-            selectElement.innerHTML = '<option value="" disabled selected>RACA</option>'; // Limpa e adiciona o placeholder
-            data.forEach(option => {
-                const optionElement = document.createElement('sisRaca');
-                optionElement.value = sisRaca.ID;
-                optionElement.textContent = sisRaca.Tipo;
-                selectElement.appendChild(optionElement);
+            console.log("Dados recebidos:", data);
+            data.forEach(item => {
+                const option = document.createElement("option");
+                option.value = item.idEspecie;
+                option.text = item.tipo;
+                select.appendChild(option);
             });
         })
         .catch(error => {
-            console.error('Erro ao carregar opções:', error);
-            const selectElement = document.getElementById('raca');
-            selectElement.innerHTML = '<option value="" disabled selected>Erro ao carregar opções</option>';
+            console.error("Erro ao buscar dados:", error);
         });
-});
-
-function getTeste() {
-    const selectElement = document.getElementById("raca");
-    const selectedValue = selectElement.value;
-    document.getElementById("teste").innerText = selectedValue ? 
-        "Valor selecionado: " + selectedValue : 
-        "Por favor, selecione uma opção.";
 }
