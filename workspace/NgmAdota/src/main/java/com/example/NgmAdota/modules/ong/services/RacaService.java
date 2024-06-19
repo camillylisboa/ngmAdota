@@ -15,7 +15,7 @@ public class RacaService {
 
     public List<RacaModel> getAllRacas() {
         try {
-            return racaRepository.findAll();
+            return racaRepository.findAllByOrderByTipoAsc();
         } catch (Exception e) {
             // Log do erro para debug
             e.printStackTrace();

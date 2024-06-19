@@ -5,13 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="Rotas back end funcionando">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/RacaModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/RacaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/RacaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/RacaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/EspecieModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/EspecieRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/EspecieController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/EspecieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../cadastroAnimal.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../cadastroAnimal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../css/cadAnimal.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../css/cadAnimal.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../js/cadAnimal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/cadAnimal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/RacaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/RacaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/RacaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/RacaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
