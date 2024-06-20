@@ -56,25 +56,62 @@
     color: #fff;
 }
  
+/* Estilos para a navbar */
 .navbar {
-    background-color: #008A33;
-    height: 94px;
-    font-weight: bold;
+    background-color: #008A33; /* Cor de fundo da navbar */
+    height: 94px; /* Altura da navbar */
+    font-weight: bold; /* Peso da fonte */
+    position: relative; /* Posição relativa para alinhar o título */
 }
- 
+
+/* Estilos para a logo */
 .logo {
-    padding-top: 20px;
-    width: 330px;
+    width: 250px; /* Largura inicial da logo */
+    height: 190px; /* Altura automática para manter a proporção */
+    padding: 20px;
+    position: absolute; /* Posição absoluta para alinhar a logo */
+    left: 0px; /* Espaçamento à esquerda da navbar */
+    top: 50%; /* Alinha a logo verticalmente ao centro */
+    transform: translateY(-50%); /* Ajusta para o centro exato */
 }
- 
-#adocao {
-    color: #06C1D6;
-    font-size: 27px;
+
+@media (max-width: 767px) {
+    .logo {
+        width: 250px; /* Reduz a largura da logo para dispositivos móveis */
+        padding: 10px; /* Reduz o padding para economizar espaço */
+    }
+
+    .navbar-title {
+        display: none; /* Oculta o título da navbar em dispositivos móveis */
+    }
 }
- 
+
+/* Estilos para o título */
+.navbar-title {
+    position: absolute; /* Posição absoluta para alinhar o título */
+    top: 80%; /* Alinha o título verticalmente ao centro */
+    transform: translateY(-50%); /* Ajusta para o centro exato */
+    left: 200px; /* Espaçamento à direita da navbar */
+    padding: 20px;
+    color: #fff; /* Cor do título */
+}
+
+/* Estilos para os itens da navbar */
 .nav-item {
-    margin-right: 40px;
-    font-size: 23px;
+    margin-right: 20px; /* Espaçamento entre os itens */
+    font-size: 18px; /* Tamanho da fonte dos itens */
+}
+
+.nav-link {
+    color: #fff; /* Cor dos links */
+}
+
+.nav-link:hover {
+    color: #06C1D6; /* Cor dos links no hover */
+}
+.titulo {
+    width: 270px;
+    height: 310px;
 }
  
 .card {
