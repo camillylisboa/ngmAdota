@@ -18,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -54,6 +54,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.NgmAdotaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/enzob/OneDrive/Documentos/git/ngmAdota/workspace/NgmAdota&quot;
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.NgmAdotaApplication.executor": "Run",
@@ -63,7 +70,7 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/PMB/Documents/nunu/ngmAdota/workspace/NgmAdota"
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.NgmAdota.Controllers" />
