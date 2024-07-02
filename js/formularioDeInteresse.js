@@ -9,7 +9,7 @@ function enviarFormulario() {
   if (!cachorro && !gato && !outro && !primeiroPet) {
       mostrarAlertaErro('Você deve selecionar pelo menos uma opção entre cachorro, gato, outro ou primeiro pet.');
       return; // Impede o envio do formulário
-    }
+  }
 
   if (!declaracaoCheckbox) {
     mostrarAlertaErro('Você deve marcar a declaração antes de enviar o formulário.');

@@ -42,9 +42,9 @@ public class OngController {
         return ResponseEntity.status(HttpStatus.OK).body(ongRepository.findAll());
     }
 
-    @GetMapping("/lista/{id}")
-    public ResponseEntity<Object> listarUmaOng(@PathVariable(value = "id")  Long id) {
-        Optional<OngModel> ong0 = ongRepository.findById(id);
+    @GetMapping("/lista/{email}")
+    public ResponseEntity<Object> listarUmaOng(@PathVariable(value = "email")  String email) {
+        Optional<OngModel> ong0 = ongRepository.findByEmail(email);
         if (ong0.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possivel editar os dados desta Ong, pois ela não foi encontrado");
         }
