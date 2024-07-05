@@ -91,7 +91,7 @@ $(document).ready(function () {
                     localStorage.setItem('animalNome', animal.nome);
                 });
 
-                
+
 
                 $('#adocaoBtn').on('click', function () {
                     if (token && nomeUsuario) {
@@ -109,6 +109,39 @@ $(document).ready(function () {
     }
 
     obterListaAnimais();
+
+
+    // Função para buscar e armazenar a ROLE no localStorage e controlar a exibição da tag <a>
+    function buscarRoleUsuario() {
+        fetch('http://localhost:8080/auth/lista')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.authorities && data.authorities.length > 0) {
+                    // Verificar se a role "ROLE_ADMIN" ou "ROLE_ONG" existe nas authorities
+                    const isAdminOrOng = data.authorities.some(auth => auth.authority === "ROLE_ADMIN" || auth.authority === "ROLE_ONG");
+
+                    // Armazenar a role no localStorage
+                    const role = isAdminOrOng ? (data.authorities.find(auth => auth.authority === "ROLE_ADMIN" || auth.authority === "ROLE_ONG").authority) : "ROLE_USER";
+                    window.localStorage.setItem('userRole', role);
+                    console.log("Role armazenada no localStorage: " + role);
+
+                    // Verifica se a role é "admin" ou "ong" e exibe/esconde a tag <a>
+                    if (role === "ROLE_ADMIN" || role === "ROLE_ONG") {
+                        document.querySelectorAll('a').forEach(a => a.style.display = 'block');
+                    } else if (role === "ROLE_USER") {
+                        document.querySelectorAll('a').forEach(a => a.style.display = 'none');
+                    }
+                } else {
+                    console.error("Role não encontrada no JSON do usuário.");
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao buscar role do usuário:", error);
+            });
+    }
+
+    // Chamar a função para buscar a ROLE do usuário
+    buscarRoleUsuario();
 
     // Função para fazer logout
     function logout() {

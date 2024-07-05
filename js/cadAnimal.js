@@ -21,7 +21,6 @@ function populateSelectRaca() {
     fetch('http://localhost:8080/raca/get')
         .then(response => response.json())
         .then(data => {
-            console.log("Dados recebidos na populateSelectRaca: ", data); // Verifique o formato dos dados
             if (Array.isArray(data)) {
                 data.forEach(item => {
                     const option = document.createElement("option");
@@ -44,7 +43,6 @@ function populateSelectEspecie() {
     fetch('http://localhost:8080/especie/get')
         .then(response => response.json())
         .then(data => {
-            console.log("Dados recebidos na populateSelectEspecie: ", data); // Verifique o formato dos dados
             if (Array.isArray(data)) {
                 data.forEach(item => {
                     const option = document.createElement("option");
@@ -67,7 +65,6 @@ function populateSelectPelagem() {
     fetch('http://localhost:8080/pelagem/get')
         .then(response => response.json())
         .then(data => {
-            console.log("Dados recebidos na populateSelectPelagem: ", data); // Verifique o formato dos dados
             if (Array.isArray(data)) {
                 data.forEach(item => {
                     const option = document.createElement("option");
@@ -90,7 +87,6 @@ function populateSelectPorte() {
     fetch('http://localhost:8080/porte/get')
         .then(response => response.json())
         .then(data => {
-            console.log("Dados recebidos na populateSelectPorte: ", data); // Verifique o formato dos dados
             if (Array.isArray(data)) {
                 data.forEach(item => {
                     const option = document.createElement("option");

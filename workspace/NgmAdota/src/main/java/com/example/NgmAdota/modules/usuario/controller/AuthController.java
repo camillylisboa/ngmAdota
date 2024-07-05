@@ -3,6 +3,9 @@ package com.example.NgmAdota.modules.usuario.controller;
 
 import com.example.NgmAdota.exceptions.UserFoundException;
 import com.example.NgmAdota.exceptions.UserNotFoundException;
+import com.example.NgmAdota.modules.ong.AnimalModel;
+import com.example.NgmAdota.modules.usuario.UsuarioModel;
+import com.example.NgmAdota.modules.usuario.UsuarioRepository;
 import com.example.NgmAdota.modules.usuario.dto.AuthenticationDTO;
 import com.example.NgmAdota.modules.usuario.dto.RegisterDTO;
 import com.example.NgmAdota.modules.usuario.services.AuthUsuarioService;
@@ -13,6 +16,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/auth")
 @CrossOrigin("*")
@@ -22,6 +27,8 @@ public class AuthController {
     private AuthUsuarioService authUsuarioService;
     @Autowired
     private CreateUsuarioService usuarioService;
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
 
     @PostMapping("/login")
@@ -46,5 +53,10 @@ public class AuthController {
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred");
         }
+    }
+
+    @GetMapping("/lista")
+    public ResponseEntity<List<UsuarioModel>> listarUsuario() {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.findAll());
     }
 }
