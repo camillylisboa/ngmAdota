@@ -39,7 +39,7 @@ public class AuthController {
     public ResponseEntity register(@Valid @RequestBody RegisterDTO registerDTO) {
         try {
             var newUser = this.usuarioService.execute(registerDTO);
-            return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (UserFoundException ex) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         } catch (Exception ex) {
