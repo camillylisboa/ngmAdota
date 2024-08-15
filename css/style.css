@@ -962,3 +962,7 @@ h1 {
     border-radius: 5px; /* Bordas arredondadas */
     margin-bottom: 20px; /* Margem inferior */
 }
+
+#lista-animais{
+    margin: auto;
+}
