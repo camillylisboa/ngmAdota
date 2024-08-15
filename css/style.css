@@ -30,11 +30,11 @@
     border-radius: 31px;
 }
  
-.imgHome {
+/* .imgHome {
     width: 100%;
     height: 900px;
     margin-bottom: 20px;
-}
+} */
  
 .btn.btn-custom {
     background-color: #06C1D6;
@@ -56,25 +56,64 @@
     color: #fff;
 }
  
+/* Estilos para a navbar */
 .navbar {
-    background-color: #008A33;
-    height: 94px;
-    font-weight: bold;
+    
+    background-color: #008A33; /* Cor de fundo da navbar */
+    height: 94px; /* Altura da navbar */
+    font-weight: bold; /* Peso da fonte */
+    position: relative; /* Posição relativa para alinhar o título */
 }
+
+/* Estilos para a logo */
+/* .logo { */
+    /* Largura inicial da logo */
+  
+   /*  padding: 29px;
+    /* position: absolute; /* Posição absoluta para alinhar a logo */
+   /*  left: -18px; Espaçamento à esquerda da navbar */
+   /* top: 50%;  Alinha a logo verticalmente ao centro */
+   /* transform: translateY(-50%);  Ajusta para o centro exato */
+/* } */
+
+@media (max-width: 767px) {
+    .logo {
+        width: 50%; /* Reduz a largura da logo para dispositivos móveis */
+       /* padding: 10px; /* Reduz o padding para economizar espaço */
+       transform: translateY(-20%);
+    }
+
+    .navbar-title {
+        display: none; /* Oculta o título da navbar em dispositivos móveis */
  
-.logo {
-    padding-top: 20px;
-    width: 330px;
+    }
 }
- 
-#adocao {
-    color: #06C1D6;
-    font-size: 27px;
+
+/* Estilos para o título */
+.navbar-title {
+    position: absolute; /* Posição absoluta para alinhar o título */
+    top: 80%; /* Alinha o título verticalmente ao centro */
+    transform: translateY(-50%); /* Ajusta para o centro exato */
+    left: 100px; /* Espaçamento à direita da navbar */
+    color: #fff; /* Cor do título */
 }
- 
+
+/* Estilos para os itens da navbar */
 .nav-item {
-    margin-right: 40px;
-    font-size: 23px;
+    margin-right: 20px; /* Espaçamento entre os itens */
+    font-size: 18px; /* Tamanho da fonte dos itens */
+}
+
+.nav-link {
+    color: #fff; /* Cor dos links */
+}
+
+.nav-link:hover {
+    color: #06C1D6; /* Cor dos links no hover */
+}
+.titulo {
+    width: 270px;
+    height: 310px;
 }
  
 .card {
@@ -316,8 +355,6 @@ h1 {
     padding: 10px 15px; /* Espaçamento interno */
     border-radius: 5px; /* Bordas arredondadas */
     margin-bottom: 20px; /* Margem inferior */
-}* {
-    font-family: sans-serif;
 }
  
 .animal-card {
@@ -350,7 +387,7 @@ h1 {
  
 .imgHome {
     width: 100%;
-    height: 900px;
+    /* height: 900px; */
     margin-bottom: 20px;
 }
  
@@ -381,10 +418,21 @@ h1 {
 }
  
 .logo {
-    padding-top: 20px;
-    width: 330px;
+     padding-top: 10px;
+    padding-bottom: 10px;
+     width: 120%;
+    
+    /* top:5%; */
 }
- 
+
+.centralizado {
+    text-align: center;
+    margin-top: 0;
+    color: #008A33;
+  }
+  
+
+
 #adocao {
     color: #06C1D6;
     font-size: 27px;
@@ -590,8 +638,8 @@ h1 {
 .containerAlign{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    gap: 0px;
+    padding: 10px 0;
 }
  
 .containerAvaliacao {

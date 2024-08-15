@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="Rotas back end funcionando">
+      <change beforePath="$PROJECT_DIR$/../../cadastroAnimal.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../cadastroAnimal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../js/cadAnimal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/cadAnimal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/infra/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/controller/AuthController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +19,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Record" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

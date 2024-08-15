@@ -30,12 +30,11 @@ public class AuthController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-
     @PostMapping("/login")
     public ResponseEntity login(@Valid @RequestBody AuthenticationDTO requestDTO){
         try{
             var loginUsuario = authUsuarioService.login(requestDTO);
-            return new ResponseEntity(loginUsuario, HttpStatus.OK);
+            return ResponseEntity.status(HttpStatus.OK).body(loginUsuario);
         }catch (UserNotFoundException ex){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
         }catch (Exception ex){
@@ -44,9 +43,9 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Object> register(@Valid @RequestBody RegisterDTO registerDTO) {
+    public ResponseEntity register(@Valid @RequestBody RegisterDTO registerDTO) {
         try {
-            usuarioService.execute(registerDTO);
+            var newUser = this.usuarioService.execute(registerDTO);
             return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (UserFoundException ex) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());

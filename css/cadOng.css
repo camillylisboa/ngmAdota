@@ -33,8 +33,11 @@
 }
  
 .logo {
-    padding-top: 20px;
-    width: 330px;
+    padding-top: 10px;
+   padding-bottom: 10px;
+    width: 120%;
+   
+   /* top:5%; */
 }
  
 #adocao {
@@ -106,6 +109,8 @@
     flex-direction: column;
     justify-content: star;
 }
+
+ 
  
 .alert-success {
     background-color: #d4edda; /* Cor de fundo */

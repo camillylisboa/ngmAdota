@@ -2,6 +2,7 @@ package com.example.NgmAdota.modules.usuario;
 
 import com.example.NgmAdota.modules.usuario.services.UserRole;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,22 +27,37 @@ public class UsuarioModel implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    @NotBlank
+    @Email(message = "o campo [email] deve conter um email válido")
     private String email;
     private LocalDate dataNascimento;
     private Long telefone;
     @NotBlank
     private String senha;
     private UserRole role;
+    private String cep;
+    private String uf;
+    private String cidade;
+    private String bairro;
+    private String logradouro;
+    private Integer numero;
+    private String complemento;
 
-    public UsuarioModel(String nome, String email, LocalDate dataNascimento, Long telefone, String senha, UserRole role){
+    public UsuarioModel(String nome, String email, LocalDate dataNascimento, Long telefone, String senha, UserRole role, String cep, String uf, String cidade, String bairro, String logradouro, Integer numero, String complemento) {
         this.nome = nome;
         this.email = email;
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
         this.senha = senha;
         this.role = role;
+        this.cep = cep;
+        this.uf = uf;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.complemento = complemento;
     }
+
 
     public int idade() {
         LocalDate hoje = LocalDate.now();

@@ -36,10 +36,12 @@
 }
  
 .logo {
-    padding-top: 20px;
-    width: 330px;
+    padding-top: 10px;
+   padding-bottom: 10px;
+    width: 120%;
+   
+   /* top:5%; */
 }
- 
 #adocao {
     color: #06C1D6;
     font-size: 27px;

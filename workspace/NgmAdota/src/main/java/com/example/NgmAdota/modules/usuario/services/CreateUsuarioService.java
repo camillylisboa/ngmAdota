@@ -17,14 +17,14 @@ public class CreateUsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public void execute(@Valid RegisterDTO registerDTO) {
+    public UsuarioModel execute(@Valid RegisterDTO registerDTO) {
         if (this.usuarioRepository.findByEmail(registerDTO.email()) != null) {
-            throw new UserFoundException("Já existe um usário assciado a este email " + registerDTO.email());
+            throw new UserFoundException(" " + registerDTO.email());
         }
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(registerDTO.senha());
-        UsuarioModel newUser = new UsuarioModel(registerDTO.nome(), registerDTO.email(), registerDTO.dataNascimento(), registerDTO.telefone(), encryptedPassword, registerDTO.role());
+        UsuarioModel newUser = new UsuarioModel(registerDTO.nome(), registerDTO.email(), registerDTO.dataNascimento(), registerDTO.telefone(), encryptedPassword, registerDTO.role(), registerDTO.cep(), registerDTO.uf(), registerDTO.cidade(), registerDTO.bairro(), registerDTO.logradouro(), registerDTO.numero(), registerDTO.complemento());
 
-        this.usuarioRepository.save(newUser);
+        return this.usuarioRepository.save(newUser);
     }
 }
