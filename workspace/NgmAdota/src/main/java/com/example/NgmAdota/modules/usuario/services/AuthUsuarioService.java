@@ -56,4 +56,3 @@ public class AuthUsuarioService implements UserDetailsService {
         return usuarioRepository.findByEmail(username);
     }
 }
-

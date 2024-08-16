@@ -24,6 +24,7 @@ $(document).ready(function () {
     var emailUsuario = window.localStorage.getItem('email');
     var idadeUsuario = window.localStorage.getItem('idade');
     var telefoneUsuario = window.localStorage.getItem('telefone');
+    var role = window.localStorage.getItem('role');
 
     if (token && nomeUsuario) {
         // Remover botão de entrar
@@ -110,6 +111,8 @@ $(document).ready(function () {
 
     obterListaAnimais();
 
+    
+
     // Função para fazer logout
     function logout() {
         // Mostrar confirmação estilizada
@@ -120,11 +123,44 @@ $(document).ready(function () {
                 window.localStorage.removeItem('email');
                 window.localStorage.removeItem('idade');
                 window.localStorage.removeItem('telefone');
+                window.localStorage.removeItem('role');
                 // Redirecionar para a página inicial (index.html)
                 window.location.href = 'index.html';
             }
         });
     }
+    
+    function esconderBotaoSeUsuario(role) {
+        
+        if (role) {
+            if (role === "ONG") {
+                const cadastroOng = document.getElementById('cadastroOng');
+                cadastroOng.style.display = 'none';
+            } else {
+                const botaoDropdownOng = document.getElementById('dropdownOng');
+                botaoDropdownOng.style.display = 'none';
+
+            }
+            
+            if (role === "USER") {
+                // Seleciona o botão pelo ID e o esconde
+                const botaoCadAnimal = document.getElementById('cadAnimal');
+                if (botaoCadAnimal) {
+                botaoCadAnimal.style.display = 'none';
+                } else {
+                console.error('Botão com ID "cadAnimal" não encontrado.');
+                }
+            }
+        } else {
+            console.error('Resposta JSON inválida ou propriedade "role" não encontrada.');
+            const botaoDropdownOng = document.getElementById('dropdownOng');
+            botaoDropdownOng.style.display = 'none';
+        }
+        
+      }
+      
+    const roleDoUsuario = role;
+    esconderBotaoSeUsuario(roleDoUsuario);
 
     // Adiciona evento ao botão de logout
     $('#logout-button').on('click', function () {

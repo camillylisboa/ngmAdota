@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="Rotas back end funcionando">
-      <change beforePath="$PROJECT_DIR$/../../cadastroAnimal.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../cadastroAnimal.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../js/cadAnimal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/cadAnimal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/OngController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/OngController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateOngService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateOngService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/AuthUsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/AuthUsuarioService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +31,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RESET_MODE" value="KEEP" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
     &quot;lastFilter&quot;: {
@@ -48,20 +59,21 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-    &quot;associatedIndex&quot;: 3
-    }</component>
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2gPmrxOYp4oEEDLo8rkmdWi7ZUA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.NgmAdotaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.NgmAdotaApplication.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "git-widget-placeholder": "Enzo__02",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.NgmAdota.Controllers" />
