@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="Rotas back end funcionando">
-      <change beforePath="$PROJECT_DIR$/../../index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/OngController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/OngController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateOngService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateOngService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/AuthUsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/AuthUsuarioService.java" afterDir="false" />
-    </list>
+    <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718366346604</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;">
+      <option name="closed" value="true" />
+      <created>1723840136675</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1723840136676</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +187,7 @@
     <MESSAGE value="Corrigindo tratamento de exceções" />
     <MESSAGE value="Rota de ong com erro" />
     <MESSAGE value="Rotas back end funcionando" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rotas back end funcionando" />
+    <MESSAGE value="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;" />
   </component>
 </project>
