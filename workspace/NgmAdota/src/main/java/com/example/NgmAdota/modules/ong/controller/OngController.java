@@ -29,7 +29,7 @@ public class OngController {
     private CreateOngService createOngService;
 
     @PostMapping("/")
-    public ResponseEntity create(@Valid @RequestBody OngRequestDTO ong){
+    public ResponseEntity create(@Valid @RequestBody OngModel ong){
         try{
             var result = this.createOngService.execute(ong);
             return ResponseEntity.ok().body(result);
