@@ -15,12 +15,14 @@ function login() {
             var token = response.token;
             var nome = response.nome;
             var email = response.email;
+            var role = response.role;
             var dataNascimento = response.dataNascimento; // Obtendo a data de nascimento
             var telefone = response.telefone;
             var idade = response.idade; // Obtendo a idade
             window.localStorage.setItem('userId', userId); // Salva o userId no localStorage
             window.localStorage.setItem('token', token);
             window.localStorage.setItem('nomeUsuario', nome);
+            window.localStorage.setItem('role', role);
             window.localStorage.setItem('email', email);
             window.localStorage.setItem('dataNascimento', dataNascimento); // Salvando a data de nascimento
             window.localStorage.setItem('telefone', telefone);

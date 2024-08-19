@@ -3,14 +3,10 @@ package com.example.NgmAdota.modules.ong.services;
 import com.example.NgmAdota.exceptions.OngFoundException;
 import com.example.NgmAdota.exceptions.OngNotFoundException;
 import com.example.NgmAdota.exceptions.UserFoundException;
-import com.example.NgmAdota.exceptions.UserNotFoundException;
 import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.ong.OngModel;
 import com.example.NgmAdota.modules.ong.OngRepository;
 import com.example.NgmAdota.modules.ong.dto.OngRequestDTO;
-import com.example.NgmAdota.modules.usuario.UsuarioModel;
-import com.example.NgmAdota.modules.usuario.UsuarioRepository;
-import com.example.NgmAdota.modules.usuario.services.UserRole;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,58 +14,51 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CreateOngService {
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-
     @Autowired
     private OngRepository ongRepository;
 
-    public OngModel execute(@Valid OngRequestDTO ongDTO) {
-        // Verifica se a ONG já está cadastrada
-        ongRepository.findByEmail(ongDTO.email()).ifPresent(ong -> {
-            throw new OngFoundException("Esta ONG já foi cadastrada"); //impede que duas ongs sejam cadastradas com o mesmo email.
-        });
+  public OngModel execute(@Valid OngRequestDTO ongDTO){
+      ongRepository.findByEmail(ongDTO.email()).ifPresent(ong -> {
+          throw new OngFoundException("Esta ong já foi cadastrada");
+      });
 
-        // Converte DTO para entidade ONG
-        OngModel ong = convertToEntity(ongDTO);
+      OngModel ong = convertToEntity(ongDTO);
 
-        // Salva a ONG no banco de dados
-        OngModel savedOng = ongRepository.save(ong);
+      OngModel savedOng = ongRepository.save(ong);
 
-        // Busca o usuário associado ao email fornecido
-        UsuarioModel usuario = usuarioRepository.findByEmail(ongDTO.email());
-        if (usuario == null) {
-            throw new UserNotFoundException("Usuário não encontrado");
-        }
+      return convertToResponseDTO(savedOng);
+  }
 
-        // Atualiza a role do usuário para ONG
-        criarOng(savedOng, usuario);
+  private OngModel convertToEntity(OngRequestDTO ongDTO){
+      OngModel ong = new OngModel();
+      ong.setRazaosocial(ongDTO.razaosocial());
+      ong.setEmail(ongDTO.email());
+      ong.setCnpj(ongDTO.cnpj());
+      ong.setTelefone(ongDTO.telefone());
+      ong.setCep(ongDTO.cep());
+      ong.setEstado(ongDTO.estado());
+      ong.setCidade(ongDTO.cidade());
+      ong.setBairro(ongDTO.bairro());
+      ong.setLogradouro(ongDTO.logradouro());
+      ong.setNumero(ongDTO.numero());
+      ong.setComplemento(ongDTO.complemento());
+      return ong;
+  }
 
-        return savedOng;
-    }
-
-    public void criarOng(OngModel ong, UsuarioModel usuario) {
-        // Atualiza a role do usuário para ONG
-        usuario.setRole(UserRole.ONG);
-
-        // Persiste a alteração no banco de dados
-        usuarioRepository.save(usuario);
-    }
-
-    private OngModel convertToEntity(OngRequestDTO ongDTO) {
-        OngModel ong = new OngModel();
-        ong.setRazaosocial(ongDTO.razaosocial());
-        ong.setEmail(ongDTO.email());
-        ong.setCnpj(ongDTO.cnpj());
-        ong.setTelefone(ongDTO.telefone());
-        ong.setCep(ongDTO.cep());
-        ong.setEstado(ongDTO.estado());
-        ong.setCidade(ongDTO.cidade());
-        ong.setBairro(ongDTO.bairro());
-        ong.setLogradouro(ongDTO.logradouro());
-        ong.setNumero(ongDTO.numero());
-        ong.setComplemento(ongDTO.complemento());
-        return  ong;
-    }
+  private OngModel convertToResponseDTO(OngModel ong){
+      return OngModel.builder()
+              .id(ong.getId())
+              .razaosocial(ong.getRazaosocial())
+              .email(ong.getEmail())
+              .cnpj(ong.getCnpj())
+              .telefone(ong.getTelefone())
+              .cep(ong.getCep())
+              .estado(ong.getEstado())
+              .cidade(ong.getCidade())
+              .bairro(ong.getBairro())
+              .logradouro(ong.getLogradouro())
+              .numero(ong.getNumero())
+              .complemento(ong.getComplemento())
+              .build();
+  }
 }

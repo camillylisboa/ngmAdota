@@ -1,6 +1,13 @@
 $(document).ready(function () {
     var token = window.localStorage.getItem('token');
     var nomeUsuario = window.localStorage.getItem('nomeUsuario');
+
+    const email = localStorage.getItem('email');
+
+    if (email) {
+        document.getElementById('email').value = email;
+    }
+
     if (token && nomeUsuario) {
         $('#entrar').remove();
         var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width: 23px;" class="menu-icon" alt=""></a>';
@@ -23,6 +30,14 @@ function enviarOng() {
         numero: $('#numero').val(),
         complemento: $('#complemento').val()
     };
+
+    const email = localStorage.getItem('userEmail');
+        
+    // Se o e-mail existir no localStorage, preencha o input com ele
+    if (email) {
+        document.getElementById('email').value = email;
+    }
+
     $.ajax({
         url: 'http://localhost:8080/ong/',
         method: 'POST',
