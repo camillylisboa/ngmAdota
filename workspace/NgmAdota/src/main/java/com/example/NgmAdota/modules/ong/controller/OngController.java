@@ -1,3 +1,4 @@
+
 package com.example.NgmAdota.modules.ong.controller;
 
 import com.example.NgmAdota.exceptions.OngFoundException;
@@ -53,7 +54,7 @@ public class OngController {
 
     @PutMapping("/editar/{id}")
     public ResponseEntity<Object> editarOng(@PathVariable(value = "id") Long id,
-                                               @RequestBody @Valid OngRequestDTO request){
+                                            @RequestBody @Valid OngRequestDTO request){
         Optional<OngModel> ong0 = ongRepository.findById(id);
         if (ong0.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi possivel editar os dados desta ong, pois ela não foi encontrada");

@@ -36,7 +36,15 @@
                       <a class="nav-link active" aria-current="page" id="adocao" href="#">ADOÇÃO</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link text-white" href="./cadastroOng.html">Cadastrar ONGs</a>
+                      <a class="nav-link text-white" href="./cadastroOng.html" id="cadastroOng">Cadastrar ONGs</a>
+                      <div class="dropdown"  id="dropdownOng">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          MENU ONG
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a href="cadastroAnimal.html" class="dropdown-item">Cadastrar Animal</a></li>
+                        </ul>
+                      </div>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link text-white" href="./sobre.html">Sobre</a>
@@ -163,7 +171,6 @@
               <div class="modal-body">
                   <div class="info">
                       <a href="perfilUsuario.html" class="linksNav">Ver perfil</a>
-                      <a href="cadastroAnimal.html" class="linksNav">Cadastrar Animal</a>
                       <a id="logout-button" class="linksNav">Sair</a>
                   </div>
               </div>

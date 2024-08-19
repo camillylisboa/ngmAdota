@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;" />
     <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="Rotas back end funcionando">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/AnimalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/AnimalModel.java" afterDir="false" />
@@ -31,7 +32,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RESET_MODE" value="KEEP" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
     &quot;lastFilter&quot;: {
@@ -53,8 +60,8 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-    &quot;associatedIndex&quot;: 3
-    }</component>
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2gPmrxOYp4oEEDLo8rkmdWi7ZUA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -62,8 +69,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.NgmAdotaApplication.executor": "Run",
+    "Application.NgmAdotaApplication.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "git-widget-placeholder": "Enzo__02",
+    "kotlin-language-version-configured": "true"
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -97,6 +106,13 @@
         <item itemvalue="Application.NgmAdotaApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -147,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718366346604</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;">
+      <option name="closed" value="true" />
+      <created>1723840136675</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1723840136676</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,6 +203,7 @@
     <MESSAGE value="Corrigindo tratamento de exceções" />
     <MESSAGE value="Rota de ong com erro" />
     <MESSAGE value="Rotas back end funcionando" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rotas back end funcionando" />
+    <MESSAGE value="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;" />
   </component>
 </project>
