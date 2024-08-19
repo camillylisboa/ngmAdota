@@ -31,6 +31,13 @@ public class AnimalModel implements Serializable {
     private LocalDate dataNascimento;
     private String sexo;
 
+    @ManyToOne()
+    @JoinColumn(name = "ong_id", insertable = false, updatable = false)
+    private OngModel ongModel;
+
+    @Column(name = "ong_id", nullable = false)
+    private Long ongId;
+
     @Lob
     private String descricao;
 

@@ -1,6 +1,7 @@
 package com.example.NgmAdota.modules.usuario.controller;
 
 
+import com.example.NgmAdota.exceptions.OngNotFoundException;
 import com.example.NgmAdota.exceptions.UserFoundException;
 import com.example.NgmAdota.exceptions.UserNotFoundException;
 import com.example.NgmAdota.modules.ong.AnimalModel;
@@ -46,11 +47,9 @@ public class AuthController {
     public ResponseEntity register(@Valid @RequestBody RegisterDTO registerDTO) {
         try {
             var newUser = this.usuarioService.execute(registerDTO);
-            return ResponseEntity.status(HttpStatus.CREATED).build();
-        } catch (UserFoundException ex) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+            return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
         } catch (Exception ex) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
     }
 

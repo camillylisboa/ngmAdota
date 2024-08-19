@@ -1,5 +1,6 @@
 package com.example.NgmAdota.modules.usuario;
 
+import com.example.NgmAdota.modules.ong.OngModel;
 import com.example.NgmAdota.modules.usuario.services.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -34,6 +35,12 @@ public class UsuarioModel implements UserDetails {
     @NotBlank
     private String senha;
     private UserRole role;
+    @ManyToOne()
+    @JoinColumn(name = "ong_id", insertable = false, updatable = false)
+    private OngModel ongModel;
+
+    @Column(name = "ong_id", nullable = false)
+    private Long ongId;
     private String cep;
     private String uf;
     private String cidade;
@@ -42,13 +49,14 @@ public class UsuarioModel implements UserDetails {
     private Integer numero;
     private String complemento;
 
-    public UsuarioModel(String nome, String email, LocalDate dataNascimento, Long telefone, String senha, UserRole role, String cep, String uf, String cidade, String bairro, String logradouro, Integer numero, String complemento) {
+    public UsuarioModel(String nome, String email, LocalDate dataNascimento, Long telefone, String senha, UserRole role, Long ongId, String cep, String uf, String cidade, String bairro, String logradouro, Integer numero, String complemento) {
         this.nome = nome;
         this.email = email;
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
         this.senha = senha;
         this.role = role;
+        this.ongId = ongId;
         this.cep = cep;
         this.uf = uf;
         this.cidade = cidade;
@@ -66,8 +74,20 @@ public class UsuarioModel implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if(this.role == UserRole.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_ONG"), new SimpleGrantedAuthority("ROLE_USER"));
-        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        if (this.role == UserRole.ADMIN) {
+            return List.of(
+                    new SimpleGrantedAuthority("ROLE_ADMIN"),
+                    new SimpleGrantedAuthority("ROLE_ONG"),
+                    new SimpleGrantedAuthority("ROLE_USER")
+            );
+        } else if (this.role == UserRole.ONG) {
+            return List.of(
+                    new SimpleGrantedAuthority("ROLE_ONG"),
+                    new SimpleGrantedAuthority("ROLE_USER")
+            );
+        } else {
+            return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        }
     }
 
     @Override
