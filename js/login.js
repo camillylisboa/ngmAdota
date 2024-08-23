@@ -15,6 +15,7 @@ function login() {
             var token = response.token;
             var nome = response.nome;
             var email = response.email;
+            var ongId = response.ongId;
             var role = response.role;
             var dataNascimento = response.dataNascimento; // Obtendo a data de nascimento
             var telefone = response.telefone;
@@ -23,6 +24,7 @@ function login() {
             window.localStorage.setItem('token', token);
             window.localStorage.setItem('nomeUsuario', nome);
             window.localStorage.setItem('role', role);
+            window.localStorage.setItem('ongId', ongId);
             window.localStorage.setItem('email', email);
             window.localStorage.setItem('dataNascimento', dataNascimento); // Salvando a data de nascimento
             window.localStorage.setItem('telefone', telefone);

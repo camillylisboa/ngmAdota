@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var ongId = window.localStorage.getItem('ongId');
     var token = window.localStorage.getItem('token');
     var email = window.localStorage.getItem('email');
     console.log("Token e Email lidos do localStorage:", token, email); // Verifique se ambos os valores estão presentes
@@ -12,7 +13,58 @@ $(document).ready(function () {
     populateSelectEspecie();
     populateSelectPelagem();
     populateSelectPorte();
-    populateSelectOng(token, email); // Passe o token e o email
+    populateSelectOng(token, email);  // Passe o token e o email
+    
+    if (!ongId) {
+        console.error('ID de usuário/ONG não encontrado no localStorage.');
+        return;
+    }
+
+        var url = `http://localhost:8080/ong/animal/${ongId}`;
+
+        // Faz a requisição AJAX para buscar os animais
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (animais) {
+                // Limpa a lista de animais antes de adicionar novos cards
+                $('#lista-animais').empty();
+
+                // Itera sobre os animais retornados e cria os cards
+                animais.forEach(function (animal, index) {
+                    var cardHtml =
+                        `<div class="col-md-4">
+                        <div class="animal-card">
+                            <img src="${animal.imagem}" alt="Imagem de ${animal.nome}">
+                            <h2>${animal.nome}</h2>
+                            <button class="btn-adocao" data-toggle="modal" data-target="#modalAnimal" 
+                                data-imagem="${animal.imagem}" data-nome="${animal.nome}" data-descricao="${animal.descricao}">
+                                Editar animal
+                            </button>
+                        </div>
+                    </div>`;
+
+                    // Adiciona o card à lista de animais
+                    $('#lista-animais').append(cardHtml);
+                });
+            },
+            error: function (request, message, error) {
+                console.error('Erro ao buscar os animais:', request, message, error);
+                alert('Erro ao buscar os animais. Por favor, tente novamente.');
+            }
+        });
+
+    // Exibe o modal com os detalhes do animal ao clicar no botão "Ver mais"
+    $('#modalAnimal').on('show.bs.modal', function (e) {
+        var button = $(e.relatedTarget);
+        var imagem = button.data('imagem');
+        var nome = button.data('nome');
+        var descricao = button.data('descricao');
+
+        $('#modal-animal-imagem').attr('src', imagem);
+        $('#modal-animal-nome').text(nome);
+        $('#modal-animal-descricao').text(descricao);
+    });
 });
 
 function populateSelectRaca() {
@@ -131,7 +183,7 @@ function enviarFormulario() {
     var token = window.localStorage.getItem('token');
     var nome = $('#nome').val();
     var peso = parseFloat($('#peso').val());
-    var identificador = $('#identificador').val();
+    var OngId = parseInt($('#ongSelect').val());
     var dataNascimento = $('#dataNascimento').val();
     var sexo = $('#sexo').val();
     var idRaca = parseInt($('#racaSelect').val());
@@ -149,7 +201,7 @@ function enviarFormulario() {
     var interesseData = {
         nome: nome,
         peso: peso,
-        // identificador: identificador,
+        OngId: OngId,
         dataNascimento: dataNascimento,
         sexo: sexo,
         idRaca: idRaca,

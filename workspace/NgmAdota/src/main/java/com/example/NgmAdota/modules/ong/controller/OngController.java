@@ -3,10 +3,12 @@ package com.example.NgmAdota.modules.ong.controller;
 
 import com.example.NgmAdota.exceptions.OngFoundException;
 import com.example.NgmAdota.exceptions.UserFoundException;
+import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.ong.OngModel;
 import com.example.NgmAdota.modules.ong.OngRepository;
 import com.example.NgmAdota.modules.ong.dto.OngRequestDTO;
 import com.example.NgmAdota.modules.ong.services.CreateOngService;
+import com.example.NgmAdota.modules.ong.services.GetAnimalsOngService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +20,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/ong")
+@CrossOrigin(origins = "*")
 public class OngController {
 
     @Autowired
@@ -27,6 +29,9 @@ public class OngController {
 
     @Autowired
     private CreateOngService createOngService;
+
+    @Autowired
+    private GetAnimalsOngService animalsOngService;
 
     @PostMapping("/")
     public ResponseEntity create(@Valid @RequestBody OngModel ong){
@@ -72,6 +77,16 @@ public class OngController {
         }
         ongRepository.delete(ong0.get());
         return ResponseEntity.status(HttpStatus.OK).body("Ong deletada com sucesso!");
+    }
+
+    @GetMapping("/animal/{ongId}")
+    public ResponseEntity<Object> getAnimalsOngId(@PathVariable(value = "ongId") Long ongId){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(animalsOngService.getAnimalsOng(ongId));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+
     }
 
 }

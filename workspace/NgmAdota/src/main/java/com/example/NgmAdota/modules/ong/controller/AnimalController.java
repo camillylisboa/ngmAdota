@@ -1,12 +1,10 @@
 package com.example.NgmAdota.modules.ong.controller;
 
-import com.example.NgmAdota.exceptions.AnimalFoundException;
 import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.ong.AnimalRepository;
-import com.example.NgmAdota.modules.ong.dto.RequestAnimalDTO;
+
 import com.example.NgmAdota.modules.ong.services.CreateAnimalService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

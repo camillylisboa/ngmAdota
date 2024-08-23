@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
 
 @Configuration
 @EnableWebSecurity
@@ -34,6 +35,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/animal/").hasRole("ONG")
                         .requestMatchers(HttpMethod.GET, "/ong/lista/{email}").permitAll()
                         .requestMatchers(HttpMethod.GET, "/raca/get").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/ong/animal/{ongId}").permitAll()
                         .requestMatchers(HttpMethod.GET, "/especie/get").permitAll()
                         .requestMatchers(HttpMethod.GET, "/pelagem/get").permitAll()
                         .requestMatchers(HttpMethod.GET, "/porte/get").permitAll()
