@@ -10,6 +10,10 @@
       <change beforePath="$PROJECT_DIR$/../../js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/CreateUsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/CreateUsuarioService.java" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/OngController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/OngController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateOngService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateOngService.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +31,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/../.." value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -54,8 +53,8 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
+    &quot;associatedIndex&quot;: 3
+    }</component>
   <component name="ProjectId" id="2gPmrxOYp4oEEDLo8rkmdWi7ZUA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -66,7 +65,11 @@
     &quot;Application.NgmAdotaApplication.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+
     &quot;git-widget-placeholder&quot;: &quot;Enzo__02&quot;,
+
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Workspace/bora/ngmAdota/workspace/NgmAdota&quot;
@@ -100,13 +103,6 @@
         <item itemvalue="Application.NgmAdotaApplication" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -157,15 +153,7 @@
       <option name="project" value="LOCAL" />
       <updated>1718366346604</updated>
     </task>
-    <task id="LOCAL-00006" summary="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;">
-      <option name="closed" value="true" />
-      <created>1723840136675</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1723840136676</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,7 +185,6 @@
     <MESSAGE value="Corrigindo tratamento de exceções" />
     <MESSAGE value="Rota de ong com erro" />
     <MESSAGE value="Rotas back end funcionando" />
-    <MESSAGE value="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="quando o formulário de cadastro de ong for enviado, a role do usuario passa de &quot;USER&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rotas back end funcionando" />
   </component>
 </project>

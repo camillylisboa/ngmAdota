@@ -39,7 +39,7 @@ public class UsuarioModel implements UserDetails {
     @JoinColumn(name = "ong_id", insertable = false, updatable = false)
     private OngModel ongModel;
 
-    @Column(name = "ong_id", nullable = false)
+    @Column(name = "ong_id")
     private Long ongId;
     private String cep;
     private String uf;
