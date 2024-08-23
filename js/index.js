@@ -57,6 +57,17 @@ $(document).ready(function () {
         window.localStorage.removeItem('tokenExpiry');
     }
 
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+    });
+
     // Função para fazer a chamada AJAX à API de animais
     function obterListaAnimais() {
         $.ajax({
@@ -92,7 +103,7 @@ $(document).ready(function () {
                     localStorage.setItem('animalNome', animal.nome);
                 });
 
-                
+
 
                 $('#adocaoBtn').on('click', function () {
                     if (token && nomeUsuario) {
@@ -111,7 +122,7 @@ $(document).ready(function () {
 
     obterListaAnimais();
 
-    
+
 
     // Função para fazer logout
     function logout() {
@@ -129,9 +140,9 @@ $(document).ready(function () {
             }
         });
     }
-    
+
     function esconderBotaoSeUsuario(role) {
-        
+
         if (role) {
             if (role === "ONG") {
                 const cadastroOng = document.getElementById('cadastroOng');
@@ -141,14 +152,14 @@ $(document).ready(function () {
                 botaoDropdownOng.style.display = 'none';
 
             }
-            
+
             if (role === "USER") {
                 // Seleciona o botão pelo ID e o esconde
                 const botaoCadAnimal = document.getElementById('cadAnimal');
                 if (botaoCadAnimal) {
-                botaoCadAnimal.style.display = 'none';
+                    botaoCadAnimal.style.display = 'none';
                 } else {
-                console.error('Botão com ID "cadAnimal" não encontrado.');
+                    console.error('Botão com ID "cadAnimal" não encontrado.');
                 }
             }
         } else {
@@ -156,9 +167,9 @@ $(document).ready(function () {
             const botaoDropdownOng = document.getElementById('dropdownOng');
             botaoDropdownOng.style.display = 'none';
         }
-        
-      }
-      
+
+    }
+
     const roleDoUsuario = role;
     esconderBotaoSeUsuario(roleDoUsuario);
 

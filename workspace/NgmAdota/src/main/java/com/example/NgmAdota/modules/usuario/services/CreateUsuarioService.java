@@ -1,5 +1,6 @@
 package com.example.NgmAdota.modules.usuario.services;
 
+import ch.qos.logback.classic.encoder.JsonEncoder;
 import com.example.NgmAdota.exceptions.OngNotFoundException;
 import com.example.NgmAdota.exceptions.UserFoundException;
 import com.example.NgmAdota.exceptions.UserNotFoundException;
@@ -21,6 +22,26 @@ public class CreateUsuarioService {
 
     @Autowired
     private OngRepository ongRepository;
+    @Autowired
+    private  BCryptPasswordEncoder  passwordEncoder;
+
+
+    public UsuarioModel execute(@Valid RegisterDTO registerDTO) {
+        // Verifica se o e-mail já está cadastrado
+        UsuarioModel existingUser = usuarioRepository.findByEmail(registerDTO.email());
+        if (existingUser != null) {
+            throw new UserFoundException("O email " + registerDTO.email() + " já está cadastrado.");
+        }
+
+        // Valida a ONG se o usuário for do tipo ONG
+        Long ongId = null;
+        if (registerDTO.role() == UserRole.ONG) {
+            ongId = registerDTO.ongId();
+            if (ongId == null || !ongRepository.existsById(ongId)) {
+                throw new OngNotFoundException();
+            }
+        }
+
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -40,6 +61,7 @@ public class CreateUsuarioService {
                 throw new OngNotFoundException();
             }
         }
+
 
         // Criptografa a senha
         String encryptedPassword = passwordEncoder.encode(registerDTO.senha());
