@@ -1,5 +1,6 @@
 package com.example.NgmAdota.modules.usuario.services;
 
+import ch.qos.logback.classic.encoder.JsonEncoder;
 import com.example.NgmAdota.exceptions.OngNotFoundException;
 import com.example.NgmAdota.exceptions.UserFoundException;
 import com.example.NgmAdota.exceptions.UserNotFoundException;
@@ -20,17 +21,47 @@ public class CreateUsuarioService {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private OngRepository ongRepository;
+    @Autowired
+    private  BCryptPasswordEncoder  passwordEncoder;
 
     public UsuarioModel execute(@Valid RegisterDTO registerDTO) {
-        if (this.usuarioRepository.findByEmail(registerDTO.email()) != null) {
-            throw new UserFoundException(" " + registerDTO.email());
+        // Verifica se o e-mail já está cadastrado
+        UsuarioModel existingUser = usuarioRepository.findByEmail(registerDTO.email());
+        if (existingUser != null) {
+            throw new UserFoundException("O email " + registerDTO.email() + " já está cadastrado.");
         }
-        if (this.ongRepository.findById(registerDTO.ongId()).isPresent()){
-            String encryptedPassword = new BCryptPasswordEncoder().encode(registerDTO.senha());
-            UsuarioModel newUser = new UsuarioModel(registerDTO.nome(), registerDTO.email(), registerDTO.dataNascimento(), registerDTO.telefone(), encryptedPassword, registerDTO.role(), registerDTO.ongId(), registerDTO.cep(), registerDTO.uf(), registerDTO.cidade(), registerDTO.bairro(), registerDTO.logradouro(), registerDTO.numero(), registerDTO.complemento());
 
-            return this.usuarioRepository.save(newUser);
+        // Valida a ONG se o usuário for do tipo ONG
+        Long ongId = null;
+        if (registerDTO.role() == UserRole.ONG) {
+            ongId = registerDTO.ongId();
+            if (ongId == null || !ongRepository.existsById(ongId)) {
+                throw new OngNotFoundException();
+            }
         }
-        throw new OngNotFoundException();
+
+        // Criptografa a senha
+        String encryptedPassword = passwordEncoder.encode(registerDTO.senha());
+
+        // Cria um novo usuário com ou sem ongId dependendo do tipo de usuário
+        UsuarioModel newUser = UsuarioModel.builder()
+                .nome(registerDTO.nome())
+                .email(registerDTO.email())
+                .dataNascimento(registerDTO.dataNascimento())
+                .telefone(registerDTO.telefone())
+                .senha(encryptedPassword)
+                .role(registerDTO.role())
+                .ongId(ongId)
+                .cep(registerDTO.cep())
+                .uf(registerDTO.uf())
+                .cidade(registerDTO.cidade())
+                .bairro(registerDTO.bairro())
+                .logradouro(registerDTO.logradouro())
+                .numero(registerDTO.numero())
+                .complemento(registerDTO.complemento())
+                .build();
+
+        // Salva o novo usuário no banco de dados
+        return usuarioRepository.save(newUser);
     }
 }
