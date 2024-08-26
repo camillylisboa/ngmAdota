@@ -28,21 +28,17 @@ public class CreateOngService {
     public OngModel execute(@Valid OngModel ongDTO) {
         // Verifica se a ONG já está cadastrada
         ongRepository.findByEmail(ongDTO.getEmail()).ifPresent(ong -> {
-            throw new OngFoundException("Esta ONG já foi cadastrada"); //impede que duas ongs sejam cadastradas com o mesmo email.
+            throw new OngFoundException("Esta ONG já foi cadastrada"); // Impede que duas ONGs sejam cadastradas com o mesmo email.
         });
 
-        // Salva a ONG no banco de dados
-        OngModel savedOng = ongRepository.save(ongDTO);
-
-        // Busca o usuário associado ao email fornecido
-        UsuarioModel usuario = usuarioRepository.findByEmail(ongDTO.getEmail());
-        if (usuario == null) {
-            throw new UserNotFoundException("Usuário não encontrado");
-        }
-
-        // Atualiza a role do usuário para ONG
-        criarOng(savedOng, usuario);
-        return savedOng;
+       UsuarioModel usuario = usuarioRepository.findByEmail(ongDTO.getEmail());
+       if (usuario != null){
+           OngModel save = ongRepository.save(ongDTO);
+           criarOng(save, usuario);
+           return save;
+       }
+        // minha pergunta é básica o cara que for criar a ong ele obrigatóriamente deve usar o email do login dele??
+       throw new UserNotFoundException("Usuário não encontrado");
     }
 
     public void criarOng(OngModel ong, UsuarioModel usuario) {

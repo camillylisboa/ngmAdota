@@ -4,22 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Animais</title>
+    <title>Minha Ong</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/cadAnimal.css">
     <script src="js/cadAnimal.js"></script>
-    <style>
-
-    </style>
 </head>
 
 <body>
+    <div id="alertaSucesso" class="alert alert-success d-none" role="alert">
+        Animal adicionado com sucesso!
+    </div>
+    <div id="alertaErro" class="alert alert-danger d-none" role="alert">
+        Revise as informações do animal
+    </div>
     <header>
+
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a href="./index.html"><img class="logo" src="./img/logoNGM.png"></a>
+                <a href="./index.html"><img class="menu-icon" src="../img/logoNgm.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -55,69 +59,106 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <h3>Ong cepad</h3>
-        <button class="btn-cadAnimal">Cadastrar animal</button>
-        <div id="lista-animais" class="row"></div>
-    </div>
 
-    <!-- Modal para visualização dos detalhes do animal -->
-    <div class="modal fade" id="modalAnimal" tabindex="-1" role="dialog" aria-labelledby="modalAnimalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalAnimalLabel">Detalhes do Animal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <label for="">Nome:</label>
-                    <input type="text" id="nome"><br>
-                    <label for="">Peso:</label>
-                    <input type="number" id="peso"><br>
-                    <label for="">Imagem do animal:</label>
-                    <input type="file" id="imagem"><br>
-                    <div class="col-sm-6">
-                        <select id="ongSelect" class="form-control">
-                            <option value="" disabled selected>Ong</option>
-                        </select>
-                    </div><br>
-                    <label for="">Data Nascimento:</label>
-                    <input type="date" id="dataNascimento"><br>
-                    <label for="">Sexo:</label>
-                    <input type="text" id="sexo"><br>
-                    <div class="col-sm-6">
-                        <select id="racaSelect" class="form-control">
-                            <option value="" disabled selected>Raça</option>
-                        </select>
-                    </div><br>
-                    <div class="col-sm-6">
-                        <select id="especieSelect" class="form-control">
-                            <option value="" disabled selected>Espécie</option>
-                        </select>
-                    </div><br>
-                    <div class="col-sm-6">
-                        <select id="pelagemSelect" class="form-control">
-                            <option value="" disabled selected>Pelagem</option>
-                        </select>
-                    </div><br>
-                    <div class="col-sm-6">
-                        <select id="porteSelect" class="form-control">
-                            <option value="" disabled selected>Porte</option>
-                        </select>
-                    </div><br>
-                    <label for="">Por quê NGM me adota?</label>
-                    <input type="text" id="descricao"><br>
+    <main>
+        <div class="fundo">
+            <!-- Botão Cadastrar Animais -->
+            <button class="btn btn-custom" data-toggle="modal" data-target="#cadastroAnimalModal">Cadastrar
+                Animais</button>
+
+            <div id="lista-ong-animais"></div>
+
+            <!-- Modal Cadastro Animal -->
+            <div class="modal fade" id="cadastroAnimalModal" tabindex="-1" aria-labelledby="cadastroAnimalModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cadastroAnimalModalLabel">Cadastrar Animal</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="ongSelect">
+                                        <option value="" disabled selected>ONG</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="nome" id="nome" placeholder="NOME"
+                                        required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="peso" id="peso"
+                                        placeholder="PESO (Kg)" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="date" class="form-control date" name="dataNascimento" id="dataNascimento"
+                                    placeholder="DATA DE NASCIMENTO" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select class="form-control" id="sexo">
+                                    <option value="" disabled selected>SEXO</option>
+                                    <option value="M">MACHO</option>
+                                    <option value="F">FÊMEA</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select class="form-control" id="racaSelect">
+                                    <option value="" disabled selected>RAÇA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select id="especieSelect" class="form-control">
+                                    <option value="" disabled selected>ESPÉCIE</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select id="pelagemSelect" class="form-control">
+                                    <option value="" disabled selected>PELAGEM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select name="" id="porteSelect" class="form-control">
+                                    <option value="" disabled selected>PORTE</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 custom-file">
+                                <input class="custom-file-input" type="file" id="imagem" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <textarea name="descricao" id="descricao"
+                                    placeholder="DIGITE AQUI A DESCRIÇÃO DO ANIMAL"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-10"></div>
+                            <div class="col-sm-2 py-3">
+                                <button class="btn-custom-enviar" type="button"
+                                    onclick="enviarFormulario()">Enviar</button>
+                            </diV>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 
-
-
-
+    </main>
 </body>
 
 </html>

@@ -41,7 +41,6 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/porte/get").permitAll()
                         .requestMatchers(HttpMethod.GET, "/ong/lista").permitAll()
                         .requestMatchers(HttpMethod.GET, "/auth/lista").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/ong/").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.GET, "/animal/lista").permitAll()
                         .requestMatchers(HttpMethod.GET, "/animal/lista/{id}").permitAll()

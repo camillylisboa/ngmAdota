@@ -23,7 +23,7 @@
     height: 94px;
     font-weight: bold;
 }
-
+ 
 #adocao {
     color: #06C1D6;
     font-size: 27px;
@@ -33,21 +33,11 @@
     margin-right: 40px;
     font-size: 23px;
 }
-
-/* FORMULÁRIO */
-.px-4 {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
- 
-.px-4 h1{
-    text-align: center;
-}
  
 .fundo {
     background-color: #06C1D6;
     height: 403px;
+    padding: 10px;
 }
  
 .container-sm {
@@ -56,12 +46,7 @@
     border-radius: 31px;
 }
  
-.fundo >.text-center {
-    color: white;
-    font-size: 35px;
-    padding-top: 38px;
-    border: 1px;
-}
+
  
 #alertaSucesso {
     position: fixed;
@@ -126,6 +111,19 @@ textarea {
     border: none;
 }
 
+.btn-custom {
+    background-color: #fff;
+    color: #06C1D6;
+    margin: 2% 0; /* Ajuste a margem superior e inferior */
+    margin-left: auto; /* Empurra o botão para a direita */
+    margin-right: 2%; /* Remove qualquer margem à direita */
+    display: block; /* Garante que o botão seja exibido como um bloco */
+    transition: .9s;
+}
+.btn-custom:hover{
+    padding: 8px;
+
+}
 .animal-card {
     border: 1px solid #008A33;
     padding: 10px;
@@ -136,18 +134,8 @@ textarea {
     float: left;
     color: white;
 }
-
-.animal-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.animal-card h2 {
-    margin: 8px 0;
-}
-
-.btn-adocao {
+ 
+.btn-edit {
     background-color: #06C1D6;
     color: #fff;
     font-weight: bold;
@@ -157,24 +145,9 @@ textarea {
     width: 100%;
     border: none;
 }
-
-.container{
-    margin-top: 40px;
-}
-
-.btn-cadAnimal{
-    background-color: #06C1D6;
-    color: #fff;
-    font-weight: bold;
+ 
+.animal-card img {
+    width: 100%;
+    height: 75%;
     border-radius: 31px;
-    padding: 8px 40px;
-    font-size: 16px;
-    width: 30%;
-    margin-left: 80%;
-    border: none;
-    transition: 0.8s;
-}
-
-.btn-cadAnimal:hover{
-    background-color: #008A33;
 }

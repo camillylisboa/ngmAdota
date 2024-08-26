@@ -38,7 +38,7 @@ public class OngController {
         try{
             var result = this.createOngService.execute(ong);
             return ResponseEntity.ok().body(result);
-        }catch (OngFoundException e) {
+        }catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
