@@ -124,6 +124,7 @@ textarea {
     padding: 8px;
 
 }
+
 .animal-card {
     border: 1px solid #008A33;
     padding: 10px;
@@ -133,6 +134,16 @@ textarea {
     height: 410px;
     float: left;
     color: white;
+}
+
+.custom-file-input {
+    width: 100%;
+    height: 38px;
+    margin-top: 8px;
+}
+
+.custom-file-label {
+    border-radius: 5px;
 }
  
 .btn-edit {
