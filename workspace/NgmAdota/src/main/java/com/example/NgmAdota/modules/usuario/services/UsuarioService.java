@@ -71,7 +71,11 @@ public class UsuarioService {
                     user.setEmail(editDTO.email());
                     user.setDataNascimento(editDTO.dataNascimento());
                     user.setTelefone(editDTO.telefone());
-                    user.setSenha(editDTO.senha());
+
+                    // Criptografando a senha antes de salvá-la
+                    String senhaCriptografada = passwordEncoder.encode(editDTO.senha());
+                    user.setSenha(senhaCriptografada);
+
                     user.setCep(editDTO.cep());
                     user.setUf(editDTO.uf());
                     user.setCidade(editDTO.cidade());
@@ -83,5 +87,6 @@ public class UsuarioService {
                     return usuarioRepository.save(user);
                 })
                 .orElseThrow(() -> new UserNotFoundException("Usuário não encontrado"));
-}
+    }
+
 }
