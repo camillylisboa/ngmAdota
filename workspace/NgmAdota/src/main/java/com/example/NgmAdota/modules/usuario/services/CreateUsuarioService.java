@@ -1,17 +1,12 @@
 package com.example.NgmAdota.modules.usuario.services;
 
-import ch.qos.logback.classic.encoder.JsonEncoder;
 import com.example.NgmAdota.exceptions.OngNotFoundException;
 import com.example.NgmAdota.exceptions.UserFoundException;
-import com.example.NgmAdota.exceptions.UserNotFoundException;
 import com.example.NgmAdota.modules.ong.OngRepository;
 import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import com.example.NgmAdota.modules.usuario.UsuarioRepository;
 import com.example.NgmAdota.modules.usuario.dto.RegisterDTO;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +17,11 @@ public class CreateUsuarioService {
 
     @Autowired
     private OngRepository ongRepository;
+
     @Autowired
-    private  BCryptPasswordEncoder  passwordEncoder;
+    private BCryptPasswordEncoder passwordEncoder;
 
-
-    public UsuarioModel execute(@Valid RegisterDTO registerDTO) {
+    public UsuarioModel execute(RegisterDTO registerDTO) {
         // Verifica se o e-mail já está cadastrado
         UsuarioModel existingUser = usuarioRepository.findByEmail(registerDTO.email());
         if (existingUser != null) {
@@ -41,7 +36,6 @@ public class CreateUsuarioService {
                 throw new OngNotFoundException();
             }
         }
-
 
         // Criptografa a senha
         String encryptedPassword = passwordEncoder.encode(registerDTO.senha());
@@ -68,4 +62,3 @@ public class CreateUsuarioService {
         return usuarioRepository.save(newUser);
     }
 }
-

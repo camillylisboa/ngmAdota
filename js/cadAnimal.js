@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var token = window.localStorage.getItem('token');
     var email = window.localStorage.getItem('email');
-    console.log("Token e Email lidos do localStorage:", token, email); // Verifique se ambos os valores estão presentes
+    console.log("Token e Email lidos do localStorage:", token, email);
 
     if (!token || !email) {
         console.error('Token ou Email não encontrados no localStorage.');
@@ -13,7 +13,7 @@ $(document).ready(function () {
     populateSelectEspecie();
     populateSelectPelagem();
     populateSelectPorte();
-    populateSelectOng(); // Passe o token e o email
+    populateSelectOng();
 });
 
 function obterListaAnimais() {
@@ -129,7 +129,7 @@ function populateSelectPorte() {
 function populateSelectOng() {
     const select = document.getElementById("ongSelect");
 
-    fetch(`http://localhost:8080/ong/lista`) 
+    fetch(`http://localhost:8080/ong/lista`)
     .then(response => response.json())
     .then(data => {
         if (Array.isArray(data)) {
@@ -159,42 +159,41 @@ function enviarFormulario() {
     var idEspecie = parseInt($('#especieSelect').val());
     var idPelagem = parseInt($('#pelagemSelect').val());
     var idPorte = parseInt($('#porteSelect').val());
-    var imagem = "https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-jumbo.jpg";
     var descricao = $('#descricao').val();
+    var imagem = $('#imagem')[0].files[0];
 
     if (!nome || !peso || !dataNascimento || !sexo || !idRaca || !idEspecie || !idPelagem || !idPorte || !imagem || !descricao) {
         mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
         return;
     }
 
-    var interesseData = {
+    // Cria o objeto FormData e adiciona os campos
+    var formData = new FormData();
+    formData.append('animal', new Blob([JSON.stringify({
         nome: nome,
         peso: peso,
-         ongId: ongId,
+        ongId: ongId,
         dataNascimento: dataNascimento,
         sexo: sexo,
         idRaca: idRaca,
         idEspecie: idEspecie,
         idPelagem: idPelagem,
         idPorte: idPorte,
-        imagem: imagem,
         descricao: descricao
-    };
+    })], { type: "application/json" }));
+    formData.append('file', imagem);
 
-    console.log("Dados enviados: ", interesseData);
-
-    console.log(token);
+    console.log("Dados enviados: ", formData);
 
     $.ajax({
         url: 'http://localhost:8080/animal/',
         type: 'POST',
         headers: {
-            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
         },
-        contentType: 'application/json',
-        data: JSON.stringify(interesseData),
-        dataType: 'json',
+        data: formData,
+        processData: false, // Não processa o FormData automaticamente
+        contentType: false, // Define o tipo de conteúdo como multipart/form-data
         success: function(data) {
           console.log('Formulário enviado com sucesso', data);
           mostrarAlertaSucesso();
@@ -206,16 +205,17 @@ function enviarFormulario() {
     });
 }
 
+
 function mostrarAlertaSucesso() {
     $('#alertaSucesso').removeClass('d-none');
     setTimeout(function() {
-      $('#alertaSucesso').addClass('d-none');
-    }, 3000); 
+        $('#alertaSucesso').addClass('d-none');
+    }, 3000);
 }
 
 function mostrarAlertaErro(message) {
     $('#alertaErro').text(message).removeClass('d-none');
     setTimeout(function() {
-      $('#alertaErro').addClass('d-none');
+        $('#alertaErro').addClass('d-none');
     }, 3000);
 }
