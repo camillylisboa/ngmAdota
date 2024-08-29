@@ -53,14 +53,31 @@ public class AnimalModel implements Serializable {
         this.id = id;
     }
 
-    public int getIdade() {
+//    public String getIdade() {
+//        if (dataNascimento == null) {
+//            return "0"; // ou qualquer valor padrão que faça sentido
+//        }
+//        LocalDate hoje = LocalDate.now();
+//        String data = String.valueOf(Period.between(this.dataNascimento, hoje).getYears()) + " ano(s)";
+//        if (data.equals("0 ano(s)")) {
+//            data = (Period.between(this.dataNascimento, hoje).getMonths()) + " mês(es)";
+//        }
+//        return data;
+//    }
+
+    public String getIdade() {
         if (dataNascimento == null) {
-            return 0; // ou qualquer valor padrão que faça sentido
+            return "0"; // ou qualquer valor padrão que faça sentido
         }
+
         LocalDate hoje = LocalDate.now();
-        return Period.between(this.dataNascimento, hoje).getYears();
+        Period periodo = Period.between(this.dataNascimento, hoje);
+        int anos = periodo.getYears();
+        int meses = periodo.getMonths();
+
+        return anos > 0 ? anos + " ano(s)" : meses + " mês(es)";  // "?" significa que é o if       ":" significa else
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(String idade) {
     }
 }
