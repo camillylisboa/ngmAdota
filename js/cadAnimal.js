@@ -28,7 +28,7 @@ function obterListaAnimais() {
             $.each(data, function (index, animal) {
                 var cardHtml =
                     '<div class="animal-card">' +
-                    '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
+                    '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                     '<h2>' + animal.nome + '</h2>' +
                     '<button class="btn-edit" data-toggle="modal" data-target="#modalEditAnimal" data-id="' + index + '">Editar animal</button>' +
                     '</div>';

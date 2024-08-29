@@ -94,7 +94,7 @@ $(document).ready(function () {
                     $('#modal-imagem').attr('src', animal.imagem);
                     $('#modal-nome').text(animal.nome);
                     $('#modal-peso').text(animal.peso + ' kg');
-                    $('#modal-idade').text(animal.idade + ' anos'); // Adicionando ' anos' para clareza
+                    $('#modal-idade').text(animal.idade);
                     $('#modal-descricao').text(animal.descricao);
 
                     $('#modalAnimal').modal('show');

@@ -64,8 +64,9 @@ public class CreateAnimalService {
             // Salva o arquivo
             Files.copy(file.getInputStream(), targetLocation);
 
-            // Atualiza o caminho da imagem no modelo
-            animalModel.setImagem(targetLocation.toString());
+            // Atualiza o caminho da imagem no modelo para o caminho relativo
+            String relativePath = "/uploads/" + targetLocation.getFileName().toString();
+            animalModel.setImagem(relativePath);
 
             return animalRepository.save(animalModel);
         } catch (IOException e) {
