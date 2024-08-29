@@ -48,7 +48,7 @@ public class AuthUsuarioService implements UserDetailsService {
         }
 
         var token = tokenService.generateToken((UsuarioModel) auth.getPrincipal());
-        return new LoginResponseDTO(user.getId(), user.getNome(), user.getEmail(), user.getTelefone(), user.idade(), user.getOngId(), user.getRole(), token);
+        return new LoginResponseDTO(user.getId(), user.getNome(), user.getEmail(), user.getTelefone(), user.idade(), user.getDataNascimento(), user.getCep(), user.getUf(), user.getCidade(), user.getBairro(), user.getLogradouro(), user.getNumero(), user.getComplemento(),user.getOngId(), user.getRole(), token);
     }
 
     @Override

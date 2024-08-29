@@ -12,24 +12,39 @@ function login() {
         dataType: "json",
         success: function (response) {
             var userId = response.id; // Certifique-se de que está obtendo o userId corretamente
-            var token = response.token;
             var nome = response.nome;
             var email = response.email;
+            var telefone = response.telefone;
+            var idade = response.idade;
+            var dataNascimento = response.dataNascimento;
+            var cep = response.cep;
+            var uf = response.uf;
+            var cidade = response.cidade;
+            var bairro = response.bairro;
+            var logradouro = response.logradouro;
+            var numero = response.numero;
+            var complemento = response.complemento;
             var ongId = response.ongId;
             var role = response.role;
-            var dataNascimento = response.dataNascimento; // Obtendo a data de nascimento
-            var telefone = response.telefone;
-            var idade = response.idade; // Obtendo a idade
-            window.localStorage.setItem('userId', userId); // Salva o userId no localStorage
-            window.localStorage.setItem('token', token);
-            window.localStorage.setItem('nomeUsuario', nome);
-            window.localStorage.setItem('role', role);
-            window.localStorage.setItem('ongId', ongId);
-            window.localStorage.setItem('email', email);
-            window.localStorage.setItem('dataNascimento', dataNascimento); // Salvando a data de nascimento
-            window.localStorage.setItem('telefone', telefone);
-            window.localStorage.setItem('idade', idade); // Salvando a idade
-            
+            var token = response.token;
+
+            window.localStorage.setItem('userId', userId)
+            window.localStorage.setItem('nomeUsuario', nome)
+            window.localStorage.setItem('email', email)
+            window.localStorage.setItem('telefone', telefone)
+            window.localStorage.setItem('idade', idade)
+            window.localStorage.setItem('dataNascimento', dataNascimento)
+            window.localStorage.setItem('cep', cep)
+            window.localStorage.setItem('uf', uf)
+            window.localStorage.setItem('cidade', cidade)
+            window.localStorage.setItem('bairro', bairro)
+            window.localStorage.setItem('logradouro', logradouro)
+            window.localStorage.setItem('numero', numero),
+            window.localStorage.setItem('complemento', complemento)
+            window.localStorage.setItem('ongId', ongId)
+            window.localStorage.setItem('role', role)
+            window.localStorage.setItem('token', token)
+
             mostrarAlertaSucesso();
         },
         error: function (request, message, error) {
