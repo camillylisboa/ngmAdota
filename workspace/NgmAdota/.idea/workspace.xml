@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="Começando página de cadastroAnimal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/AnimalController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateAnimalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/CreateAnimalService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/CreateUsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/usuario/services/CreateUsuarioService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
