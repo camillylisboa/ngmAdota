@@ -1,5 +1,6 @@
+var token = window.localStorage.getItem('token');
+
 $(document).ready(function () {
-    var token = window.localStorage.getItem('token');
     var nomeUsuario = window.localStorage.getItem('nomeUsuario');
 
     const email = localStorage.getItem('email');
@@ -41,6 +42,9 @@ function enviarOng() {
     $.ajax({
         url: 'http://localhost:8080/ong/',
         method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
+        },
         contentType: 'application/json',
         data: JSON.stringify(ongData),
         dataType: 'json',
