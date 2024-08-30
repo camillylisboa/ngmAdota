@@ -1,16 +1,14 @@
 package com.example.NgmAdota.modules.usuario.controller;
 
 
-import com.example.NgmAdota.exceptions.OngNotFoundException;
-import com.example.NgmAdota.exceptions.UserFoundException;
 import com.example.NgmAdota.exceptions.UserNotFoundException;
-import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import com.example.NgmAdota.modules.usuario.UsuarioRepository;
 import com.example.NgmAdota.modules.usuario.dto.AuthenticationDTO;
+import com.example.NgmAdota.modules.usuario.dto.EditUserDTO;
 import com.example.NgmAdota.modules.usuario.dto.RegisterDTO;
 import com.example.NgmAdota.modules.usuario.services.AuthUsuarioService;
-import com.example.NgmAdota.modules.usuario.services.CreateUsuarioService;
+import com.example.NgmAdota.modules.usuario.services.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +25,7 @@ public class AuthController {
     @Autowired
     private AuthUsuarioService authUsuarioService;
     @Autowired
-    private CreateUsuarioService usuarioService;
+    private UsuarioService usuarioService;
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -40,6 +38,16 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
         }catch (Exception ex){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred");
+        }
+    }
+
+    @PutMapping("/edit/{id}")
+    public ResponseEntity editUser(@Valid @PathVariable(value = "id") Integer id,@RequestBody EditUserDTO editDTO){
+        try{
+            var editUser = usuarioService.edit(id, editDTO);
+            return ResponseEntity.status(HttpStatus.OK).body(editUser);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 

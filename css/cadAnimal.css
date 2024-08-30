@@ -69,6 +69,11 @@
 }
 
 
+
+#botaoEnviar {
+    margin-left: -5rem;
+}
+
 .linksNav{
     text-decoration: underline;
 }
@@ -89,7 +94,6 @@ textarea {
     width: 100%;
     height: 120%;
     border-radius: 10px;
-    border: none;
     padding: 10px;
 }
  
@@ -162,3 +166,4 @@ textarea {
     height: 75%;
     border-radius: 31px;
 }
+

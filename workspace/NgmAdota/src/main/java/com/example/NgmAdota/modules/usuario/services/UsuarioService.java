@@ -1,32 +1,29 @@
 package com.example.NgmAdota.modules.usuario.services;
 
-import ch.qos.logback.classic.encoder.JsonEncoder;
 import com.example.NgmAdota.exceptions.OngNotFoundException;
 import com.example.NgmAdota.exceptions.UserFoundException;
 import com.example.NgmAdota.exceptions.UserNotFoundException;
 import com.example.NgmAdota.modules.ong.OngRepository;
 import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import com.example.NgmAdota.modules.usuario.UsuarioRepository;
+import com.example.NgmAdota.modules.usuario.dto.EditUserDTO;
 import com.example.NgmAdota.modules.usuario.dto.RegisterDTO;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CreateUsuarioService {
+public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
     @Autowired
     private OngRepository ongRepository;
+
     @Autowired
-    private  BCryptPasswordEncoder  passwordEncoder;
+    private BCryptPasswordEncoder passwordEncoder;
 
-
-    public UsuarioModel execute(@Valid RegisterDTO registerDTO) {
+    public UsuarioModel execute(RegisterDTO registerDTO) {
         // Verifica se o e-mail já está cadastrado
         UsuarioModel existingUser = usuarioRepository.findByEmail(registerDTO.email());
         if (existingUser != null) {
@@ -41,7 +38,6 @@ public class CreateUsuarioService {
                 throw new OngNotFoundException();
             }
         }
-
 
         // Criptografa a senha
         String encryptedPassword = passwordEncoder.encode(registerDTO.senha());
@@ -67,5 +63,30 @@ public class CreateUsuarioService {
         // Salva o novo usuário no banco de dados
         return usuarioRepository.save(newUser);
     }
-}
 
+    public UsuarioModel edit(Integer id, EditUserDTO editDTO) {
+        return usuarioRepository.findById(id)
+                .map(user -> {
+                    user.setNome(editDTO.nome());
+                    user.setEmail(editDTO.email());
+                    user.setDataNascimento(editDTO.dataNascimento());
+                    user.setTelefone(editDTO.telefone());
+
+                    // Criptografando a senha antes de salvá-la
+                    String senhaCriptografada = passwordEncoder.encode(editDTO.senha());
+                    user.setSenha(senhaCriptografada);
+
+                    user.setCep(editDTO.cep());
+                    user.setUf(editDTO.uf());
+                    user.setCidade(editDTO.cidade());
+                    user.setBairro(editDTO.bairro());
+                    user.setLogradouro(editDTO.logradouro());
+                    user.setNumero(editDTO.numero());
+                    user.setComplemento(editDTO.complemento());
+
+                    return usuarioRepository.save(user);
+                })
+                .orElseThrow(() -> new UserNotFoundException("Usuário não encontrado"));
+    }
+
+}
