@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    var nomeAnimal = window.localStorage.getItem('animalNome')
+    $('#nomeAnimal').text(nomeAnimal)
     // Função para mostrar/ocultar a pergunta sobre a autorização do proprietário
     function atualizarPerguntaAutorizacao() {
         const moradiaSelecionada = $('input[name="flexRadioAlugada"]:checked').val();
