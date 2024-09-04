@@ -34,8 +34,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/animal/").hasRole("ONG")
                         .requestMatchers(HttpMethod.GET, "/ong/lista/{email}").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/raca/get").permitAll()
                         .requestMatchers(HttpMethod.GET, "/ong/animal/{ongId}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/raca/get").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/statusAnimal/get").permitAll()
                         .requestMatchers(HttpMethod.GET, "/especie/get").permitAll()
                         .requestMatchers(HttpMethod.GET, "/pelagem/get").permitAll()
                         .requestMatchers(HttpMethod.GET, "/porte/get").permitAll()

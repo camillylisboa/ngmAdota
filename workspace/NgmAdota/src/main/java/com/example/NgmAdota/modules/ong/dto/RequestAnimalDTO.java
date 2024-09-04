@@ -1,5 +1,7 @@
 package com.example.NgmAdota.modules.ong.dto;
 
+import com.example.NgmAdota.modules.ong.StatusAnimalModel;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -12,5 +14,6 @@ public record RequestAnimalDTO(String nome,
                                Integer idRaca,
                                Integer idEspecie,
                                Integer idPelagem,
-                               Integer idPorte) {
+                               Integer idPorte,
+                                StatusAnimalModel statusAnimal) {
 }

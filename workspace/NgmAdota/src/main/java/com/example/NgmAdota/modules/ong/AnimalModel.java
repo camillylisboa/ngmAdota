@@ -46,6 +46,10 @@ public class AnimalModel implements Serializable {
     private Integer idPelagem;
     private Integer idPorte;
 
+    @OneToOne()
+    @JoinColumn(name = "statusanimal_id")
+    private StatusAnimalModel statusAnimal;
+
     public AnimalModel() {
     }
 
