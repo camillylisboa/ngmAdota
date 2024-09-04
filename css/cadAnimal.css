@@ -83,11 +83,36 @@
     width: 300px;
 }
 
-.modal-body .info {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: star;
+/* CSS Atualizado para o Modal */
+.modal-dialog.modal-lg {
+    max-width:45%;
+}
+
+.modal-header {
+    border-bottom: none;
+    justify-content: center;
+}
+
+.modal-title {
+    text-align: center;
+    color: #06C1D6;
+}
+
+.form-control {
+    border-radius: 31px;
+    margin-bottom: 15px;
+}
+
+.custom-file-input, .custom-file-label {
+    border-radius: 31px;
+}
+
+.btn-submit {
+    background-color: #06C1D6;
+    color: white;
+    border-radius: 31px;
+    width: 50%;
+   
 }
 
 textarea {

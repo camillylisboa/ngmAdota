@@ -75,102 +75,119 @@
             <div id="lista-ong-animais"></div>
 
             <!-- Modal Cadastro Animal -->
-            <div class="modal fade" id="cadastroAnimalModal" tabindex="-1" aria-labelledby="cadastroAnimalModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="cadastroAnimalModalLabel">Cadastrar Animal</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+           <!-- Modal Cadastro Animal -->
+<div class="modal fade" id="cadastroAnimalModal" tabindex="-1" aria-labelledby="cadastroAnimalModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cadastroAnimalModalLabel">Cadastrar Animal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required>
                         </div>
-                        <div class="modal-body">
-                            <div class="row py-2">
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="nome" id="nome" placeholder="NOME"
-                                        required>
-                                </div>
-                                <div class="col-sm-6">
-                                    <select class="form-control" id="ongSelect">
-                                        <option value="" disabled selected>ONG</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <input type="date" class="form-control date" name="dataNascimento"
-                                        id="dataNascimento" placeholder="DATA DE NASCIMENTO" required>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="peso" id="peso"
-                                        placeholder="PESO (Kg)" required>
-                                </div>
-                            </div>
-                            <div class="row py-2">
-                                <div class="col-sm-6">
-                                    <select class="form-control" id="sexo">
-                                        <option value="" disabled selected>SEXO</option>
-                                        <option value="M">MACHO</option>
-                                        <option value="F">FÊMEA</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-6">
-                                    <select class="form-control" id="racaSelect">
-                                        <option value="" disabled selected>RAÇA</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <select id="especieSelect" class="form-control">
-                                        <option value="" disabled selected>ESPÉCIE</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-6">
-                                    <select id="pelagemSelect" class="form-control">
-                                        <option value="" disabled selected>PELAGEM</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row py-2">
-                                <div class="col-sm-6">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="imagem" accept="image/*">
-                                        <label class="custom-file-label" for="imagem">IMAGEM</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <select name="" id="porteSelect" class="form-control">
-                                        <option value="" disabled selected>PORTE</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row py-2">
-                                <div class="col-sm-6">
-                                    <select name="" id="statusAnimalSelect" class="form-control">
-                                        <option value="" disabled selected>STATUS</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <textarea name="descricao" id="descricao"
-                                        placeholder="PORQUE NGM ME ADOTA"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="row py-2">
-                                <div class="col-sm-10"></div>
-                                <div class="col-sm-2 py-3">
-                                    <button class="btn-custom-enviar" id="botaoEnviar" type="button"
-                                        onclick="enviarFormulario()">Enviar</button>
-                                </diV>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="peso" id="peso" placeholder="Peso (Kg)" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <select class="form-control" id="ongSelect">
+                                <option value="" disabled selected>ONG</option>
+                                <!-- Options to be filled dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="date" class="form-control" name="dataNascimento" id="dataNascimento" placeholder="Data de Nascimento" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <select class="form-control" id="sexo">
+                                <option value="" disabled selected>Sexo</option>
+                                <option value="M">Macho</option>
+                                <option value="F">Fêmea</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <select class="form-control" id="porteSelect">
+                                <option value="" disabled selected>Porte</option>
+                                <!-- Options to be filled dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <select id="especieSelect" class="form-control">
+                                <option value="" disabled selected>Espécie</option>
+                                <!-- Options to be filled dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <select id="racaSelect" class="form-control">
+                                <option value="" disabled selected>Raça</option>
+                                <!-- Options to be filled dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <select id="pelagemSelect" class="form-control">
+                                <option value="" disabled selected>Pelagem</option>
+                                <!-- Options to be filled dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <select id="statusAnimalSelect" class="form-control">
+                                <option value="" disabled selected>Status</option>
+                                <!-- Options to be filled dynamically -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="imagem" accept="image/*">
+                                <label class="custom-file-label" for="imagem">Imagem</label>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <button class="btn btn-submit" id="botaoEnviar" type="button" onclick="enviarFormulario()">Enviar</button>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
+
         </div>
         </div>
 
