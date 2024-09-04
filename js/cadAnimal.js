@@ -13,6 +13,7 @@ $(document).ready(function () {
     populateSelectEspecie();
     populateSelectPelagem();
     populateSelectPorte();
+    populateSelectStatusAnimal();
     populateSelectOng();
 });
 
@@ -126,6 +127,28 @@ function populateSelectPorte() {
         });
 }
 
+function populateSelectStatusAnimal() {
+    const select = document.getElementById("statusAnimalSelect");
+
+    fetch('http://localhost:8080/statusAnimal/get')
+        .then(response => response.json())
+        .then(data => {
+            if (Array.isArray(data)) {
+                data.forEach(item => {
+                    const option = document.createElement("option");
+                    option.value = item.id;
+                    option.text = item.tipo;
+                    select.appendChild(option);
+                });
+            } else {
+                console.error("Esperado um array, mas recebemos:", data);
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao buscar dados:", error);
+        });
+}
+
 function populateSelectOng() {
     const select = document.getElementById("ongSelect");
 
@@ -159,13 +182,16 @@ function enviarFormulario() {
     var idEspecie = parseInt($('#especieSelect').val());
     var idPelagem = parseInt($('#pelagemSelect').val());
     var idPorte = parseInt($('#porteSelect').val());
+    var statusAnimal = parseInt($('#statusAnimalSelect').val());
     var descricao = $('#descricao').val();
     var imagem = $('#imagem')[0].files[0];
 
-    if (!nome || !peso || !dataNascimento || !sexo || !idRaca || !idEspecie || !idPelagem || !idPorte || !imagem || !descricao) {
+    if (!nome || !peso || !dataNascimento || !sexo || !idRaca || !idEspecie || !idPelagem || !idPorte || !imagem || !descricao || !statusAnimal) {
         mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
         return;
     }
+
+    
 
     // Cria o objeto FormData e adiciona os campos
     var formData = new FormData();
@@ -179,6 +205,7 @@ function enviarFormulario() {
         idEspecie: idEspecie,
         idPelagem: idPelagem,
         idPorte: idPorte,
+        statusAnimal : { id: statusAnimal },
         descricao: descricao
     })], { type: "application/json" }));
     formData.append('file', imagem);
