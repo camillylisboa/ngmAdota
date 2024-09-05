@@ -34,11 +34,11 @@ public class InteresseModel {
 
         private String temCrianca;
         private String acordoAdocao;
-        private String presente;
         private String moradia;
         private String tipoCasa;
-        private String moradiaAberta;
+        private String temQuintal;
         private String temTelas;
+        private String autorizacaoProprietario;
         private boolean cachorro;
         private boolean gato;
         private boolean outro;

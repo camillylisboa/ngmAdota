@@ -12,11 +12,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/formularioInteresse.css">
     <link rel="shortcut icon" href="./img/icon.png">
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -62,7 +57,7 @@
                 <div class="container px-4">
                     <input class="my-3" type="hidden" id="userId" name="usuarioId">
                     <input class="my-3" type="hidden" id="animalId" name="animalId">
-                    <p id="animalP">Animal:<span id="nomeAnimal"></span></p>
+                    <p id="animalP">Animal:<input class="my-3" id="animalNome" name="animalNome" readonly></p>
                     <p class="fs-4 my-3 fw-medium">DADOS DA CASA</p>
                     <div class="row">
                         <div class="col-6">
@@ -71,7 +66,7 @@
                         <div class="form-check col-1">
                             <input class="form-check-input" type="radio" name="flexRadioCrianca" id="flexRadioCrianca1"
                                 value="Sim">
-                            <label class="form-check-label" for="flexRadioCrianca1"> Sim </label>
+                            <label class="form-check-label" for="flexRadioCrianca"> Sim </label>
                         </div>
                         <div class="form-check col-1">
                             <input class="form-check-input" type="radio" name="flexRadioCrianca" id="flexRadioCrianca2"
@@ -79,7 +74,6 @@
                             <label class="form-check-label" for="flexRadioCrianca2"> Não </label>
                         </div>
                     </div>
-                    
                     <div class="row">
                         <div class="col-6">
                             <label for="">Todos da casa estão de acordo com a adoção?</label>
@@ -97,31 +91,35 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <label for="flexRadioAlugada">Sua casa é própria ou é alugada?</label>
+                            <label for="">Sua casa é própria ou é alugada?</label>
                         </div>
                         <div class="form-check col-1">
-                            <input class="form-check-input" type="radio" name="flexRadioAlugada" id="flexRadioAlugada1" value="Própria">
+                            <input class="form-check-input" type="radio" name="flexRadioAlugada" id="flexRadioAlugada1"
+                                value="Própria">
                             <label class="form-check-label" for="flexRadioAlugada1"> Própria </label>
                         </div>
                         <div class="form-check col-1">
-                            <input class="form-check-input" type="radio" name="flexRadioAlugada" id="flexRadioAlugada2" value="Alugada">
+                            <input class="form-check-input" type="radio" name="flexRadioAlugada" id="flexRadioAlugada2"
+                                value="Alugada">
                             <label class="form-check-label" for="flexRadioAlugada2"> Alugada </label>
                         </div>
                     </div>
-                        <!-- Pergunta sobre se o proprietário autoriza -->
-                                <div class="row hidden" id="perguntaAutorizacao">
-                            <div class="col-6">
-                        <label for="autorizacaoProprietario">O proprietário autoriza?</label>
+                    <!-- Pergunta sobre se o proprietário autoriza -->
+                    <div class="row hidden" id="perguntaAutorizacao">
+                        <div class="col-6">
+                            <label for="autorizacaoProprietario">O proprietário autoriza?</label>
+                        </div>
+                        <div class="form-check col-1">
+                            <input type="radio" class="form-check-input" id="autorizacaoSim"
+                                name="autorizacaoProprietario" value="Sim" required>
+                            <label class="form-check-label" for="autorizacaoSim">Sim</label>
+                        </div>
+                        <div class="form-check col-1">
+                            <input type="radio" class="form-check-input" id="autorizacaoNao"
+                                name="autorizacaoProprietario" value="Não" required>
+                            <label class="form-check-label" for="autorizacaoNao">Não</label>
+                        </div>
                     </div>
-                    <div class="form-check col-1">
-                        <input type="radio" class="form-check-input" id="autorizacaoSim" name="autorizacaoProprietario" value="Sim" required>
-                        <label class="form-check-label" for="autorizacaoSim">Sim</label>
-                    </div>
-                    <div class="form-check col-1">
-                        <input type="radio" class="form-check-input" id="autorizacaoNao" name="autorizacaoProprietario" value="Não" required>
-                        <label class="form-check-label" for="autorizacaoNao">Não</label>
-                    </div>
-                </div>
                     <div class="row">
                         <div class="col-6">
                             <label for="">Você mora em casa ou apartamento?</label>
@@ -142,12 +140,12 @@
                             <label for="">Sua moradia tem quintal?</label>
                         </div>
                         <div class="form-check col-1">
-                            <input class="form-check-input" type="radio" name="flexRadioAberta" id="flexRadioAberta1"
+                            <input class="form-check-input" type="radio" name="flexRadioQuintal" id="flexRadioAberta1"
                                 value="Sim">
                             <label class="form-check-label" for="flexRadioAberta1"> Sim </label>
                         </div>
                         <div class="form-check col-1">
-                            <input class="form-check-input" type="radio" name="flexRadioAberta" id="flexRadioAberta2"
+                            <input class="form-check-input" type="radio" name="flexRadioQuintal" id="flexRadioAberta2"
                                 value="Não">
                             <label class="form-check-label" for="flexRadioAberta2"> Não </label>
                         </div>
@@ -164,7 +162,7 @@
                         <div class="form-check col-1">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
                                 value="Não">
-                            <label class="form-check-label" for="flexRadioDefault2"> Não </label>
+                            <label class="form-check-label" for="flexRadioDefault1"> Não </label>
                         </div>
                     </div>
                     <div class="row">
@@ -191,43 +189,24 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="declaracao">Termo de autorização:</label><br>
+                        <label for="declaracao">Declaração:</label><br>
                         <textarea class="form-control" id="declaracao" rows="3" readonly>
-  Ao adotar o animal acima descrito, assumo a responsabilidade de prover alimento, abrigo com espaço para o animal exercitar-se e proteger-se do sol e chuva, acompanhamento médico-veterinário, dar continuidade aos esquemas de vacinação e vermifugação indicados, atender à todas as necessidades físicas, psicológicas e ambientais do animal, assim como prevenir de riscos (potencial agressão, transmissão de doenças ou danos à terceiros) que ele possa causar à comunidade ou ao ambiente. Os passeios em vias públicas ocorrerão sempre com o uso de coleira e guia para contenção e as fezes depositadas nas vias serão recolhidas com um saco plástico e destinadas ao lixo.
-Declaro autorizar as visitas de acompanhamento ou prestar esclarecimentos para a verificação das condições de saúde e de manutenção do animal sem prévio aviso. Se forem identificadas condições consideradas inadequadas, estou ciente de que, ao não regularizar a situação, o animal poderá ser retirado de minha guarda e recolhido ao canil municipal. Neste caso estarei sujeito às penalidades previstas na Lei de Proteção Animal e de Crimes Ambientais (Lei Federal 9.605/98).
-Tenho ciência de que abandonar animais é crime (Lei Federal 9.605/98).
-Ao retirar o animal do CEPAD, este centro de Proteção abre vaga para outro que esteja aguardando adoção, portanto, este centro não recebe de volta, animais que foram adotados, salvo casos de não adaptação do mesmo ao convívio familiar no prazo de 15 dias. Em caso de devolução, o adotante deverá, juntamente com o animal, trazer toda sua documentação (carteira de vacinação, RGA, coleira e guia).
-Todo e qualquer destino após a adoção deverá ser providenciado pelo próprio adotante.
-Autorização para o uso de imagem para divulgação do CEPAD em redes sociais e veículos de comunicação
+                            Este documento serve como um contrato de adoção entre o(s) adotante(s), que deve(m) ter 18 anos ou mais, e a entidade de adoção responsável. O(s) adotante(s) declara(m) que possui(em) a maturidade e capacidade legal para adotar e se compromete(m) a prover um ambiente seguro, amoroso e estável para o bem-estar do pet. A entidade de adoção assegura que o(s) adotante(s) atende(m) a todos os critérios legais e psicológicos necessários para a adoção. Ambas as partes concordam com os termos estabelecidos e se comprometem a cumprir todas as leis e regulamentos aplicáveis à adoção, garantindo o melhor interesse do pet.
                         </textarea>
                     </div>
-                    <div class="container">
-                        <!-- Linha para os checkboxes -->
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="declaracaoCheckbox1" required>
-                                    <label class="form-check-label" for="declaracaoCheckbox1">
-                                        Sim autorizo
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="declaracaoCheckbox2" required>
-                                    <label class="form-check-label" for="declaracaoCheckbox2">
-                                        Não autorizo
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="declaracaoCheckbox" required>
+                        <label class="form-check-label" for="declaracaoCheckbox">
+                            Eu declaro que tenho 18 anos e aceito os termos e condições.
+                        </label>
+                    </div>
                     <div class="row">
                         <div class="col-3">
                             <a class="ancora" href="./index.html"><button id="btnVoltar" class="btn fw-bold btn-danger"
-                                    type="button">Voltar</button></a>
+                                    type="submit">VOLTAR</button></a>
                         </div>
                         <div class="col-9">
-                            <button class="btn fw-bold" type="submit" onclick="enviarFormulario()">Enviar</button>
+                            <button class="btn fw-bold" type="submit" onclick="enviarFormulario()">ENVIAR</button>
                         </div>
                     </div>
                 </div>
@@ -241,7 +220,8 @@ Autorização para o uso de imagem para divulgação do CEPAD em redes sociais e
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalProtocoloLabel">SEU NÚMERO DE PROTOCOLO É <span id="numeroProtocolo"></span></h5>
+                        <h5 class="modal-title" id="modalProtocoloLabel">SEU NÚMERO DE PROTOCOLO É <span
+                                id="numeroProtocolo"></span></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
@@ -255,25 +235,6 @@ Autorização para o uso de imagem para divulgação do CEPAD em redes sociais e
     </main>
 
     <script src="./js/formularioDeInteresse.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Mostrar ou ocultar a pergunta sobre o quintal
-            $('input[name="flexRadioCasa"]').on('change', function () {
-                if ($('#flexRadioCasa1').is(':checked')) {
-                    $('#perguntaQuintal').removeClass('hidden');
-                } else {
-                    $('#perguntaQuintal').addClass('hidden');
-                }
-            });
-
-            // Alerta quando selecionar "Não" para a pergunta sobre acordo
-            $('input[name="flexRadioAcordo"]').on('change', function () {
-                if ($('#flexRadioAcordo2').is(':checked')) {
-                    alert('É importante que todos estejam de acordo com a adoção.');
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
