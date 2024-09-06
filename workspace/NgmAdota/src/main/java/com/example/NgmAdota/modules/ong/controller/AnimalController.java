@@ -55,7 +55,7 @@ public class AnimalController {
             @RequestPart("animal") @Valid EditAnimalDTO editDTO,
             @RequestPart("file") MultipartFile file) {
         try {
-            var editAnimal = editAnimalService.edit(id, editDTO, file, "/Workspace/ngmAdota/uploads"); // Passa o caminho para upload
+            var editAnimal = editAnimalService.edit(id, editDTO, file, "/Workspace/ProjectNgmAdota/ngmAdota/uploads"); // Passa o caminho para upload
             return ResponseEntity.status(HttpStatus.OK).body(editAnimal);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
