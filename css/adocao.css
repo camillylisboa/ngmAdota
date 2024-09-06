@@ -1,0 +1,228 @@
+/* Estilos para a navbar */
+.navbar {
+    
+    background-color: #008A33; /* Cor de fundo da navbar */
+    height: 94px; /* Altura da navbar */
+    font-weight: bold; /* Peso da fonte */
+    position: relative; /* Posição relativa para alinhar o título */
+}
+
+@media (max-width: 767px) {
+    .logo {
+        width: 50%; /* Reduz a largura da logo para dispositivos móveis */
+       /* padding: 10px; /* Reduz o padding para economizar espaço */
+       transform: translateY(-20%);
+    }
+
+    .navbar-title {
+        display: none; /* Oculta o título da navbar em dispositivos móveis */
+ 
+    }
+}
+
+/* Estilos para o título */
+.navbar-title {
+    position: absolute; /* Posição absoluta para alinhar o título */
+    top: 80%; /* Alinha o título verticalmente ao centro */
+    transform: translateY(-50%); /* Ajusta para o centro exato */
+    left: 100px; /* Espaçamento à direita da navbar */
+    color: #fff; /* Cor do título */
+}
+
+/* Estilos para os itens da navbar */
+.nav-item {
+    margin-right: 40px;
+    font-size: 23px;
+}
+
+.nav-link {
+    color: #fff; /* Cor dos links */
+}
+
+.nav-link:hover {
+    color: #06C1D6; /* Cor dos links no hover */
+}
+
+.titulo {
+    width: 270px;
+    height: 310px;
+}
+
+.btn {
+    align-items: center;
+}
+
+.animal-card {
+    border: 1px solid #008A33;
+    padding: 10px;
+    margin: 10px;
+    background-color: #008A33;
+    width: 344px;
+    height: 410px;
+    float: left;
+    color: white;
+}
+ 
+.btn-adocao {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 31px;
+    padding: 8px 40px;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+}
+ 
+.animal-card img {
+    width: 100%;
+    height: 75%;
+    border-radius: 31px;
+}
+ 
+.btn.btn-custom {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 31px;
+    padding: 2px 40px;
+    font-size: 16px;
+    border: none;
+    margin-right: 20px;
+}
+ 
+.menu-icon{
+    width: 23px;
+}
+ 
+.btn.btn-custom:hover {
+    background-color: #06C1D6;
+    color: #fff;
+}
+
+#adocao {
+    color: #06C1D6;
+    font-size: 27px;
+}
+
+.fundo {
+    background-color: #06C1D6;
+    height: 403px;
+    padding: 10px;
+}
+
+/* Botão do dropdown */
+.dropbtn {
+    background-color: #008A33;
+    color: white;
+    padding: 9px;
+    font-size: 23px;
+    font-weight: bold;
+    border: none;
+}
+
+/* O container <div> - necessário para posicionar o conteúdo do dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Conteúdo do Dropdown (escondido por padrão) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-menu.show {
+    display: block;
+  }
+
+/* Links dentro do dropdown */
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Estilo do link quando o mouse está em cima */
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+/* Muda a cor do botão dropdown quando o mouse está em cima */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* Mostra o dropdown ao passar o mouse por cima do botão */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Esconde os outros dropdowns quando um novo for selecionado */
+.dropdown-menu:hover, .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Exemplo para dois dropdowns */
+#dropdown1:hover + #dropdown2 .dropdown-menu,
+#dropdown2:hover + #dropdown1 .dropdown-menu {
+    display: none;
+}
+
+/* Modal de confirmação de saída */
+.modal.fade {
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+ 
+.modal.fade.show {
+    display: block;
+}
+
+.modal-body {
+    padding: 20px;
+    background-color:#d9d9d9;
+    color: #000;
+    border-radius: 10px;
+}
+
+.modal-body #modal-nome{
+    font-size: 25px;
+}
+
+.modal-body .row {
+    display: flex;
+    height: 100%;
+}
+ 
+.modal-body .col-md-6 {
+    padding: 0;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+ 
+.modal-body img {
+    width: 400px;
+
+    display: block;
+    border-radius: 31px;
+}
+ 
+.modal-body .info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: star;
+}
