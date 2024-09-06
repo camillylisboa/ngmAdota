@@ -24,7 +24,7 @@ public class InteresseService {
             throw new UserNotFoundException("Usuário não encontrado");
         });
         animalRepository.findById(request.getAnimalId()).orElseThrow(()->{
-            throw new AnimalNotFoundException();
+            throw new AnimalNotFoundException("Animal não encontrado");
         });
 
         return this.interesseRepository.save(request);

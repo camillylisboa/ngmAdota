@@ -3,8 +3,10 @@ package com.example.NgmAdota.modules.ong.controller;
 import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.ong.AnimalRepository;
 
+import com.example.NgmAdota.modules.ong.dto.EditAnimalDTO;
 import com.example.NgmAdota.modules.ong.services.CreateAnimalService;
 
+import com.example.NgmAdota.modules.ong.services.EditAnimalService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,6 +32,8 @@ public class AnimalController {
     private AnimalRepository animalRepository;
     @Autowired
     private CreateAnimalService createAnimalService;
+    @Autowired
+    private EditAnimalService editAnimalService;
     @Value("${upload.path}")
     private String uploadPath; // Propriedade para o caminho da pasta de uploads
 
@@ -44,6 +48,20 @@ public class AnimalController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
     }
+
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<?> editAnimal(
+            @PathVariable(value = "id") Long id,
+            @RequestPart("animal") @Valid EditAnimalDTO editDTO,
+            @RequestPart("file") MultipartFile file) {
+        try {
+            var editAnimal = editAnimalService.edit(id, editDTO, file, "/Workspace/ngmAdota/uploads"); // Passa o caminho para upload
+            return ResponseEntity.status(HttpStatus.OK).body(editAnimal);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
 
 
     @GetMapping("/lista")
@@ -61,31 +79,5 @@ public class AnimalController {
     }
 
 
-
-
-
-
-    @PostMapping("/uploadimage")
-    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
-        if (file.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Arquivo não encontrado");
-        }
-
-        try {
-            // Salva o arquivo usando o caminho especificado
-            String originalFilename = file.getOriginalFilename();
-            Path fileStorageLocation = Paths.get(uploadPath, originalFilename);
-
-            // Cria o diretório se não existir
-            Files.createDirectories(fileStorageLocation.getParent());
-
-            // Salva o arquivo
-            Files.copy(file.getInputStream(), fileStorageLocation);
-
-            return ResponseEntity.status(HttpStatus.OK).body("Arquivo enviado com sucesso!");
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Falha ao enviar o arquivo");
-        }
-    }
 }
 

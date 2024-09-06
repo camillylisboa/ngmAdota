@@ -195,6 +195,90 @@
         </div>
         </div>
 
+
+
+
+        <div class="modal fade" id="updateAnimalModal" tabindex="-1" aria-labelledby="updateAnimalModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateAnimalModalLabel">Atualizar Animal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="updateAnimalForm">
+                        <div class="mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="imagem2" accept="image/*">
+                                <label class="custom-file-label" for="imagem2">IMAGEM</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" name="nome2" id="nome2"
+                                        placeholder="NOME" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-email" class="form-label">Peso</label>
+                            <input type="text" class="form-control" name="peso2" id="peso2"
+                                        placeholder="PESO (Kg)" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-data-nascimento" class="form-label">Data de Nascimento</label>
+                            <input type="date" class="form-control date" name="dataNascimento2"
+                                        id="dataNascimento2" placeholder="DATA DE NASCIMENTO" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-sexo" class="form-label">Sexo</label>
+                            <select class="form-control" id="sexo2">
+                                <option value="" disabled selected>SEXO</option>
+                                <option value="M">MACHO</option>
+                                <option value="F">FÊMEA</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-raca" class="form-label">Raca</label>
+                            <select class="form-control" id="racaSelect2">
+                                <option value="" disabled selected>RAÇA</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-especie" class="form-label">Especie</label>
+                            <select class="form-control" id="especieSelect2">
+                                <option value="" disabled selected>ESPECIE</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-pelagem" class="form-label">Pelagem</label>
+                            <select class="form-control" id="pelagemSelect2">
+                                <option value="" disabled selected>PELAGEM</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-porte" class="form-label">Porte</label>
+                            <select class="form-control" id="porteSelect2">
+                                <option value="" disabled selected>PORTE</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-status" class="form-label">Status</label>
+                            <select name="" id="statusAnimalSelect2" class="form-control">
+                                <option value="" disabled selected>STATUS</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modal-complemento" class="form-label">Descrição</label>
+                            <textarea name="descricao2" id="descricao2"
+                                placeholder="PORQUE NGM ME ADOTA"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="atualizarAnimal()">Salvar mudanças</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </main>
 </body>
 

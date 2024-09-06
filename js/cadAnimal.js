@@ -31,26 +31,44 @@ function obterListaAnimais() {
                     '<div class="animal-card">' +
                     '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                     '<h2>' + animal.nome + '</h2>' +
-                    '<button class="btn-edit" data-toggle="modal" data-target="#modalEditAnimal" data-id="' + index + '">Editar animal</button>' +
+                    // Altere para usar o ID real do animal
+                    '<button class="btn-edit" data-toggle="modal" data-target="#updateAnimalModal" data-id="' + animal.id + '">Editar animal</button>' +
                     '</div>';
                 $('#lista-ong-animais').append(cardHtml);
             });
+
+            // Adicione um evento para capturar o ID ao clicar no botão "Editar"
+            $('.btn-edit').on('click', function() {
+                var animalId = $(this).data('id'); // Pega o ID do animal
+                window.localStorage.setItem('animalId', animalId); // Armazena no localStorage
+                console.log('Animal ID selecionado:', animalId);
+            });
         }
-    })
+    });
 }
 
+
 function populateSelectRaca() {
-    const select = document.getElementById("racaSelect");
+    const select1 = document.getElementById("racaSelect");
+    const select2 = document.getElementById("racaSelect2");
 
     fetch('http://localhost:8080/raca/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-                    const option = document.createElement("option");
-                    option.value = item.idEspecie;
-                    option.text = item.tipo;
-                    select.appendChild(option);
+
+                    const option1 = document.createElement("option");
+                    const option2 = document.createElement("option");
+
+                    option1.value = item.idEspecie;
+                    option1.text = item.tipo;
+
+                    option2.value = item.idEspecie;
+                    option2.text = item.tipo;
+
+                    select1.appendChild(option1);
+                    select2.appendChild(option2);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -61,18 +79,28 @@ function populateSelectRaca() {
         });
 }
 
+
 function populateSelectEspecie() {
-    const select = document.getElementById("especieSelect");
+    const select1 = document.getElementById("especieSelect");
+    const select2 = document.getElementById("especieSelect2");
 
     fetch('http://localhost:8080/especie/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-                    const option = document.createElement("option");
-                    option.value = item.id;
-                    option.text = item.tipo;
-                    select.appendChild(option);
+
+                    const option1 = document.createElement("option");
+                    const option2 = document.createElement("option");
+
+                    option1.value = item.id;
+                    option1.text = item.tipo;
+
+                    option2.value = item.id;
+                    option2.text = item.tipo;
+
+                    select1.appendChild(option1);
+                    select2.appendChild(option2);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -84,17 +112,26 @@ function populateSelectEspecie() {
 }
 
 function populateSelectPelagem() {
-    const select = document.getElementById("pelagemSelect");
+    const select1 = document.getElementById("pelagemSelect");
+    const select2 = document.getElementById("pelagemSelect2");
 
     fetch('http://localhost:8080/pelagem/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-                    const option = document.createElement("option");
-                    option.value = item.id;
-                    option.text = item.tipo;
-                    select.appendChild(option);
+
+                    const option1 = document.createElement("option");
+                    const option2 = document.createElement("option");
+
+                    option1.value = item.id;
+                    option1.text = item.tipo;
+
+                    option2.value = item.id;
+                    option2.text = item.tipo;
+
+                    select1.appendChild(option1);
+                    select2.appendChild(option2);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -106,17 +143,26 @@ function populateSelectPelagem() {
 }
 
 function populateSelectPorte() {
-    const select = document.getElementById("porteSelect");
+    const select1 = document.getElementById("porteSelect");
+    const select2 = document.getElementById("porteSelect2");
 
     fetch('http://localhost:8080/porte/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-                    const option = document.createElement("option");
-                    option.value = item.id;
-                    option.text = item.tipo;
-                    select.appendChild(option);
+
+                    const option1 = document.createElement("option");
+                    const option2 = document.createElement("option");
+
+                    option1.value = item.id;
+                    option1.text = item.tipo;
+
+                    option2.value = item.id;
+                    option2.text = item.tipo;
+
+                    select1.appendChild(option1);
+                    select2.appendChild(option2);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -128,17 +174,25 @@ function populateSelectPorte() {
 }
 
 function populateSelectStatusAnimal() {
-    const select = document.getElementById("statusAnimalSelect");
+    const select1 = document.getElementById("statusAnimalSelect");
+    const select2 = document.getElementById("statusAnimalSelect2");
 
     fetch('http://localhost:8080/statusAnimal/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-                    const option = document.createElement("option");
-                    option.value = item.id;
-                    option.text = item.tipo;
-                    select.appendChild(option);
+                    const option1 = document.createElement("option");
+                    const option2 = document.createElement("option");
+
+                    option1.value = item.id;
+                    option1.text = item.tipo;
+
+                    option2.value = item.id;
+                    option2.text = item.tipo;
+
+                    select1.appendChild(option1);
+                    select2.appendChild(option2);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -221,6 +275,66 @@ function enviarFormulario() {
         data: formData,
         processData: false, // Não processa o FormData automaticamente
         contentType: false, // Define o tipo de conteúdo como multipart/form-data
+        success: function(response, data) {
+          console.log('Formulário enviado com sucesso', data);
+          mostrarAlertaSucesso();
+          var animalId = response.id;
+          window.localStorage.setItem('animalId', animalId);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          console.error('Erro ao enviar formulário:', jqXHR, textStatus, errorThrown);
+          mostrarAlertaErro('Erro ao enviar formulário. Tente novamente.');
+        }
+    });
+}
+
+function atualizarAnimal() {
+    var token = window.localStorage.getItem('token');
+    var animalId = window.localStorage.getItem('animalId'); // Pega o ID do animal armazenado no localStorage
+    var nome = $('#nome2').val();
+    var peso = parseFloat($('#peso2').val());
+    var dataNascimento = $('#dataNascimento2').val();
+    var sexo = $('#sexo2').val();
+    var idRaca = parseInt($('#racaSelect2').val());
+    var idEspecie = parseInt($('#especieSelect2').val());
+    var idPelagem = parseInt($('#pelagemSelect2').val());
+    var idPorte = parseInt($('#porteSelect2').val());
+    var statusAnimal = parseInt($('#statusAnimalSelect2').val());
+    var descricao = $('#descricao2').val();
+    var imagem = $('#imagem2')[0].files[0];
+
+    if (!nome || !peso || !dataNascimento || !sexo || !idRaca || !idEspecie || !idPelagem || !idPorte || !imagem || !descricao || !statusAnimal) {
+        mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
+        return;
+    }
+
+    // Cria o objeto FormData e adiciona os campos
+    var formData = new FormData();
+    formData.append('animal', new Blob([JSON.stringify({
+        nome: nome,
+        peso: peso,
+        dataNascimento: dataNascimento,
+        sexo: sexo,
+        idRaca: idRaca,
+        idEspecie: idEspecie,
+        idPelagem: idPelagem,
+        idPorte: idPorte,
+        statusAnimal : { id: statusAnimal },
+        descricao: descricao
+    })], { type: "application/json" }));
+    formData.append('file', imagem);
+
+    console.log("Dados enviados: ", formData);
+
+    $.ajax({
+        url: `http://localhost:8080/animal/edit/${animalId}`, // Usando o ID correto do animal
+        type: 'PUT',
+        headers: {
+            'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
+        },
+        data: formData,
+        processData: false, // Não processa o FormData automaticamente
+        contentType: false, // Define o tipo de conteúdo como multipart/form-data
         success: function(data) {
           console.log('Formulário enviado com sucesso', data);
           mostrarAlertaSucesso();
@@ -231,6 +345,8 @@ function enviarFormulario() {
         }
     });
 }
+
+
 
 
 function mostrarAlertaSucesso() {
