@@ -31,22 +31,50 @@ function obterListaAnimais() {
                     '<div class="animal-card">' +
                     '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                     '<h2>' + animal.nome + '</h2>' +
-                    // Altere para usar o ID real do animal
-                    '<button class="btn-edit" data-toggle="modal" data-target="#updateAnimalModal" data-id="' + animal.id + '">Editar animal</button>' +
+                    '<button class="btn-edit" data-id="' + animal.id + '">Editar animal</button>' +
                     '</div>';
                 $('#lista-ong-animais').append(cardHtml);
             });
 
-            // Adicione um evento para capturar o ID ao clicar no botão "Editar"
+            // Adiciona o evento para capturar e salvar os dados do animal ao clicar no botão "Editar"
             $('.btn-edit').on('click', function() {
                 var animalId = $(this).data('id'); // Pega o ID do animal
-                window.localStorage.setItem('animalId', animalId); // Armazena no localStorage
-                console.log('Animal ID selecionado:', animalId);
+                var animal = data.find(a => a.id === animalId); // Encontra o animal correspondente
+                if (animal) {
+                    // Armazena os dados do animal no localStorage
+                    window.localStorage.setItem('animalId', animal.id);
+                    window.localStorage.setItem('animalNome', animal.nome);
+                    window.localStorage.setItem('animalPeso', animal.peso);
+                    window.localStorage.setItem('animalSexo', animal.sexo);
+                    window.localStorage.setItem('animalRaca', animal.idRaca);
+                    window.localStorage.setItem('animalEspecie', animal.idEspecie);
+                    window.localStorage.setItem('animalPelagem', animal.idPelagem);
+                    window.localStorage.setItem('animalPorte', animal.idPorte);
+                    window.localStorage.setItem('animalStatus', animal.statusAnimal.id);
+                    window.localStorage.setItem('animalDescricao', animal.descricao);
+                    window.localStorage.setItem('animalImagem', animal.imagem);
+
+                    console.log('Dados do animal armazenados no localStorage:', {
+                        id: animal.id,
+                        nome: animal.nome,
+                        peso: animal.peso,
+                        sexo: animal.sexo,
+                        raca: animal.idRaca,
+                        especie: animal.idEspecie,
+                        pelagem: animal.idPelagem,
+                        porte: animal.idPorte,
+                        status: animal.statusAnimal.id,
+                        descricao: animal.descricao,
+                        imagem: animal.imagem
+                    });
+
+                    // Redireciona para a página informacoesAnimal.html
+                    window.location.href = 'informacoesAnimal.html';
+                }
             });
         }
     });
 }
-
 
 function populateSelectRaca() {
     const select1 = document.getElementById("racaSelect");
@@ -240,125 +268,39 @@ function enviarFormulario() {
     var descricao = $('#descricao').val();
     var imagem = $('#imagem')[0].files[0];
 
-    if (!nome || !peso || !dataNascimento || !sexo || !idRaca || !idEspecie || !idPelagem || !idPorte || !imagem || !descricao || !statusAnimal) {
-        mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
+    if (!nome || !peso || !ongId || !dataNascimento || !sexo || !idRaca || !idEspecie || !idPelagem || !idPorte || !statusAnimal || !descricao || !imagem) {
+        console.log("Preencha todos os campos.");
         return;
     }
 
-    
-
-    // Cria o objeto FormData e adiciona os campos
     var formData = new FormData();
-    formData.append('animal', new Blob([JSON.stringify({
-        nome: nome,
-        peso: peso,
-        ongId: ongId,
-        dataNascimento: dataNascimento,
-        sexo: sexo,
-        idRaca: idRaca,
-        idEspecie: idEspecie,
-        idPelagem: idPelagem,
-        idPorte: idPorte,
-        statusAnimal : { id: statusAnimal },
-        descricao: descricao
-    })], { type: "application/json" }));
-    formData.append('file', imagem);
-
-    console.log("Dados enviados: ", formData);
+    formData.append("nome", nome);
+    formData.append("peso", peso);
+    formData.append("ong", { id: ongId });
+    formData.append("dataNascimento", dataNascimento);
+    formData.append("sexo", sexo);
+    formData.append("raca", { idRaca: idRaca });
+    formData.append("especie", { idEspecie: idEspecie });
+    formData.append("pelagem", { idPelagem: idPelagem });
+    formData.append("porte", { idPorte: idPorte });
+    formData.append("statusAnimal", { id: statusAnimal });
+    formData.append("descricao", descricao);
+    formData.append("imagem", imagem);
 
     $.ajax({
-        url: 'http://localhost:8080/animal/',
-        type: 'POST',
-        headers: {
-            'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
-        },
+        url: 'http://localhost:8080/ong/animal',
+        method: 'POST',
         data: formData,
-        processData: false, // Não processa o FormData automaticamente
-        contentType: false, // Define o tipo de conteúdo como multipart/form-data
-        success: function(response, data) {
-          console.log('Formulário enviado com sucesso', data);
-          mostrarAlertaSucesso();
-          var animalId = response.id;
-          window.localStorage.setItem('animalId', animalId);
+        headers: {
+            'Authorization': `Bearer ${token}`,
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-          console.error('Erro ao enviar formulário:', jqXHR, textStatus, errorThrown);
-          mostrarAlertaErro('Erro ao enviar formulário. Tente novamente.');
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            console.log("Animal cadastrado com sucesso:", response);
+        },
+        error: function (xhr, status, error) {
+            console.error("Erro ao cadastrar o animal:", xhr.responseText);
         }
     });
-}
-
-function atualizarAnimal() {
-    var token = window.localStorage.getItem('token');
-    var animalId = window.localStorage.getItem('animalId'); // Pega o ID do animal armazenado no localStorage
-    var nome = $('#nome2').val();
-    var peso = parseFloat($('#peso2').val());
-    var dataNascimento = $('#dataNascimento2').val();
-    var sexo = $('#sexo2').val();
-    var idRaca = parseInt($('#racaSelect2').val());
-    var idEspecie = parseInt($('#especieSelect2').val());
-    var idPelagem = parseInt($('#pelagemSelect2').val());
-    var idPorte = parseInt($('#porteSelect2').val());
-    var statusAnimal = parseInt($('#statusAnimalSelect2').val());
-    var descricao = $('#descricao2').val();
-    var imagem = $('#imagem2')[0].files[0];
-
-    if (!nome || !peso || !dataNascimento || !sexo || !idRaca || !idEspecie || !idPelagem || !idPorte || !imagem || !descricao || !statusAnimal) {
-        mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
-        return;
-    }
-
-    // Cria o objeto FormData e adiciona os campos
-    var formData = new FormData();
-    formData.append('animal', new Blob([JSON.stringify({
-        nome: nome,
-        peso: peso,
-        dataNascimento: dataNascimento,
-        sexo: sexo,
-        idRaca: idRaca,
-        idEspecie: idEspecie,
-        idPelagem: idPelagem,
-        idPorte: idPorte,
-        statusAnimal : { id: statusAnimal },
-        descricao: descricao
-    })], { type: "application/json" }));
-    formData.append('file', imagem);
-
-    console.log("Dados enviados: ", formData);
-
-    $.ajax({
-        url: `http://localhost:8080/animal/edit/${animalId}`, // Usando o ID correto do animal
-        type: 'PUT',
-        headers: {
-            'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
-        },
-        data: formData,
-        processData: false, // Não processa o FormData automaticamente
-        contentType: false, // Define o tipo de conteúdo como multipart/form-data
-        success: function(data) {
-          console.log('Formulário enviado com sucesso', data);
-          mostrarAlertaSucesso();
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          console.error('Erro ao enviar formulário:', jqXHR, textStatus, errorThrown);
-          mostrarAlertaErro('Erro ao enviar formulário. Tente novamente.');
-        }
-    });
-}
-
-
-
-
-function mostrarAlertaSucesso() {
-    $('#alertaSucesso').removeClass('d-none');
-    setTimeout(function() {
-        $('#alertaSucesso').addClass('d-none');
-    }, 3000);
-}
-
-function mostrarAlertaErro(message) {
-    $('#alertaErro').text(message).removeClass('d-none');
-    setTimeout(function() {
-        $('#alertaErro').addClass('d-none');
-    }, 3000);
 }

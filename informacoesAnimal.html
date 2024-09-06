@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Animal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .details-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .animal-image {
+            flex: 1;
+            max-width: 350px;
+        }
+        .animal-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .animal-details {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .animal-details p {
+            margin: 5px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .ong-details {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .ong-details h2 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .ong-details p {
+            margin: 5px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detalhes do Animal</h1>
+        <div class="details-container">
+            <div class="animal-image">
+                <img id="imagemAnimal" src="" alt="Imagem do Animal" />
+            </div>
+            <div class="animal-details">
+                <p><strong>Nome:</strong> <span id="nome"></span></p>
+                <p><strong>Peso:</strong> <span id="peso"></span> kg</p>
+                <p><strong>Sexo:</strong> <span id="sexo"></span></p>
+                <p><strong>Idade aprox:</strong> <span id="idade"></span></p>
+                <p><strong>Espécie:</strong> <span id="especie"></span></p>
+                <p><strong>Raça:</strong> <span id="raca"></span></p>
+                <p><strong>Pelagem:</strong> <span id="pelagem"></span></p>
+                <p><strong>Porte:</strong> <span id="porte"></span></p>
+                <p><strong>Status:</strong> <span id="status"></span></p>
+                <p><strong>Descrição:</strong> <span id="descricao"></span></p>
+            </div>
+        </div>
+        <div class="ong-details">
+            <h2>Informações da ONG</h2>
+            <p><strong>Razão Social:</strong> <span id="ongRazaoSocial"></span></p>
+            <p><strong>Email:</strong> <span id="ongEmail"></span></p>
+            <p><strong>CNPJ:</strong> <span id="ongCnpj"></span></p>
+            <p><strong>Telefone:</strong> <span id="ongTelefone"></span></p>
+            <p><strong>Endereço:</strong> <span id="ongEndereco"></span></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Recuperar o ID do animal do localStorage
+            var animalId = window.localStorage.getItem('animalId');
+            if (animalId) {
+                // Fazer a requisição para obter os detalhes do animal
+                $.ajax({
+                    url: `http://localhost:8080/animal/lista/${animalId}`,
+                    method: 'GET',
+                    success: function(data) {
+                        // Preencher os detalhes do animal
+                        $('#nome').text(data.nome);
+                        $('#peso').text(data.peso);
+                        $('#sexo').text(data.sexo);
+                        $('#especie').text(data.idEspecie); // Substitua pelo nome da espécie se necessário
+                        $('#raca').text(data.idRaca); // Substitua pelo nome da raça se necessário
+                        $('#pelagem').text(data.idPelagem); // Substitua pelo tipo de pelagem se necessário
+                        $('#porte').text(data.idPorte); // Substitua pelo tipo de porte se necessário
+                        $('#status').text(data.statusAnimal.tipo);
+                        $('#descricao').text(data.descricao);
+                        $('#idade').text(data.idade); // Adicionado para mostrar a idade
+
+                        // Exibir a imagem do animal
+                        $('#imagemAnimal').attr('src', window.location.origin + data.imagem);
+
+                        // Preencher os detalhes da ONG
+                        $('#ongRazaoSocial').text(data.ongModel.razaosocial);
+                        $('#ongEmail').text(data.ongModel.email);
+                        $('#ongCnpj').text(data.ongModel.cnpj);
+                        $('#ongTelefone').text(data.ongModel.telefone);
+                        $('#ongEndereco').text(`${data.ongModel.logradouro}, ${data.ongModel.numero}, ${data.ongModel.bairro}, ${data.ongModel.cidade} - ${data.ongModel.estado}, ${data.ongModel.cep}`);
+                    },
+                    error: function(error) {
+                        console.error('Erro ao buscar detalhes do animal:', error);
+                    }
+                });
+            } else {
+                console.error('ID do animal não encontrado no localStorage.');
+            }
+        });
+    </script>
+</body>
+</html>
