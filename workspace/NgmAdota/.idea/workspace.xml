@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1146c630-f296-47bb-8270-e598edceb57a" name="Changes" comment="editar animal funcionando">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/AnimalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/AnimalModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/dto/EditAnimalDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/services/EditAnimalService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../cadastroAnimal.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../cadastroAnimal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../js/cadAnimal.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../js/cadAnimal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/exceptions/AnimalNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/exceptions/AnimalNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/services/InteresseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/formInteresse/services/InteresseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/NgmAdota/modules/ong/controller/AnimalController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Record" />
         <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -57,17 +64,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.NgmAdotaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;put__animal&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Workspace/ngmAdota/workspace/NgmAdota&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.NgmAdotaApplication.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "put__animal",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Workspace/ngmAdota/workspace/NgmAdota"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.NgmAdota.Controllers" />
