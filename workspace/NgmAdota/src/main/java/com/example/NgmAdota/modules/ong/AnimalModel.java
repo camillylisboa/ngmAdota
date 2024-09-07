@@ -41,10 +41,21 @@ public class AnimalModel implements Serializable {
     @Lob
     private String descricao;
 
-    private Integer idRaca;
-    private Integer idEspecie;
-    private Integer idPelagem;
-    private Integer idPorte;
+    @ManyToOne()
+    @JoinColumn(name = "racaanimal_id")
+    private RacaModel racaAnimal;
+
+    @ManyToOne()
+    @JoinColumn(name = "especieanimal_Id")
+    private EspecieModel especieAnimal;
+
+    @ManyToOne()
+    @JoinColumn(name = "pelagemanimal_id")
+    private PelagemModel pelagemAnimal;
+
+    @ManyToOne()
+    @JoinColumn(name = "porteanimal_id")
+    private PorteModel porteAnimal;
 
     @ManyToOne()
     @JoinColumn(name = "statusanimal_id")

@@ -29,10 +29,10 @@ public class EditAnimalService {
                     animal.setSexo(editDTO.sexo());
                     animal.setOngModel(editDTO.ongModel());
                     animal.setDescricao(editDTO.descricao());
-                    animal.setIdRaca(editDTO.idRaca());
-                    animal.setIdEspecie(editDTO.idEspecie());
-                    animal.setIdPelagem(editDTO.idPelagem());
-                    animal.setIdPorte(editDTO.idPorte());
+                    animal.setRacaAnimal(editDTO.racaAnimal());
+                    animal.setEspecieAnimal(editDTO.especieAnimal());
+                    animal.setPelagemAnimal(editDTO.pelagemAnimal());
+                    animal.setPorteAnimal(editDTO.porteAnimal());
                     animal.setStatusAnimal(editDTO.statusAnimal());
 
                     // Processar o upload da imagem com controle de sobrescrita
