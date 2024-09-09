@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    
     obterListaAnimais();
 
     // Função para mostrar o modal de confirmação estilizado
@@ -127,8 +126,10 @@ $(document).ready(function () {
 });
 
 function obterListaAnimais() {
+    // Variavel que vai para a rota de busca de animais e aparece apenas os animais disponiveis para adoção 
+    const disponivelParaAdocao = '?statusAnimal=1';
     $.ajax({
-        url: 'http://localhost:8080/animal/lista',
+        url: `http://localhost:8080/animal/lista/adocao${disponivelParaAdocao}`,
         method: 'GET',
         dataType: 'json',
         success: function (data) {

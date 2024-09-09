@@ -111,6 +111,12 @@
     padding: 10px;
 }
 
+.fundo > h1 {
+    text-align: center;
+    color: #fff;
+    
+}
+
 /* Botão do dropdown */
 .dropbtn {
     background-color: #008A33;

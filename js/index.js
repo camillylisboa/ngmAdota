@@ -70,8 +70,10 @@ $(document).ready(function () {
 
     // Função para fazer a chamada AJAX à API de animais
     function obterListaAnimais() {
+        // Variavel que vai para a rota de busca de animais e aparece apenas os animais disponiveis para adoção 
+        const disponivelParaAdocao = '?statusAnimal=1'
         $.ajax({
-            url: 'http://localhost:8080/animal/lista',
+            url: `http://localhost:8080/animal/lista/adocao${disponivelParaAdocao}`,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
