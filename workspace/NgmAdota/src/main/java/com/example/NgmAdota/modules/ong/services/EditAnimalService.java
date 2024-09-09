@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 @Service
 public class EditAnimalService {
@@ -71,6 +72,10 @@ public class EditAnimalService {
                     return animalRepository.save(animal);
                 })
                 .orElseThrow(() -> new AnimalNotFoundException("Animal não encontrado"));
+    }
+
+    public List<AnimalModel> findAnimalsByStatusId(Long statusAnimalId) {
+        return animalRepository.findByStatusAnimalId(statusAnimalId);
     }
 
 
