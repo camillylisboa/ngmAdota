@@ -87,6 +87,59 @@ $(document).ready(function () {
         });
     }
 
+    function obterListaAnimais() {
+        // Variavel que vai para a rota de busca de animais e aparece apenas os animais disponiveis para adoção 
+        const disponivelParaAdocao = '?statusAnimal=1';
+        $.ajax({
+            url: `http://localhost:8080/animal/lista/adocao${disponivelParaAdocao}`,
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                $('#lista-animais').empty();
+    
+                $.each(data, function (index, animal) {
+                    var cardHtml =
+                        '<div class="animal-card">' +
+                        '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
+                        '<h2>' + animal.nome + '</h2>' +
+                        '<button class="btn-adocao" data-toggle="modal" data-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
+                        '</div>';
+                    $('#lista-animais').append(cardHtml);
+                });
+    
+                $('.btn-adocao').on('click', function () {
+                    var index = $(this).data('id');
+                    var animal = data[index];
+                    console.log(animal)
+                    $('#modal-imagem').attr('src', animal.imagem);
+                    $('#modal-nome').text(animal.nome);
+                    $('#modal-peso').text(animal.peso + ' kg');
+                    $('#modal-idade').text(animal.idade);
+                    $('#modal-descricao').text(animal.descricao);
+    
+                    $('#modalAnimal').modal('show');
+    
+                    localStorage.setItem('animalId', animal.id);
+                    localStorage.setItem('animalNome', animal.nome);
+                });
+    
+    
+    
+                $('#adocaoBtn').on('click', function () {
+                    if (token && nomeUsuario) {
+                        window.location.href = 'formularioDeInteresse.html'
+                    } else {
+                        alert("Você precisa fazer login");
+                        window.location.href = 'login.html';
+                    }
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('Erro ao obter a lista de animais:', error);
+            }
+        });
+    }
+    
     function esconderBotaoSeUsuario(role) {
 
         if (role) {
@@ -124,57 +177,4 @@ $(document).ready(function () {
         logout();
     });
 });
-
-function obterListaAnimais() {
-    // Variavel que vai para a rota de busca de animais e aparece apenas os animais disponiveis para adoção 
-    const disponivelParaAdocao = '?statusAnimal=1';
-    $.ajax({
-        url: `http://localhost:8080/animal/lista/adocao${disponivelParaAdocao}`,
-        method: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            $('#lista-animais').empty();
-
-            $.each(data, function (index, animal) {
-                var cardHtml =
-                    '<div class="animal-card">' +
-                    '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
-                    '<h2>' + animal.nome + '</h2>' +
-                    '<button class="btn-adocao" data-toggle="modal" data-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
-                    '</div>';
-                $('#lista-animais').append(cardHtml);
-            });
-
-            $('.btn-adocao').on('click', function () {
-                var index = $(this).data('id');
-                var animal = data[index];
-                console.log(animal)
-                $('#modal-imagem').attr('src', animal.imagem);
-                $('#modal-nome').text(animal.nome);
-                $('#modal-peso').text(animal.peso + ' kg');
-                $('#modal-idade').text(animal.idade);
-                $('#modal-descricao').text(animal.descricao);
-
-                $('#modalAnimal').modal('show');
-
-                localStorage.setItem('animalId', animal.id);
-                localStorage.setItem('animalNome', animal.nome);
-            });
-
-
-
-            $('#adocaoBtn').on('click', function () {
-                if (token && nomeUsuario) {
-                    window.location.href = 'formularioDeInteresse.html'
-                } else {
-                    alert("Você precisa fazer login");
-                    window.location.href = 'login.html';
-                }
-            });
-        },
-        error: function (xhr, status, error) {
-            console.error('Erro ao obter a lista de animais:', error);
-        }
-    });
-}
 
