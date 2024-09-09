@@ -908,8 +908,6 @@ h1 {
     display: block;
 }
  
-
- 
 .modal-header {
     padding: 20px;
     border-bottom: 1px solid #ccc;
@@ -962,11 +960,6 @@ h1 {
     border-radius: 5px; /* Bordas arredondadas */
     margin-bottom: 20px; /* Margem inferior */
 }
-
-#lista-animais{
-    margin: auto;
-}
-
 /* Botão do dropdown */
 .dropbtn {
     background-color: #008A33;

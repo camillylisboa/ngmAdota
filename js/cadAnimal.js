@@ -31,44 +31,62 @@ function obterListaAnimais() {
                     '<div class="animal-card">' +
                     '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                     '<h2>' + animal.nome + '</h2>' +
-                    // Altere para usar o ID real do animal
-                    '<button class="btn-edit" data-toggle="modal" data-target="#updateAnimalModal" data-id="' + animal.id + '">Editar animal</button>' +
+                    '<button class="btn-edit" data-id="' + animal.id + '">Editar animal</button>' +
                     '</div>';
                 $('#lista-ong-animais').append(cardHtml);
             });
 
-            // Adicione um evento para capturar o ID ao clicar no botão "Editar"
+            // Adiciona o evento para capturar e salvar os dados do animal ao clicar no botão "Editar"
             $('.btn-edit').on('click', function() {
                 var animalId = $(this).data('id'); // Pega o ID do animal
-                window.localStorage.setItem('animalId', animalId); // Armazena no localStorage
-                console.log('Animal ID selecionado:', animalId);
+                var animal = data.find(a => a.id === animalId); // Encontra o animal correspondente
+                if (animal) {
+                    // Armazena os dados do animal no localStorage
+                    window.localStorage.setItem('animalId', animal.id);
+                    window.localStorage.setItem('animalNome', animal.nome);
+                    window.localStorage.setItem('animalPeso', animal.peso);
+                    window.localStorage.setItem('animalSexo', animal.sexo);
+                    window.localStorage.setItem('animalRaca', animal.racaAnimal.id);
+                    window.localStorage.setItem('animalEspecie', animal.especieAnimal.id);
+                    window.localStorage.setItem('animalPelagem', animal.pelagemAnimal.id);
+                    window.localStorage.setItem('animalPorte', animal.porteAnimal.id);
+                    window.localStorage.setItem('animalStatus', animal.statusAnimal.id);
+                    window.localStorage.setItem('animalDescricao', animal.descricao);
+                    window.localStorage.setItem('animalImagem', animal.imagem);
+
+                    console.log('Dados do animal armazenados no localStorage:', {
+                        id: animal.id,
+                        nome: animal.nome,
+                        peso: animal.peso,
+                        sexo: animal.sexo,
+                        raca: animal.racaAnimal.id,
+                        especie: animal.especieAnimal.id,
+                        pelagem: animal.pelagemAnimal.id,
+                        porte: animal.porteAnimal.id,
+                        status: animal.statusAnimal.id,
+                        descricao: animal.descricao,
+                        imagem: animal.imagem
+                    });
+
+                    // Redireciona para a página informacoesAnimal.html
+                    window.location.href = 'informacoesAnimal.html';
+                }
             });
         }
     });
 }
-
-
 function populateSelectRaca() {
-    const select1 = document.getElementById("racaSelect");
-    const select2 = document.getElementById("racaSelect2");
+    const select = document.getElementById("racaSelect");
 
     fetch('http://localhost:8080/raca/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-
-                    const option1 = document.createElement("option");
-                    const option2 = document.createElement("option");
-
-                    option1.value = item.idEspecie;
-                    option1.text = item.tipo;
-
-                    option2.value = item.idEspecie;
-                    option2.text = item.tipo;
-
-                    select1.appendChild(option1);
-                    select2.appendChild(option2);
+                    const option = document.createElement("option");
+                    option.value = item.id;
+                    option.text = item.tipo;
+                    select.appendChild(option);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -79,28 +97,18 @@ function populateSelectRaca() {
         });
 }
 
-
 function populateSelectEspecie() {
-    const select1 = document.getElementById("especieSelect");
-    const select2 = document.getElementById("especieSelect2");
+    const select = document.getElementById("especieSelect");
 
     fetch('http://localhost:8080/especie/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-
-                    const option1 = document.createElement("option");
-                    const option2 = document.createElement("option");
-
-                    option1.value = item.id;
-                    option1.text = item.tipo;
-
-                    option2.value = item.id;
-                    option2.text = item.tipo;
-
-                    select1.appendChild(option1);
-                    select2.appendChild(option2);
+                    const option = document.createElement("option");
+                    option.value = item.id;
+                    option.text = item.tipo;
+                    select.appendChild(option);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -112,26 +120,17 @@ function populateSelectEspecie() {
 }
 
 function populateSelectPelagem() {
-    const select1 = document.getElementById("pelagemSelect");
-    const select2 = document.getElementById("pelagemSelect2");
+    const select = document.getElementById("pelagemSelect");
 
     fetch('http://localhost:8080/pelagem/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-
-                    const option1 = document.createElement("option");
-                    const option2 = document.createElement("option");
-
-                    option1.value = item.id;
-                    option1.text = item.tipo;
-
-                    option2.value = item.id;
-                    option2.text = item.tipo;
-
-                    select1.appendChild(option1);
-                    select2.appendChild(option2);
+                    const option = document.createElement("option");
+                    option.value = item.id;
+                    option.text = item.tipo;
+                    select.appendChild(option);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -143,26 +142,17 @@ function populateSelectPelagem() {
 }
 
 function populateSelectPorte() {
-    const select1 = document.getElementById("porteSelect");
-    const select2 = document.getElementById("porteSelect2");
+    const select = document.getElementById("porteSelect");
 
     fetch('http://localhost:8080/porte/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-
-                    const option1 = document.createElement("option");
-                    const option2 = document.createElement("option");
-
-                    option1.value = item.id;
-                    option1.text = item.tipo;
-
-                    option2.value = item.id;
-                    option2.text = item.tipo;
-
-                    select1.appendChild(option1);
-                    select2.appendChild(option2);
+                    const option = document.createElement("option");
+                    option.value = item.id;
+                    option.text = item.tipo;
+                    select.appendChild(option);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -174,25 +164,17 @@ function populateSelectPorte() {
 }
 
 function populateSelectStatusAnimal() {
-    const select1 = document.getElementById("statusAnimalSelect");
-    const select2 = document.getElementById("statusAnimalSelect2");
+    const select = document.getElementById("statusAnimalSelect");
 
     fetch('http://localhost:8080/statusAnimal/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
                 data.forEach(item => {
-                    const option1 = document.createElement("option");
-                    const option2 = document.createElement("option");
-
-                    option1.value = item.id;
-                    option1.text = item.tipo;
-
-                    option2.value = item.id;
-                    option2.text = item.tipo;
-
-                    select1.appendChild(option1);
-                    select2.appendChild(option2);
+                    const option = document.createElement("option");
+                    option.value = item.id;
+                    option.text = item.tipo;
+                    select.appendChild(option);
                 });
             } else {
                 console.error("Esperado um array, mas recebemos:", data);
@@ -232,20 +214,35 @@ function enviarFormulario() {
     var ongId = $('#ongSelect').val();
     var dataNascimento = $('#dataNascimento').val();
     var sexo = $('#sexo').val();
-    var idRaca = parseInt($('#racaSelect').val());
-    var idEspecie = parseInt($('#especieSelect').val());
-    var idPelagem = parseInt($('#pelagemSelect').val());
-    var idPorte = parseInt($('#porteSelect').val());
+    var racaAnimal = parseInt($('#racaSelect').val());
+    var especieAnimal = parseInt($('#especieSelect').val());
+    var pelagemAnimal = parseInt($('#pelagemSelect').val());
+    var porteAnimal = parseInt($('#porteSelect').val());
     var statusAnimal = parseInt($('#statusAnimalSelect').val());
     var descricao = $('#descricao').val();
     var imagem = $('#imagem')[0].files[0];
 
-    if (!nome || !peso || !dataNascimento || !sexo || !idRaca || !idEspecie || !idPelagem || !idPorte || !imagem || !descricao || !statusAnimal) {
+    // Log dos valores capturados
+    console.log({
+        nome, 
+        peso, 
+        ongId,
+        dataNascimento, 
+        sexo, 
+        racaAnimal, 
+        especieAnimal, 
+        pelagemAnimal, 
+        porteAnimal, 
+        statusAnimal, 
+        descricao, 
+        imagem
+    });
+
+    // Verifica se todos os campos estão preenchidos
+    if (!nome || !peso || !dataNascimento || !sexo || !racaAnimal || !especieAnimal || !pelagemAnimal || !porteAnimal || !imagem || !descricao || !statusAnimal) {
         mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
         return;
     }
-
-    
 
     // Cria o objeto FormData e adiciona os campos
     var formData = new FormData();
@@ -255,10 +252,10 @@ function enviarFormulario() {
         ongId: ongId,
         dataNascimento: dataNascimento,
         sexo: sexo,
-        idRaca: idRaca,
-        idEspecie: idEspecie,
-        idPelagem: idPelagem,
-        idPorte: idPorte,
+        racaAnimal: {id: racaAnimal},
+        especieAnimal: {id: especieAnimal},
+        pelagemAnimal: {id: pelagemAnimal},
+        porteAnimal: {id: porteAnimal},
         statusAnimal : { id: statusAnimal },
         descricao: descricao
     })], { type: "application/json" }));
@@ -275,77 +272,16 @@ function enviarFormulario() {
         data: formData,
         processData: false, // Não processa o FormData automaticamente
         contentType: false, // Define o tipo de conteúdo como multipart/form-data
-        success: function(response, data) {
-          console.log('Formulário enviado com sucesso', data);
-          mostrarAlertaSucesso();
-          var animalId = response.id;
-          window.localStorage.setItem('animalId', animalId);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          console.error('Erro ao enviar formulário:', jqXHR, textStatus, errorThrown);
-          mostrarAlertaErro('Erro ao enviar formulário. Tente novamente.');
-        }
-    });
-}
-
-function atualizarAnimal() {
-    var token = window.localStorage.getItem('token');
-    var animalId = window.localStorage.getItem('animalId'); // Pega o ID do animal armazenado no localStorage
-    var nome = $('#nome2').val();
-    var peso = parseFloat($('#peso2').val());
-    var dataNascimento = $('#dataNascimento2').val();
-    var sexo = $('#sexo2').val();
-    var idRaca = parseInt($('#racaSelect2').val());
-    var idEspecie = parseInt($('#especieSelect2').val());
-    var idPelagem = parseInt($('#pelagemSelect2').val());
-    var idPorte = parseInt($('#porteSelect2').val());
-    var statusAnimal = parseInt($('#statusAnimalSelect2').val());
-    var descricao = $('#descricao2').val();
-    var imagem = $('#imagem2')[0].files[0];
-
-    if (!nome || !peso || !dataNascimento || !sexo || !idRaca || !idEspecie || !idPelagem || !idPorte || !imagem || !descricao || !statusAnimal) {
-        mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
-        return;
-    }
-
-    // Cria o objeto FormData e adiciona os campos
-    var formData = new FormData();
-    formData.append('animal', new Blob([JSON.stringify({
-        nome: nome,
-        peso: peso,
-        dataNascimento: dataNascimento,
-        sexo: sexo,
-        idRaca: idRaca,
-        idEspecie: idEspecie,
-        idPelagem: idPelagem,
-        idPorte: idPorte,
-        statusAnimal : { id: statusAnimal },
-        descricao: descricao
-    })], { type: "application/json" }));
-    formData.append('file', imagem);
-
-    console.log("Dados enviados: ", formData);
-
-    $.ajax({
-        url: `http://localhost:8080/animal/edit/${animalId}`, // Usando o ID correto do animal
-        type: 'PUT',
-        headers: {
-            'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
-        },
-        data: formData,
-        processData: false, // Não processa o FormData automaticamente
-        contentType: false, // Define o tipo de conteúdo como multipart/form-data
         success: function(data) {
-          console.log('Formulário enviado com sucesso', data);
-          mostrarAlertaSucesso();
+            console.log('Formulário enviado com sucesso', data);
+            mostrarAlertaSucesso();
         },
         error: function(jqXHR, textStatus, errorThrown) {
-          console.error('Erro ao enviar formulário:', jqXHR, textStatus, errorThrown);
-          mostrarAlertaErro('Erro ao enviar formulário. Tente novamente.');
+            console.error('Erro ao enviar formulário:', jqXHR, textStatus, errorThrown);
+            mostrarAlertaErro('Erro ao enviar formulário. Tente novamente.');
         }
     });
 }
-
 
 
 
