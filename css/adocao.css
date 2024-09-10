@@ -187,6 +187,14 @@
     display: block;
 }
 
+.modal-header {
+    padding: 20px;
+    border-bottom: 2px solid #747373;
+    background-color:#d9d9d9;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .modal-body {
     padding: 20px;
     background-color:#d9d9d9;
@@ -245,3 +253,4 @@
     width: 100%;
     border: none;
 }
+
