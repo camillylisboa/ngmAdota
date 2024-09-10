@@ -27,7 +27,6 @@ public class EditAnimalService {
                     animal.setPeso(editDTO.peso());
                     animal.setDataNascimento(editDTO.dataNascimento());
                     animal.setSexo(editDTO.sexo());
-                    animal.setOngModel(editDTO.ongModel());
                     animal.setDescricao(editDTO.descricao());
                     animal.setRacaAnimal(editDTO.racaAnimal());
                     animal.setEspecieAnimal(editDTO.especieAnimal());
