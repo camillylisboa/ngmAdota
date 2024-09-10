@@ -73,6 +73,12 @@ public class AnimalController {
         return editAnimalService.findAnimalsByStatusId(statusAnimal.getId());
     }
 
+    @GetMapping("/lista/favorito")
+    public List<AnimalModel> getAnimalsByFavorito(@RequestParam boolean favorito) {
+        return editAnimalService.findByFavorito(favorito);
+    }
+
+
     @GetMapping("/lista/{id}")
     public ResponseEntity<Object> listarUmAnimal(@PathVariable(value = "id") Long id) {
         Optional<AnimalModel> animalO = animalRepository.findById(id);
