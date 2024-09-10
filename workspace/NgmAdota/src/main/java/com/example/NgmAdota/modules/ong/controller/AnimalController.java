@@ -3,6 +3,7 @@ package com.example.NgmAdota.modules.ong.controller;
 import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.ong.AnimalRepository;
 
+import com.example.NgmAdota.modules.ong.StatusAnimalModel;
 import com.example.NgmAdota.modules.ong.dto.EditAnimalDTO;
 import com.example.NgmAdota.modules.ong.services.CreateAnimalService;
 
@@ -62,11 +63,14 @@ public class AnimalController {
         }
     }
 
-
-
     @GetMapping("/lista")
     public ResponseEntity<List<AnimalModel>> listarAnimais() {
-        return ResponseEntity.status(HttpStatus.OK).body(animalRepository.findAll());
+       return ResponseEntity.status(HttpStatus.OK).body(animalRepository.findAll());
+    }
+
+    @GetMapping("/lista/adocao")
+    public List<AnimalModel> getAnimalsByStatus(@RequestParam StatusAnimalModel statusAnimal) {
+        return editAnimalService.findAnimalsByStatusId(statusAnimal.getId());
     }
 
     @GetMapping("/lista/{id}")
