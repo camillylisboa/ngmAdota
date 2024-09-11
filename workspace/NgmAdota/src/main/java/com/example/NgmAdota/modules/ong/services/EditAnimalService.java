@@ -78,9 +78,5 @@ public class EditAnimalService {
         return animalRepository.findByStatusAnimalId(statusAnimalId);
     }
 
-    public List<AnimalModel> findByFavorito(boolean favorito) {
-        return  animalRepository.findByFavorito(favorito);
-    }
-
 
 }

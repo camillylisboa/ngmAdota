@@ -1,7 +1,6 @@
 $(document).ready(function () {
     obterListaAnimais();
 
-    // Função para mostrar o modal de confirmação estilizado
     function showConfirmModal(message, callback) {
         $('#confirmModal .modal-body p').text(message);
         $('#confirmButton').off('click').on('click', function () {
@@ -13,13 +12,13 @@ $(document).ready(function () {
         $('#confirmModal').modal('show');
     }
 
-    // Verificar se o usuário está logado
     var token = window.localStorage.getItem('token');
     var nomeUsuario = window.localStorage.getItem('nomeUsuario');
     var emailUsuario = window.localStorage.getItem('email');
     var idadeUsuario = window.localStorage.getItem('idade');
     var telefoneUsuario = window.localStorage.getItem('telefone');
     var role = window.localStorage.getItem('role');
+    var usuarioId = window.localStorage.getItem('userId'); // Correção do nome da chave
 
     if (token && nomeUsuario) {
         $('.btn-custom').remove();
@@ -76,13 +75,56 @@ $(document).ready(function () {
                 $('#lista-animais').empty();
 
                 $.each(data, function (index, animal) {
+                    var favoritoCor = animal.favorito ? 'red' : 'gray'; // Define a cor inicial do botão favorito
+
                     var cardHtml =
                         '<div class="animal-card">' +
                         '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
-                        '<h2>' + animal.nome + '</h2>' +
+                        '<h2>' + animal.nome +
+                        (animal.sexo === 'M' ? ' <i class="fas fa-mars" style="font-size: 28px; color: blue;"></i>'
+                            : ' <i class="fas fa-venus" style="font-size: 28px; color: pink;"></i>') +
+                        
+                        '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;">' +
+                        '<span class="coracao" style="font-size: 24px; color: ' + favoritoCor + ';">&#9829;</span>' +
+                        '</button>' +'</h2>' +
                         '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
+
                     $('#lista-animais').append(cardHtml);
+
+                    // Adicionar comportamento de clique ao botão de favorito dentro do loop
+                    $('#favorito-' + index).on('click', function () {
+                        var coracao = $(this).find('.coracao');
+                        var animalId = animal.id;
+
+                        if (!token) {
+                            console.error('Token de autenticação não encontrado.');
+                            return;
+                        }
+
+                        if (!usuarioId) {
+                            console.error('ID do usuário não encontrado.');
+                            return;
+                        }
+
+                        $.ajax({
+                            url: `http://localhost:8080/favorito/${animalId}/usuario/${usuarioId}`,
+                            type: 'PUT',
+                            headers: {
+                                'Authorization': 'Bearer ' + token
+                            },
+                            success: function (response) {
+                                if (response.favorito) {
+                                    coracao.css('color', 'red');
+                                } else {
+                                    coracao.css('color', 'gray');
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                console.error('Erro ao alternar favorito:', error);  // Esta é a linha do erro relatado
+                            }
+                        });
+                    });
                 });
 
                 var modalAnimal = new bootstrap.Modal(document.getElementById('modalAnimal'), {
@@ -92,7 +134,6 @@ $(document).ready(function () {
                 $('.btn-adocao').on('click', function () {
                     var index = $(this).data('id');
                     var animal = data[index];
-                    console.log(animal)
                     $('#modal-imagem').attr('src', animal.imagem);
                     $('#modal-nome').text(animal.nome);
                     $('#modal-peso').text(animal.peso + ' kg');

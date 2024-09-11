@@ -42,7 +42,7 @@ public class AuthController {
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity editUser(@Valid @PathVariable(value = "id") Integer id,@RequestBody EditUserDTO editDTO){
+    public ResponseEntity editUser(@Valid @PathVariable(value = "id") Long id,@RequestBody EditUserDTO editDTO){
         try{
             var editUser = usuarioService.edit(id, editDTO);
             return ResponseEntity.status(HttpStatus.OK).body(editUser);
