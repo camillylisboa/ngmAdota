@@ -61,8 +61,6 @@ public class AnimalModel implements Serializable {
     @JoinColumn(name = "statusanimal_id")
     private StatusAnimalModel statusAnimal;
 
-    private boolean favorito;
-
     public AnimalModel() {
     }
 
