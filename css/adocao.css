@@ -63,16 +63,7 @@
     color: white;
 }
  
-.btn-adocao {
-    background-color: #06C1D6;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 31px;
-    padding: 8px 40px;
-    font-size: 16px;
-    width: 100%;
-    border: none;
-}
+
  
 .animal-card img {
     width: 100%;
@@ -196,6 +187,14 @@
     display: block;
 }
 
+.modal-header {
+    padding: 20px;
+    border-bottom: 2px solid #747373;
+    background-color:#d9d9d9;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .modal-body {
     padding: 20px;
     background-color:#d9d9d9;
@@ -232,3 +231,26 @@
     flex-direction: column;
     justify-content: star;
 }
+
+.btn-adotar {
+    background-color: #06C1D6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 31px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.btn-adocao {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 31px;
+    padding: 8px 40px;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+}
+

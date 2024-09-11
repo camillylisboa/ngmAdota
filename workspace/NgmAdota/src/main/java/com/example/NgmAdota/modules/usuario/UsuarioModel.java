@@ -26,7 +26,7 @@ public class UsuarioModel implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String nome;
     @Email(message = "o campo [email] deve conter um email válido")
     private String email;

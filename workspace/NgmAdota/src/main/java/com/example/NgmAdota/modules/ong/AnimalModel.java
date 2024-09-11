@@ -41,19 +41,19 @@ public class AnimalModel implements Serializable {
     @Lob
     private String descricao;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "racaanimal_id")
     private RacaModel racaAnimal;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "especieanimal_Id")
     private EspecieModel especieAnimal;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pelagemanimal_id")
     private PelagemModel pelagemAnimal;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "porteanimal_id")
     private PorteModel porteAnimal;
 

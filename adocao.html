@@ -6,9 +6,8 @@
     <title>NGM me adota - Adoção</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/adocao.css">
     <link rel="shortcut icon" href="./img/icon.png">
 </head>
@@ -115,32 +114,50 @@
       </div>
 
       <!-- POP UP PETS-->
-    <div class="modal fade" id="modalAnimal" tabindex="-1" aria-labelledby="modalAnimalLabel" aria-hidden="true">
+      <div class="modal fade" id="modalAnimal" tabindex="-1" aria-labelledby="modalAnimalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="row">
-                <h5 class="modal-header"> <p><strong>Olá, eu me chamo <span id="modal-nome"></span></strong></p></h5>
-              </div>
-              <div class="row no-gutters">
-                <div class="col-md-6">
-                  <img id="modal-imagem" src="" alt="Imagem do Animal" class="img-fluid">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5><strong>Olá, eu me chamo <span id="modal-nome"></span></strong></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
-                <div class="col-md-6 info">
-                  <p><strong>Peso:</strong> <span id="modal-peso"></span></p>
-                  <p><strong>Idade:</strong> <span id="modal-idade"></span></p>
-                  <p><strong>NGM Adota porquê:</strong><br> <span id="modal-descricao"></span></p>
-                  <button id="adocaoBtn" class="btn-adotar">Adotar</button>
+                <div class="modal-body">
+                    <div class="row no-gutters">
+                        <div class="col-md-6">
+                            <img id="modal-imagem" src="" alt="Imagem do Animal" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 info">
+                          <div class="row-modal">
+                              <p><strong>Peso:</strong><span id="modal-peso"></span></p>
+                              <p><strong>Idade:</strong><span id="modal-idade"></span></p>
+                          </div>
+                          <div class="row-modal">
+                            <p><strong>Sexo:</strong><span id="modal-sexo"></span></p>
+                            <p><strong>Ong Protetora:</strong><span id="modal-ong"></span></p>
+                          </div>
+                          <div class="row-modal">
+                            <p><strong>Raça:</strong><span id="modal-raca"></span></p>
+                            <p><strong>Espécie:</strong><span id="modal-especie"></span></p>
+                          </div>
+                          <div class="row-modal">
+                            <p><strong>Pelagem:</strong> <span id="modal-pelagem"></span></p>
+                            <p><strong>Porte:</strong> <span id="modal-porte"></span></p>
+                          </div>
+                          <div class="row-modal">
+                            <p><strong>NGM Adota porquê:</strong><br> <span id="modal-descricao"></span></p>
+                          </div>
+                            <button id="adocaoBtn" class="btn-adotar">Adotar</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+    
+      
 
     </main>
     
 </body>
-
     <script src="./js/adocao.js"></script>
 </html>
