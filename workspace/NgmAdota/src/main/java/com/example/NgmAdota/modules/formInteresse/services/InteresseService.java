@@ -10,6 +10,8 @@ import com.example.NgmAdota.modules.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class InteresseService {
     @Autowired
@@ -28,5 +30,9 @@ public class InteresseService {
         });
 
         return this.interesseRepository.save(request);
+    }
+
+    public List<InteresseModel> getInteressesByAnimalId(Long animalId) {
+        return interesseRepository.findByAnimalId(animalId);
     }
 }

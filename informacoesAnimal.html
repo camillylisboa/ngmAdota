@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Animal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,17 +81,27 @@
             font-size: 14px;
             line-height: 1.5;
         }
+
+        .modal-content {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .modal-header,
+        .modal-footer {
+            border: none;
+        }
+
+        .modal-body {
+            font-size: 16px;
+        }
     </style>
 </head>
 
 <body>
-    <div id="alertaSucesso" class="alert alert-success d-none" role="alert"></div>
-    Animal adicionado com sucesso!
-    </div>
-    <div id="alertaErro" class="alert alert-danger d-none" role="alert">
-        Revise as informações do animal
-    </div>
-    
+    <div id="alertaSucesso" class="alert alert-success d-none" role="alert">Animal adicionado com sucesso!</div>
+    <div id="alertaErro" class="alert alert-danger d-none" role="alert">Revise as informações do animal</div>
+
     <div class="container">
         <h1>Detalhes do Animal</h1>
         <div class="details-container">
@@ -154,11 +168,48 @@
                 </div>
                 <div class="mb-3">
                     <label for="modal-complemento" class="form-label">Descrição</label>
-                    <textarea name="descricao2" id="descricao2" placeholder="PORQUE NGM ME ADOTA"></textarea>
+                    <textarea name="descricao2" id="descricao2" placeholder="PORQUE NGM ME ADOTA"
+                        class="form-control"></textarea>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="atualizarAnimal()">Salvar mudanças</button>
             </form>
         </div>
+        <div id="lista-interessados"></div>
+
+        <div id="modalContainer"></div>
+
+        <!-- Modal para detalhes do interessado -->
+        <div class="modal fade" id="modalInteressado" tabindex="-1" aria-labelledby="modalInteressadoLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalInteressadoLabel">Detalhes do Interessado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="interessadoNome"></div>
+                        <div id="interessadoEmail"></div>
+                        <div id="interessadoTelefone"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <div id="interessadoCrianca"></div>
+                        <div id="interessadoTodosAcordo"></div>
+                        <div id="interessadoMoradia"></div>
+                        <div id="interessadoTipoCasa"></div>
+                        <div id="interessadoTemQuintal"></div>
+                        <div id="interessadoTemTelas"></div>
+                        <div id="interessadoAutorizacaoProprietario"></div>
+                        <div id="interessadoCachorro"></div>
+                        <div id="interessadoGato"></div>
+                        <div id="interessadoOutro"></div>
+                        <div id="interessadoPrimeiroPet"></div>
+                        <div id="interessadoDeclaracaoCheckbox"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -178,6 +229,59 @@
             populateSelectPelagem();
             populateSelectPorte();
             populateSelectStatusAnimal();
+
+            $.ajax({
+                url: `http://localhost:8080/interesse/animal/${animalId}`,
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                },
+                success: function (data) {
+                    $('#lista-interessados').empty();
+
+                    if (data.length === 0) {
+                        $('#lista-interessados').append('<p>Nenhum interessado encontrado.</p>');
+                        return;
+                    }
+
+                    $.each(data, function (index, interesse) {
+                        var interessadoDiv =
+                            '<div class="interessado-item">' +
+                            '<p><strong>' + interesse.usuarioModel.nome + '</strong></p>' +
+                            '<button class="btn btn-info" data-toggle="modal" data-target="#modalInteressado" data-id="' + index + '">Ver mais</button>' +
+                            '</div>';
+                        $('#lista-interessados').append(interessadoDiv);
+                    });
+
+                    $('#lista-interessados').on('click', '.btn-info', function () {
+                        var index = $(this).data('id');
+                        var interessado = data[index];
+
+                        $('#interessadoNome').text('Nome: ' + interessado.usuarioModel.nome);
+                        $('#interessadoEmail').text('Email: ' + interessado.usuarioModel.email);
+                        $('#interessadoTelefone').text('Telefone: ' + interessado.usuarioModel.telefone);
+
+                        // Preencher os novos campos
+                        $('#interessadoCrianca').text('Tem Criança: ' + interessado.temCrianca);
+                        $('#interessadoTodosAcordo').text('Todos de Acordo com Adoção: ' + interessado.acordoAdocao);
+                        $('#interessadoMoradia').text('Moradia: ' + interessado.moradia);
+                        $('#interessadoTipoCasa').text('Tipo de Casa: ' + interessado.tipoCasa);
+                        $('#interessadoTemQuintal').text('Tem Quintal: ' + interessado.temQuintal);
+                        $('#interessadoTemTelas').text('Tem Telas: ' + interessado.temTelas);
+                        $('#interessadoAutorizacaoProprietario').text('Autorização do Proprietário: ' + interessado.autorizacaoProprietario);
+
+                        // Animais no local
+                        $('#interessadoCachorro').text('Tem Cachorro: ' + (interessado.cachorro ? 'Sim' : 'Não'));
+                        $('#interessadoGato').text('Tem Gato: ' + (interessado.gato ? 'Sim' : 'Não'));
+                        $('#interessadoOutro').text('Tem Outro Animal: ' + (interessado.outro ? 'Sim' : 'Não'));
+
+                        $('#interessadoPrimeiroPet').text('Primeiro Pet: ' + (interessado.primeiroPet ? 'Sim' : 'Não'));
+                        $('#interessadoDeclaracaoCheckbox').text('Declaração Assinada: ' + (interessado.declaracaoCheckbox ? 'Sim' : 'Não'));
+
+                        $('#modalInteressado').modal('show');
+                    });
+                }
+            });
 
             $.ajax({
                 url: `http://localhost:8080/animal/lista/${animalId}`,
@@ -213,6 +317,10 @@
                 }
             });
         });
+
+        function abrirModalInteressado(index) {
+            $(`#modalInteressado${index}`).modal('show');
+        }
 
         function populateSelectRaca() {
             const select2 = document.getElementById("racaSelect2");

@@ -25,7 +25,7 @@ public class InteresseModel {
         @Column(name = "usuario_id", nullable = false)
         private Integer usuarioId;
 
-        @OneToOne()
+        @ManyToOne()
         @JoinColumn(name = "animal_id", insertable = false, updatable = false)
         private AnimalModel animalModel;
 
