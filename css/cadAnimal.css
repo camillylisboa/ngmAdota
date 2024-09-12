@@ -71,7 +71,12 @@
 
 
 #botaoEnviar {
-    margin-left: -5rem;
+    margin-left: 0rem;
+    #botaoEnviar {
+        margin-left: 0rem; /* Mantém o alinhamento à esquerda como está */
+        margin-top: 20px; /* Ajusta a margem superior para afastar o botão do conteúdo acima */
+    }
+    
 }
 
 .linksNav{
@@ -86,8 +91,20 @@
 /* CSS Atualizado para o Modal */
 .modal-dialog.modal-lg {
     max-width:45%;
+    width: auto;
+    
 }
 
+
+.modal-content {
+    height: 70vh; /* Define a altura do modal como 80% da altura da viewport */
+    display: flex;
+    flex-direction: column; /* Permite que o conteúdo do modal se ajuste corretamente */
+}
+
+.modal-body {
+    overflow-y: auto; /* Adiciona rolagem se o conteúdo exceder a altura do modal */
+}
 .modal-header {
     border-bottom: none;
     justify-content: center;
@@ -117,7 +134,7 @@
 
 textarea {
     width: 100%;
-    height: 120%;
+    height: 85%;
     border-radius: 10px;
     padding: 10px;
 }
@@ -148,12 +165,13 @@ textarea {
 .animal-card {
     border: 1px solid #008A33;
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
     background-color: #008A33;
     width: 344px;
     height: 410px;
     float: left;
     color: white;
+    transform: translate(5%, 0%); /* Centraliza o modal */
 }
 
 .custom-file-input {
