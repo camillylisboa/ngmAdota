@@ -4,6 +4,9 @@ import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tabInteresse")
@@ -44,4 +47,9 @@ public class InteresseModel {
         private boolean outro;
         private boolean primeiroPet;
         private boolean declaracaoCheckbox;
+
+        @CreationTimestamp
+        private LocalDateTime created;
+
+        private LocalDateTime dataAdocao;
 }
