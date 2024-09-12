@@ -23,7 +23,7 @@ public class InteresseModel {
         private UsuarioModel usuarioModel;
 
         @Column(name = "usuario_id", nullable = false)
-        private Integer usuarioId;
+        private Long usuarioId;
 
         @ManyToOne()
         @JoinColumn(name = "animal_id", insertable = false, updatable = false)

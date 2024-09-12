@@ -1,5 +1,6 @@
 package com.example.NgmAdota.modules.ong;
 
+import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tabAnimal")
@@ -41,25 +44,30 @@ public class AnimalModel implements Serializable {
     @Lob
     private String descricao;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "racaanimal_id")
     private RacaModel racaAnimal;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "especieanimal_Id")
     private EspecieModel especieAnimal;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pelagemanimal_id")
     private PelagemModel pelagemAnimal;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "porteanimal_id")
     private PorteModel porteAnimal;
 
     @ManyToOne()
     @JoinColumn(name = "statusanimal_id")
     private StatusAnimalModel statusAnimal;
+
+    private boolean favorito;
+
+    @ManyToMany(mappedBy = "favoritos")
+    private Set<UsuarioModel> usuariosFavoritaram = new HashSet<>();
 
     public AnimalModel() {
     }

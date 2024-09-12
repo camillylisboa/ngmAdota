@@ -17,7 +17,7 @@ public class RacaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "especieAnimal_id")
     private EspecieModel especieAnimal;
 

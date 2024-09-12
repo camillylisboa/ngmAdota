@@ -64,7 +64,7 @@ public class UsuarioService {
         return usuarioRepository.save(newUser);
     }
 
-    public UsuarioModel edit(Integer id, EditUserDTO editDTO) {
+    public UsuarioModel edit(Long id, EditUserDTO editDTO) {
         return usuarioRepository.findById(id)
                 .map(user -> {
                     user.setNome(editDTO.nome());
