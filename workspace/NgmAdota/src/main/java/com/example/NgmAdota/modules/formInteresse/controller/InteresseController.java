@@ -23,6 +23,9 @@ public class InteresseController {
     InteresseRepository interesseRepository;
 
     @Autowired
+    InteresseService interesseService;
+
+    @Autowired
     private InteresseService service;
 
     @PostMapping("/cadastro")
@@ -36,5 +39,14 @@ public class InteresseController {
     @GetMapping("/lista")
     public ResponseEntity<List<InteresseModel>> ListarInteresse() {
         return ResponseEntity.status(HttpStatus.OK).body(interesseRepository.findAll());
+    }
+
+    @GetMapping("/animal/{animalId}")
+    public ResponseEntity<Object> listaInteresseAnimais(@PathVariable(value = "animalId") Long animalId){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(interesseService.getInteressesByAnimalId(animalId));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 }
