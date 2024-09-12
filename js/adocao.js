@@ -76,17 +76,15 @@ $(document).ready(function () {
 
                 $.each(data, function (index, animal) {
                     var favoritoCor = animal.favorito ? 'red' : 'gray'; // Define a cor inicial do botão favorito
-
                     var cardHtml =
                         '<div class="animal-card">' +
                         '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                         '<h2>' + animal.nome +
                         (animal.sexo === 'M' ? ' <i class="fas fa-mars" style="font-size: 28px; color: blue;"></i>'
                             : ' <i class="fas fa-venus" style="font-size: 28px; color: pink;"></i>') +
-                        
                         '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;">' +
                         '<span class="coracao" style="font-size: 24px; color: ' + favoritoCor + ';">&#9829;</span>' +
-                        '</button>' +'</h2>' +
+                        '</button>' + '</h2>' +
                         '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
 
