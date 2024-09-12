@@ -15,5 +15,6 @@ public record RequestAnimalDTO(String nome,
                                Integer idEspecie,
                                Integer idPelagem,
                                Integer idPorte,
-                                StatusAnimalModel statusAnimal) {
+                               StatusAnimalModel statusAnimal,
+                               boolean favorito) {
 }

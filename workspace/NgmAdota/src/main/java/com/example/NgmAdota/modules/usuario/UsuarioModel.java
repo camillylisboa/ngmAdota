@@ -1,5 +1,6 @@
 package com.example.NgmAdota.modules.usuario;
 
+import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.ong.OngModel;
 import com.example.NgmAdota.modules.usuario.services.UserRole;
 import jakarta.persistence.*;
@@ -13,7 +14,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "tabUsuario")
@@ -48,6 +51,12 @@ public class UsuarioModel implements UserDetails {
     private String logradouro;
     private Integer numero;
     private String complemento;
+    @ManyToMany
+    @JoinTable(
+            name = "favoritos",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "animal_id"))
+    private Set<AnimalModel> favoritos = new HashSet<>();
 
     public UsuarioModel(String nome, String email, LocalDate dataNascimento, Long telefone, String senha, UserRole role, Long ongId, String cep, String uf, String cidade, String bairro, String logradouro, Integer numero, String complemento) {
         this.nome = nome;

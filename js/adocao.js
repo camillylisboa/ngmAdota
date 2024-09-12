@@ -73,40 +73,38 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 $('#lista-animais').empty();
-
                 $.each(data, function (index, animal) {
-                    var favoritoCor = animal.favorito ? 'red' : 'gray'; // Define a cor inicial do botão favorito
-
+                    var favoritoCor = window.localStorage.getItem('favorito-' + usuarioId + '-' + animal.id) === 'true' ? 'red' : 'gray';
+                
                     var cardHtml =
                         '<div class="animal-card">' +
                         '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                         '<h2>' + animal.nome +
                         (animal.sexo === 'M' ? ' <i class="fas fa-mars" style="font-size: 28px; color: blue;"></i>'
                             : ' <i class="fas fa-venus" style="font-size: 28px; color: pink;"></i>') +
-                        
                         '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;">' +
                         '<span class="coracao" style="font-size: 24px; color: ' + favoritoCor + ';">&#9829;</span>' +
-                        '</button>' +'</h2>' +
+                        '</button>' + '</h2>' +
                         '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
-
+                
                     $('#lista-animais').append(cardHtml);
-
+                
                     // Adicionar comportamento de clique ao botão de favorito dentro do loop
                     $('#favorito-' + index).on('click', function () {
                         var coracao = $(this).find('.coracao');
                         var animalId = animal.id;
-
+                
                         if (!token) {
                             console.error('Token de autenticação não encontrado.');
                             return;
                         }
-
+                
                         if (!usuarioId) {
                             console.error('ID do usuário não encontrado.');
                             return;
                         }
-
+                
                         $.ajax({
                             url: `http://localhost:8080/favorito/${animalId}/usuario/${usuarioId}`,
                             type: 'PUT',
@@ -114,18 +112,25 @@ $(document).ready(function () {
                                 'Authorization': 'Bearer ' + token
                             },
                             success: function (response) {
-                                if (response.favorito) {
+                                console.log('Resposta do backend:', response);
+                                if (response.favorito === true) {
                                     coracao.css('color', 'red');
+                                    favoritoCor = 'red';
+                                    window.localStorage.setItem('favorito-' + usuarioId + '-' + animalId, 'true');
                                 } else {
                                     coracao.css('color', 'gray');
+                                    favoritoCor = 'gray';
+                                    window.localStorage.setItem('favorito-' + usuarioId + '-' + animalId, 'false');
                                 }
                             },
                             error: function (xhr, status, error) {
-                                console.error('Erro ao alternar favorito:', error);  // Esta é a linha do erro relatado
+                                console.error('Erro ao alternar favorito:', error);
                             }
                         });
                     });
                 });
+                
+                
 
                 var modalAnimal = new bootstrap.Modal(document.getElementById('modalAnimal'), {
                     keyboard: false
@@ -140,7 +145,7 @@ $(document).ready(function () {
                     $('#modal-idade').text(animal.idade);
                     $('#modal-descricao').text(animal.descricao);
                     $('#modal-ong').text(animal.ongModel.razaosocial);
-                    $('#modal-sexo').text(animal.sexo);
+                    $('#modal-sexo').text(animal.sexo === 'M' ? 'Macho' : 'Fêmea');
                     $('#modal-raca').text(animal.racaAnimal.tipo);
                     $('#modal-especie').text(animal.especieAnimal.tipo);
                     $('#modal-pelagem').text(animal.pelagemAnimal.tipo);
