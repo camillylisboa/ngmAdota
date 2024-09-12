@@ -3,7 +3,7 @@ package com.example.NgmAdota.modules.formInteresse.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record InteresseRequestDTO(Long id, @NotNull Integer usuarioId, @NotNull Long animalId , @NotBlank String temCrianca,
+public record InteresseRequestDTO(Long id, @NotNull Long usuarioId, @NotNull Long animalId , @NotBlank String temCrianca,
                                   @NotBlank String acordoAdocao,
                                   @NotBlank String moradia, @NotBlank String tipoCasa,
                                   @NotBlank String temTelas,

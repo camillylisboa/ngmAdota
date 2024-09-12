@@ -17,10 +17,10 @@ function enviarFormulario() {
     }
 
     var animalId = parseInt($('#animalId').val());
-    var userId = parseInt($('#userId').val());
+    var usuarioId = parseInt($('#usuarioId').val());
 
     // Verificação adicional para garantir que os IDs não sejam nulos ou NaN
-    if (isNaN(animalId) || isNaN(userId)) {
+    if (isNaN(animalId) || isNaN(usuarioId)) {
         mostrarAlertaErro('Os IDs de Animal e Usuário são inválidos.');
         return;
     }
@@ -37,7 +37,7 @@ function enviarFormulario() {
         primeiroPet: primeiroPet,
         declaracaoCheckbox: declaracaoCheckbox,
         animalId: animalId,
-        usuarioId: userId,
+        usuarioId: usuarioId,
         temQuintal: $('input[name="flexRadioQuintal"]:checked').val(), // Adiciona a resposta sobre o quintal
         autorizacaoProprietario: $('input[name="autorizacaoProprietario"]:checked').val() // Adiciona a resposta sobre a autorização do proprietário
     };
@@ -100,7 +100,7 @@ function mostrarAlertaErro(message) {
 $(document).ready(function () {
     var animalId = localStorage.getItem('animalId');
     var animalNome = localStorage.getItem('animalNome');
-    var userId = localStorage.getItem('userId');
+    var usuarioId = localStorage.getItem('userId');
 
     // Mostrar ou ocultar a pergunta sobre o quintal
     $('input[name="flexRadioCasa"]').on('change', function () {
@@ -125,9 +125,9 @@ $(document).ready(function () {
     if (animalNome) {
         $('#animalNome').val(animalNome);
     }
-    if (userId) {
-        console.log("Usuario ID: ", userId);
-        $('#userId').val(userId);
+    if (usuarioId) {
+        console.log("Usuario ID: ", usuarioId);
+        $('#usuarioId').val(usuarioId);
     }
 
     // Função para mostrar/ocultar a pergunta sobre a autorização do proprietário
