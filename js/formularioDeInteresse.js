@@ -21,7 +21,7 @@ function enviarFormulario() {
 
     // Verificação adicional para garantir que os IDs não sejam nulos ou NaN
     if (isNaN(animalId) || isNaN(usuarioId)) {
-        mostrarAlertaErro('Os IDs de Animal e Usuário são inválidos.');
+        mostrarAlertaErro('Os IDs de Animal  e Usuário são inválidos.');
         return;
     }
 
