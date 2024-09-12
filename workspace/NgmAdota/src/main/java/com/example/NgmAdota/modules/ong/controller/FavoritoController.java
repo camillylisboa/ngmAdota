@@ -21,13 +21,11 @@ public class FavoritoController {
             @PathVariable Long usuarioId,
             @RequestHeader("Authorization") String token) {
 
-        // Log de verificação
-        System.out.println("Animal ID: " + animalId + ", Usuario ID: " + usuarioId);
-        System.out.println("Token: " + token);
-
         boolean isFavoritado = favoritoService.alternarFavorito(usuarioId, animalId);
+
         FavoritoDTO favoritoDTO = new FavoritoDTO(isFavoritado);
         return ResponseEntity.ok(favoritoDTO);
     }
+
 
 }

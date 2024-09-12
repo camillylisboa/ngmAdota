@@ -5,7 +5,8 @@ import com.example.NgmAdota.modules.ong.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public record EditAnimalDTO(String nome,
+public record EditAnimalDTO(Long id,
+                            String nome,
                             String imagem,
                             BigDecimal peso,
                             LocalDate dataNascimento,
@@ -17,5 +18,6 @@ public record EditAnimalDTO(String nome,
                             EspecieModel especieAnimal,
                             PelagemModel pelagemAnimal,
                             PorteModel porteAnimal,
-                            StatusAnimalModel statusAnimal) {
+                            StatusAnimalModel statusAnimal,
+                            boolean favorito) {
 }
