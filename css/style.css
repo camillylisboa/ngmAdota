@@ -11,6 +11,8 @@
     height: 410px;
     float: left;
     color: white;
+    transform: translate(20%, 0%); /* Centraliza o modal */
+    
 }
  
 .btn-adocao {
@@ -364,8 +366,9 @@ h1 {
     background-color: #008A33;
     width: 344px;
     height: 410px;
-    float: left;
+    margin: 19px;
     color: white;
+    transform: translate(9%, 0%); /* Centraliza o modal */
 }
  
 .btn-adocao {
