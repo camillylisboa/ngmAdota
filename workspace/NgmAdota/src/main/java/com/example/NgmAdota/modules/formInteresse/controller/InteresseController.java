@@ -35,6 +35,18 @@ public class InteresseController {
         return ResponseEntity.status(HttpStatus.CREATED).body(interesseRepository.save(interesseModel));
     }
 
+    @PutMapping("/finalizar/{interesseId}")
+    public ResponseEntity<?> finalizarAdocao(@PathVariable Long interesseId) {
+        try {
+            interesseService.finalizarAdocao(interesseId);
+            return ResponseEntity.ok("Adoção finalizada com sucesso.");
+        } catch (Exception e) {
+            // Tratar erro e retornar resposta adequada
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(e.getMessage());
+        }
+    }
+
 
     @GetMapping("/lista")
     public ResponseEntity<List<InteresseModel>> ListarInteresse() {

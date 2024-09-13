@@ -8,94 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .details-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .animal-image {
-            flex: 1;
-            max-width: 350px;
-        }
-
-        .animal-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .animal-details {
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .animal-details p {
-            margin: 5px 0;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .ong-details {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .ong-details h2 {
-            margin-top: 0;
-            font-size: 18px;
-        }
-
-        .ong-details p {
-            margin: 5px 0;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .modal-content {
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .modal-header,
-        .modal-footer {
-            border: none;
-        }
-
-        .modal-body {
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/informacoesAnimal.css">
 </head>
 
 <body>
@@ -104,406 +17,127 @@
 
     <div class="container">
         <h1>Detalhes do Animal</h1>
-        <div class="details-container">
-            <div class="animal-image">
-                <img id="imagemAnimal" src="" alt="Imagem do Animal" />
+        <div class="details-container row">
+            <div class="col-md-4 animal-image">
+                <img id="imagemAnimal" class="img-fluid" src="" alt="Imagem do Animal" />
             </div>
-            <form id="updateAnimalForm">
-                <div class="mb-3">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="imagem2" accept="image/*">
-                        <label class="custom-file-label" for="imagem2">IMAGEM</label>
+            <div class="col-md-8">
+                <form id="updateAnimalForm" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="imagem2" class="form-label">Imagem</label>
+                        <input type="file" class="form-control" id="imagem2" accept="image/*">
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome2" id="nome2" placeholder="NOME" required>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-email" class="form-label">Peso</label>
-                    <input type="text" class="form-control" name="peso2" id="peso2" placeholder="PESO (Kg)" required>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-data-nascimento" class="form-label">Data de Nascimento</label>
-                    <input type="date" class="form-control date" name="dataNascimento2" id="dataNascimento2"
-                        placeholder="DATA DE NASCIMENTO" required>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-sexo" class="form-label">Sexo</label>
-                    <select class="form-control" id="sexo2">
-                        <option value="" disabled selected>SEXO</option>
-                        <option value="M">MACHO</option>
-                        <option value="F">FÊMEA</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-raca" class="form-label">Raça</label>
-                    <select class="form-control" id="racaSelect2">
-                        <option value="" disabled selected>RAÇA</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-especie" class="form-label">Espécie</label>
-                    <select class="form-control" id="especieSelect2">
-                        <option value="" disabled selected>ESPECIE</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-pelagem" class="form-label">Pelagem</label>
-                    <select class="form-control" id="pelagemSelect2">
-                        <option value="" disabled selected>PELAGEM</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-porte" class="form-label">Porte</label>
-                    <select class="form-control" id="porteSelect2">
-                        <option value="" disabled selected>PORTE</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-status" class="form-label">Status</label>
-                    <select name="" id="statusAnimalSelect2" class="form-control">
-                        <option value="" disabled selected>STATUS</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="modal-complemento" class="form-label">Descrição</label>
-                    <textarea name="descricao2" id="descricao2" placeholder="PORQUE NGM ME ADOTA"
-                        class="form-control"></textarea>
-                </div>
-                <button type="button" class="btn btn-primary" onclick="atualizarAnimal()">Salvar mudanças</button>
-            </form>
+                    <div class="col-md-6">
+                        <label for="nome2" class="form-label">Nome</label>
+                        <input type="text" class="form-control" name="nome2" id="nome2" placeholder="NOME" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="peso2" class="form-label">Peso (Kg)</label>
+                        <input type="text" class="form-control" name="peso2" id="peso2" placeholder="PESO" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dataNascimento2" class="form-label">Data de Nascimento</label>
+                        <input type="date" class="form-control" name="dataNascimento2" id="dataNascimento2" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="sexo2" class="form-label">Sexo</label>
+                        <select class="form-control" id="sexo2">
+                            <option value="" disabled selected>SEXO</option>
+                            <option value="M">MACHO</option>
+                            <option value="F">FÊMEA</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="racaSelect2" class="form-label">Raça</label>
+                        <select class="form-control" id="racaSelect2">
+                            <option value="" disabled selected>RAÇA</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="especieSelect2" class="form-label">Espécie</label>
+                        <select class="form-control" id="especieSelect2">
+                            <option value="" disabled selected>ESPÉCIE</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pelagemSelect2" class="form-label">Pelagem</label>
+                        <select class="form-control" id="pelagemSelect2">
+                            <option value="" disabled selected>PELAGEM</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="porteSelect2" class="form-label">Porte</label>
+                        <select class="form-control" id="porteSelect2">
+                            <option value="" disabled selected>PORTE</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="statusAnimalSelect2" class="form-label">Status</label>
+                        <select class="form-control" id="statusAnimalSelect2">
+                            <option value="" disabled selected>STATUS</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="descricao2" class="form-label">Descrição</label>
+                        <textarea name="descricao2" id="descricao2" class="form-control"
+                            placeholder="PORQUE NGM ME ADOTA" rows="2"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary w-100" onclick="atualizarAnimal()">Salvar
+                            mudanças</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <div id="lista-interessados"></div>
+    </div>
 
-        <div id="modalContainer"></div>
-
-        <!-- Modal para detalhes do interessado -->
-        <div class="modal fade" id="modalInteressado" tabindex="-1" aria-labelledby="modalInteressadoLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalInteressadoLabel">Detalhes do Interessado</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Modal para detalhes do interessado -->
+    <div class="modal fade" id="modalInteressado" tabindex="-1" aria-labelledby="modalInteressadoLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalInteressadoLabel">Detalhes do Interessado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body row">
+                    <div class="col-md-6">
+                        <p id="interessadoNome"></p>
+                        <p id="interessadoEmail"></p>
+                        <p id="interessadoTelefone"></p>
                     </div>
-                    <div class="modal-body">
-                        <div id="interessadoNome"></div>
-                        <div id="interessadoEmail"></div>
-                        <div id="interessadoTelefone"></div>
+                    <div class="col-md-6">
+                        <p id="interessadoCrianca"></p>
+                        <p id="interessadoTodosAcordo"></p>
+                        <p id="interessadoMoradia"></p>
                     </div>
-                    <div class="modal-footer">
-                        <div id="interessadoCrianca"></div>
-                        <div id="interessadoTodosAcordo"></div>
-                        <div id="interessadoMoradia"></div>
-                        <div id="interessadoTipoCasa"></div>
-                        <div id="interessadoTemQuintal"></div>
-                        <div id="interessadoTemTelas"></div>
-                        <div id="interessadoAutorizacaoProprietario"></div>
-                        <div id="interessadoCachorro"></div>
-                        <div id="interessadoGato"></div>
-                        <div id="interessadoOutro"></div>
-                        <div id="interessadoPrimeiroPet"></div>
-                        <div id="interessadoDeclaracaoCheckbox"></div>
+                    <div class="col-md-6">
+                        <p id="interessadoTipoCasa"></p>
+                        <p id="interessadoTemQuintal"></p>
+                        <p id="interessadoTemTelas"></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p id="interessadoAutorizacaoProprietario"></p>
+                        <p id="interessadoCachorro"></p>
+                        <p id="interessadoGato"></p>
+                        <p id="interessadoOutro"></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p id="interessadoPrimeiroPet"></p>
+                        <p id="interessadoDeclaracaoCheckbox"></p>
+                        <p id="interessadoDataInteresse"></p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
     </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            var token = window.localStorage.getItem('token');
-            var animalId = window.localStorage.getItem('animalId');
-            console.log("Token e ID do Animal lidos do localStorage:", token, animalId);
-
-            if (!token || !animalId) {
-                console.error('Token ou ID do Animal não encontrados no localStorage.');
-                return;
-            }
-
-            populateSelectRaca();
-            populateSelectEspecie();
-            populateSelectPelagem();
-            populateSelectPorte();
-            populateSelectStatusAnimal();
-
-            $.ajax({
-                url: `http://localhost:8080/interesse/animal/${animalId}`,
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer ' + token,
-                },
-                success: function (data) {
-                    $('#lista-interessados').empty();
-
-                    if (data.length === 0) {
-                        $('#lista-interessados').append('<p>Nenhum interessado encontrado.</p>');
-                        return;
-                    }
-
-                    $.each(data, function (index, interesse) {
-                        var interessadoDiv =
-                            '<div class="interessado-item">' +
-                            '<p><strong>' + interesse.usuarioModel.nome + '</strong></p>' +
-                            '<button class="btn btn-info" data-toggle="modal" data-target="#modalInteressado" data-id="' + index + '">Ver mais</button>' +
-                            '</div>';
-                        $('#lista-interessados').append(interessadoDiv);
-                    });
-
-                    $('#lista-interessados').on('click', '.btn-info', function () {
-                        var index = $(this).data('id');
-                        var interessado = data[index];
-
-                        $('#interessadoNome').text('Nome: ' + interessado.usuarioModel.nome);
-                        $('#interessadoEmail').text('Email: ' + interessado.usuarioModel.email);
-                        $('#interessadoTelefone').text('Telefone: ' + interessado.usuarioModel.telefone);
-
-                        // Preencher os novos campos
-                        $('#interessadoCrianca').text('Tem Criança: ' + interessado.temCrianca);
-                        $('#interessadoTodosAcordo').text('Todos de Acordo com Adoção: ' + interessado.acordoAdocao);
-                        $('#interessadoMoradia').text('Moradia: ' + interessado.moradia);
-                        $('#interessadoTipoCasa').text('Tipo de Casa: ' + interessado.tipoCasa);
-                        $('#interessadoTemQuintal').text('Tem Quintal: ' + interessado.temQuintal);
-                        $('#interessadoTemTelas').text('Tem Telas: ' + interessado.temTelas);
-                        $('#interessadoAutorizacaoProprietario').text('Autorização do Proprietário: ' + interessado.autorizacaoProprietario);
-
-                        // Animais no local
-                        $('#interessadoCachorro').text('Tem Cachorro: ' + (interessado.cachorro ? 'Sim' : 'Não'));
-                        $('#interessadoGato').text('Tem Gato: ' + (interessado.gato ? 'Sim' : 'Não'));
-                        $('#interessadoOutro').text('Tem Outro Animal: ' + (interessado.outro ? 'Sim' : 'Não'));
-
-                        $('#interessadoPrimeiroPet').text('Primeiro Pet: ' + (interessado.primeiroPet ? 'Sim' : 'Não'));
-                        $('#interessadoDeclaracaoCheckbox').text('Declaração Assinada: ' + (interessado.declaracaoCheckbox ? 'Sim' : 'Não'));
-
-                        $('#modalInteressado').modal('show');
-                    });
-                }
-            });
-
-            $.ajax({
-                url: `http://localhost:8080/animal/lista/${animalId}`,
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
-                },
-                success: function (data) {
-                    // Preencher os detalhes do animal
-                    $('#imagemAnimal').attr('src', window.location.origin + data.imagem);
-                    $('#nome2').val(data.nome);
-                    $('#peso2').val(data.peso);
-                    $('#dataNascimento2').val(data.dataNascimento);
-                    $('#sexo2').val(data.sexo);
-                    $('#racaSelect2').val(data.racaAnimal.id);
-                    $('#especieSelect2').val(data.especieAnimal.id);
-                    $('#pelagemSelect2').val(data.pelagemAnimal.id);
-                    $('#porteSelect2').val(data.porteAnimal.id);
-                    $('#statusAnimalSelect2').val(data.statusAnimal.id);
-                    $('#descricao2').val(data.descricao);
-
-                    // Opcional: Preencher os detalhes da ONG se necessário
-                    if (data.ongModel) {
-                        $('#ongRazaoSocial').text(data.ongModel.razaosocial);
-                        $('#ongEmail').text(data.ongModel.email);
-                        $('#ongCnpj').text(data.ongModel.cnpj);
-                        $('#ongTelefone').text(data.ongModel.telefone);
-                        $('#ongEndereco').text(`${data.ongModel.logradouro}, ${data.ongModel.numero}, ${data.ongModel.bairro}, ${data.ongModel.cidade} - ${data.ongModel.estado}, ${data.ongModel.cep}`);
-                    }
-                },
-                error: function (error) {
-                    console.error('Erro ao buscar detalhes do animal:', error);
-                }
-            });
-        });
-
-        function abrirModalInteressado(index) {
-            $(`#modalInteressado${index}`).modal('show');
-        }
-
-        function populateSelectRaca() {
-            const select2 = document.getElementById("racaSelect2");
-
-            fetch('http://localhost:8080/raca/get')
-                .then(response => response.json())
-                .then(data => {
-                    if (Array.isArray(data)) {
-                        data.forEach(item => {
-                            const option2 = document.createElement("option");
-                            option2.value = item.id;
-                            option2.text = item.tipo;
-                            select2.appendChild(option2);
-                        });
-                    } else {
-                        console.error('O formato dos dados da raça está incorreto.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao carregar as raças:', error);
-                });
-        }
-
-        function populateSelectEspecie() {
-            const select2 = document.getElementById("especieSelect2");
-
-            fetch('http://localhost:8080/especie/get')
-                .then(response => response.json())
-                .then(data => {
-                    if (Array.isArray(data)) {
-                        data.forEach(item => {
-                            const option2 = document.createElement("option");
-                            option2.value = item.id;
-                            option2.text = item.tipo;
-                            select2.appendChild(option2);
-                        });
-                    } else {
-                        console.error('O formato dos dados da espécie está incorreto.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao carregar as espécies:', error);
-                });
-        }
-
-        function populateSelectPelagem() {
-            const select2 = document.getElementById("pelagemSelect2");
-
-            fetch('http://localhost:8080/pelagem/get')
-                .then(response => response.json())
-                .then(data => {
-                    if (Array.isArray(data)) {
-                        data.forEach(item => {
-                            const option2 = document.createElement("option");
-                            option2.value = item.id;
-                            option2.text = item.tipo;
-                            select2.appendChild(option2);
-                        });
-                    } else {
-                        console.error('O formato dos dados da pelagem está incorreto.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao carregar as pelagens:', error);
-                });
-        }
-
-        function populateSelectPorte() {
-            const select2 = document.getElementById("porteSelect2");
-
-            fetch('http://localhost:8080/porte/get')
-                .then(response => response.json())
-                .then(data => {
-                    if (Array.isArray(data)) {
-                        data.forEach(item => {
-                            const option2 = document.createElement("option");
-                            option2.value = item.id;
-                            option2.text = item.tipo;
-                            select2.appendChild(option2);
-                        });
-                    } else {
-                        console.error('O formato dos dados do porte está incorreto.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao carregar os portes:', error);
-                });
-        }
-
-        function populateSelectStatusAnimal() {
-            const select2 = document.getElementById("statusAnimalSelect2");
-
-            fetch('http://localhost:8080/statusAnimal/get')
-                .then(response => response.json())
-                .then(data => {
-                    if (Array.isArray(data)) {
-                        data.forEach(item => {
-                            const option2 = document.createElement("option");
-                            option2.value = item.id;
-                            option2.text = item.tipo;
-                            select2.appendChild(option2);
-                        });
-                    } else {
-                        console.error('O formato dos dados do status animal está incorreto.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao carregar os status dos animais:', error);
-                });
-        }
-
-        function atualizarAnimal() {
-            var token = window.localStorage.getItem('token');
-            var animalId = window.localStorage.getItem('animalId'); // Pega o ID do animal armazenado no localStorage
-            var nome = $('#nome2').val();
-            var peso = parseFloat($('#peso2').val());
-            var dataNascimento = $('#dataNascimento2').val();
-            var sexo = $('#sexo2').val();
-            var racaAnimal = parseInt($('#racaSelect2').val());
-            var especieAnimal = parseInt($('#especieSelect2').val());
-            var pelagemAnimal = parseInt($('#pelagemSelect2').val());
-            var porteAnimal = parseInt($('#porteSelect2').val());
-            var statusAnimal = parseInt($('#statusAnimalSelect2').val());
-            var descricao = $('#descricao2').val();
-            var imagem = $('#imagem2')[0].files[0];
-
-            if (!nome || !peso || !dataNascimento || !sexo || !racaAnimal || !especieAnimal || !pelagemAnimal || !porteAnimal || !imagem || !descricao || !statusAnimal) {
-                mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
-                return;
-            }
-
-            // Cria o objeto FormData e adiciona os campos
-            var formData = new FormData();
-            formData.append('animal', new Blob([JSON.stringify({
-                nome: nome,
-                peso: peso,
-                dataNascimento: dataNascimento,
-                sexo: sexo,
-                racaAnimal: { id: racaAnimal },
-                especieAnimal: { id: especieAnimal },
-                pelagemAnimal: { id: pelagemAnimal },
-                porteAnimal: { id: porteAnimal },
-                statusAnimal: { id: statusAnimal },
-                descricao: descricao
-            })], { type: "application/json" }));
-            formData.append('file', imagem);
-
-            console.log("Dados enviados: ", formData);
-
-            $.ajax({
-                url: `http://localhost:8080/animal/edit/${animalId}`, // Usando o ID correto do animal
-                type: 'PUT',
-                headers: {
-                    'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
-                },
-                data: formData,
-                processData: false, // Não processa o FormData automaticamente
-                contentType: false, // Define o tipo de conteúdo como multipart/form-data
-                success: function (data) {
-                    console.log('Formulário enviado com sucesso', data);
-                    mostrarAlertaSucesso();
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.error('Erro ao enviar formulário:', jqXHR, textStatus, errorThrown);
-                    mostrarAlertaErro('Erro ao enviar formulário. Tente novamente.');
-                }
-            });
-        }
-
-        function mostrarAlertaSucesso() {
-            $('#alertaSucesso').removeClass('d-none');
-            setTimeout(function () {
-                $('#alertaSucesso').addClass('d-none');
-            }, 3000);
-        }
-
-        function mostrarAlertaErro(message) {
-            $('#alertaErro').text(message).removeClass('d-none');
-            setTimeout(function () {
-                $('#alertaErro').addClass('d-none');
-            }, 3000);
-        }
-    </script>
+    <script src="js/informacoesAnimal.js"></script>
 </body>
 
 </html>
