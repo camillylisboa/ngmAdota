@@ -254,3 +254,29 @@
     border: none;
 }
 
+.btn-custom {
+    background-color: #fff;
+    color: #06C1D6;
+    margin: 2% 0; /* Ajuste a margem superior e inferior */
+    margin-left: auto; /* Empurra o botão para a direita */
+    margin-right: 2%; /* Remove qualquer margem à direita */
+    display: block; /* Garante que o botão seja exibido como um bloco */
+    transition: .9s;
+}
+
+#dropdownFiltro{
+    margin: 2% 0; /* Ajuste a margem superior e inferior */
+    margin-left: auto; /* Empurra o botão para a direita */
+    display: block; /* Garante que o botão seja exibido como um bloco */
+    transition: .9s;
+}
+
+#dropbtnFiltro {
+    background-color: #fff;
+    color: #06C1D6;
+    margin: 2% 0; /* Ajuste a margem superior e inferior */
+    margin-left: auto; /* Empurra o botão para a direita */
+    margin-right: 2%; /* Remove qualquer margem à direita */
+    display: block; /* Garante que o botão seja exibido como um bloco */
+    transition: .9s;
+}

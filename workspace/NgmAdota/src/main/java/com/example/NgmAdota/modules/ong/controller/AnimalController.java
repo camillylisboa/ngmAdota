@@ -1,13 +1,12 @@
 package com.example.NgmAdota.modules.ong.controller;
 
-import com.example.NgmAdota.modules.ong.AnimalModel;
-import com.example.NgmAdota.modules.ong.AnimalRepository;
-import com.example.NgmAdota.modules.ong.StatusAnimalModel;
+import com.example.NgmAdota.modules.ong.*;
 import com.example.NgmAdota.modules.ong.dto.AnimalDTO;
 import com.example.NgmAdota.modules.ong.dto.EditAnimalDTO;
 import com.example.NgmAdota.modules.ong.services.CreateAnimalService;
 import com.example.NgmAdota.modules.ong.services.EditAnimalService;
 import com.example.NgmAdota.modules.ong.services.ListarAnimaisService;
+import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,6 +28,9 @@ public class AnimalController {
 
     @Autowired
     private CreateAnimalService createAnimalService;
+
+    @Autowired
+    private FavoritoRepository favoritoRepository;
 
     @Autowired
     private EditAnimalService editAnimalService;
@@ -76,6 +78,11 @@ public class AnimalController {
     @GetMapping("/lista/adocao")
     public List<AnimalModel> getAnimalsByStatus(@RequestParam StatusAnimalModel statusAnimal) {
         return editAnimalService.findAnimalsByStatusId(statusAnimal.getId());
+    }
+
+    @GetMapping("/lista/favorito")
+    public List<FavoritoModel> getFavoritoByUsuario(@RequestParam UsuarioModel usuario) {
+        return editAnimalService.findByUsuarioId(usuario.getId());
     }
 
     // Método para listar um animal por ID
