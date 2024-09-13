@@ -3,6 +3,8 @@ package com.example.NgmAdota.modules.ong.services;
 import com.example.NgmAdota.exceptions.AnimalNotFoundException;
 import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.ong.AnimalRepository;
+import com.example.NgmAdota.modules.ong.FavoritoModel;
+import com.example.NgmAdota.modules.ong.FavoritoRepository;
 import com.example.NgmAdota.modules.ong.dto.EditAnimalDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,9 @@ public class EditAnimalService {
 
     @Autowired
     private AnimalRepository animalRepository;
+
+    @Autowired
+    private FavoritoRepository favoritoRepository;
 
     public AnimalModel edit(Long id, EditAnimalDTO editDTO, MultipartFile file, String uploadPath) {
         return animalRepository.findById(id)
@@ -75,6 +80,10 @@ public class EditAnimalService {
 
     public List<AnimalModel> findAnimalsByStatusId(Long statusAnimalId) {
         return animalRepository.findByStatusAnimalId(statusAnimalId);
+    }
+
+    public List<FavoritoModel> findByUsuarioId(Long usuario) {
+        return favoritoRepository.findByUsuarioId(usuario);
     }
 
 

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tabFavorito")
+@Table(name = "Favoritos")
 @Data
 @Builder
 @AllArgsConstructor
