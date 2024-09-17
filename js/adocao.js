@@ -80,11 +80,12 @@ $(document).ready(function () {
                         '<div class="animal-card">' +
                         '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                         '<h2>' + animal.nome +
-                        (animal.sexo === 'M' ? ' <i class="fas fa-mars" style="font-size: 28px; color: blue;"></i>'
-                            : ' <i class="fas fa-venus" style="font-size: 28px; color: pink;"></i>') +
-                        '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;">' +
-                        '<span class="coracao" style="font-size: 24px; color: ' + favoritoCor + ';">&#9829;</span>' +
-                        '</button>' + '</h2>' +
+                        (animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
+                            : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
+                        '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;" onclick="alternarFavorito(' + index + ')">' +
+                        '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
+                        '</button>' +
+                        '</h2>' +
                         '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
 
@@ -171,6 +172,8 @@ $(document).ready(function () {
         });
     }
 
+    
+
     function esconderBotaoSeUsuario(role) {
         if (role) {
             if (role === "ONG") {
@@ -205,7 +208,7 @@ $(document).ready(function () {
 });
 
 function obterListaAnimaisFavoritos() {
-    const usuarioId  = window.localStorage.getItem('userId');
+    const usuarioId = window.localStorage.getItem('userId');
     const token = window.localStorage.getItem('token'); // Certifique-se de recuperar o token dentro da função
 
     if (usuarioId && token) {
@@ -225,11 +228,12 @@ function obterListaAnimaisFavoritos() {
                         '<div class="animal-card">' +
                         '<img src="' + favorito.animal.imagem + '" alt="Imagem de ' + favorito.animal.nome + '">' +
                         '<h2>' + favorito.animal.nome +
-                        (favorito.animal.sexo === 'M' ? ' <i class="fas fa-mars" style="font-size: 28px; color: blue;"></i>'
-                            : ' <i class="fas fa-venus" style="font-size: 28px; color: pink;"></i>') +
-                        '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;">' +
-                        '<span class="coracao" style="font-size: 24px; color: ' + favoritoCor + ';">&#9829;</span>' +
-                        '</button>' + '</h2>' +
+                        (favorito.animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
+                            : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
+                        '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;" onclick="alternarFavorito(' + index + ')">' +
+                        '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
+                        '</button>' +
+                        '</h2>' +
                         '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
 
@@ -313,5 +317,34 @@ function obterListaAnimaisFavoritos() {
         });
     } else {
         console.error('ID do usuário ou token não encontrados no localStorage.');
+    }
+}
+
+function alternarFavorito(index) {
+    var imgFavorito = document.getElementById('img-favorito-' + index);
+    
+    if (imgFavorito) {
+        if (imgFavorito.src.includes('coracao-red')) {
+            imgFavorito.src = './img/coracao-gray.png';
+        } else {
+            imgFavorito.src = './img/coracao-red.png';
+        }
+    } else {
+        console.error('Imagem do favorito não encontrada!');
+    }
+}
+
+let filtroFavoritoAtivado = false; // Variável para controlar o estado do filtro
+
+function alternarFiltroFavorito() {
+    const btnFavorito = document.getElementById('btnFavorito');
+    
+    if (filtroFavoritoAtivado) {
+        location.reload(); // Recarrega a página para remover o filtro
+    } else {
+        // Se o filtro de favoritos não estiver ativado, ativa o filtro
+        obterListaAnimaisFavoritos(); // Função que aplica o filtro de favoritos
+        btnFavorito.textContent = 'Remover Favorito'; // Troca o texto do botão
+        filtroFavoritoAtivado = true;
     }
 }
