@@ -37,7 +37,7 @@ $(document).ready(function () {
                 '<table class="table table-striped">' +
                 '<thead>' +
                 '<tr>' +
-                '<th>Selecionar</th>' +  // Nova coluna para checkbox
+                '<th>Adotar</th>' +  // Nova coluna para checkbox
                 '<th>Nome</th>' +
                 '<th>Email</th>' +
                 '<th>Telefone</th>' +
@@ -275,10 +275,6 @@ function finalizarAdocao(interesseId) {
     if (!token) {
         console.error('Token não encontrado no localStorage.');
         return;
-    }
-
-    if (interesseId) {
-        alert("entrou " + interesseId)
     }
 
     $.ajax({
