@@ -75,9 +75,14 @@
                     Filtro
                 </button>
                 <ul class="dropdown-menu">
-                    <li><button class="dropdown-item" onclick="obterListaAnimaisFavoritos()">Favorito</button></li>
+                    <li>
+                        <button class="dropdown-item" id="btnFavorito" onclick="alternarFiltroFavorito()">
+                            Favorito
+                        </button>
+                    </li>
                 </ul>
             </div>
+
             <div id="lista-animais"></div>
         </div>
 
