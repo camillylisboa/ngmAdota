@@ -24,6 +24,7 @@ $(document).ready(function () {
     var emailUsuario = window.localStorage.getItem('email');
     var idadeUsuario = window.localStorage.getItem('idade');
     var telefoneUsuario = window.localStorage.getItem('telefone');
+    var usuarioId = window.localStorage.getItem('userId');
     var role = window.localStorage.getItem('role');
 
     if (token && nomeUsuario) {
@@ -78,38 +79,93 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 $('#lista-animais').empty();
-
                 $.each(data, function (index, animal) {
+                    var favoritoCor = window.localStorage.getItem('favorito-' + usuarioId + '-' + animal.id) === 'true' ? 'red' : 'gray';
+
                     var cardHtml =
                         '<div class="animal-card">' +
                         '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
-                        '<h2>' + animal.nome + '</h2>' +
-                        '<button class="btn-adocao" data-toggle="modal" data-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
+                        '<h2>' + animal.nome +
+                        (animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
+                            : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
+                        '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;" onclick="alternarFavorito(' + index + ')">' +
+                        '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
+                        '</button>' +
+                        '</h2>' +
+                        '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
+
                     $('#lista-animais').append(cardHtml);
+
+                    // Adicionar comportamento de clique ao botão de favorito dentro do loop
+                    $('#favorito-' + index).on('click', function () {
+                        var coracao = $(this).find('.coracao');
+                        var animalId = animal.id;
+
+                        if (!token) {
+                            console.error('Token de autenticação não encontrado.');
+                            return;
+                        }
+
+                        if (!usuarioId) {
+                            console.error('ID do usuário não encontrado.');
+                            return;
+                        }
+
+                        $.ajax({
+                            url: `http://localhost:8080/favorito/${animalId}/usuario/${usuarioId}`,
+                            type: 'PUT',
+                            headers: {
+                                'Authorization': 'Bearer ' + token
+                            },
+                            success: function (response) {
+                                console.log('Resposta do backend:', response);
+                                if (response.favorito === true) {
+                                    coracao.css('color', 'red');
+                                    favoritoCor = 'red';
+                                    window.localStorage.setItem('favorito-' + usuarioId + '-' + animalId, 'true');
+                                } else {
+                                    coracao.css('color', 'gray');
+                                    favoritoCor = 'gray';
+                                    window.localStorage.setItem('favorito-' + usuarioId + '-' + animalId, 'false');
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                console.error('Erro ao alternar favorito:', error);
+                            }
+                        });
+                    });
+                });
+
+
+
+                var modalAnimal = new bootstrap.Modal(document.getElementById('modalAnimal'), {
+                    keyboard: false
                 });
 
                 $('.btn-adocao').on('click', function () {
                     var index = $(this).data('id');
                     var animal = data[index];
-                    console.log(animal)
                     $('#modal-imagem').attr('src', animal.imagem);
                     $('#modal-nome').text(animal.nome);
                     $('#modal-peso').text(animal.peso + ' kg');
                     $('#modal-idade').text(animal.idade);
                     $('#modal-descricao').text(animal.descricao);
-
-                    $('#modalAnimal').modal('show');
+                    $('#modal-ong').text(animal.ongModel.razaosocial);
+                    $('#modal-sexo').text(animal.sexo === 'M' ? 'Macho' : 'Fêmea');
+                    $('#modal-raca').text(animal.racaAnimal.tipo);
+                    $('#modal-especie').text(animal.especieAnimal.tipo);
+                    $('#modal-pelagem').text(animal.pelagemAnimal.tipo);
+                    $('#modal-porte').text(animal.porteAnimal.tipo);
+                    modalAnimal.show();
 
                     localStorage.setItem('animalId', animal.id);
                     localStorage.setItem('animalNome', animal.nome);
                 });
 
-
-
                 $('#adocaoBtn').on('click', function () {
                     if (token && nomeUsuario) {
-                        window.location.href = 'formularioDeInteresse.html'
+                        window.location.href = 'formularioDeInteresse.html';
                     } else {
                         alert("Você precisa fazer login");
                         window.location.href = 'login.html';
@@ -267,3 +323,32 @@ stars.forEach(star => {
         });
     });
 });
+
+function alternarFavorito(index) {
+    var imgFavorito = document.getElementById('img-favorito-' + index);
+    
+    if (imgFavorito) {
+        if (imgFavorito.src.includes('coracao-red')) {
+            imgFavorito.src = './img/coracao-gray.png';
+        } else {
+            imgFavorito.src = './img/coracao-red.png';
+        }
+    } else {
+        console.error('Imagem do favorito não encontrada!');
+    }
+}
+
+let filtroFavoritoAtivado = false; // Variável para controlar o estado do filtro
+
+function alternarFiltroFavorito() {
+    const btnFavorito = document.getElementById('btnFavorito');
+    
+    if (filtroFavoritoAtivado) {
+        location.reload(); // Recarrega a página para remover o filtro
+    } else {
+        // Se o filtro de favoritos não estiver ativado, ativa o filtro
+        obterListaAnimaisFavoritos(); // Função que aplica o filtro de favoritos
+        btnFavorito.textContent = 'Remover Favorito'; // Troca o texto do botão
+        filtroFavoritoAtivado = true;
+    }
+}

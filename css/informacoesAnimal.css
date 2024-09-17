@@ -1,3 +1,8 @@
+/* Fontes e Estilos Gerais */
+* {
+    font-family: sans-serif;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,6 +10,44 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Navbar */
+.navbar {
+    background-color: #008A33;
+    height: 94px;
+    font-weight: bold;
+    position: relative;
+}
+
+.navbar-title {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+#adocao {
+    color: #06C1D6;
+    font-size: 27px;
+}
+
+.nav-item {
+    margin-right: 20px; /* Reduzi o espaço entre os itens do menu */
+    font-size: 23px;
+}
+
+.btn.btn-custom {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 31px;
+    padding: 2px 20px; /* Reduzi o padding para o botão */
+    font-size: 16px;
+    border: none;
+    margin-right: 20px;
+}
+
+/* Container Geral */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -15,16 +58,18 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Título */
 h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
+/* Detalhes do Animal */
 .details-container {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
+    gap: 15px; /* Reduzi o espaço entre a imagem e os detalhes do animal */
     margin-bottom: 20px;
 }
 
@@ -35,15 +80,17 @@ h1 {
 
 .animal-image img {
     width: 100%;
-    height: auto;
+    height: 390px; /* Reduzi a altura da imagem */
     border-radius: 8px;
+}
+
+.animal-image input[type="file"] {
+    border-radius: 8px; /* Bordas arredondadas para o campo de upload */
+    margin-top: 10px; /* Espaço acima do campo de upload */
 }
 
 .animal-details {
     flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .animal-details p {
@@ -52,24 +99,31 @@ h1 {
     line-height: 1.5;
 }
 
-.ong-details {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+/* Formulário */
+form .form-control {
+    border-radius: 20px; /* Bordas arredondadas para todos os campos do formulário */
 }
 
-.ong-details h2 {
-    margin-top: 0;
-    font-size: 18px;
+form .form-label {
+    margin-bottom: 0px; /* Reduzi o espaçamento entre o rótulo e o campo */
 }
 
-.ong-details p {
-    margin: 5px 0;
-    font-size: 14px;
-    line-height: 1.5;
+form .form-control, 
+form select {
+    margin-bottom: 0px; /* Reduzi o espaçamento entre os campos */
 }
 
+form .btn-primary {
+    border-radius: 31px; /* Bordas arredondadas para o botão Salvar */
+    padding: 5px 0px; /* Ajuste o padding para um tamanho menor do botão */
+    font-weight: bold; /* Ajuste o tamanho da fonte para manter o botão menor */
+    color: #f4f4f4;
+    background-color: #06C1D6;
+    border: none;
+}
+
+
+/* Modal */
 .modal-content {
     padding: 20px;
     border-radius: 8px;
