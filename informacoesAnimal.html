@@ -12,6 +12,46 @@
 </head>
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a href="./index.html"><img class="logo" src="./img/logoNGM.png"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" id="adocao" href="#">ADOÇÃO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./cadastroOng.html">Cadastrar ONGs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./blog.html">Blog</a>
+                        </li>
+                    </ul>
+
+                    <a href="cadastroAnimal.html"><button class="btn btn-custom">Voltar</button></a>
+            
+                    <!-- Informações do perfil do usuário e botão para trocar de perfil -->
+                    <div id="user-profile" style="display: none;">
+                      <p><strong>Nome do Usuário:</strong> João da Silva</p>
+                      <p><strong>Email:</strong> joao@example.com</p>
+                      <p><strong>Telefone:</strong> (11) 1234-5678</p>
+                      <!-- Adicione outras informações do perfil aqui -->
+                      <button id="trocar-perfil-btn">Trocar de Perfil</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
     <div id="alertaSucesso" class="alert alert-success d-none" role="alert">Animal adicionado com sucesso!</div>
     <div id="alertaErro" class="alert alert-danger d-none" role="alert">Revise as informações do animal</div>
 
@@ -20,14 +60,11 @@
         <div class="details-container row">
             <div class="col-md-4 animal-image">
                 <img id="imagemAnimal" class="img-fluid" src="" alt="Imagem do Animal" />
+                <input type="file" class="form-control mt-3" id="imagem2" accept="image/*">
             </div>
             <div class="col-md-8">
                 <form id="updateAnimalForm" class="row g-3">
-                    <div class="col-md-6">
-                        <label for="imagem2" class="form-label">Imagem</label>
-                        <input type="file" class="form-control" id="imagem2" accept="image/*">
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="nome2" class="form-label">Nome</label>
                         <input type="text" class="form-control" name="nome2" id="nome2" placeholder="NOME" required>
                     </div>
@@ -36,15 +73,21 @@
                         <input type="text" class="form-control" name="peso2" id="peso2" placeholder="PESO" required>
                     </div>
                     <div class="col-md-6">
-                        <label for="dataNascimento2" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" name="dataNascimento2" id="dataNascimento2" required>
-                    </div>
-                    <div class="col-md-6">
                         <label for="sexo2" class="form-label">Sexo</label>
                         <select class="form-control" id="sexo2">
                             <option value="" disabled selected>SEXO</option>
                             <option value="M">MACHO</option>
                             <option value="F">FÊMEA</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dataNascimento2" class="form-label">Data de Nascimento</label>
+                        <input type="date" class="form-control" name="dataNascimento2" id="dataNascimento2" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="statusAnimalSelect2" class="form-label">Status</label>
+                        <select class="form-control" id="statusAnimalSelect2">
+                            <option value="" disabled selected>STATUS</option>
                         </select>
                     </div>
                     <div class="col-md-6">
@@ -71,20 +114,13 @@
                             <option value="" disabled selected>PORTE</option>
                         </select>
                     </div>
-                    <div class="col-md-6">
-                        <label for="statusAnimalSelect2" class="form-label">Status</label>
-                        <select class="form-control" id="statusAnimalSelect2">
-                            <option value="" disabled selected>STATUS</option>
-                        </select>
-                    </div>
                     <div class="col-md-12">
                         <label for="descricao2" class="form-label">Descrição</label>
                         <textarea name="descricao2" id="descricao2" class="form-control"
-                            placeholder="PORQUE NGM ME ADOTA" rows="2"></textarea>
+                            placeholder="PORQUE NGM ME ADOTA" rows="3"></textarea>
                     </div>
                     <div class="col-12">
-                        <button type="button" class="btn btn-primary w-100" onclick="atualizarAnimal()">Salvar
-                            mudanças</button>
+                        <button type="button" class="btn btn-primary w-100" onclick="atualizarAnimal()">Salvar mudanças</button>
                     </div>
                 </form>
             </div>
@@ -131,9 +167,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
