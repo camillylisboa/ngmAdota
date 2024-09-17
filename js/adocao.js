@@ -344,7 +344,7 @@ function alternarFiltroFavorito() {
     } else {
         // Se o filtro de favoritos não estiver ativado, ativa o filtro
         obterListaAnimaisFavoritos(); // Função que aplica o filtro de favoritos
-        btnFavorito.textContent = 'Remover Favorito'; // Troca o texto do botão
+        btnFavorito.textContent = 'Remover Filtro'; // Troca o texto do botão
         filtroFavoritoAtivado = true;
     }
 }
