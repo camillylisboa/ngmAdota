@@ -48,8 +48,13 @@ function enviarOng() {
         contentType: 'application/json',
         data: JSON.stringify(ongData),
         dataType: 'json',
-        success: function () {
+        success: function (response) {
             console.log('enviado com sucesso');
+            var ongId = window.localStorage.setItem('ongId', response.id);
+            if (response && response.id) {
+                alert(ongId)
+                console.log(response.id)
+            }
             limparCampos();
             mostrarAlertaSucesso();
         },
