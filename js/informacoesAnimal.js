@@ -12,6 +12,26 @@ $(document).ready(function () {
         $('.checkbox-interessado').not(this).prop('checked', false);
     });
 
+    const inputImagem = document.getElementById('imagem2');
+    const imgPreview = document.getElementById('imagemAnimal');
+
+    // Função para carregar a imagem selecionada e exibir na tag <img>
+    inputImagem.addEventListener('change', function (event) {
+        const file = event.target.files[0]; // Pega o primeiro arquivo selecionado
+        if (file) {
+            const reader = new FileReader();
+            // Quando o arquivo for carregado, define o src da imagem
+            reader.onload = function (e) {
+                imgPreview.src = e.target.result; // Define a imagem carregada no src
+            }
+            // Lê o arquivo selecionado como uma URL de dados
+            reader.readAsDataURL(file);
+        } else {
+            // Caso nenhum arquivo seja selecionado, limpa a imagem
+            imgPreview.src = "";
+        }
+    });
+
     populateSelectRaca();
     populateSelectEspecie();
     populateSelectPelagem();
@@ -124,8 +144,6 @@ $(document).ready(function () {
             $('#porteSelect2').val(data.porteAnimal.id);
             $('#statusAnimalSelect2').val(data.statusAnimal.id);
             $('#descricao2').val(data.descricao);
-
-            alert($('#imagemData').val() + "   testee")
 
             // Opcional: Preencher os detalhes da ONG se necessário
             if (data.ongModel) {
@@ -340,9 +358,7 @@ function atualizarAnimal() {
         statusAnimal: { id: statusAnimal },
         descricao: descricao
     })], { type: "application/json" }));
-     formData.append('file', imagem);
-
-    alert(imagem)
+    formData.append('file', imagem);
 
     $.ajax({
         url: `http://localhost:8080/animal/edit/${animalId}`,
