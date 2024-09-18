@@ -52,9 +52,7 @@ public class UsuarioModel implements UserDetails {
     private Integer numero;
     private String complemento;
     @ManyToMany
-    @JoinTable(
-            name = "favoritos",
-            joinColumns = @JoinColumn(name = "usuario_id"),
+    @JoinTable(name = "favoritos", joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "animal_id"))
     private Set<AnimalModel> favoritos = new HashSet<>();
 

@@ -6,6 +6,7 @@ import com.example.NgmAdota.modules.ong.AnimalRepository;
 import com.example.NgmAdota.modules.ong.FavoritoModel;
 import com.example.NgmAdota.modules.ong.FavoritoRepository;
 import com.example.NgmAdota.modules.ong.dto.EditAnimalDTO;
+import jakarta.validation.constraints.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -71,7 +72,7 @@ public class EditAnimalService {
                             throw new RuntimeException("Erro ao salvar o arquivo de imagem: " + e.getMessage());
                         }
                     }
-
+                    System.out.println("Não entrou");
                     // Salva o animal atualizado no banco de dados
                     return animalRepository.save(animal);
                 })

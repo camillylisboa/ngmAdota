@@ -104,7 +104,6 @@ $(document).ready(function () {
             });
         }
     });
-
     $.ajax({
         url: `http://localhost:8080/animal/lista/${animalId}`,
         method: 'GET',
@@ -114,6 +113,7 @@ $(document).ready(function () {
         success: function (data) {
             // Preencher os detalhes do animal
             $('#imagemAnimal').attr('src', window.location.origin + data.imagem);
+            $('#imagemData').val(data.imagem)
             $('#nome2').val(data.nome);
             $('#peso2').val(data.peso);
             $('#dataNascimento2').val(data.dataNascimento);
@@ -124,6 +124,8 @@ $(document).ready(function () {
             $('#porteSelect2').val(data.porteAnimal.id);
             $('#statusAnimalSelect2').val(data.statusAnimal.id);
             $('#descricao2').val(data.descricao);
+
+            alert($('#imagemData').val() + "   testee")
 
             // Opcional: Preencher os detalhes da ONG se necessário
             if (data.ongModel) {
@@ -308,12 +310,14 @@ function atualizarAnimal() {
     var statusAnimal = parseInt($('#statusAnimalSelect2').val());
     var descricao = $('#descricao2').val();
     var imagem = $('#imagem2')[0].files[0];
-
     // Verifica se algum interessado foi selecionado
     var interessadoSelecionado = $('.checkbox-interessado:checked').length > 0;
 
-    if (!nome || !peso || !dataNascimento || !sexo || !racaAnimal || !especieAnimal || !pelagemAnimal || !porteAnimal || !imagem || !descricao || !statusAnimal) {
-        mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
+
+    var imagemData = $('#imagemData').val();
+
+    if (!nome || !peso || !dataNascimento || !sexo || !racaAnimal || !especieAnimal || !pelagemAnimal || !imagemData || !porteAnimal || !descricao || !statusAnimal) {
+        mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.' + imagem);
         return;
     }
 
@@ -336,7 +340,9 @@ function atualizarAnimal() {
         statusAnimal: { id: statusAnimal },
         descricao: descricao
     })], { type: "application/json" }));
-    formData.append('file', imagem);
+     formData.append('file', imagem);
+
+    alert(imagem)
 
     $.ajax({
         url: `http://localhost:8080/animal/edit/${animalId}`,

@@ -8,6 +8,7 @@ import com.example.NgmAdota.modules.ong.services.EditAnimalService;
 import com.example.NgmAdota.modules.ong.services.ListarAnimaisService;
 import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -59,7 +60,7 @@ public class AnimalController {
     public ResponseEntity<?> editAnimal(
             @PathVariable(value = "id") Long id,
             @RequestPart("animal") @Valid EditAnimalDTO editDTO,
-            @RequestPart("file") MultipartFile file) {
+            @RequestPart(value = "file", required = false) MultipartFile file) {
         try {
             var editAnimal = editAnimalService.edit(id, editDTO, file, "/Workspace/ProjectNgmAdota/ngmAdota/uploads"); // Passa o caminho para upload
             return ResponseEntity.status(HttpStatus.OK).body(editAnimal);
