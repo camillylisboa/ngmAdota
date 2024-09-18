@@ -224,7 +224,9 @@ function obterListaAnimaisFavoritos() {
                 $.each(data, function (index, favorito) {
                     var favoritoCor = window.localStorage.getItem('favorito-' + usuarioId + '-' + favorito.animal.id) === 'true' ? 'red' : 'gray';
 
-                    var cardHtml =
+
+                    if (favorito.animal.statusAnimal.id === 1){
+                        var cardHtml =
                         '<div class="animal-card">' +
                         '<img src="' + favorito.animal.imagem + '" alt="Imagem de ' + favorito.animal.nome + '">' +
                         '<h2>' + favorito.animal.nome +
@@ -236,6 +238,20 @@ function obterListaAnimaisFavoritos() {
                         '</h2>' +
                         '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
+                    } else if (favorito.animal.statusAnimal.id === 2) {
+                        var cardHtml =
+                        '<div class="animal-card">' +
+                        '<img src="' + favorito.animal.imagem + '" alt="Imagem de ' + favorito.animal.nome + '">' +
+                        '<h2>' + favorito.animal.nome +
+                        (favorito.animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
+                            : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
+                        '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;" onclick="alternarFavorito(' + index + ')">' +
+                        '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
+                        '</button>' +
+                        '</h2>' +
+                        '<h3 class="btn-adotado" style="padding-left: 65px;" data-id="' + index + '">Este animal já foi adotado</h3>' +
+                        '</div>';
+                    }
 
                     $('#lista-animais').append(cardHtml);
 
