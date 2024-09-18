@@ -80,7 +80,7 @@ $(document).ready(function () {
                 $('#lista-animais').empty();
     
                 // Limitar a exibição de animais a no máximo 3
-                const maxAnimais = 3;
+                const maxAnimais = 4;
                 const animaisExibidos = Math.min(data.length, maxAnimais);
     
                 // Itera apenas sobre os primeiros 3 animais
