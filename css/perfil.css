@@ -1,3 +1,4 @@
+
 * {
     font-family: sans-serif;
 }
@@ -11,7 +12,7 @@
     background-color: #06C1D6;
     height: 403px;
 }
- 
+
 .fundo>.container {
     background-color: #d9d9d9;
     height: 500px;
@@ -42,6 +43,23 @@
    
    /* top:5%; */
 }
+
+.back-button {
+    text-decoration: none;
+    color: #fff; /* Cor do texto */
+    padding: 20px 30px; /* Espaçamento */
+    font-size: 30px; /* Tamanho da fonte */
+    display: flex; /* Para alinhar o ícone e o texto */
+    align-items: center; /* Alinhar verticalmente */
+}
+
+.back-icon {
+    width: 30px; /* Largura do ícone */
+    height: auto; /* Manter proporção */
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+
 #adocao {
     color: #06C1D6;
     font-size: 27px;
@@ -63,11 +81,21 @@
 }
 
 #editar-perfil-btn  {
-    align-items: center;
+  
     background-color: #06C1D6;
     color: white;
     border-radius: 31px;
-    width: 100%;
-    height: 55px;
-    font-size: 30px;
+    width: 110%;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 90%;
+}
+#voltar-perfil-btn {
+    background-color: #d60606;
+    color: white;
+    border-radius: 31px;
+    width: 50%;
+    height: 45px;
+    font-size: 20px;
+    margin-left: -180%;
 }
