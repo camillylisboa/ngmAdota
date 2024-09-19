@@ -108,11 +108,13 @@ function obterListaAnimais() {
             $('#lista-animais').empty();
 
             $.each(data, function (index, animal) {
+                console.log(data)
                 var cardHtml =
                     '<div class="animal-card">' +
                     '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
-                    '<h2>' + animal.nome + '</h2>' + 
-                    '<h5>' + animal.statusAnimal.tipo + '</h5>' +
+                    '<h2>' + animal.nome + '</h2>' +
+                    '<h5>' + animal.statusAnimal + '</h5>' +  // Acessando o campo correto dentro de statusAnimal
+                    '<p>Interessados: ' + (animal.quantidadeInteressados || 0) + '</p>' +  // Garantindo que a quantidade de interessados seja exibida corretamente
                     '<button class="btn-edit" data-id="' + animal.id + '">Editar animal</button>' +
                     '</div>';
                 $('#lista-ong-animais').append(cardHtml);

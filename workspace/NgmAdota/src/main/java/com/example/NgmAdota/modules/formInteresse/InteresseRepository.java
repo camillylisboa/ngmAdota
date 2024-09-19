@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface InteresseRepository extends JpaRepository<InteresseModel, Long> {
     List<InteresseModel> findByAnimalId(Long animalId);
+    int countByAnimalId(Long animalId);
 }
