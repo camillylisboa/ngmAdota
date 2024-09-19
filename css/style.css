@@ -1,3 +1,4 @@
+
 * {
     font-family: sans-serif;
 }
@@ -11,7 +12,7 @@
     height: 410px;
     float: left;
     color: white;
-    transform: translate(20%, 0%);
+    transform: translate(20%, 0%); /* Centraliza o modal */
     
 }
  
@@ -140,6 +141,10 @@
  
 .card a {
     border-radius: 31px;
+}
+ 
+.btn {
+    align-items: center;
 }
  
 h1 {
@@ -295,7 +300,21 @@ h1 {
     border-radius: 10px;
     width: 45rem;
 }
-
+ 
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+ 
+.modal-body {
+    padding: 20px;
+    background-color:#d9d9d9;
+    color: #000;
+    border-radius: 10px;
+    
+    
+}
+ 
 .modal-footer {
     padding: 20px;
     border-top: 1px solid #cccccc;
@@ -326,11 +345,17 @@ h1 {
     right: 10px;
     color: #aaa;
 }
- 
-.btn-close:hover {
-    color: #000;
-}
- 
+
+.close {
+    font-size: 24px; /* Aumenta o tamanho do "X" */
+    font-weight: bold; /* Torna o "X" em negrito */
+    position: absolute; /* Posiciona o "X" no canto */
+    right: 15px; /* Distância do lado direito */
+    top: 15px; /* Distância do topo */
+    color: #000; /* Cor do "X" */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  }
+  
 /* Estilos para o alerta de sucesso */
 .alert-success {
     background-color: #d4edda; /* Cor de fundo */
@@ -350,7 +375,7 @@ h1 {
     height: 410px;
     margin: 19px;
     color: white;
-    transform: translate(9%, 0%);
+    transform: translate(9%, 0%); /* Centraliza o modal */
 }
  
 .btn-adocao {
@@ -798,6 +823,7 @@ h1 {
     background-color:#d9d9d9;
     color: #000;
     border-radius: 10px;
+
 }
 
 .modal-body #modal-nome{
@@ -894,18 +920,11 @@ h1 {
  
 .modal-header {
     padding: 20px;
-    border-bottom: 2px solid #747373;
-    background-color:#d9d9d9;
-    font-size: 20px;
-    font-weight: bold;
+    border-bottom: 1px solid #ccc;
 }
  
-
 .modal-body {
     padding: 20px;
-    background-color:#d9d9d9;
-    color: #000;
-    border-radius: 10px;
 }
  
 .modal-footer {
@@ -942,7 +961,7 @@ h1 {
 .btn-close:hover {
     color: #000;
 }
-
+ 
 .alert-success {
     background-color: #d4edda; /* Cor de fundo */
     color: #155724; /* Cor do texto */

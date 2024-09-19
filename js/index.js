@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     // Função para mostrar o modal de confirmação estilizado
     function showConfirmModal(message, callback) {
@@ -71,24 +72,18 @@ $(document).ready(function () {
 
     // Função para fazer a chamada AJAX à API de animais
     function obterListaAnimais() {
-        const disponivelParaAdocao = '?statusAnimal=1';
+        // Variavel que vai para a rota de busca de animais e aparece apenas os animais disponiveis para adoção 
+        const disponivelParaAdocao = '?statusAnimal=1'
         $.ajax({
             url: `http://localhost:8080/animal/lista/adocao${disponivelParaAdocao}`,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
                 $('#lista-animais').empty();
-    
-                // Limitar a exibição de animais a no máximo 3
-                const maxAnimais = 4;
-                const animaisExibidos = Math.min(data.length, maxAnimais);
-    
-                // Itera apenas sobre os primeiros 3 animais
-                for (let index = 0; index < animaisExibidos; index++) {
-                    const animal = data[index];
-                    const favoritoCor = window.localStorage.getItem('favorito-' + usuarioId + '-' + animal.id) === 'true' ? 'red' : 'gray';
-    
-                    const cardHtml =
+                $.each(data, function (index, animal) {
+                    var favoritoCor = window.localStorage.getItem('favorito-' + usuarioId + '-' + animal.id) === 'true' ? 'red' : 'gray';
+
+                    var cardHtml =
                         '<div class="animal-card">' +
                         '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                         '<h2>' + animal.nome +
@@ -100,24 +95,24 @@ $(document).ready(function () {
                         '</h2>' +
                         '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
-    
+
                     $('#lista-animais').append(cardHtml);
-    
-                    // Adicionar comportamento de clique ao botão de favorito
+
+                    // Adicionar comportamento de clique ao botão de favorito dentro do loop
                     $('#favorito-' + index).on('click', function () {
                         var coracao = $(this).find('.coracao');
                         var animalId = animal.id;
-    
+
                         if (!token) {
                             console.error('Token de autenticação não encontrado.');
                             return;
                         }
-    
+
                         if (!usuarioId) {
                             console.error('ID do usuário não encontrado.');
                             return;
                         }
-    
+
                         $.ajax({
                             url: `http://localhost:8080/favorito/${animalId}/usuario/${usuarioId}`,
                             type: 'PUT',
@@ -141,12 +136,14 @@ $(document).ready(function () {
                             }
                         });
                     });
-                }
-    
+                });
+
+
+
                 var modalAnimal = new bootstrap.Modal(document.getElementById('modalAnimal'), {
                     keyboard: false
                 });
-    
+
                 $('.btn-adocao').on('click', function () {
                     var index = $(this).data('id');
                     var animal = data[index];
@@ -162,11 +159,11 @@ $(document).ready(function () {
                     $('#modal-pelagem').text(animal.pelagemAnimal.tipo);
                     $('#modal-porte').text(animal.porteAnimal.tipo);
                     modalAnimal.show();
-    
+
                     localStorage.setItem('animalId', animal.id);
                     localStorage.setItem('animalNome', animal.nome);
                 });
-    
+
                 $('#adocaoBtn').on('click', function () {
                     if (token && nomeUsuario) {
                         window.location.href = 'formularioDeInteresse.html';
@@ -181,7 +178,6 @@ $(document).ready(function () {
             }
         });
     }
-    
 
     obterListaAnimais();
 
@@ -357,3 +353,8 @@ function alternarFiltroFavorito() {
         filtroFavoritoAtivado = true;
     }
 }
+
+ // A função abaixo garante que o modal fecha corretamente
+ $('.close').on('click', function() {
+    $('#modalAnimal').modal('hide');
+  });

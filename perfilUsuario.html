@@ -46,6 +46,7 @@
                     <div class="avatar">
                         <img src="img/avatar.png" alt="Avatar do Usuário" id="user-avatar">
                     </div>
+
                     <!-- Ícone do usuário -->
 
 
@@ -63,6 +64,10 @@
     </header>
     <main>
         <div class="fundo">
+
+
+
+
             <p class="fw-bold text-center">DADOS DO USUÁRIO</p>
             <div class="container">
                 <div class="container px-4">
@@ -75,12 +80,22 @@
                         <p><strong>Email:</strong> <span id="info-email-usuario"></span></p>
                         <p><strong>Idade:</strong> <span id="info-idade-usuario"></span></p>
                         <p><strong>Telefone:</strong><br> <span id="info-telefone-usuario"></span></p>
-
-                        <button id="editar-perfil-btn" class="btn fw-bold" type="button" data-bs-toggle="modal"
-                            data-bs-target="#editarPerfilModal">EDITAR PERFIL</button>
+                    
+                        <div class="row">
+                            <div class="col-6 d-flex">
+                                <button id="editar-perfil-btn" class="btn fw-bold me-2" type="button" data-bs-toggle="modal" data-bs-target="#updateProfileModal">EDITAR PERFIL</button>
+                                <button id="voltar-perfil-btn" class="btn fw-bold" type="button" onclick="window.location.href='index.html'">Voltar</button>
+                            </div>
+                        </div>
+                        
+                            
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
     </main>
 
