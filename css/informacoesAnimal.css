@@ -137,3 +137,19 @@ form .btn-primary {
 .modal-body {
     font-size: 16px;
 }
+
+#alertaSucesso {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+ 
+#alertaErro {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
