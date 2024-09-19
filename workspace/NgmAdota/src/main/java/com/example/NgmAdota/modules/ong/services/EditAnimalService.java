@@ -87,5 +87,9 @@ public class EditAnimalService {
         return favoritoRepository.findByUsuarioId(usuario);
     }
 
+    public List<AnimalModel> findByNome(String nome) {
+        return animalRepository.findByNomeContainingIgnoreCase(nome);
+    }
+
 
 }

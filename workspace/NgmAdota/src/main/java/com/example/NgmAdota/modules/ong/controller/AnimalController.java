@@ -86,6 +86,11 @@ public class AnimalController {
         return editAnimalService.findByUsuarioId(usuario.getId());
     }
 
+    @GetMapping("/lista/nome")
+    public List<AnimalModel> getAnimalByNome(@RequestParam String nome){
+        return editAnimalService.findByNome(nome);
+    }
+
     // Método para listar um animal por ID
     @GetMapping("/lista/{id}")
     public ResponseEntity<Object> listarUmAnimal(@PathVariable(value = "id") Long id) {
