@@ -9,7 +9,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/cadAnimal.css">
-    <script src="js/cadAnimal.js"></script>
 </head>
 
 <body>
@@ -24,9 +23,6 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a href="./index.html"><img class="logo" src="./img/logoNGM.png"></a>
-                <div class="navbar-title">
-                    <img src="./img/NGM ME ADOTA (1).png" alt="Título do site" class="titulo">
-                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -68,11 +64,23 @@
 
     <main>
         <div class="fundo">
-            <!-- Botão Cadastrar Animais -->
+            <form id="formPesquisaAnimal">
+                <input type="text" id="nomeAnimal" placeholder="Pesquisar animal">
+                <button type="button" class="" onclick="formPesquisa()">Buscar</button>
+            </form>
+            
+            <div id="resultado"></div>
+            
             <button class="btn btn-custom" data-toggle="modal" data-target="#cadastroAnimalModal">Cadastrar
                 Animais</button>
 
             <div id="lista-ong-animais"></div>
+
+
+
+
+
+
             <!-- Modal Cadastro Animal -->
             <div class="modal fade" id="cadastroAnimalModal" tabindex="-1" aria-labelledby="cadastroAnimalModalLabel"
                 aria-hidden="true">
@@ -285,7 +293,9 @@
             </div>
         </div>
 
+        <script src="./js/cadAnimal.js"></script>
     </main>
+    
 </body>
 
 </html>

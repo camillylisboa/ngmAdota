@@ -1,19 +1,33 @@
 package com.example.NgmAdota.modules.ong.services;
 
+import com.example.NgmAdota.modules.formInteresse.InteresseRepository;
 import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.ong.AnimalRepository;
+import com.example.NgmAdota.modules.ong.dto.AnimalComInteresseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class GetAnimalsOngService {
 
     @Autowired
-    private AnimalRepository repository;
+    private AnimalRepository animalRepository;
 
-    public List<AnimalModel> getAnimalsOng(Long ongId){
-        return repository.findByOngId(ongId);
+    @Autowired
+    private InteresseRepository interesseRepository;
+
+    public List<AnimalComInteresseDTO> getAnimalsOng(Long ongId) {
+        List<AnimalModel> animais = animalRepository.findByOngId(ongId); // Método para pegar animais da ONG
+
+        // Para cada animal, conte o número de interessados e retorne uma lista de DTOs
+        return animais.stream()
+                .map(animal -> {
+                    int quantidadeInteressados = interesseRepository.countByAnimalId(animal.getId());
+                    return new AnimalComInteresseDTO(animal, quantidadeInteressados);
+                })
+                .collect(Collectors.toList());
     }
 }

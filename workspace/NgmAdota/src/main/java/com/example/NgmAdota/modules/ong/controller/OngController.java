@@ -6,6 +6,7 @@ import com.example.NgmAdota.exceptions.UserFoundException;
 import com.example.NgmAdota.modules.ong.AnimalModel;
 import com.example.NgmAdota.modules.ong.OngModel;
 import com.example.NgmAdota.modules.ong.OngRepository;
+import com.example.NgmAdota.modules.ong.dto.AnimalComInteresseDTO;
 import com.example.NgmAdota.modules.ong.dto.OngRequestDTO;
 import com.example.NgmAdota.modules.ong.services.CreateOngService;
 import com.example.NgmAdota.modules.ong.services.GetAnimalsOngService;
@@ -81,12 +82,12 @@ public class OngController {
 
     @GetMapping("/animal/{ongId}")
     public ResponseEntity<Object> getAnimalsOngId(@PathVariable(value = "ongId") Long ongId){
-        try{
-            return ResponseEntity.status(HttpStatus.OK).body(animalsOngService.getAnimalsOng(ongId));
-        }catch (Exception e){
+        try {
+            List<AnimalComInteresseDTO> animais = animalsOngService.getAnimalsOng(ongId);
+            return ResponseEntity.status(HttpStatus.OK).body(animais);
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
-
     }
 
 }
