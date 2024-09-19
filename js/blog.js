@@ -1,20 +1,44 @@
-$(document).ready(function () {
 
+$(document).ready(function () {
     var token = window.localStorage.getItem('token');
     var nomeUsuario = window.localStorage.getItem('nomeUsuario');
+    var emailUsuario = window.localStorage.getItem('emailUsuario'); // Adicione conforme necessário
+    var idadeUsuario = window.localStorage.getItem('idadeUsuario'); // Adicione conforme necessário
+    var telefoneUsuario = window.localStorage.getItem('telefoneUsuario'); // Adicione conforme necessário
+
     if (token && nomeUsuario) {
         // Remover botão de entrar
         $('.btn-custom').remove();
- 
+
         // Adicionar ícone com nome do usuário
-        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width : 23px;" class="menu-icon" alt=""></a>';
+        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width: 23px;" class="menu-icon" alt=""></a>';
         $('.navbar-nav').after(userIconHtml);
- 
+
         // Preencher o modal de informações do usuário
         $('#info-nome-usuario').text(nomeUsuario);
         $('#info-email-usuario').text(emailUsuario);
         $('#info-idade-usuario').text(idadeUsuario);
         $('#info-telefone-usuario').text(telefoneUsuario);
+
+        // Adicionar evento de clique no botão "Sair"
+        $('#logout-button').on('click', function() {
+            // Mostrar modal de confirmação
+            $('#confirmModal').modal('show');
+        });
+
+        // Evento para o botão de confirmação
+        $('#confirmButton').on('click', function() {
+            // Remover os dados do usuário do localStorage
+            window.localStorage.removeItem('token');
+            window.localStorage.removeItem('nomeUsuario');
+            window.localStorage.removeItem('emailUsuario'); // Adicione conforme necessário
+            window.localStorage.removeItem('idadeUsuario'); // Adicione conforme necessário
+            window.localStorage.removeItem('telefoneUsuario'); // Adicione conforme necessário
+            
+            // Redirecionar para a página de login
+            window.location.href = 'login.html'; // Altere para a URL correta
+        });
+
     } else {
         // Garantir que o botão de entrar esteja presente se não houver usuário logado
         if ($('.btn-custom').length === 0) {
@@ -22,5 +46,4 @@ $(document).ready(function () {
             $('.navbar-collapse').append(loginButtonHtml);
         }
     }
-
 });
