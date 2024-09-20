@@ -86,7 +86,7 @@ $(document).ready(function () {
                         '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
                         '</button>' +
                         '</h2>' +
-                        '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
+                        '<button class="btn-edit" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
 
                     $('#lista-animais').append(cardHtml);

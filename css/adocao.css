@@ -243,13 +243,13 @@
     align-self: flex-start;
 }
 
-.btn-adocao {
+.btn-edit {
     background-color: #06C1D6;
     color: #fff;
     font-weight: bold;
-    border-radius: 31px;
+    border-radius: 5px;
     padding: 8px 40px;
-    font-size: 16px;
+    font-size: 16x;
     width: 100%;
     border: none;
 }
