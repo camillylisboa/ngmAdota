@@ -39,6 +39,16 @@
     height: 403px;
     padding: 10px;
 }
+
+.fundo > h1 {
+    text-align: center;
+    color: #fff;
+    
+}
+
+.row {
+   align-items: center;
+}
  
 .container-sm {
     background-color: #d9d9d9;
@@ -120,6 +130,51 @@
     margin-bottom: 15px;
 }
 
+#nomeAnimal {
+    width: 30%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: #fff;
+    height: 40px;
+    padding-left: 20px;
+    margin-left: 35px;
+
+}
+
+.form {
+    background-color: #d9d9d97e;
+}
+
+#buscar {
+    background-color: #06C1D6;
+    color: #fff;
+    margin: 2% 0; /* Ajuste a margem superior e inferior */
+    margin-right: 2%; /* Remove qualquer margem à direita */
+    border-radius: 5px;
+    border: #fff;
+    font-weight: bold;
+    margin-left: -4px;
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.fundo >.text-center {
+    color: white;
+    font-size: 35px;
+    padding-top: 38px;
+    border: 1px;
+    font-weight: bold;
+}
+
+#lista-ong-animais {
+    text-align: center;
+}
+
+#lupa {
+    height: 24px;
+}
+
 .custom-file-input, .custom-file-label {
     border-radius: 31px;
 }
@@ -149,14 +204,13 @@ textarea {
 }
 
 .btn-custom {
-    background-color: #fff;
-    color: #06C1D6;
-    margin: 2% 0; /* Ajuste a margem superior e inferior */
-    margin-left: auto; /* Empurra o botão para a direita */
-    margin-right: 2%; /* Remove qualquer margem à direita */
-    display: block; /* Garante que o botão seja exibido como um bloco */
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
     transition: .9s;
+    border-radius: 5px;
 }
+
 .btn-custom:hover{
     padding: 8px;
 
@@ -168,7 +222,7 @@ textarea {
     margin: 20px;
     background-color: #008A33;
     width: 344px;
-    height: 410px;
+    height: auto;
     float: left;
     color: white;
     transform: translate(5%, 0%); /* Centraliza o modal */
@@ -185,17 +239,17 @@ textarea {
 }
  
 .btn-edit {
-  background-color: #06C1D6;
+   background-color: #06C1D6;
     color: #fff;
     font-weight: bold;
-    border-radius: 31px;
+    border-radius: 5px;
     padding: 2px 40px;
     border: none;
 }
  
 .animal-card img {
     width: 100%;
-    height: 75%;
+    height: 50%;
     border-radius: 31px;
 }
 
