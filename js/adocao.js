@@ -137,7 +137,7 @@ $(document).ready(function () {
                     keyboard: false
                 });
 
-                $('.btn-adocao').on('click', function () {
+                $('.btn-edit').on('click', function () {
                     var index = $(this).data('id');
                     var animal = data[index];
                     $('#modal-imagem').attr('src', animal.imagem);
