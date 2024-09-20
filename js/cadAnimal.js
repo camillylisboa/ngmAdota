@@ -22,7 +22,6 @@ $(document).ready(function () {
 
 function formPesquisa() {
     var token = window.localStorage.getItem('token');
-    alert("Passou aqui!");  // Esta linha está apenas para testar se a função é chamada
     const nome = $('#nomeAnimal').val();
 
     $.ajax({
@@ -44,7 +43,7 @@ function formPesquisa() {
                         '<div class="animal-card">' +
                         '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                         '<h2>' + animal.nome + '</h2>' +
-                        '<h5>' + animal.statusAnimal + '</h5>' +  // Acessando o campo correto dentro de statusAnimal
+                        '<h5>' + animal.statusAnimal.tipo + '</h5>' +  // Acessando o campo correto dentro de statusAnimal
                         '<p>Interessados: ' + (animal.quantidadeInteressados || 0) + '</p>' +  // Garantindo que a quantidade de interessados seja exibida corretamente
                         '<a href="./informacoesAnimal.html"> <button class="btn-edit" data-id="' + animal.id + '">Editar animal</button> </a>' +
                         '</div>';

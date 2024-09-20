@@ -67,16 +67,15 @@
             <p class="fw-bold text-center">ONG - Cadastro de animais</p>
 
             <div class="row form">
-                <div class="col-9" id="pesquisa">
+                <div class="col-8" id="pesquisa">
                     <form id="formPesquisaAnimal">
                         <input type="text" id="nomeAnimal" placeholder="Digite o nome do animal para pesquisar">
                         <button type="button" id="buscar" onclick="formPesquisa()"><img id="lupa" src="./img/lupa.png"></button>
-                        <button class="btn btn-custom" data-toggle="modal" data-target="#cadastroAnimalModal">Cadastrar
-                            Animais</button>
                     </form>
                 </div>
                 <div class="col-4">
-
+                    <button class="btn btn-custom" data-toggle="modal" data-target="#cadastroAnimalModal">Cadastrar
+                        Animais</button>
                 </div>
             </div>
             <div id="lista-ong-animais"></div>

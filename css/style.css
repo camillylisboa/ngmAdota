@@ -10,7 +10,6 @@ body{
 #lista-animais {
     display: flex;
     justify-content: center; /* Centraliza os cards horizontalmente */
-    flex-wrap: wrap; /* Permite que os cards quebrem de linha quando necessário */
 }
 
 .animal-card {
