@@ -42,9 +42,11 @@ function formPesquisa() {
                 $.each(data, function (index, animal) {
                     var cardHtml =
                         '<div class="animal-card">' +
-                        '<img src="' + window.location.origin + '/' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
+                        '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
                         '<h2>' + animal.nome + '</h2>' +
-                        '<button class="btn-edit" data-id="' + animal.id + '">Editar animal</button>' +
+                        '<h5>' + animal.statusAnimal + '</h5>' +  // Acessando o campo correto dentro de statusAnimal
+                        '<p>Interessados: ' + (animal.quantidadeInteressados || 0) + '</p>' +  // Garantindo que a quantidade de interessados seja exibida corretamente
+                        '<a href="./informacoesAnimal.html"> <button class="btn-edit" data-id="' + animal.id + '">Editar animal</button> </a>' +
                         '</div>';
                     $('#lista-ong-animais').append(cardHtml);
                 });
@@ -115,7 +117,7 @@ function obterListaAnimais() {
                     '<h2>' + animal.nome + '</h2>' +
                     '<h5>' + animal.statusAnimal + '</h5>' +  // Acessando o campo correto dentro de statusAnimal
                     '<p>Interessados: ' + (animal.quantidadeInteressados || 0) + '</p>' +  // Garantindo que a quantidade de interessados seja exibida corretamente
-                    '<button class="btn-edit" data-id="' + animal.id + '">Editar animal</button>' +
+                    '<a href="./informacoesAnimal.html"> <button class="btn-edit" data-id="' + animal.id + '">Editar animal</button> </a>' +
                     '</div>';
                 $('#lista-ong-animais').append(cardHtml);
             });
