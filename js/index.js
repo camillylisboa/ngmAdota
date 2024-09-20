@@ -72,15 +72,18 @@ $(document).ready(function () {
 
     // Função para fazer a chamada AJAX à API de animais
     function obterListaAnimais() {
-        // Variavel que vai para a rota de busca de animais e aparece apenas os animais disponiveis para adoção 
-        const disponivelParaAdocao = '?statusAnimal=1'
+        const disponivelParaAdocao = '?statusAnimal=1';
         $.ajax({
             url: `http://localhost:8080/animal/lista/adocao${disponivelParaAdocao}`,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
                 $('#lista-animais').empty();
+                
                 $.each(data, function (index, animal) {
+                    if (index >= 4) {  // Verifica se o índice é maior ou igual a 4
+                        return false;   // Interrompe o loop ao atingir o limite de 4 animais
+                    }
                     var favoritoCor = window.localStorage.getItem('favorito-' + usuarioId + '-' + animal.id) === 'true' ? 'red' : 'gray';
 
                     var cardHtml =
@@ -327,7 +330,7 @@ stars.forEach(star => {
 
 function alternarFavorito(index) {
     var imgFavorito = document.getElementById('img-favorito-' + index);
-    
+
     if (imgFavorito) {
         if (imgFavorito.src.includes('coracao-red')) {
             imgFavorito.src = './img/coracao-gray.png';
@@ -343,7 +346,7 @@ let filtroFavoritoAtivado = false; // Variável para controlar o estado do filtr
 
 function alternarFiltroFavorito() {
     const btnFavorito = document.getElementById('btnFavorito');
-    
+
     if (filtroFavoritoAtivado) {
         location.reload(); // Recarrega a página para remover o filtro
     } else {
@@ -354,7 +357,7 @@ function alternarFiltroFavorito() {
     }
 }
 
- // A função abaixo garante que o modal fecha corretamente
- $('.close').on('click', function() {
+// A função abaixo garante que o modal fecha corretamente
+$('.close').on('click', function () {
     $('#modalAnimal').modal('hide');
-  });
+});
