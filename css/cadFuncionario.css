@@ -13,13 +13,13 @@
     margin-right: 20px;
 }
 
-.btn-custom-enviar {
+.btn-edit {
     background-color: #06C1D6;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 31px;
-    padding: 2px 40px;
-    border: none;
+     color: #fff;
+     font-weight: bold;
+     border-radius: 5px;
+     padding: 2px 40px;
+     border: none;
 }
 
 .menu-icon{

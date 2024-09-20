@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar ONGs</title>
     <link rel="shortcut icon" href="./img/icon.png">
-    <link rel="stylesheet" href="./css/cadOng.css">
+    <link rel="stylesheet" href="./css/cadFuncionario.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -20,7 +20,6 @@
         Erro ao enviar formulário, revise suas informações.
     </div>
     <header>
-
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a href="./index.html"><img class="logo" src="./img/logoNGM.png"></a>
@@ -45,16 +44,6 @@
                         </li>
                     </ul>
                     <a href="login.html"><button id="entrar" class="btn btn-custom-entrar">Entrar</button></a>
-
-                    <!-- Informações do perfil do usuário e botão para trocar de perfil -->
-                    <div id="user-profile" style="display: none;">
-                        <p><strong>Nome do Usuário:</strong> João da Silva</p>
-                        <p><strong>Email:</strong> joao@example.com</p>
-                        <p><strong>Telefone:</strong> (11) 1234-5678</p>
-                        <!-- Adicione outras informações do perfil aqui -->
-                        <button id="trocar-perfil-btn">Trocar de Perfil</button>
-                    </div>
-
                 </div>
             </div>
         </nav>
@@ -64,74 +53,79 @@
             <p class="fw-bold text-center">Cadastrar Funcionário</p>
             <div class="container-sm">
                 <div class="px-4">
-                    <p class="fs-4 my-3 fw-bold">Dados Empresa</p>
+                    <p class="fs-4 my-3 fw-bold">Dados Funcionário</p>
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="nome" id="nome" placeholder="NOME" required>
+                            <input type="text" class="form-control" name="nome" id="txt_nome" placeholder="NOME"
+                                required>
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="email" id="email" placeholder="E-MAIL"
-                                readonly>
+                            <input type="email" class="form-control" name="email" id="txt_email" placeholder="E-MAIL"
+                                required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="date" class="form-control py-3" placeholder="DATA NASCIMENTO"
-                                id="txt_dataNascimento" required>
+                            <input type="date" class="form-control" id="txt_dataNascimento"
+                                placeholder="DATA NASCIMENTO" required>
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="telefone" id="telefone" placeholder="TELEFONE"
-                                required>
+                            <input type="text" class="form-control" name="telefone" id="txt_telefone"
+                                placeholder="TELEFONE" required>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12">
-                            <input type="password" class="form-control py-3" placeholder="SENHA" id="txt_senha"
+                            <input type="password" class="form-control" id="txt_senha" placeholder="SENHA" required>
+                        </div>
+                    </div>
+                    <p class="fs-4 my-3 fw-bold">Endereço</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="cep" id="txt_cep" placeholder="CEP" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="uf" id="txt_uf" placeholder="UF" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="cidade" id="txt_cidade" placeholder="CIDADE"
+                                required>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="bairro" id="txt_bairro" placeholder="BAIRRO"
                                 required>
                         </div>
                     </div>
-                </div>
-                <p class="fs-4 my-3 fw-bold">Endereço</p>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" required>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="logradouro" id="txt_logradouro"
+                                placeholder="LOGRADOURO" required>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="uf" id="uf" placeholder="UF" required>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="numero" id="txt_numero" placeholder="NÚMERO"
+                                required>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="complemento" id="txt_complemento"
+                                placeholder="COMPLEMENTO">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="cidade" id="cidade" placeholder="CIDADE" required>
+                    <div class="row">
+                        <div class="col-sm-10"></div>
+                        <div class="col-sm-2 py-3">
+                            <button class="btn-edit" type="button" id="btn-enviar">Enviar</button>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="bairro" id="bairro" placeholder="BAIRRO" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <input type="text" class="form-control" name="logradouro" id="logradouro"
-                            placeholder="LOGRADOURO" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" name="numero" id="numero" placeholder="NÚMERO" required>
-                    </div>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="complemento" id="complemento"
-                            placeholder="COMPLEMENTO">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-10"></div>
-                    <div class="col-sm-2 py-3">
-                        <button class="btn-custom-enviar" type="button">Enviar</button>
-                    </diV>
                 </div>
             </div>
-
-        </div>
         </div>
     </main>
+
+    <script src="js/cadFuncionario.js"></script>
 </body>
 
 </html>
