@@ -307,6 +307,7 @@ function enviarFormulario() {
     var descricao = $('#descricao').val();
     var imagem = $('#imagem')[0].files[0];
 
+
     // Log dos valores capturados
     console.log({
         nome,
@@ -328,6 +329,7 @@ function enviarFormulario() {
         mostrarAlertaErro('Você deve preencher todas as informações solicitadas no formulário.');
         return;
     }
+    
 
     // Cria o objeto FormData e adiciona os campos
     var formData = new FormData();
