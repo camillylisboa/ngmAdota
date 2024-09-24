@@ -1,6 +1,5 @@
 /* Estilos para a navbar */
 .navbar {
-    
     background-color: #008A33; /* Cor de fundo da navbar */
     height: 94px; /* Altura da navbar */
     font-weight: bold; /* Peso da fonte */
@@ -31,7 +30,7 @@
 
 /* Estilos para os itens da navbar */
 .nav-item {
-    margin-right: 40px;
+    margin-right: 20px;
     font-size: 23px;
 }
 
@@ -71,24 +70,8 @@
     border-radius: 31px;
 }
  
-.btn.btn-custom {
-    background-color: #06C1D6;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 31px;
-    padding: 2px 40px;
-    font-size: 16px;
-    border: none;
-    margin-right: 20px;
-}
- 
 .menu-icon{
     width: 23px;
-}
- 
-.btn.btn-custom:hover {
-    background-color: #06C1D6;
-    color: #fff;
 }
 
 #adocao {
@@ -254,6 +237,19 @@
     border: none;
 }
 
+.btn-voltar {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 40px;
+    border: none;
+}
+
+.btn-voltar :hover {
+    background-color: #06C1D6;
+}
+
 .btn-adotado {
     background-color: #d60606;
     color: #fff;
@@ -266,16 +262,6 @@
     font-size: 16px;
     width: 100%;
     border: none;
-}
-
-.btn-custom {
-    background-color: #fff;
-    color: #06C1D6;
-    margin: 2% 0; /* Ajuste a margem superior e inferior */
-    margin-left: auto; /* Empurra o botão para a direita */
-    margin-right: 2%; /* Remove qualquer margem à direita */
-    display: block; /* Garante que o botão seja exibido como um bloco */
-    transition: .9s;
 }
 
 #dropdownFiltro{

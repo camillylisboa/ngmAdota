@@ -19,43 +19,53 @@
         Revise as informações do animal
     </div>
     <header>
-
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a href="./index.html"><img class="logo" src="./img/logoNGM.png"></a>
+                <!-- Logo -->
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./img/logoNgm.png" alt="Logo do site" class="logo">
+                </a>
+
+                <!-- Toggler/collapse button -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!-- Navbar links -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" id="adocao" href="#">ADOÇÃO</a>
+                            <a class="nav-link active" aria-current="page" id="adocao" href="./adocao.html">ADOÇÃO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="./cadastroOng.html">Cadastrar ONGs</a>
+                            <a class="nav-link text-white" href="./cadastroOng.html" id="cadastroOng">Cadastrar ONGs</a>
+                            <div class="dropdown" id="dropdownOng">
+                                <button class="btn btn-secondary dropdown-toggle dropbtn" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Menu ONG
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="cadastroAnimal.html" class="dropdown-item">Cadastrar Animal</a></li>
+                                    <li><a href="cadastroFuncionario.html" class="dropdown-item">Cadastrar Funcionário</a></li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="sobre.html">Sobre</a>
+                            <a class="nav-link text-white" href="./sobre.html">Sobre</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="./blog.html">Blog</a>
                         </li>
                     </ul>
 
-                    <a href="index.html"><button class="btn btn-edit">Voltar</button></a>
+                    <a href="index.html"><button class="btn-voltar">Voltar</button></a>
+                </div>
 
-
-                    <!-- Informações do perfil do usuário e botão para trocar de perfil -->
-                    <div id="user-profile" style="display: none;">
-                        <p><strong>Nome do Usuário:</strong> João da Silva</p>
-                        <p><strong>Email:</strong> joao@example.com</p>
-                        <p><strong>Telefone:</strong> (11) 1234-5678</p>
-                        <!-- Adicione outras informações do perfil aqui -->
-                        <button id="trocar-perfil-btn">Trocar de Perfil</button>
-                    </div>
-
+                <!-- Título como imagem -->
+                <div class="navbar-title">
+                    <img src="./img/NGM ME ADOTA (1).png" alt="Título do site" class="titulo">
                 </div>
             </div>
         </nav>
@@ -67,13 +77,13 @@
             <p class="fw-bold text-center">ONG - Cadastro de animais</p>
 
             <div class="row form">
-                <div class="col-8" id="pesquisa">
+                <div class="col-9" id="pesquisa">
                     <form id="formPesquisaAnimal">
-                        <input type="text" id="nomeAnimal" placeholder="Digite o nome do animal para pesquisar">
+                        <input type="text" id="nomeAnimal" placeholder="Nome do animal para pesquisar">
                         <button type="button" id="buscar" onclick="formPesquisa()"><img id="lupa" src="./img/lupa.png"></button>
                     </form>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <button class="btn btn-custom" data-toggle="modal" data-target="#cadastroAnimalModal">Cadastrar
                         Animais</button>
                 </div>

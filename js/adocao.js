@@ -14,33 +14,10 @@ $(document).ready(function () {
 
     var token = window.localStorage.getItem('token');
     var nomeUsuario = window.localStorage.getItem('nomeUsuario');
-    var emailUsuario = window.localStorage.getItem('email');
-    var idadeUsuario = window.localStorage.getItem('idade');
-    var telefoneUsuario = window.localStorage.getItem('telefone');
     var role = window.localStorage.getItem('role');
-    var usuarioId = window.localStorage.getItem('userId'); // Correção do nome da chave
+    var usuarioId = window.localStorage.getItem('userId');
 
-    if (token && nomeUsuario) {
-        $('.btn-custom').remove();
-        var userIconHtml = '<a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalNgmPerfil"><img src="img/avatar.png" style="width : 23px;" class="menu-icon" alt=""></a>';
-        $('.navbar-nav').after(userIconHtml);
-
-        $('#info-nome-usuario').text(nomeUsuario);
-        $('#info-email-usuario').text(emailUsuario);
-        $('#info-idade-usuario').text(idadeUsuario);
-        $('#info-telefone-usuario').text(telefoneUsuario);
-    } else {
-        if ($('.btn-custom').length === 0) {
-            var loginButtonHtml = '<a href="login.html"><button class="btn btn-custom">Entrar</button></a>';
-            $('.navbar-collapse').append(loginButtonHtml);
-        }
-        window.localStorage.removeItem('token');
-        window.localStorage.removeItem('nomeUsuario');
-        window.localStorage.removeItem('email');
-        window.localStorage.removeItem('idade');
-        window.localStorage.removeItem('telefone');
-        window.localStorage.removeItem('tokenExpiry');
-    }
+    
 
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {
@@ -51,19 +28,6 @@ $(document).ready(function () {
             menu.classList.toggle('show');
         });
     });
-
-    function logout() {
-        showConfirmModal("Você deseja fazer logout?", function (confirmed) {
-            if (confirmed) {
-                window.localStorage.removeItem('nomeUsuario');
-                window.localStorage.removeItem('email');
-                window.localStorage.removeItem('idade');
-                window.localStorage.removeItem('telefone');
-                window.localStorage.removeItem('role');
-                window.location.href = 'index.html';
-            }
-        });
-    }
 
     function obterListaAnimais() {
         const disponivelParaAdocao = '?statusAnimal=1';
