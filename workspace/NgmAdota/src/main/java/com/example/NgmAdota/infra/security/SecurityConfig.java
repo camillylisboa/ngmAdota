@@ -32,6 +32,8 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(HttpMethod.POST, "/api/email/password/reset-link").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/email/password/reset").permitAll()
                         .requestMatchers(HttpMethod.POST, "/animal/").hasRole("ONG")
                         .requestMatchers(HttpMethod.GET, "/ong/lista/{email}").permitAll()
                         .requestMatchers(HttpMethod.GET, "/ong/animal/{ongId}").permitAll()
