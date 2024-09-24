@@ -91,6 +91,10 @@
     
 }
 
+.form {
+    background-color: #d9d9d97e;
+}
+
 /* Botão do dropdown */
 .dropbtn {
     background-color: #008A33;
@@ -268,15 +272,11 @@
     margin: 2% 0; /* Ajuste a margem superior e inferior */
     margin-left: auto; /* Empurra o botão para a direita */
     display: block; /* Garante que o botão seja exibido como um bloco */
-    transition: .9s;
 }
 
 #dropbtnFiltro {
-    background-color: #fff;
-    color: #06C1D6;
-    margin: 2% 0; /* Ajuste a margem superior e inferior */
-    margin-left: auto; /* Empurra o botão para a direita */
-    margin-right: 2%; /* Remove qualquer margem à direita */
-    display: block; /* Garante que o botão seja exibido como um bloco */
-    transition: .9s;
+    background-color: #06C1D6;
+    color: #fff;
+    height: 50px;
+    margin-left: 10px; /* Empurra o botão para a direita */
 }
