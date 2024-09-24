@@ -8,6 +8,61 @@ $(document).ready(function () {
         return;
     }
 
+    function showConfirmModal(message, callback) {
+        $('#confirmModal .modal-body p').text(message);
+        $('#confirmButton').off('click').on('click', function () {
+            $('#confirmModal').modal('hide');
+            if (typeof callback === 'function') {
+                callback(true);
+            }
+        });
+        $('#confirmModal').modal('show');
+    }
+
+    
+    var token = window.localStorage.getItem('token');
+    var nomeUsuario = window.localStorage.getItem('nomeUsuario');
+    var role = window.localStorage.getItem('role');
+    var usuarioId = window.localStorage.getItem('userId');
+
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+    });
+
+    function esconderBotaoSeUsuario(role) {
+        if (role) {
+            if (role === "ONG") {
+                const cadastroOng = document.getElementById('cadastroOng');
+                cadastroOng.style.display = 'none';
+            } else {
+                const botaoDropdownOng = document.getElementById('dropdownOng');
+                botaoDropdownOng.style.display = 'none';
+            }
+
+            if (role === "USER") {
+                const botaoCadAnimal = document.getElementById('cadAnimal');
+                if (botaoCadAnimal) {
+                    botaoCadAnimal.style.display = 'none';
+                } else {
+                    console.error('Botão com ID "cadAnimal" não encontrado.');
+                }
+            }
+        } else {
+            console.error('Resposta JSON inválida ou propriedade "role" não encontrada.');
+            const botaoDropdownOng = document.getElementById('dropdownOng');
+            botaoDropdownOng.style.display = 'none';
+        }
+    }
+
+    const roleDoUsuario = role;
+    esconderBotaoSeUsuario(roleDoUsuario);
+
     obterListaAnimais();
     populateSelectRaca();
     populateSelectEspecie();

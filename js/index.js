@@ -96,7 +96,7 @@ $(document).ready(function () {
                         '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
                         '</button>' +
                         '</h2>' +
-                        '<button class="btn-adocao" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
+                        '<button class="btn-edit" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
                         '</div>';
 
                     $('#lista-animais').append(cardHtml);
@@ -147,7 +147,7 @@ $(document).ready(function () {
                     keyboard: false
                 });
 
-                $('.btn-adocao').on('click', function () {
+                $('.btn-edit').on('click', function () {
                     var index = $(this).data('id');
                     var animal = data[index];
                     $('#modal-imagem').attr('src', animal.imagem);
