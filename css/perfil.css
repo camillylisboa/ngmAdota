@@ -84,7 +84,7 @@
   
     background-color: #06C1D6;
     color: white;
-    border-radius: 31px;
+    border-radius: 5px;
     width: 60%;
     height: 50px;
     font-size: 20px;
@@ -93,11 +93,12 @@
 #voltar-perfil-btn {
     background-color: #d60606;
     color: white;
-    border-radius: 31px;
+    border-radius: 5px;
     width: 60%;
     height: 48px;
     font-size: 20px;
     margin-left: -140%;
 }
+
 
 
