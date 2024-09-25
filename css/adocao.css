@@ -91,6 +91,10 @@
     
 }
 
+.form {
+    background-color: #d9d9d97e;
+}
+
 /* Botão do dropdown */
 .dropbtn {
     background-color: #008A33;
@@ -268,15 +272,53 @@
     margin: 2% 0; /* Ajuste a margem superior e inferior */
     margin-left: auto; /* Empurra o botão para a direita */
     display: block; /* Garante que o botão seja exibido como um bloco */
-    transition: .9s;
 }
 
 #dropbtnFiltro {
-    background-color: #fff;
-    color: #06C1D6;
-    margin: 2% 0; /* Ajuste a margem superior e inferior */
-    margin-left: auto; /* Empurra o botão para a direita */
-    margin-right: 2%; /* Remove qualquer margem à direita */
-    display: block; /* Garante que o botão seja exibido como um bloco */
-    transition: .9s;
+    background-color: #06C1D6;
+    color: #fff;
+    height: 50px;
+    margin-left: 10px; /* Empurra o botão para a direita */
 }
+
+.rodape {
+    background-color: #ccc; /* Cor de fundo cinza */
+    padding: 20px; /* Espaçamento interno */
+    margin-top:40rem;
+}
+
+.rodape .container {
+    display: flex;
+    justify-content: space-between; /* Alinha os itens no início e no final do rodapé */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+.rodape .texto-centralizado {
+    text-align: center; /* Centraliza o texto */
+    font-size: 15px;
+}
+
+.rodape .redes-sociais {
+    display: flex; /* Utiliza flexbox para alinhar os ícones das redes sociais */
+    justify-content: flex-end; /* Posiciona os ícones à direita */
+    align-items: center;
+    margin-left: 0; /* Remover a margem excessiva */
+}
+
+.rodape .redes-sociais a {
+    margin-right: 10px; /* Adiciona margem entre os ícones */
+}
+
+.rodape .meus-icons {
+    display: flex; /* Utiliza flexbox para alinhar os seus ícones */
+    align-items: center;
+    margin-right: 0; /* Remover a margem excessiva */
+    margin-left: 0; /* Remover a margem excessiva */
+}
+
+.iconeFooter {
+    /* Remover transform para manter a imagem no lugar */
+    transform: none;
+    margin-right: 10px; /* Se necessário, ajustar o espaçamento */
+}
+

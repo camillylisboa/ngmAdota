@@ -167,10 +167,11 @@ function obterListaAnimais() {
                 console.log(data)
                 var cardHtml =
                     '<div class="animal-card">' +
-                    '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
+                    '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '" ' +
+                    'onerror="this.onerror=null;this.src=\'img/sem_imagem_cadastrada.png\';">' +
                     '<h2>' + animal.nome + '</h2>' +
-                    '<h5>' + animal.statusAnimal + '</h5>' +  // Acessando o campo correto dentro de statusAnimal
-                    '<p>Interessados: ' + (animal.quantidadeInteressados || 0) + '</p>' +  // Garantindo que a quantidade de interessados seja exibida corretamente
+                    '<h5>' + animal.statusAnimal + '</h5>' +  
+                    '<p>Interessados: ' + (animal.quantidadeInteressados || 0) + '</p>' +
                     '<a href="./informacoesAnimal.html"> <button class="btn-edit" data-id="' + animal.id + '">Editar animal</button> </a>' +
                     '</div>';
                 $('#lista-ong-animais').append(cardHtml);
@@ -423,6 +424,11 @@ function enviarFormulario() {
             mostrarAlertaErro('Erro ao enviar formulário. Tente novamente.');
         }
     });
+}
+
+function trocarImagem() {
+    const img = document.getElementById('img-pet');
+    img.src = './img/sem_imagem_cadastrada.png'; // Coloque o caminho da imagem alternativa aqui
 }
 
 
