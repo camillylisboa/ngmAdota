@@ -88,7 +88,8 @@ $(document).ready(function () {
 
                     var cardHtml =
                         '<div class="animal-card">' +
-                        '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
+                        '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '" ' +
+                        'onerror="this.onerror=null;this.src=\'img/sem_imagem_cadastrada.png\';">' +
                         '<h2>' + animal.nome +
                         (animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
                             : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
