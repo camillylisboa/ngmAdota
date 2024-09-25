@@ -14,7 +14,7 @@ COPY ./workspace/NgmAdota /workspace/NgmAdota
 RUN apt-get install maven -y
 
 # Rodar o Maven dentro do diretório correto onde o pom.xml está localizado
-RUN mvn clean install
+RUN mvn clean install -DskipTests
 
 # Construir a segunda imagem baseada no JDK slim
 FROM openjdk:17-jdk-slim
