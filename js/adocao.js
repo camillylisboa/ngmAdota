@@ -17,7 +17,7 @@ $(document).ready(function () {
     var role = window.localStorage.getItem('role');
     var usuarioId = window.localStorage.getItem('userId');
 
-    
+
 
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {
@@ -42,7 +42,8 @@ $(document).ready(function () {
 
                     var cardHtml =
                         '<div class="animal-card">' +
-                        '<img src="' + animal.imagem + '" alt="Imagem de ' + animal.nome + '">' +
+                        '<img src="' + window.location.origin + animal.imagem + '" alt="Imagem de ' + animal.nome + '" ' +
+                        'onerror="this.onerror=null;this.src=\'img/sem_imagem_cadastrada.png\';">' +
                         '<h2>' + animal.nome +
                         (animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
                             : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
@@ -136,7 +137,7 @@ $(document).ready(function () {
         });
     }
 
-    
+
 
     function esconderBotaoSeUsuario(role) {
         if (role) {
@@ -189,32 +190,36 @@ function obterListaAnimaisFavoritos() {
                     var favoritoCor = window.localStorage.getItem('favorito-' + usuarioId + '-' + favorito.animal.id) === 'true' ? 'red' : 'gray';
 
 
-                    if (favorito.animal.statusAnimal.id === 1){
+                    if (favorito.animal.statusAnimal.id === 1) {
                         var cardHtml =
-                        '<div class="animal-card">' +
-                        '<img src="' + favorito.animal.imagem + '" alt="Imagem de ' + favorito.animal.nome + '">' +
-                        '<h2>' + favorito.animal.nome +
-                        (favorito.animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
-                            : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
-                        '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;" onclick="alternarFavorito(' + index + ')">' +
-                        '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
-                        '</button>' +
-                        '</h2>' +
-                        '<button class="btn-edit" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
-                        '</div>';
+                            '<div class="animal-card">' +
+                            '<img src="' + window.location.origin + favorito.animal.imagem + '" alt="Imagem de ' + favorito.animal.nome + '" ' +
+                            'onerror="this.onerror=null;this.src=\'img/sem_imagem_cadastrada.png\';">' +
+                            '<h2>' + favorito.animal.nome +
+                            (favorito.animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
+                                : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
+                            '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;" onclick="alternarFavorito(' + index + ')">' +
+                            '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
+                            '</button>' +
+                            '</h2>' +
+                            '<button class="btn-edit" data-bs-toggle="modal" data-bs-target="#modalAnimal" data-id="' + index + '">Ver mais</button>' +
+                            '</div>';
+
                     } else if (favorito.animal.statusAnimal.id === 2) {
                         var cardHtml =
-                        '<div class="animal-card">' +
-                        '<img src="' + favorito.animal.imagem + '" alt="Imagem de ' + favorito.animal.nome + '">' +
-                        '<h2>' + favorito.animal.nome +
-                        (favorito.animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
-                            : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
-                        '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;" onclick="alternarFavorito(' + index + ')">' +
-                        '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
-                        '</button>' +
-                        '</h2>' +
-                        '<h3 class="btn-adotado" style="padding-left: 65px;" data-id="' + index + '">Este animal já foi adotado</h3>' +
-                        '</div>';
+                            '<div class="animal-card">' +
+                            '<img src="' + window.location.origin + favorito.animal.imagem + '" alt="Imagem de ' + favorito.animal.nome + '" ' +
+                            'onerror="this.onerror=null;this.src=\'img/sem_imagem_cadastrada.png\';">' +
+                            '<h2>' + favorito.animal.nome +
+                            (favorito.animal.sexo === 'M' ? ' <img src="./img/sexo-masculino.png" alt="img masculino" style="height: 24px; width: auto; border-radius: 0;">'
+                                : ' <img src="./img/simbolo-feminino.png" alt="img feminino" style="height: 26px; width: auto;">') +
+                            '<button class="btn-favorito" id="favorito-' + index + '" style="border: none; background: none;" onclick="alternarFavorito(' + index + ')">' +
+                            '<img id="img-favorito-' + index + '" src="./img/coracao-' + favoritoCor + '.png" alt="coração" style="height: 24px; width: auto; border-radius: 0;">' +
+                            '</button>' +
+                            '</h2>' +
+                            '<h3 class="btn-adotado" style="padding-left: 65px;" data-id="' + index + '">Este animal já foi adotado</h3>' +
+                            '</div>';
+
                     }
 
                     $('#lista-animais').append(cardHtml);
@@ -302,7 +307,7 @@ function obterListaAnimaisFavoritos() {
 
 function alternarFavorito(index) {
     var imgFavorito = document.getElementById('img-favorito-' + index);
-    
+
     if (imgFavorito) {
         if (imgFavorito.src.includes('coracao-red')) {
             imgFavorito.src = './img/coracao-gray.png';
@@ -318,7 +323,7 @@ let filtroFavoritoAtivado = false; // Variável para controlar o estado do filtr
 
 function alternarFiltroFavorito() {
     const btnFavorito = document.getElementById('btnFavorito');
-    
+
     if (filtroFavoritoAtivado) {
         location.reload(); // Recarrega a página para remover o filtro
     } else {
