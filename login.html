@@ -86,29 +86,36 @@
     </header>
     <main>
         <div class="fundoLogin">
-            <div class="container">
-                <h1>Entrar</h1>
-                <div class="container px-4">
-                    <div class="col">
-                        <input type="text" class="form-control py-3" placeholder="E-MAIL" id="txt_email">
+            <h1>Entrar</h1>
+            <div class="container" >
+                
+                <img src="img/Ngm me adota.png" alt="">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Bem-vindo(a)</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed pariatur quisquam ipsum ullam ducimus distinctio, enim similique consectetur expedita laudantium ad maiores iusto, a tenetur odit amet in. Deleniti, qui.</p>
+                    </div>
+                    <div class="col-6">
+                        <div class="container px-4">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="E-mail" id="txt_email">
+                            </div>
+                        </div>
+                        <div class="container px-4">
+                            <div class="col">
+                                <input type="password" class="form-control" placeholder="Senha" id="txt_senha">
+                            </div>
+                        </div>
+                        <button onclick="login()" class="btn" type="button">Enviar</button>
+                        <p> Ainda não tem uma conta? <a href="./cadastroUsuario.html"
+                                class="signup-link">Cadastre-se</a><br>
+                            Esqueceu sua senha? <a href="solicitarRedefinicaoSenha.html"
+                                class="forgot-password-link">Recuperar
+                                senha</a>
+                        </p>
                     </div>
                 </div>
-                <div class="container px-4">
-                    <div class="col">
-                        <input type="password" class="form-control py-3" placeholder="SENHA" id="txt_senha">
-                    </div>
-                </div>
-                <div class="row btn">
-                    <div class="col">
-                        <button onclick="login()" class="btn fw-bold" type="button">ENVIAR</button>
-                    </div>
-                </div>
-                <p> Ainda não tem uma conta? <a href="./cadastroUsuario.html" class="signup-link">Cadastre-se</a><br>
-                    Esqueceu sua senha? <a href="solicitarRedefinicaoSenha.html" class="forgot-password-link">Recuperar
-                        senha</a>
-                </p>
             </div>
-        </div>
     </main>
     <script src="js/login.js"></script>
 </body>
