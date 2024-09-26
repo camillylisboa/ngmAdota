@@ -30,4 +30,16 @@ public class GetAnimalsOngService {
                 })
                 .collect(Collectors.toList());
     }
+
+    public List<AnimalComInteresseDTO> getAnimalsNome(String nome) {
+        List<AnimalModel> animais = animalRepository.findByNomeContainingIgnoreCase(nome);
+
+        // Para cada animal, conte o número de interessados e retorne uma lista de DTOs
+        return animais.stream()
+                .map(animal -> {
+                    int quantidadeInteressados = interesseRepository.countByAnimalId(animal.getId());
+                    return new AnimalComInteresseDTO(animal, quantidadeInteressados);
+                })
+                .collect(Collectors.toList());
+    }
 }
