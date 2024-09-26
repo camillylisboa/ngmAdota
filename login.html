@@ -86,29 +86,40 @@
     </header>
     <main>
         <div class="fundoLogin">
-            <div class="container">
-                <h1>Entrar</h1>
-                <div class="container px-4">
-                    <div class="col">
-                        <input type="text" class="form-control py-3" placeholder="E-MAIL" id="txt_email">
+            <h1>Entrar</h1>
+            <div class="container" >
+                
+                <img src="img/ImageLogin.png" alt="">
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Bem-vindo(a)🐾</h3>
+                        <p>
+                          ao lugar perfeito para encontrar seu novo peludinho! 
+                          <br>Nosso sistema conecta você a ONGs que disponibilizam adoráveis animais para adoção. 
+                          Navegue, escolha o pet que tocar seu coração e inicie o processo de adoção de forma simples e rápida.
+                           Lembre-se: adotar é um ato de amor! ❤🐶🐱</p>
+                    </div>
+                    <div class="col-6">
+                        <div class="container px-4">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="E-mail" id="txt_email">
+                            </div>
+                        </div>
+                        <div class="container px-4">
+                            <div class="col">
+                                <input type="password" class="form-control" placeholder="Senha" id="txt_senha">
+                            </div>
+                        </div>
+                        <button onclick="login()" class="btn" type="button">Enviar</button>
+                        <p> Ainda não tem uma conta? <a href="./cadastroUsuario.html"
+                                class="signup-link">Cadastre-se</a><br>
+                            Esqueceu sua senha? <a href="solicitarRedefinicaoSenha.html"
+                                class="forgot-password-link">Recuperar
+                                senha</a>
+                        </p>
                     </div>
                 </div>
-                <div class="container px-4">
-                    <div class="col">
-                        <input type="password" class="form-control py-3" placeholder="SENHA" id="txt_senha">
-                    </div>
-                </div>
-                <div class="row btn">
-                    <div class="col">
-                        <button onclick="login()" class="btn fw-bold" type="button">ENVIAR</button>
-                    </div>
-                </div>
-                <p> Ainda não tem uma conta? <a href="./cadastroUsuario.html" class="signup-link">Cadastre-se</a><br>
-                    Esqueceu sua senha? <a href="./recuperar_senha.html" class="forgot-password-link">Recuperar
-                        senha</a>
-                </p>
             </div>
-        </div>
     </main>
     <script src="js/login.js"></script>
 </body>
