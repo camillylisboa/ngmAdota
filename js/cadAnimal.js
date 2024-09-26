@@ -77,10 +77,11 @@ $(document).ready(function () {
 
 function formPesquisa() {
     var token = window.localStorage.getItem('token');
+    var ongId = window.localStorage.getItem('ongId');
     const nome = $('#nomeAnimal').val();
 
     $.ajax({
-        url: `http://localhost:8080/animal/lista/nome?nome=${nome}`, // Mantém a URL limpa sem passar parâmetros diretamente
+        url: `http://localhost:8080/ong/animal/${ongId}/${nome}`, // Mantém a URL limpa sem passar parâmetros diretamente
         type: 'GET',
         dataType: 'json',
         headers: {

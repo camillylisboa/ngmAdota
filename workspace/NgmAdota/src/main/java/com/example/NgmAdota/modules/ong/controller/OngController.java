@@ -90,4 +90,14 @@ public class OngController {
         }
     }
 
+    @GetMapping("/animal/{ongId}/{nome}")
+    public ResponseEntity<Object> getAnimalsNome(@PathVariable(value = "nome") String nome){
+        try {
+            List<AnimalComInteresseDTO> animais = animalsOngService.getAnimalsNome(nome);
+            return ResponseEntity.status(HttpStatus.OK).body(animais);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
 }
