@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(HttpMethod.GET, "/usuario/comentario/get").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/email/password/reset-link").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/email/password/reset").permitAll()
                         .requestMatchers(HttpMethod.POST, "/animal/").hasRole("ONG")
@@ -50,7 +51,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/interesse/lista").permitAll()
                         .requestMatchers(HttpMethod.POST, "/interesse/cadastro").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/usuario/comentario/adicionar").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/usuario/comentario/").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

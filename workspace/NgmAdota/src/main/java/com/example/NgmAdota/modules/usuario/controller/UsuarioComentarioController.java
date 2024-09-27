@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/usuario/comentario")
@@ -15,7 +17,7 @@ public class UsuarioComentarioController {
     @Autowired
     private UsuarioComentarioService service;
 
-    @PostMapping("/adicionar")
+    @PostMapping("/")
     public ResponseEntity add(@RequestBody FeedbackModel feedbackModel){
         try{
             var result = service.execute(feedbackModel);
@@ -23,5 +25,11 @@ public class UsuarioComentarioController {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
+    }
+
+    @GetMapping("/get")
+    public ResponseEntity<List<FeedbackModel>> getComentarios() {
+        List<FeedbackModel> comentarios = service.getAllFeedback();
+        return ResponseEntity.ok(comentarios);
     }
 }

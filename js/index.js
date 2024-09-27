@@ -243,58 +243,100 @@ $(document).ready(function () {
 });
 
 // Variável global para armazenar as avaliações
-let ratings = [];
+let ratings = []; // Armazena as avaliações para calcular a média
+
 // Função para enviar um comentário
 function submitComment() {
     const comment = document.getElementById('comment').value;
     const selectedStars = document.querySelectorAll('.star.selected');
     const rating = selectedStars.length; // Conta quantas estrelas foram selecionadas
+    const usuarioId = window.localStorage.getItem('userId'); // Substitua com o ID real do usuário
 
-    // Adicionar comentário e avaliação ao array
-    ratings.unshift({ comment: comment, rating: rating }); // Adiciona no início para manter a ordem
+    // Adicionar o feedback ao banco de dados via AJAX
+    $.ajax({
+        url: 'http://localhost:8080/usuario/comentario/', // Endpoint do backend
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            comentario: comment,
+            usuarioId: usuarioId, 
+            estrelas: rating
+        }),
+        success: function (response) {
+            console.log(response);
+            mostrarAlertaSucesso("Comentário salvo com sucesso!");
 
-    // Limpar campo de comentário
-    document.getElementById('comment').value = '';
+            document.getElementById('comment').value = '';
 
-    // Atualizar lista de comentários
-    displayComments();
-
-    // Calcular e exibir média de avaliação
-    calculateAverageRating();
-
-    // Expandir o painel direito para exibir os comentários
-    expandRightPanel();
-}
-
-// Função para exibir os comentários
-function displayComments() {
-    const commentsDiv = document.getElementById('comments');
-    commentsDiv.innerHTML = ''; // Limpa os comentários existentes
-
-    ratings.forEach(({ comment, rating }) => {
-        const commentDiv = document.createElement('div');
-        commentDiv.classList.add('comment');
-        commentDiv.innerHTML = `<p><strong>Comentário:</strong> ${comment}</p>`;
-
-        // Adicionar estrelas à representação visual da avaliação
-        const starsDiv = document.createElement('div');
-        starsDiv.classList.add('stars');
-        for (let i = 0; i < 5; i++) {
-            const starSpan = document.createElement('span');
-            if (i < rating) {
-                starSpan.innerHTML = '&#9733;'; // Estrela preenchida
-                starSpan.classList.add('filled'); // Adiciona classe para definir a cor
-            } else {
-                starSpan.innerHTML = '&#9734;'; // Estrela vazia
-                starSpan.classList.add('empty'); // Adiciona classe para estrelas vazias
-            }
-            starsDiv.appendChild(starSpan);
+            // Adiciona a nova avaliação à lista de ratings
+            ratings.unshift({ comment: comment, rating: rating });
+            displayComments();
+            calculateAverageRating();
+            expandRightPanel();
+        },
+        error: function (error) {
+            console.error("Erro ao salvar o comentário:", error);
+            mostrarAlertaErro("Erro ao salvar o comentário. Tente novamente.");
         }
-        commentDiv.appendChild(starsDiv);
-
-        commentsDiv.appendChild(commentDiv);
     });
 }
+
+function getComments() { 
+    $.ajax({
+        url: 'http://localhost:8080/usuario/comentario/get', 
+        type: 'GET',
+        success: function (response) {
+            const commentsDiv = document.getElementById('comments');
+            commentsDiv.innerHTML = ''; // Limpa os comentários existentes
+            ratings = []; // Reseta o array ratings
+
+            // Percorrer a resposta e criar os elementos de comentário
+            response.forEach(feedback => {
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+
+                // Adiciona o nome do usuário
+                const userName = feedback.usuarioModel ? feedback.usuarioModel.nome : 'Usuário desconhecido';
+                commentDiv.innerHTML = `
+                    <p><strong>${userName}</strong><br>
+                    ${feedback.comentario}</p>
+                `;
+
+                // Adicionar estrelas à representação visual da avaliação
+                const starsDiv = document.createElement('div');
+                starsDiv.classList.add('stars');
+                for (let i = 0; i < 5; i++) {
+                    const starSpan = document.createElement('span');
+                    if (i < feedback.estrelas) {
+                        starSpan.innerHTML = '&#9733;'; // Estrela preenchida
+                        starSpan.classList.add('filled'); // Adiciona classe para definir a cor
+                    } else {
+                        starSpan.innerHTML = '&#9734;'; // Estrela vazia
+                        starSpan.classList.add('empty'); // Adiciona classe para estrelas vazias
+                    }
+                    starsDiv.appendChild(starSpan);
+                }
+                commentDiv.appendChild(starsDiv);
+                commentsDiv.appendChild(commentDiv);
+
+                // Adiciona a avaliação ao array ratings
+                ratings.push({ comment: feedback.comentario, rating: feedback.estrelas });
+            });
+
+            // Recalcula a média após carregar todos os comentários
+            calculateAverageRating();
+        },
+        error: function (error) {
+            console.error("Erro ao buscar os comentários:", error);
+            alert("Erro ao buscar os comentários. Tente novamente.");
+        }
+    });
+}
+
+// Chame esta função para carregar os comentários quando a página carregar
+$(document).ready(function() {
+    getComments();
+});
 
 // Função para calcular e exibir a média de avaliação
 function calculateAverageRating() {
@@ -306,6 +348,7 @@ function calculateAverageRating() {
         document.getElementById('average-rating').innerText = "N/A"; // Se não houver avaliações, exibir "N/A"
     }
 }
+
 
 // Função para expandir o painel direito para exibir os comentários
 function expandRightPanel() {
@@ -362,3 +405,18 @@ function alternarFiltroFavorito() {
 $('.close').on('click', function () {
     $('#modalAnimal').modal('hide');
 });
+
+function mostrarAlertaSucesso() {
+    $('#alertaSucesso').removeClass('d-none');
+    setTimeout(function() {
+        $('#alertaSucesso').addClass('d-none');
+        window.location.href = 'index.html';
+    }, 3000); // O alerta desaparecerá após 3 segundos
+}
+
+function mostrarAlertaErro() {
+    $('#alertaErro').removeClass('d-none');
+    setTimeout(function() {
+        $('#alertaErro').addClass('d-none');
+    }, 3000); // O alerta desaparecerá após 3 segundos
+}

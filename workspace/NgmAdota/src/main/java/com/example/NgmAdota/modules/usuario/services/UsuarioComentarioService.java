@@ -7,6 +7,7 @@ import com.example.NgmAdota.modules.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,5 +36,9 @@ public class UsuarioComentarioService {
                 .estrelas(requestFeedback.getEstrelas())
                 .build();
         return feedbackRepository.save(newComent);
+    }
+
+    public List<FeedbackModel> getAllFeedback() {
+        return feedbackRepository.findAll();
     }
 }
