@@ -32,7 +32,7 @@ $(document).ready(function () {
     function obterListaAnimais() {
         const disponivelParaAdocao = '?statusAnimal=1';
         $.ajax({
-            url: `http://localhost:8080/animal/lista/adocao${disponivelParaAdocao}`,
+            url: `http://89.116.73.130:8080/animal/lista/adocao${disponivelParaAdocao}`,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
@@ -72,7 +72,7 @@ $(document).ready(function () {
                         }
 
                         $.ajax({
-                            url: `http://localhost:8080/favorito/${animalId}/usuario/${usuarioId}`,
+                            url: `http://89.116.73.130:8080/favorito/${animalId}/usuario/${usuarioId}`,
                             type: 'PUT',
                             headers: {
                                 'Authorization': 'Bearer ' + token
@@ -178,7 +178,7 @@ function obterListaAnimaisFavoritos() {
 
     if (usuarioId && token) {
         $.ajax({
-            url: `http://localhost:8080/animal/lista/favorito?usuario=${usuarioId}`,
+            url: `http://89.116.73.130:8080/animal/lista/favorito?usuario=${usuarioId}`,
             method: 'GET',
             dataType: 'json',
             headers: {
@@ -239,7 +239,7 @@ function obterListaAnimaisFavoritos() {
                         }
 
                         $.ajax({
-                            url: `http://localhost:8080/favorito/${animalId}/usuario/${usuarioId}`,
+                            url: `http://89.116.73.130:8080/favorito/${animalId}/usuario/${usuarioId}`,
                             type: 'PUT',
                             headers: {
                                 'Authorization': 'Bearer ' + token

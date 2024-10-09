@@ -81,7 +81,7 @@ function formPesquisa() {
     const nome = $('#nomeAnimal').val();
 
     $.ajax({
-        url: `http://localhost:8080/ong/animal/${ongId}/${nome}`, // Mantém a URL limpa sem passar parâmetros diretamente
+        url: `http://89.116.73.130:8080/ong/animal/${ongId}/${nome}`, // Mantém a URL limpa sem passar parâmetros diretamente
         type: 'GET',
         dataType: 'json',
         headers: {
@@ -159,7 +159,7 @@ function formPesquisa() {
 function obterListaAnimais() {
     var ongId = window.localStorage.getItem('ongId');
     $.ajax({
-        url: `http://localhost:8080/ong/animal/${ongId}`,
+        url: `http://89.116.73.130:8080/ong/animal/${ongId}`,
         method: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -221,7 +221,7 @@ function obterListaAnimais() {
 function populateSelectRaca() {
     const select = document.getElementById("racaSelect");
 
-    fetch('http://localhost:8080/raca/get')
+    fetch('http://89.116.73.130:8080/raca/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -243,7 +243,7 @@ function populateSelectRaca() {
 function populateSelectEspecie() {
     const select = document.getElementById("especieSelect");
 
-    fetch('http://localhost:8080/especie/get')
+    fetch('http://89.116.73.130:8080/especie/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -265,7 +265,7 @@ function populateSelectEspecie() {
 function populateSelectPelagem() {
     const select = document.getElementById("pelagemSelect");
 
-    fetch('http://localhost:8080/pelagem/get')
+    fetch('http://89.116.73.130:8080/pelagem/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -287,7 +287,7 @@ function populateSelectPelagem() {
 function populateSelectPorte() {
     const select = document.getElementById("porteSelect");
 
-    fetch('http://localhost:8080/porte/get')
+    fetch('http://89.116.73.130:8080/porte/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -309,7 +309,7 @@ function populateSelectPorte() {
 function populateSelectStatusAnimal() {
     const select = document.getElementById("statusAnimalSelect");
 
-    fetch('http://localhost:8080/statusAnimal/get')
+    fetch('http://89.116.73.130:8080/statusAnimal/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -331,7 +331,7 @@ function populateSelectStatusAnimal() {
 function populateSelectOng() {
     const select = document.getElementById("ongSelect");
 
-    fetch(`http://localhost:8080/ong/lista`)
+    fetch(`http://89.116.73.130:8080/ong/lista`)
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -409,7 +409,7 @@ function enviarFormulario() {
     console.log("Dados enviados: ", formData);
 
     $.ajax({
-        url: 'http://localhost:8080/animal/',
+        url: 'http://89.116.73.130:8080/animal/',
         type: 'POST',
         headers: {
             'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição

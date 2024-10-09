@@ -28,7 +28,7 @@ $(document).ready(function () {
 
         // Envio dos dados via AJAX
         $.ajax({
-            url: 'http://localhost:8080/auth/register', // Altere a URL conforme necessário
+            url: 'http://89.116.73.130:8080/auth/register', // Altere a URL conforme necessário
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(request),

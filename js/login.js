@@ -5,7 +5,7 @@ function login() {
     };
 
     $.ajax({
-        url: "http://localhost:8080/auth/login",
+        url: "http://89.116.73.130:8080/auth/login",
         type: "POST",
         data: JSON.stringify(requestAutenticacao),
         contentType: "application/json",

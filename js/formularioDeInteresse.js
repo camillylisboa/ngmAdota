@@ -45,7 +45,7 @@ function enviarFormulario() {
     console.log("Dados enviados: ", interesseData);
 
     $.ajax({
-        url: 'http://localhost:8080/interesse/cadastro',
+        url: 'http://89.116.73.130:8080/interesse/cadastro',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(interesseData),

@@ -39,7 +39,7 @@ $(document).ready(function () {
     populateSelectStatusAnimal();
 
     $.ajax({
-        url: `http://localhost:8080/interesse/animal/${animalId}`,
+        url: `http://89.116.73.130:8080/interesse/animal/${animalId}`,
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token,
@@ -125,7 +125,7 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        url: `http://localhost:8080/animal/lista/${animalId}`,
+        url: `http://89.116.73.130:8080/animal/lista/${animalId}`,
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
@@ -176,7 +176,7 @@ function abrirModalInteressado(index) {
 function populateSelectRaca() {
     const select2 = document.getElementById("racaSelect2");
 
-    fetch('http://localhost:8080/raca/get')
+    fetch('http://89.116.73.130:8080/raca/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -198,7 +198,7 @@ function populateSelectRaca() {
 function populateSelectEspecie() {
     const select2 = document.getElementById("especieSelect2");
 
-    fetch('http://localhost:8080/especie/get')
+    fetch('http://89.116.73.130:8080/especie/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -220,7 +220,7 @@ function populateSelectEspecie() {
 function populateSelectPelagem() {
     const select2 = document.getElementById("pelagemSelect2");
 
-    fetch('http://localhost:8080/pelagem/get')
+    fetch('http://89.116.73.130:8080/pelagem/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -242,7 +242,7 @@ function populateSelectPelagem() {
 function populateSelectPorte() {
     const select2 = document.getElementById("porteSelect2");
 
-    fetch('http://localhost:8080/porte/get')
+    fetch('http://89.116.73.130:8080/porte/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -266,7 +266,7 @@ let statusAdotadoId; // Variável global para armazenar o ID do status "Adotado"
 function populateSelectStatusAnimal() {
     const select2 = document.getElementById("statusAnimalSelect2");
 
-    fetch('http://localhost:8080/statusAnimal/get')
+    fetch('http://89.116.73.130:8080/statusAnimal/get')
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
@@ -298,7 +298,7 @@ function finalizarAdocao(interesseId) {
     }
 
     $.ajax({
-        url: `http://localhost:8080/interesse/finalizar/${interesseId}`,
+        url: `http://89.116.73.130:8080/interesse/finalizar/${interesseId}`,
         method: 'PUT',
         headers: {
             'Authorization': 'Bearer ' + token
@@ -382,7 +382,7 @@ function atualizarAnimal() {
     }
 
     $.ajax({
-        url: `http://localhost:8080/animal/edit/${animalId}`,
+        url: `http://89.116.73.130:8080/animal/edit/${animalId}`,
         type: 'PUT',
         headers: {
             'Authorization': 'Bearer ' + token

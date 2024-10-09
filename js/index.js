@@ -74,7 +74,7 @@ $(document).ready(function () {
     function obterListaAnimais() {
         const disponivelParaAdocao = '?statusAnimal=1';
         $.ajax({
-            url: `http://localhost:8080/animal/lista/adocao${disponivelParaAdocao}`,
+            url: `http://89.116.73.130:8080/animal/lista/adocao${disponivelParaAdocao}`,
             method: 'GET',
             dataType: 'json',
             success: function (data) {
@@ -118,7 +118,7 @@ $(document).ready(function () {
                         }
 
                         $.ajax({
-                            url: `http://localhost:8080/favorito/${animalId}/usuario/${usuarioId}`,
+                            url: `http://89.116.73.130:8080/favorito/${animalId}/usuario/${usuarioId}`,
                             type: 'PUT',
                             headers: {
                                 'Authorization': 'Bearer ' + token
@@ -254,7 +254,7 @@ function submitComment() {
 
     // Adicionar o feedback ao banco de dados via AJAX
     $.ajax({
-        url: 'http://localhost:8080/usuario/comentario/', // Endpoint do backend
+        url: 'http://89.116.73.130:8080/usuario/comentario/', // Endpoint do backend
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
@@ -283,7 +283,7 @@ function submitComment() {
 
 function getComments() { 
     $.ajax({
-        url: 'http://localhost:8080/usuario/comentario/get', 
+        url: 'http://89.116.73.130:8080/usuario/comentario/get', 
         type: 'GET',
         success: function (response) {
             const commentsDiv = document.getElementById('comments');

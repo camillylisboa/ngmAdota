@@ -40,7 +40,7 @@ function enviarOng() {
     }
 
     $.ajax({
-        url: 'http://localhost:8080/ong/',
+        url: 'http://89.116.73.130:8080/ong/',
         method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + token // Adiciona o token no cabeçalho da requisição
@@ -52,7 +52,6 @@ function enviarOng() {
             console.log('enviado com sucesso');
             var ongId = window.localStorage.setItem('ongId', response.id);
             if (response && response.id) {
-                alert(ongId)
                 console.log(response.id)
             }
             limparCampos();

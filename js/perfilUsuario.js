@@ -57,7 +57,7 @@ $(document).ready(function () {
         };
     
         $.ajax({
-            url: `http://localhost:8080/auth/edit/${userId}`,
+            url: `http://89.116.73.130:8080/auth/edit/${userId}`,
             type: 'PUT',
             data: JSON.stringify(updatedProfileData),
             headers: {
