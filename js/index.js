@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     if (token && nomeUsuario) {
         // Remover botão de entrar
-        $('.btn-custom').remove();
+        $('.btn.btn-custom').remove();
 
         // Adicionar ícone com nome do usuário
 
