@@ -6,6 +6,11 @@
     position: relative; /* Posição relativa para alinhar o título */
 }
 
+.logo {
+    width: 50%;
+    justify-content: center;
+}
+
 @media (max-width: 767px) {
     .logo {
         width: 50%; /* Reduz a largura da logo para dispositivos móveis */

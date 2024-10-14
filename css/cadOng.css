@@ -31,11 +31,8 @@
 }
  
 .logo {
-    padding-top: 10px;
-   padding-bottom: 10px;
-    width: 120%;
-   
-   /* top:5%; */
+    justify-content: center;
+    width: 50%;
 }
  
 #adocao {
@@ -46,6 +43,19 @@
 .nav-item {
     margin-right: 40px;
     font-size: 23px;
+}
+
+.navbar-title {
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    left: 100px;
+    color: #fff;
+}
+
+.titulo {
+    width: 270px;
+    height: 310px;
 }
 
 .px-4 {

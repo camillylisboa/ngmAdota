@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +13,7 @@
 
 <body>
     <header>
-        
+
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a href="./index.html"><img class="logo" src="./img/logoNGM.png"></a>
@@ -40,17 +39,20 @@
                     </ul>
 
                     <a href="login.html"><button class="btn btn-custom">Entrar</button></a>
-            
-            
-            <!-- Informações do perfil do usuário e botão para trocar de perfil -->
-            <div id="user-profile" style="display: none;">
-              <p><strong>Nome do Usuário:</strong> João da Silva</p>
-              <p><strong>Email:</strong> joao@example.com</p>
-              <p><strong>Telefone:</strong> (11) 1234-5678</p>
-              <!-- Adicione outras informações do perfil aqui -->
-              <button id="trocar-perfil-btn">Trocar de Perfil</button>
-            </div>
 
+
+                    <!-- Informações do perfil do usuário e botão para trocar de perfil -->
+                    <div id="user-profile" style="display: none;">
+                        <p><strong>Nome do Usuário:</strong> João da Silva</p>
+                        <p><strong>Email:</strong> joao@example.com</p>
+                        <p><strong>Telefone:</strong> (11) 1234-5678</p>
+                        <!-- Adicione outras informações do perfil aqui -->
+                        <button id="trocar-perfil-btn">Trocar de Perfil</button>
+                    </div>
+
+                </div>
+                <div class="navbar-title">
+                    <img src="./img/NGM ME ADOTA (1).png" alt="Título do site" class="titulo">
                 </div>
             </div>
         </nav>
@@ -86,9 +88,9 @@
             <h3>Programador Java </h3><br>
             Sou um jovem com responsabilidade social
             engajado na causa da proteção de todos os animais.</p><br>
-            <a href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAADtUTL0BnTE9HxO3mJAm9Kwc8IJxSKXIVZk&keywords=Arthur%20Torres%20de%20Ara%C3%BAjo&origin=ENTITY_SEARCH_HOME_HISTORY&sid=*j." target="_blank" class="linkedin-link"><img id="img-linkedin"
-                    width="48" height="8" src="https://img.icons8.com/color/48/linkedin.png"
-                    alt="linkedin" />@ArthurTorres</a>
+            <a href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAADtUTL0BnTE9HxO3mJAm9Kwc8IJxSKXIVZk&keywords=Arthur%20Torres%20de%20Ara%C3%BAjo&origin=ENTITY_SEARCH_HOME_HISTORY&sid=*j."
+                target="_blank" class="linkedin-link"><img id="img-linkedin" width="48" height="8"
+                    src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin" />@ArthurTorres</a>
         </div>
 
     </div>
@@ -128,55 +130,62 @@
         </div>
 
     </div>
-   
+
     <footer class="rodape">
         <div class="container">
-          <div class="texto-centralizado">
-            Nossa plataforma consiste é sistema inovador para facilitar o processo de adoção de pets. Estamos unindo nossas habilidades em programação, design e gerenciamento de projetos para criar uma plataforma online intuitiva e abrangente. Este sistema permitirá que abrigos de animais, protetores independentes e potenciais adotantes se conectem de forma eficiente.
-          </div>
-          <div class="redes-sociais">
-            <img src="img/brincar-com-animal-de-estimacao (1).png" class="iconeFooter">
-            <a href=https://www.facebook.com/pages/CEPAD-Centro-De-Prote%C3%A7ao-ao-Animal-Dom%C3%A9stico-Barueri/1789869954594876?mibextid=rS40aB7S9Ucbxw6v" ><img src="img/facebook (1).png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/cepad_?igsh=Zm8xeXQ2eWN2OThw"><img src="img/instagram (2).png" alt="Instagram"></a>
-          </div>
+            <div class="texto-centralizado">
+                Nossa plataforma consiste é sistema inovador para facilitar o processo de adoção de pets. Estamos unindo
+                nossas habilidades em programação, design e gerenciamento de projetos para criar uma plataforma online
+                intuitiva e abrangente. Este sistema permitirá que abrigos de animais, protetores independentes e
+                potenciais adotantes se conectem de forma eficiente.
+            </div>
+            <div class="redes-sociais">
+                <img src="img/brincar-com-animal-de-estimacao (1).png" class="iconeFooter">
+                <a
+                    href=https://www.facebook.com/pages/CEPAD-Centro-De-Prote%C3%A7ao-ao-Animal-Dom%C3%A9stico-Barueri/1789869954594876?mibextid=rS40aB7S9Ucbxw6v"><img
+                        src="img/facebook (1).png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/cepad_?igsh=Zm8xeXQ2eWN2OThw"><img src="img/instagram (2).png"
+                        alt="Instagram"></a>
+            </div>
         </div>
-           <!-- Modal de Informações do Usuário -->
-      <div class="modal fade" id="modalNgmPerfil" tabindex="-1" aria-labelledby="modalInfoUsuarioLabel"
-      aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content alignNgmEnd">
-              <div class="modal-body">
-                  <div class="info">
-                      <a href="perfilUsuario.html" class="linksNav">Ver perfil</a>
-                      <a id="logout-button" class="linksNav">Sair</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-   <!-- Modal para confirmar se deseja sair da conta -->
-<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="confirmModalLabel">Confirmação</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-      </div>
-      <div class="modal-body">
-        <p>Deseja realmente prosseguir?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="confirmButton">Confirmar</button>
-      </div>
-    </div>
-  </div>
-</div>
-</main>
+        <!-- Modal de Informações do Usuário -->
+        <div class="modal fade" id="modalNgmPerfil" tabindex="-1" aria-labelledby="modalInfoUsuarioLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content alignNgmEnd">
+                    <div class="modal-body">
+                        <div class="info">
+                            <a href="perfilUsuario.html" class="linksNav">Ver perfil</a>
+                            <a id="logout-button" class="linksNav">Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para confirmar se deseja sair da conta -->
+        <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmModalLabel">Confirmação</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Deseja realmente prosseguir?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="confirmButton">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
 
 
         <script src="js/sobre.js"></script>
-      </footer>
-  
-    </body>
-    </html>
+    </footer>
+
+</body>
+
+</html>

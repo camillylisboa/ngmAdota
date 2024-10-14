@@ -14,36 +14,32 @@
     border: none;
     margin-right: 20px;
 }
- 
 
-.menu-icon{
-    width: 23px;
-}
- 
+
 .btn.btn-custom:hover {
     background-color: #06C1D6;
     color: #fff;
 }
- 
+
 .logo {
-    padding-top: 10px;
-   padding-bottom: 10px;
-    width: 120%;
-   
-   /* top:5%; */
+    justify-content: center;
+    width: 50%;
 }
- 
+
 #adocao {
     color: #06C1D6;
     font-size: 27px;
 }
+
 .avatar-container {
     margin-bottom: 20px;
 }
 
 .avatar-img {
-    width: 100px; /* Ajuste o tamanho conforme necessário */
-    height: 100px; /* Ajuste o tamanho conforme necessário */
+    width: 100px;
+    /* Ajuste o tamanho conforme necessário */
+    height: 100px;
+    /* Ajuste o tamanho conforme necessário */
     margin-top: 16px;
 }
 
@@ -61,26 +57,31 @@
     background-color: #06C1D6;
     height: 402px;
     text-align: center;
-    padding-top: 100px; /* Adiciona espaço acima do container */
-    padding-bottom: 50px; /* Adiciona espaço abaixo do container */
-    margin-top: -50px; /* Move o fundo para cima para cobrir a lacuna */
+    padding-top: 100px;
+    /* Adiciona espaço acima do container */
+    padding-bottom: 50px;
+    /* Adiciona espaço abaixo do container */
+    margin-top: -50px;
+    /* Move o fundo para cima para cobrir a lacuna */
 }
 
-.fundoLogin h1{
+.fundoLogin h1 {
     color: #fff;
 }
- 
-.fundoLogin > .container {
+
+.fundoLogin>.container {
     background-color: #d9d9d9;
-    height: auto; /* Alterando para altura automática */
+    height: auto;
+    /* Alterando para altura automática */
     width: 45%;
     border-radius: 5px;
     padding: 20px;
     margin-top: 38px;
-    margin-bottom: 38px; /* Adicionando margem inferior para evitar sobreposição */
+    margin-bottom: 38px;
+    /* Adicionando margem inferior para evitar sobreposição */
 }
 
-.container > h3{
+.container>h3 {
     padding: 0;
     text-align: center;
 }
@@ -95,11 +96,11 @@ img {
     border-radius: 5px;
     margin-bottom: 15px;
 }
- 
+
 .form h2 {
     margin-bottom: 10px;
 }
- 
+
 .btn {
     background-color: #06C1D6;
     color: white;
@@ -108,7 +109,7 @@ img {
     font-weight: 700;
     margin-bottom: 10px;
 }
- 
+
 
 /* Estilos para o popup de opções de perfil e logout */
 #profile-popup {
@@ -140,14 +141,13 @@ img {
     top: 20px;
     right: 20px;
     z-index: 9999;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
- 
+
 #alertaErro {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 9999;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
- 

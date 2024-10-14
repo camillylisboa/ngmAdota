@@ -1,14 +1,65 @@
-
 * {
     font-family: sans-serif;
 }
+
+.btn-edit {
+    background-color: #06C1D6;
+     color: #fff;
+     font-weight: bold;
+     border-radius: 5px;
+     padding: 2px 40px;
+     border: none;
+ }
+
+.btn-custom-enviar {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 40px;
+    border: none;
+}
  
+.navbar {
+    background-color: #008A33;
+    height: 94px;
+    font-weight: bold;
+}
+ 
+.logo {
+    justify-content: center;
+    width: 50%;
+}
+ 
+#adocao {
+    color: #06C1D6;
+    font-size: 27px;
+}
+ 
+.nav-item {
+    margin-right: 40px;
+    font-size: 23px;
+}
+
+.navbar-title {
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    left: 100px;
+    color: #fff;
+}
+
+.titulo {
+    width: 270px;
+    height: 310px;
+}
+
 .animal-card img {
     width: 100%;
     height: 75%;
     border-radius: 31px;
 }
- 
+
 .btn.btn-custom {
     background-color: #06C1D6;
     color: #fff;
@@ -19,21 +70,12 @@
     border: none;
     margin-right: 20px;
 }
- 
-.menu-icon{
-    width: 23px;
-}
- 
+
 .btn.btn-custom:hover {
     background-color: #06C1D6;
     color: #fff;
 }
- 
-.navbar {
-    background-color: #008A33;
-    height: 94px;
-    font-weight: bold;
-}
+
 .modal-body .info {
     padding: 20px;
     display: flex;
@@ -52,83 +94,76 @@
     height: 100%;
     z-index: 9999;
 }
- 
+
 .modal.fade.show {
     display: block;
 }
- 
+
 .modal-content {
     border-radius: 10px;
     width: 45rem;
 }
- 
+
 .modal-header {
     padding: 20px;
     border-bottom: 1px solid #ccc;
 }
- 
+
 .modal-body {
     padding: 20px;
-    background-color:#d9d9d9;
+    background-color: #d9d9d9;
     color: #000;
     border-radius: 10px;
-    
-    
+
+
 }
- 
+
 .modal-footer {
     padding: 20px;
     border-top: 1px solid #cccccc;
 }
- 
+
 .logo {
-    padding-top: 10px;
-   padding-bottom: 10px;
-    width: 120%;
-   
-   /* top:5%; */
+    margin: 0;
+    width: 50%;
+    /* top:5%; */
 }
 
- 
+
 #adocao {
     color: #06C1D6;
     font-size: 27px;
 }
- 
-.nav-item {
-    margin-right: 40px;
-    font-size: 23px;
-}
- 
+
 .card {
     background-color: #d9d9d9;
     width: 30rem;
     border-radius: 31px;
 }
- 
+
 .card .card-title {
     font-weight: bold;
-    font-size:medium ;
+    font-size: medium;
 }
- 
+
 .card .btn {
     background-color: #06C1D6;
     color: #fff;
     font-weight: bold;
 }
- 
+
 .card img {
     border-radius: 31px;
 }
- 
+
 .card a {
     border-radius: 31px;
 }
- 
+
 .btn {
     align-items: center;
 }
- 
+
 h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 25px;
@@ -141,79 +176,92 @@ h1 {
     text-align: center;
     color: #000;
 }
- 
+
 .container {
     display: flex;
     flex-direction: column;
 }
- 
-.container h1{
+
+.container h1 {
     text-align: center;
 }
- 
+
 .card-text {
     margin-top: 50px;
 }
 
 .rodape {
-    background-color: #ccc; /* Cor de fundo cinza */
-    padding: 20px; /* Espaçamento interno */
+    background-color: #ccc;
+    /* Cor de fundo cinza */
+    padding: 20px;
+    /* Espaçamento interno */
     margin-top: 20px;
 }
 
 .rodape .container {
     display: flex;
-    justify-content: space-between; /* Alinha os itens no início e no final do rodapé */
-    align-items: center; /* Alinha os itens verticalmente */
+    justify-content: space-between;
+    /* Alinha os itens no início e no final do rodapé */
+    align-items: center;
+    /* Alinha os itens verticalmente */
 }
 
 .rodape .texto-centralizado {
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
+    /* Centraliza o texto */
     font-size: 15px;
 }
 
 .rodape .redes-sociais {
-    display: flex; /* Utiliza flexbox para alinhar os ícones das redes sociais */
-    justify-content: flex-end; /* Posiciona os ícones à direita */
+    display: flex;
+    /* Utiliza flexbox para alinhar os ícones das redes sociais */
+    justify-content: flex-end;
+    /* Posiciona os ícones à direita */
     align-items: center;
-    margin-left: 0; /* Remover a margem excessiva */
+    margin-left: 0;
+    /* Remover a margem excessiva */
 }
 
 .rodape .redes-sociais a {
-    margin-right: 10px; /* Adiciona margem entre os ícones */
+    margin-right: 10px;
+    /* Adiciona margem entre os ícones */
 }
 
 .rodape .meus-icons {
-    display: flex; /* Utiliza flexbox para alinhar os seus ícones */
+    display: flex;
+    /* Utiliza flexbox para alinhar os seus ícones */
     align-items: center;
-    margin-right: 0; /* Remover a margem excessiva */
-    margin-left: 0; /* Remover a margem excessiva */
+    margin-right: 0;
+    /* Remover a margem excessiva */
+    margin-left: 0;
+    /* Remover a margem excessiva */
 }
 
 .iconeFooter {
     /* Remover transform para manter a imagem no lugar */
     transform: none;
-    margin-right: 10px; /* Se necessário, ajustar o espaçamento */
+    margin-right: 10px;
+    /* Se necessário, ajustar o espaçamento */
 }
 
- 
+
 #alertaSucesso {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 9999;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
- 
+
 #alertaErro {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 9999;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.alignNgmEnd{
+.alignNgmEnd {
     margin-left: 650px;
     width: 300px;
 }
@@ -223,30 +271,30 @@ h1 {
     color: #000000;
     border-radius: 31px;
 }
- 
+
 .modal-body {
     padding: 0;
 }
- 
+
 .modal-body .row {
     display: flex;
     height: 100%;
 }
- 
+
 .modal-body .col-md-6 {
     padding: 0;
     display: flex;
     align-items: start;
     justify-content: start;
 }
- 
+
 .modal-body img {
     width: 400px;
     height: 500px;
     display: block;
     border-radius: 31px;
 }
- 
+
 .modal-body .info {
     padding: 20px;
     display: flex;
@@ -256,61 +304,92 @@ h1 {
 
 /* Estilo para centralizar e redimensionar a imagem dentro do modal */
 #modalTreinarPeludinho .modal-body img {
-    max-width: 500px; /* Largura máxima */
-    max-height: 200px; /* Altura máxima */
-    display: block; /* Para garantir que a margem automática funcione corretamente */
-    margin-left: auto; /* Centralizar à esquerda */
-    margin-right: auto; /* Centralizar à direita */
+    max-width: 500px;
+    /* Largura máxima */
+    max-height: 200px;
+    /* Altura máxima */
+    display: block;
+    /* Para garantir que a margem automática funcione corretamente */
+    margin-left: auto;
+    /* Centralizar à esquerda */
+    margin-right: auto;
+    /* Centralizar à direita */
     border-radius: 0;
 }
 
-#modalDiferenca .modal-body img{
-    max-width: 500px; /* Largura máxima */
-    max-height: 200px; /* Altura máxima */
-    display: block; /* Para garantir que a margem automática funcione corretamente */
-    margin-left: auto; /* Centralizar à esquerda */
-    margin-right: auto; /* Centralizar à direita */
+#modalDiferenca .modal-body img {
+    max-width: 500px;
+    /* Largura máxima */
+    max-height: 200px;
+    /* Altura máxima */
+    display: block;
+    /* Para garantir que a margem automática funcione corretamente */
+    margin-left: auto;
+    /* Centralizar à esquerda */
+    margin-right: auto;
+    /* Centralizar à direita */
     border-radius: 0;
 }
 
-#modalFilhotes .modal-body img{
-    max-width: 500px; /* Largura máxima */
-    max-height: 200px; /* Altura máxima */
-    display: block; /* Para garantir que a margem automática funcione corretamente */
-    margin-left: auto; /* Centralizar à esquerda */
-    margin-right: auto; /* Centralizar à direita */
+#modalFilhotes .modal-body img {
+    max-width: 500px;
+    /* Largura máxima */
+    max-height: 200px;
+    /* Altura máxima */
+    display: block;
+    /* Para garantir que a margem automática funcione corretamente */
+    margin-left: auto;
+    /* Centralizar à esquerda */
+    margin-right: auto;
+    /* Centralizar à direita */
     border-radius: 0;
 }
- #modalBeneficio .modal-body img{
-    max-width: 500px; /* Largura máxima */
-    max-height: 200px; /* Altura máxima */
-    display: block; /* Para garantir que a margem automática funcione corretamente */
-    margin-left: auto; /* Centralizar à esquerda */
-    margin-right: auto; /* Centralizar à direita */
-    border-radius: 0;
- }
 
- #modalCachorroDanone .modal-body img {
-    max-width: 500px; /* Largura máxima */
-    max-height: 200px; /* Altura máxima */
-    display: block; /* Para garantir que a margem automática funcione corretamente */
-    margin-left: auto; /* Centralizar à esquerda */
-    margin-right: auto; /* Centralizar à direita */
+#modalBeneficio .modal-body img {
+    max-width: 500px;
+    /* Largura máxima */
+    max-height: 200px;
+    /* Altura máxima */
+    display: block;
+    /* Para garantir que a margem automática funcione corretamente */
+    margin-left: auto;
+    /* Centralizar à esquerda */
+    margin-right: auto;
+    /* Centralizar à direita */
     border-radius: 0;
- }
+}
 
- #modalAntiPulga .modal-body img{
-    max-width: 500px; /* Largura máxima */
-    max-height: 200px; /* Altura máxima */
-    display: block; /* Para garantir que a margem automática funcione corretamente */
-    margin-left: auto; /* Centralizar à esquerda */
-    margin-right: auto; /* Centralizar à direita */
+#modalCachorroDanone .modal-body img {
+    max-width: 500px;
+    /* Largura máxima */
+    max-height: 200px;
+    /* Altura máxima */
+    display: block;
+    /* Para garantir que a margem automática funcione corretamente */
+    margin-left: auto;
+    /* Centralizar à esquerda */
+    margin-right: auto;
+    /* Centralizar à direita */
     border-radius: 0;
- }
+}
 
- .modal-body img{
+#modalAntiPulga .modal-body img {
+    max-width: 500px;
+    /* Largura máxima */
+    max-height: 200px;
+    /* Altura máxima */
+    display: block;
+    /* Para garantir que a margem automática funcione corretamente */
+    margin-left: auto;
+    /* Centralizar à esquerda */
+    margin-right: auto;
+    /* Centralizar à direita */
+    border-radius: 0;
+}
+
+.modal-body img {
     border: 5px solid rgba(130, 130, 130, 0.833);
- }
+}
 
 .btn-logout {
     background-color: #06C1D6;
@@ -325,11 +404,16 @@ h1 {
 }
 
 img {
-    max-width: 500px; /* Largura máxima */
-    max-height: 200px; /* Altura máxima */
-    display: block; /* Para garantir que a margem automática funcione corretamente */
-    margin-left: auto; /* Centralizar à esquerda */
-    margin-right: auto; /* Centralizar à direita */
+    max-width: 500px;
+    /* Largura máxima */
+    max-height: 200px;
+    /* Altura máxima */
+    display: block;
+    /* Para garantir que a margem automática funcione corretamente */
+    margin-left: auto;
+    /* Centralizar à esquerda */
+    margin-right: auto;
+    /* Centralizar à direita */
     border-radius: 0;
 
 }
@@ -344,22 +428,22 @@ img {
     height: 100%;
     z-index: 9999;
 }
- 
+
 .modal.fade.show {
     display: block;
 }
- 
+
 .modal-content {
     border-radius: 10px;
 }
- 
+
 .modal-header {
     padding: 20px;
     border-bottom: 2px solid #747373;
     font-size: 20px;
     font-weight: bold;
 }
- 
+
 .modal-body {
     padding: 20px;
 }
