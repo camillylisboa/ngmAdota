@@ -15,14 +15,32 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a href="./index.html"><img class="logo" src="./img/logoNGM.png"></a>
+                <a class="" href="index.html">
+                    <img src="./img/logoNgm.png" alt="Logo do site" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" id="adocao" href="adocao.html">ADOÇÃO</a>
+                            <a class="nav-link active" aria-current="page" id="adocao" href="#">ADOÇÃO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="./cadastroOng.html">Cadastrar ONGs</a>
+                            <a class="nav-link text-white" href="./cadastroOng.html" id="cadastroOng">Cadastrar ONGs</a>
+                            <div class="dropdown" id="dropdownOng">
+                                <button class="btn btn-secondary dropdown-toggle dropbtn" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Menu ONG
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="cadastroAnimal.html" class="dropdown-item">Cadastrar Animal</a></li>
+                                    <li><a href="cadastroFuncionario.html" class="dropdown-item">Cadastrar
+                                            Funcionário</a></li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="sobre.html">Sobre</a>
@@ -31,16 +49,7 @@
                             <a class="nav-link text-white" href="./blog.html">Blog</a>
                         </li>
                     </ul>
-
-                    <!-- Informações do perfil do usuário e botão para trocar de perfil -->
-                    <div id="user-profile" style="display: none">
-                        <p><strong>Nome do Usuário:</strong> João da Silva</p>
-                        <p><strong>Email:</strong> joao@example.com</p>
-                        <p><strong>Telefone:</strong> (11) 1234-5678</p>
-                        <!-- Adicione outras informações do perfil aqui -->
-                        <button id="trocar-perfil-btn">Trocar de Perfil</button>
-                    </div>
-
+                    <a href="index.html"><button class="btn-voltar">Voltar</button></a>
                 </div>
                 <div class="navbar-title">
                     <img src="./img/NGM ME ADOTA (1).png" alt="Título do site" class="titulo">
@@ -55,7 +64,7 @@
             <div class="card mt-4 mx-4">
                 <div class="card-body centro">
                     <h5 class="modal-header"> Remédio anti-pulgas</h5>
-                    <img src="./img/Prevencao-pulgas.png" class="card-img-top" alt="...">
+                    <img class="card-img" src="./img/Prevencao-pulgas.png" class="card-img-top" alt="...">
                     <p class="card-text"> Descubra aqui os melhores remédios disponíveis para manter seu lar livre
                         desses intrusos indesejados..</p>
                     <div class="d-flex justify-content-center py-2">
@@ -67,7 +76,7 @@
                 <div class="card-body centro">
                     <h5 class="modal-header">Cachorro pode tomar danoninho?</h5>
                     <!-- <p>class="card-title">Cachorro pode tomar danoninho?</p>  -->
-                    <img src="./img/yogurt-dnm.jpg" class="card-img-top" alt="...">
+                    <img class="card-img" src="./img/yogurt-dnm.jpg" class="card-img-top" alt="...">
                     <p class="card-text">Será que os cães podem desfrutar de um pouco de Danoninho?
                         Descubra a verdade!</p>
                     <div class="d-flex justify-content-center py-2">
@@ -79,7 +88,7 @@
             <div class="card mt-4 mx-4">
                 <div class="card-body centro">
                     <h5 class="modal-header">Como treinar o seu peludinho</h5>
-                    <img src="./img/como-treinar-um-cachorro.jpg" class="card-img-top" alt="...">
+                    <img class="card-img" src="./img/como-treinar-um-cachorro.jpg" class="card-img-top" alt="...">
                     <p class="card-text"> Prepare-se para desvendar os segredos do treinamento canino aqui!</p>
                     <div class="d-flex justify-content-center py-2">
                         <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modalTreinarPeludinho">Veja
@@ -92,7 +101,7 @@
             <div class="card mt-4 mx-4">
                 <div class="card-body centro">
                     <h5 class="modal-header">Beneficios de se ter pets em casa</h5>
-                    <img src="./img/Cacho-e-gato-juntos-no-chao-posando-pra-foto.webp" class="card-img-top" alt="...">
+                    <img class="card-img" src="./img/Cacho-e-gato-juntos-no-chao-posando-pra-foto.webp" class="card-img-top" alt="...">
                     <p class="card-text">Prepare-se para se surpreender com os benefícios que um pet pode trazer para
                         sua vida!</p>
                     <div class="d-flex justify-content-center py-2">
@@ -103,7 +112,7 @@
             <div class="card mt-4 mx-4">
                 <div class="card-body centro">
                     <h5 class="modal-header">Diferença entre Cachorros Gatos</h5>
-                    <img src="./img/petsDiferenca.png" class="card-img-top" alt="...">
+                    <img class="card-img" src="./img/petsDiferenca.png" class="card-img-top" alt="...">
                     <p class="card-text">Prepare-se para desvendar as diferenças intrigantes que tornam cães e gatos tão
                         únicos!</p>
                     <div class="d-flex justify-content-center py-2">
@@ -114,7 +123,7 @@
             <div class="card mt-4 mx-4">
                 <div class="card-body centro">
                     <h5 class="modal-header">Cuidados com os filhotes</h5>
-                    <img src="./img/nenecos.jpg" class="card-img-top" alt="...">
+                    <img class="card-img" src="./img/nenecos.jpg" class="card-img-top" alt="...">
                     <p class="card-text">Explore os segredos essenciais para garantir que filhotes de cachorro e gato
                         cresçam felizes e saudáveis!
                         .</p>
@@ -189,7 +198,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="img/Prevencao-pulgas.png" alt="imagem do antiPulga"><br>
+                        <img class="card-img" src="img/Prevencao-pulgas.png" alt="imagem do antiPulga"><br>
                         <p>Quando se trata de proteger seus pets de pulgas, é essencial escolher o remédio certo.</p>
                         <p><B>NexGard:</B> Um tablete mastigável com sabor de carne, contendo Afoxolaner. Começa a agir
                             em até 8 horas e protege por 30 dias. Disponível em diferentes dosagens de acordo com o peso
@@ -218,7 +227,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="img/yogurt-dnm.jpg" alt="imagem do danone"><br>
+                        <img class="card-img" src="img/yogurt-dnm.jpg" alt="imagem do danone"><br>
                         <p><b>Em uma recente pesquisa sobre a alimentação canina, veterinários alertam para os riscos de
                                 oferecer Dadoninho aos cachorros. O Dadoninho, um produto lácteo popular entre crianças,
                                 pode não ser a melhor escolha para o seu amigo de quatro patas. </b></p>
@@ -247,7 +256,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="img/como-treinar-um-cachorro.jpg" alt="imagem do peludnho"><br>
+                        <img class="card-img" src="img/como-treinar-um-cachorro.jpg" alt="imagem do peludnho"><br>
                         <p><b>Treinar seu cachorro é uma parte importante do seu desenvolvimento e pode ser uma
                                 experiência
                                 gratificante para ambos.</b></p>
@@ -279,7 +288,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="img/petsDiferenca.png" alt="imagem diferenca"><br>
+                        <img class="card-img" src="img/petsDiferenca.png" alt="imagem diferenca"><br>
                         <p><b>Ter pets em casa traz uma série de benefícios tanto para a saúde física quanto mental dos
                                 tutores.</b></p>
                         <p><b>Redução do Estresse:</b> A presença de animais de estimação pode diminuir os níveis de
@@ -311,7 +320,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="img/nenecos.jpg" alt="imagem cuidados"><br>
+                        <img class="card-img" src="img/nenecos.jpg" alt="imagem cuidados"><br>
                         <p><b>Bem-vindo à sua jornada emocionante de cuidar de filhotes! Aqui está um guia passo a passo
                                 para
                                 garantir que seus novos amigos peludos cresçam felizes e saudáveis:</b></p>
@@ -351,7 +360,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <img src="img/Cacho-e-gato-juntos-no-chao-posando-pra-foto.webp" alt="imagem beneficios"><br>
+                        <img class="card-img" src="img/Cacho-e-gato-juntos-no-chao-posando-pra-foto.webp" alt="imagem beneficios"><br>
                         <p><b>Seja um cãozinho brincalhão, um gato preguiçoso ou até mesmo um pássaro colorido,
                                 os animais de estimação oferecem muito mais do que simples companhia. </b></p>
                         <p><b>Companheirismo Incondicional:</b> Os pets não apenas enchem nossas vidas com amor

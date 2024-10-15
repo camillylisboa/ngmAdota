@@ -26,11 +26,6 @@
     font-weight: bold;
 }
  
-.logo {
-    justify-content: center;
-    width: 50%;
-}
- 
 #adocao {
     color: #06C1D6;
     font-size: 27px;
@@ -41,17 +36,19 @@
     font-size: 23px;
 }
 
-.navbar-title {
-    position: absolute;
-    top: 80%;
-    transform: translateY(-50%);
-    left: 100px;
-    color: #fff;
+.logo {
+    justify-content: center;
+    width: 50%;
+    margin: 0;
 }
 
-.titulo {
-    width: 270px;
-    height: 310px;
+.btn-voltar {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 40px;
+    border: none;
 }
 
 .animal-card img {
@@ -123,13 +120,6 @@
     border-top: 1px solid #cccccc;
 }
 
-.logo {
-    margin: 0;
-    width: 50%;
-    /* top:5%; */
-}
-
-
 #adocao {
     color: #06C1D6;
     font-size: 27px;
@@ -180,10 +170,6 @@ h1 {
 .container {
     display: flex;
     flex-direction: column;
-}
-
-.container h1 {
-    text-align: center;
 }
 
 .card-text {
@@ -403,7 +389,7 @@ h1 {
     align-self: flex-start;
 }
 
-img {
+.card-img {
     max-width: 500px;
     /* Largura máxima */
     max-height: 200px;
@@ -415,7 +401,6 @@ img {
     margin-right: auto;
     /* Centralizar à direita */
     border-radius: 0;
-
 }
 
 .modal.fade {
@@ -446,4 +431,81 @@ img {
 
 .modal-body {
     padding: 20px;
+}
+
+/* Botão do dropdown */
+.dropbtn {
+    background-color: #008A33;
+    color: white;
+    padding: 9px;
+    font-size: 23px;
+    font-weight: bold;
+    border: none;
+}
+
+/* O container <div> - necessário para posicionar o conteúdo do dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Conteúdo do Dropdown (escondido por padrão) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-menu.show {
+    display: block;
+  }
+
+/* Links dentro do dropdown */
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Estilo do link quando o mouse está em cima */
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+/* Muda a cor do botão dropdown quando o mouse está em cima */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* Mostra o dropdown ao passar o mouse por cima do botão */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Esconde os outros dropdowns quando um novo for selecionado */
+.dropdown-menu:hover, .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Exemplo para dois dropdowns */
+#dropdown1:hover + #dropdown2 .dropdown-menu,
+#dropdown2:hover + #dropdown1 .dropdown-menu {
+    display: none;
+}
+
+.titulo {
+    width: 270px;
+    height: 310px;
+}
+
+/* Estilos para o título */
+.navbar-title {
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    left: 100px;
+    color: #fff;
 }
