@@ -1,5 +1,7 @@
 var ongId = window.localStorage.getItem('ongId');
 $(document).ready(function () {
+    var role = window.localStorage.getItem('role');
+
     $('.btn-edit').on('click', function () {
         var ongId = window.localStorage.getItem('ongId');
 
@@ -42,6 +44,38 @@ $(document).ready(function () {
             }
         });
     });
+
+    function esconderBotaoSeUsuario(role) {
+
+        if (role) {
+            if (role === "ONG") {
+                const cadastroOng = document.getElementById('cadastroOng');
+                cadastroOng.style.display = 'none';
+            } else {
+                const botaoDropdownOng = document.getElementById('dropdownOng');
+                botaoDropdownOng.style.display = 'none';
+
+            }
+
+            if (role === "USER") {
+                // Seleciona o botão pelo ID e o esconde
+                const botaoCadAnimal = document.getElementById('cadAnimal');
+                if (botaoCadAnimal) {
+                    botaoCadAnimal.style.display = 'none';
+                } else {
+                    console.error('Botão com ID "cadAnimal" não encontrado.');
+                }
+            }
+        } else {
+            console.error('Resposta JSON inválida ou propriedade "role" não encontrada.');
+            const botaoDropdownOng = document.getElementById('dropdownOng');
+            botaoDropdownOng.style.display = 'none';
+        }
+
+    }
+
+    const roleDoUsuario = role;
+    esconderBotaoSeUsuario(roleDoUsuario);
 });
 
 

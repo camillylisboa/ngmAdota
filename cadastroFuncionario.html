@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar ONGs</title>
     <link rel="shortcut icon" href="./img/icon.png">
-    <link rel="stylesheet" href="./css/cadFuncionario.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./css/cadFuncionario.css">
 </head>
 
 <body>
@@ -22,7 +22,9 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a href="./index.html"><img class="logo" src="./img/logoNGM.png"></a>
+                <a class="" href="index.html">
+                    <img src="./img/logoNgm.png" alt="Logo do site" class="logo">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +36,16 @@
                             <a class="nav-link active" aria-current="page" id="adocao" href="#">ADOÇÃO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="./cadastroOng.html">Cadastrar ONGs</a>
+                            <a class="nav-link text-white" href="./cadastroOng.html" id="cadastroOng">Cadastrar ONGs</a>
+                            <div class="dropdown"  id="dropdownOng">
+                              <button class="btn btn-secondary dropdown-toggle dropbtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu ONG
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="cadastroAnimal.html" class="dropdown-item">Cadastrar Animal</a></li>
+                                <li><a href="cadastroFuncionario.html" class="dropdown-item">Cadastrar Funcionário</a></li>
+                              </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="sobre.html">Sobre</a>
@@ -43,7 +54,10 @@
                             <a class="nav-link text-white" href="./blog.html">Blog</a>
                         </li>
                     </ul>
-                    <a href="login.html"><button id="entrar" class="btn btn-custom-entrar">Entrar</button></a>
+                    <a href="login.html"><button id="entrar" class="btn-edit">Entrar</button></a>
+                </div>
+                <div class="navbar-title">
+                    <img src="./img/NGM ME ADOTA (1).png" alt="Título do site" class="titulo">
                 </div>
             </div>
         </nav>

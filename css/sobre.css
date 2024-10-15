@@ -57,6 +57,15 @@
     width: 270px;
     height: 310px;
 }
+
+.btn-voltar {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 40px;
+    border: none;
+}
  
 .nav-item {
     margin-right: 40px;
@@ -216,4 +225,67 @@
     /* Remover transform para manter a imagem no lugar */
     transform: none;
     margin-right: 10px; /* Se necessário, ajustar o espaçamento */
+}
+
+/* Botão do dropdown */
+.dropbtn {
+    background-color: #008A33;
+    color: white;
+    padding: 9px;
+    font-size: 23px;
+    font-weight: bold;
+    border: none;
+}
+
+/* O container <div> - necessário para posicionar o conteúdo do dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Conteúdo do Dropdown (escondido por padrão) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-menu.show {
+    display: block;
+  }
+
+/* Links dentro do dropdown */
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Estilo do link quando o mouse está em cima */
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+/* Muda a cor do botão dropdown quando o mouse está em cima */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* Mostra o dropdown ao passar o mouse por cima do botão */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Esconde os outros dropdowns quando um novo for selecionado */
+.dropdown-menu:hover, .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Exemplo para dois dropdowns */
+#dropdown1:hover + #dropdown2 .dropdown-menu,
+#dropdown2:hover + #dropdown1 .dropdown-menu {
+    display: none;
 }

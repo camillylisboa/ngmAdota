@@ -6,22 +6,31 @@
     width: 23px;
 }
 
-.titulo{
-    display: flex;
+.logo {
+    justify-content: center;
+    width: 50%;
 }
 
+.titulo {
+    width: 270px;
+    height: 310px;
+}
+
+/* Estilos para o título */
 .navbar-title {
-    position: absolute; /* Posição absoluta para alinhar o título */
-    top: 80%; /* Alinha o título verticalmente ao centro */
-    transform: translateY(-50%); /* Ajusta para o centro exato */
-    left: 100px; /* Espaçamento à direita da navbar */
-    color: #fff; /* Cor do título */
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    left: 100px;
+    color: #fff;
 }
-
+ 
 .navbar {
     background-color: #008A33;
     height: 94px;
     font-weight: bold;
+    margin-left: 0;
+    padding-left: 0;
 }
  
 #adocao {
@@ -55,8 +64,6 @@
     margin-top: 38px;
     border-radius: 31px;
 }
- 
-
  
 #alertaSucesso {
     position: fixed;
@@ -240,11 +247,11 @@ textarea {
  
 .btn-edit {
     background-color: #06C1D6;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 5px;
-    padding: 2px 40px;
-    border: none;
+     color: #fff;
+     font-weight: bold;
+     border-radius: 5px;
+     padding: 2px 40px;
+     border: none;
 }
  
 .animal-card img {
