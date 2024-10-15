@@ -48,6 +48,33 @@
     font-size: 23px;
 }
 
+.navbar-title {
+    position: absolute;
+    /* Posição absoluta para alinhar o título */
+    top: 80%;
+    /* Alinha o título verticalmente ao centro */
+    transform: translateY(-50%);
+    /* Ajusta para o centro exato */
+    left: 100px;
+    /* Espaçamento à direita da navbar */
+    color: #fff;
+    /* Cor do título */
+}
+
+.titulo {
+    width: 270px;
+    height: 310px;
+}
+
+.btn-voltar {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 40px;
+    border: none;
+}
+
 .container {
     display: flex;
     flex-direction: column;

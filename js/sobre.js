@@ -26,13 +26,7 @@ $(document).ready(function () {
             window.location.href = 'login.html'; // Altere para a URL correta
         });
 
-    } else {
-        // Garantir que o botão de entrar esteja presente se não houver usuário logado
-        if ($('.btn-custom').length === 0) {
-            var loginButtonHtml = '<a href="login.html"><button class="btn btn-custom">Entrar</button></a>';
-            $('.navbar-collapse').append(loginButtonHtml);
-        }
-    }
+    } 
 
     function esconderBotaoSeUsuario(role) {
 
