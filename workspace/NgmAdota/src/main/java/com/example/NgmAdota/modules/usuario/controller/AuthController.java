@@ -1,6 +1,7 @@
 package com.example.NgmAdota.modules.usuario.controller;
 
 
+import com.example.NgmAdota.exceptions.InvalidCredentialsException;
 import com.example.NgmAdota.exceptions.UserNotFoundException;
 import com.example.NgmAdota.modules.usuario.UsuarioModel;
 import com.example.NgmAdota.modules.usuario.UsuarioRepository;
@@ -34,9 +35,9 @@ public class AuthController {
         try{
             var loginUsuario = authUsuarioService.login(requestDTO);
             return ResponseEntity.status(HttpStatus.OK).body(loginUsuario);
-        }catch (UserNotFoundException ex){
+        }catch (UserNotFoundException | InvalidCredentialsException ex) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred");
         }
     }

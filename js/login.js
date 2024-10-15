@@ -45,15 +45,16 @@ function login() {
             window.localStorage.setItem('role', role)
             window.localStorage.setItem('token', token)
 
-            mostrarAlertaSucesso();
+            mostrarAlertaSucesso("Login feito com sucesso!");
         },
-        error: function (request, message, error) {
-            mostrarAlertaErro();
+        error: function (request) {
+            mostrarAlertaErro(request.responseText);
         }
     });
 }
 
-function mostrarAlertaSucesso() {
+function mostrarAlertaSucesso(mensagem) {
+    $('#alertaSucesso').text(mensagem); // Insere a mensagem no alerta
     $('#alertaSucesso').removeClass('d-none');
     setTimeout(function() {
         $('#alertaSucesso').addClass('d-none');
@@ -61,9 +62,11 @@ function mostrarAlertaSucesso() {
     }, 3000); // O alerta desaparecerá após 3 segundos
 }
 
-function mostrarAlertaErro() {
+
+function mostrarAlertaErro(mensagem) {
+    $('#alertaErro').text(mensagem); // Insere a mensagem no alerta
     $('#alertaErro').removeClass('d-none');
     setTimeout(function() {
         $('#alertaErro').addClass('d-none');
-    }, 3000); // O alerta desaparecerá após 3 segundos
+    }, 5000); // O alerta desaparecerá após 3 segundos
 }
