@@ -28,6 +28,10 @@ function login() {
             var role = response.role;
             var token = response.token;
 
+            if(!ongId){
+                ongId = userId;
+            }
+
             window.localStorage.setItem('userId', userId)
             window.localStorage.setItem('nomeUsuario', nome)
             window.localStorage.setItem('email', email)
@@ -44,6 +48,7 @@ function login() {
             window.localStorage.setItem('ongId', ongId)
             window.localStorage.setItem('role', role)
             window.localStorage.setItem('token', token)
+
 
             mostrarAlertaSucesso("Login feito com sucesso!");
         },
