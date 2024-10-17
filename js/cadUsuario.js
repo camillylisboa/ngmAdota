@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.btn.fw-bold').on('click', function () {
+    $('#btn-enviar').on('click', function () {
         // Captura dos valores dos inputs
         var request = {
             "nome": $('#txt_nome').val(),
@@ -7,6 +7,7 @@ $(document).ready(function () {
             "dataNascimento" : $('#txt_dataNascimento').val(),
             "telefone" : $('#txt_telefone').val(),
             "senha" : $('#txt_senha').val(),
+            "role": "USER",
             "cep" : $('#txt_cep').val(),
             "uf" : $('#txt_uf').val(),
             "cidade" : $('#txt_cidade').val(),
@@ -16,7 +17,6 @@ $(document).ready(function () {
             "complemento" : $('#txt_complemento').val()
         }
 
-        // Envio dos dados via AJAX
         $.ajax({
             url: 'http://89.116.73.130:8080/auth/register', // Altere a URL conforme necessário
             type: 'POST',

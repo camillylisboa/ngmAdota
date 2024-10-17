@@ -1,0 +1,248 @@
+* {
+    font-family: sans-serif;
+}
+ 
+.btn.btn-custom-entrar {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 40px;
+    font-size: 16px;
+    border: none;
+    margin-right: 20px;
+}
+
+.btn-edit {
+    background-color: #06C1D6;
+     color: #fff;
+     font-weight: bold;
+     border-radius: 5px;
+     padding: 2px 40px;
+     border: none;
+}
+
+.menu-icon{
+    width: 23px;
+}
+
+.logo {
+    justify-content: center;
+    width: 50%;
+}
+
+.titulo {
+    width: 270px;
+    height: 310px;
+}
+
+.btn-voltar {
+    background-color: #06C1D6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 40px;
+    border: none;
+}
+
+.btn-voltar :hover {
+    background-color: #06C1D6;
+}
+
+/* Estilos para o título */
+.navbar-title {
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    left: 100px;
+    color: #fff;
+}
+ 
+.navbar {
+    background-color: #008A33;
+    height: 94px;
+    font-weight: bold;
+}
+ 
+#adocao {
+    color: #06C1D6;
+    font-size: 27px;
+}
+ 
+.nav-item {
+    margin-right: 40px;
+    font-size: 23px;
+}
+
+.px-4 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+ 
+.px-4 h1{
+    text-align: center;
+}
+ 
+.fundo {
+    background-color: #06C1D6;
+    height: 403px;
+}
+ 
+.container {
+    background-color: #d9d9d9;
+    margin-top: 38px;
+    border-radius: 31px;
+}
+ 
+.fundo >.text-center {
+    color: white;
+    font-size: 35px;
+    padding-top: 38px;
+    border: 1px;
+}
+ 
+#alertaSucesso {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+ 
+#alertaErro {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+ 
+.linksNav{
+    text-decoration: underline;
+}
+ 
+.alignNgmEnd{
+    margin-left: 650px;
+    width: 300px;
+}
+
+.modal-body .info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: star;
+}
+ 
+.alert-success {
+    background-color: #d4edda; /* Cor de fundo */
+    color: #155724; /* Cor do texto */
+    border: 1px solid #c3e6cb; /* Borda */
+    padding: 10px 15px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 20px; /* Margem inferior */
+}
+
+.rodape {
+    background-color: #ccc; /* Cor de fundo cinza */
+    padding: 20px; /* Espaçamento interno */
+    margin-top: 25rem;
+}
+
+.rodape .container {
+    display: flex;
+    justify-content: space-between; /* Alinha os itens no início e no final do rodapé */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+.rodape .texto-centralizado {
+    text-align: center; /* Centraliza o texto */
+    font-size: 15px;
+}
+
+.rodape .redes-sociais {
+    display: flex; /* Utiliza flexbox para alinhar os ícones das redes sociais */
+    justify-content: flex-end; /* Posiciona os ícones à direita */
+    align-items: center;
+    margin-left: 0; /* Remover a margem excessiva */
+}
+
+.rodape .redes-sociais a {
+    margin-right: 10px; /* Adiciona margem entre os ícones */
+}
+
+.rodape .meus-icons {
+    display: flex; /* Utiliza flexbox para alinhar os seus ícones */
+    align-items: center;
+    margin-right: 0; /* Remover a margem excessiva */
+    margin-left: 0; /* Remover a margem excessiva */
+}
+
+.iconeFooter {
+    /* Remover transform para manter a imagem no lugar */
+    transform: none;
+    margin-right: 10px; /* Se necessário, ajustar o espaçamento */
+}
+
+/* Botão do dropdown */
+.dropbtn {
+    background-color: #008A33;
+    color: white;
+    padding: 9px;
+    font-size: 23px;
+    font-weight: bold;
+    border: none;
+}
+
+/* O container <div> - necessário para posicionar o conteúdo do dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Conteúdo do Dropdown (escondido por padrão) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-menu.show {
+    display: block;
+  }
+
+/* Links dentro do dropdown */
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Estilo do link quando o mouse está em cima */
+.dropdown-menu a:hover {
+    background-color: #ddd;
+}
+
+/* Muda a cor do botão dropdown quando o mouse está em cima */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+/* Mostra o dropdown ao passar o mouse por cima do botão */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Esconde os outros dropdowns quando um novo for selecionado */
+.dropdown-menu:hover, .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Exemplo para dois dropdowns */
+#dropdown1:hover + #dropdown2 .dropdown-menu,
+#dropdown2:hover + #dropdown1 .dropdown-menu {
+    display: none;
+}
